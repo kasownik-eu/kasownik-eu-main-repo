@@ -1,0 +1,133 @@
+{
+  "Metadata": {
+    "siteTitle": "Transport miejski",
+    "cityTitle": "{city} — bilety i transport miejski",
+    "citiesTitle": "Miasta"
+  },
+  "Common": {
+    "opensInNewTab": "(otwiera się w nowej karcie)"
+  },
+  "SiteHeader": {
+    "skipToContent": "Przejdź do treści",
+    "mainNav": "Główna",
+    "cities": "Miasta",
+    "menu": "Menu",
+    "close": "Zamknij",
+    "language": "Język",
+    "textSize": "Rozmiar tekstu",
+    "textSizes": {
+      "0": "Rozmiar tekstu: standardowy",
+      "1": "Rozmiar tekstu: powiększony",
+      "2": "Rozmiar tekstu: największy"
+    }
+  },
+  "CityPage": {
+    "cities": "Miasta",
+    "breadcrumbs": "Okruszki",
+    "sampleDataTitle": "Dane przykładowe",
+    "sampleDataDescription": "Nazwy, ceny i zasady na tej stronie są wymyślone i nie pochodzą od żadnego operatora."
+  },
+  "CitiesList": {
+    "title": "Miasta",
+    "lead": "Wybierz miasto, żeby zobaczyć, jak kupić i skasować bilet oraz ile kosztują przejazdy.",
+    "empty": "Brak miast do wyświetlenia.",
+    "breadcrumbs": "Okruszki",
+    "country": "Kraj",
+    "countryPoland": "Polska",
+    "moreCountriesSoon": "Kolejne kraje wkrótce",
+    "searchLabel": "Szukaj miasta lub regionu",
+    "searchPlaceholder": "np. Katowice albo Śląsk",
+    "clearSearch": "Wyczyść wyszukiwanie",
+    "statusAll": "{cities, plural, one {# miasto} few {# miasta} other {# miast}} w {regions, plural, one {# regionie} other {# regionach}}",
+    "statusFound": "Znaleziono: {count, plural, one {# miasto} few {# miasta} other {# miast}}",
+    "noResultsTitle": "Brak wyników dla „{query}”",
+    "noResultsDescription": "Sprawdź pisownię albo wpisz nazwę regionu. Jeśli brakuje twojego miasta, daj nam znać.",
+    "reportMissing": "Zgłoś brakujące miasto",
+    "otherRegion": "Pozostałe",
+    "footerNote": "Nie widzisz swojego miasta? Zgłoś je, a dodamy informacje o biletach."
+  },
+  "OperatorHeader": {
+    "logoAlt": "Logo: {operator}",
+    "officialWebsite": "Oficjalna strona",
+    "timetables": "Rozkłady jazdy",
+    "facts": "Najważniejsze informacje",
+    "factModes": "Środki transportu",
+    "factZones": "Liczba stref",
+    "factPayment": "Płatność",
+    "factVerified": "Zweryfikowano",
+    "unknown": "—"
+  },
+  "PurchaseMethods": {
+    "title": "Jak kupić i skasować bilet",
+    "lead": "Wybierz sposób zakupu i naciśnij „Pokaż instrukcję”. Instrukcja otworzy się pod nim.",
+    "empty": "Brak informacji o sposobach zakupu.",
+    "show": "Pokaż instrukcję",
+    "hide": "Ukryj instrukcję",
+    "requiresValidation": "wymaga kasowania",
+    "noValidation": "bez kasowania",
+    "howToBuy": "Jak kupić",
+    "howToValidate": "Jak skasować",
+    "noValidationDefault": "Ten bilet nie wymaga kasowania.",
+    "helpTitle": "Potrzebujesz pomocy?",
+    "hotline": "Infolinia {operator}",
+    "servicePoint": "Punkt obsługi {operator}",
+    "helpDisclaimer": "Infolinia i punkty obsługi należą do operatora transportu, nie do naszego serwisu.",
+    "print": "Wydrukuj ten opis"
+  },
+  "TicketTabs": {
+    "title": "Bilety i cennik",
+    "lead": "Wybierz rodzaj biletu. Ceny dotyczą jednej osoby.",
+    "tabsLabel": "Rodzaje biletów",
+    "tabs": {
+      "single": "Jednorazowe",
+      "short": "Krótkookresowe",
+      "long": "Długookresowe",
+      "luggage": "Bagaż i zwierzęta",
+      "other": "Inne"
+    },
+    "intro": {
+      "single": "Dla turysty i rzadkich podróży: jedna przejażdżka lub krótki czas.",
+      "short": "Na kilka dni pobytu: 24 godziny, 72 godziny, weekend.",
+      "long": "Dla osób, które jeżdżą codziennie: miesięczny, kwartalny, roczny.",
+      "luggage": "Kiedy i za ile możesz zabrać bagaż, rower, wózek lub zwierzę.",
+      "other": "Bilety rodzinne, grupowe i inne."
+    },
+    "columns": {
+      "ticket": "Bilet",
+      "validity": "Ważność",
+      "scope": "Zakres",
+      "modes": "Rodzaj transportu",
+      "normal": "Normalny",
+      "reduced": "Ulgowy",
+      "whereToBuy": "Gdzie kupić",
+      "item": "Co przewozisz",
+      "fee": "Opłata",
+      "conditions": "Warunki"
+    },
+    "free": "bezpłatnie",
+    "empty": "Brak biletów w tej kategorii.",
+    "rules": "Ulgi i zasady",
+    "rulesLink": "Regulamin"
+  },
+  "ZoneInfo": {
+    "title": "Strefy",
+    "lead": "Cena biletu zależy od stref, przez które jedziesz.",
+    "map": "Mapa stref",
+    "mapAlt": "Mapa stref",
+    "noteTitle": "Ważne"
+  },
+  "SourceFooter": {
+    "sources": "Źródła",
+    "aiAssisted": "Treść przygotowana z pomocą AI, zweryfikowana przez moderatora",
+    "verified": "Zweryfikowano {date}",
+    "reportError": "Zgłoś błąd"
+  },
+  "TransportModes": {
+    "tram": "tramwaj",
+    "bus": "autobus",
+    "metro": "metro",
+    "train": "pociąg",
+    "trolleybus": "trolejbus",
+    "ferry": "prom"
+  }
+}

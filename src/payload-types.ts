@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    cities: City;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,18 +79,19 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    cities: CitiesSelect<false> | CitiesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
-    defaultIDType: string;
+    defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('pl' | 'en') | ('pl' | 'en')[];
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'pl' | 'en';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -122,7 +124,7 @@ export interface UserAuthOperations {
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -148,7 +150,7 @@ export interface User {
  * via the `definition` "media".
  */
 export interface Media {
-  id: string;
+  id: number;
   alt: string;
   updatedAt: string;
   createdAt: string;
@@ -164,10 +166,141 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cities".
+ */
+export interface City {
+  id: number;
+  name: string;
+  slug: string;
+  regionPath?: string | null;
+  /**
+   * Shows a notice that names, prices and rules are made up.
+   */
+  sampleData?: boolean | null;
+  operator: {
+    name: string;
+    /**
+     * Abbreviation, e.g. "ZTM". Used as logo fallback and in contact labels.
+     */
+    shortName?: string | null;
+    label?: string | null;
+    logo?: (number | null) | Media;
+    /**
+     * Max. 3 sentences.
+     */
+    description?: string | null;
+    websiteUrl?: string | null;
+    timetableUrl?: string | null;
+    transportModes?: ('tram' | 'bus' | 'metro' | 'train' | 'trolleybus' | 'ferry')[] | null;
+    zoneCount?: number | null;
+    currency?: string | null;
+    /**
+     * Short summary, e.g. "PLN, card, app".
+     */
+    paymentInfo?: string | null;
+    /**
+     * Operator's phone number.
+     */
+    hotline?: string | null;
+    /**
+     * Operator's customer service point: address and opening hours.
+     */
+    servicePoint?: string | null;
+    verifiedAt?: string | null;
+  };
+  /**
+   * Shown in this order; the first one is expanded.
+   */
+  purchaseMethods?:
+    | {
+        type: 'machine' | 'app' | 'office' | 'contactless' | 'driver' | 'sms' | 'other';
+        title: string;
+        subtitle?: string | null;
+        requiresValidation?: boolean | null;
+        buySteps?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        validationSteps?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        noValidationText?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  tickets?:
+    | {
+        category: 'single' | 'short' | 'long' | 'other';
+        name: string;
+        validity?: string | null;
+        scope?: string | null;
+        transportModes?: ('tram' | 'bus' | 'metro' | 'train' | 'trolleybus' | 'ferry')[] | null;
+        priceNormal?: number | null;
+        priceReduced?: number | null;
+        whereToBuy?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  luggage?:
+    | {
+        item: string;
+        /**
+         * Short qualifier, e.g. size limit.
+         */
+        note?: string | null;
+        transportModes?: ('tram' | 'bus' | 'metro' | 'train' | 'trolleybus' | 'ferry')[] | null;
+        /**
+         * Leave empty when free of charge.
+         */
+        fee?: number | null;
+        /**
+         * Replaces the fee display, e.g. "free off-peak".
+         */
+        feeText?: string | null;
+        conditions?: string | null;
+        whereToBuy?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  rulesNote?: string | null;
+  rulesUrl?: string | null;
+  zones?: {
+    enabled?: boolean | null;
+    map?: (number | null) | Media;
+    items?:
+      | {
+          name: string;
+          covers?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    noteTitle?: string | null;
+    note?: string | null;
+  };
+  sources?: {
+    items?:
+      | {
+          label: string;
+          url?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    aiAssisted?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
-  id: string;
+  id: number;
   key: string;
   data:
     | {
@@ -184,20 +317,24 @@ export interface PayloadKv {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: number;
   document?:
     | ({
         relationTo: 'users';
-        value: string | User;
+        value: number | User;
       } | null)
     | ({
         relationTo: 'media';
-        value: string | Media;
+        value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'cities';
+        value: number | City;
       } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -207,10 +344,10 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -230,7 +367,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -276,6 +413,112 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cities_select".
+ */
+export interface CitiesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  regionPath?: T;
+  sampleData?: T;
+  operator?:
+    | T
+    | {
+        name?: T;
+        shortName?: T;
+        label?: T;
+        logo?: T;
+        description?: T;
+        websiteUrl?: T;
+        timetableUrl?: T;
+        transportModes?: T;
+        zoneCount?: T;
+        currency?: T;
+        paymentInfo?: T;
+        hotline?: T;
+        servicePoint?: T;
+        verifiedAt?: T;
+      };
+  purchaseMethods?:
+    | T
+    | {
+        type?: T;
+        title?: T;
+        subtitle?: T;
+        requiresValidation?: T;
+        buySteps?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        validationSteps?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        noValidationText?: T;
+        id?: T;
+      };
+  tickets?:
+    | T
+    | {
+        category?: T;
+        name?: T;
+        validity?: T;
+        scope?: T;
+        transportModes?: T;
+        priceNormal?: T;
+        priceReduced?: T;
+        whereToBuy?: T;
+        id?: T;
+      };
+  luggage?:
+    | T
+    | {
+        item?: T;
+        note?: T;
+        transportModes?: T;
+        fee?: T;
+        feeText?: T;
+        conditions?: T;
+        whereToBuy?: T;
+        id?: T;
+      };
+  rulesNote?: T;
+  rulesUrl?: T;
+  zones?:
+    | T
+    | {
+        enabled?: T;
+        map?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              covers?: T;
+              id?: T;
+            };
+        noteTitle?: T;
+        note?: T;
+      };
+  sources?:
+    | T
+    | {
+        items?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              id?: T;
+            };
+        aiAssisted?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -1,0 +1,133 @@
+{
+  "Metadata": {
+    "siteTitle": "City transport",
+    "cityTitle": "{city} — tickets and public transport",
+    "citiesTitle": "Cities"
+  },
+  "Common": {
+    "opensInNewTab": "(opens in a new tab)"
+  },
+  "SiteHeader": {
+    "skipToContent": "Skip to content",
+    "mainNav": "Main",
+    "cities": "Cities",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language",
+    "textSize": "Text size",
+    "textSizes": {
+      "0": "Text size: standard",
+      "1": "Text size: larger",
+      "2": "Text size: largest"
+    }
+  },
+  "CityPage": {
+    "cities": "Cities",
+    "breadcrumbs": "Breadcrumbs",
+    "sampleDataTitle": "Sample data",
+    "sampleDataDescription": "Names, prices and rules on this page are made up and do not come from any operator."
+  },
+  "CitiesList": {
+    "title": "Cities",
+    "lead": "Choose a city to see how to buy and validate a ticket and how much rides cost.",
+    "empty": "No cities to show.",
+    "breadcrumbs": "Breadcrumbs",
+    "country": "Country",
+    "countryPoland": "Poland",
+    "moreCountriesSoon": "More countries coming soon",
+    "searchLabel": "Search for a city or region",
+    "searchPlaceholder": "e.g. Katowice or Silesia",
+    "clearSearch": "Clear search",
+    "statusAll": "{cities, plural, one {# city} other {# cities}} in {regions, plural, one {# region} other {# regions}}",
+    "statusFound": "Found: {count, plural, one {# city} other {# cities}}",
+    "noResultsTitle": "No results for “{query}”",
+    "noResultsDescription": "Check the spelling or type a region name. If your city is missing, let us know.",
+    "reportMissing": "Report a missing city",
+    "otherRegion": "Other",
+    "footerNote": "Can't see your city? Report it and we'll add its ticket information."
+  },
+  "OperatorHeader": {
+    "logoAlt": "Logo: {operator}",
+    "officialWebsite": "Official website",
+    "timetables": "Timetables",
+    "facts": "Key facts",
+    "factModes": "Transport modes",
+    "factZones": "Number of zones",
+    "factPayment": "Payment",
+    "factVerified": "Verified",
+    "unknown": "—"
+  },
+  "PurchaseMethods": {
+    "title": "How to buy and validate a ticket",
+    "lead": "Choose a way to buy and press “Show instructions”. The instructions open right below it.",
+    "empty": "No information about ways to buy tickets.",
+    "show": "Show instructions",
+    "hide": "Hide instructions",
+    "requiresValidation": "needs validating",
+    "noValidation": "no validation",
+    "howToBuy": "How to buy",
+    "howToValidate": "How to validate",
+    "noValidationDefault": "This ticket does not need validating.",
+    "helpTitle": "Need help?",
+    "hotline": "{operator} hotline",
+    "servicePoint": "{operator} customer service point",
+    "helpDisclaimer": "The hotline and service points belong to the transport operator, not to our site.",
+    "print": "Print these instructions"
+  },
+  "TicketTabs": {
+    "title": "Tickets and fares",
+    "lead": "Choose a ticket type. Prices are per person.",
+    "tabsLabel": "Ticket types",
+    "tabs": {
+      "single": "Single",
+      "short": "Short-term",
+      "long": "Long-term",
+      "luggage": "Luggage and animals",
+      "other": "Other"
+    },
+    "intro": {
+      "single": "For tourists and occasional trips: one ride or a short time.",
+      "short": "For a stay of a few days: 24 hours, 72 hours, weekend.",
+      "long": "For daily riders: monthly, quarterly, yearly.",
+      "luggage": "When and for how much you can bring luggage, a bike, a pram or an animal.",
+      "other": "Family, group and other tickets."
+    },
+    "columns": {
+      "ticket": "Ticket",
+      "validity": "Validity",
+      "scope": "Scope",
+      "modes": "Transport mode",
+      "normal": "Standard",
+      "reduced": "Reduced",
+      "whereToBuy": "Where to buy",
+      "item": "What you carry",
+      "fee": "Fee",
+      "conditions": "Conditions"
+    },
+    "free": "free",
+    "empty": "No tickets in this category.",
+    "rules": "Discounts and rules",
+    "rulesLink": "Regulations"
+  },
+  "ZoneInfo": {
+    "title": "Zones",
+    "lead": "The ticket price depends on the zones you travel through.",
+    "map": "Zone map",
+    "mapAlt": "Zone map",
+    "noteTitle": "Good to know"
+  },
+  "SourceFooter": {
+    "sources": "Sources",
+    "aiAssisted": "Content prepared with AI assistance, verified by a moderator",
+    "verified": "Verified {date}",
+    "reportError": "Report an error"
+  },
+  "TransportModes": {
+    "tram": "tram",
+    "bus": "bus",
+    "metro": "metro",
+    "train": "train",
+    "trolleybus": "trolleybus",
+    "ferry": "ferry"
+  }
+}
