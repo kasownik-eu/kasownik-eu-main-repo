@@ -5,16 +5,18 @@ import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import type { City } from '@/payload-types'
+import type { Operator } from '@/payload-types'
 
 import { initials, mediaUrl } from './format'
 import { ModeBadges } from './ModeBadges'
 
 type Props = {
-  operator: City['operator']
+  operator: Operator
+  // Replaces the operator's own label, e.g. with the city the page was opened for
+  label?: string | null
 }
 
-export async function OperatorHeader({ operator }: Props) {
+export async function OperatorHeader({ operator, label = operator.label }: Props) {
   const t = await getTranslations('OperatorHeader')
   const tCommon = await getTranslations('Common')
   const format = await getFormatter()
@@ -50,7 +52,7 @@ export async function OperatorHeader({ operator }: Props) {
             />
           )}
           <AvatarFallback
-            className="rounded-xl text-xl font-bold sm:text-3xl"
+            className="rounded-xl bg-primary text-xl font-bold text-primary-foreground ring-2 ring-border ring-inset sm:text-3xl"
             role="img"
             aria-label={t('logoAlt', { operator: operator.name })}
           >
@@ -59,7 +61,7 @@ export async function OperatorHeader({ operator }: Props) {
         </Avatar>
 
         <div className="min-w-0 flex-[1_1_16rem]">
-          {operator.label && <p className="text-sm text-muted-foreground">{operator.label}</p>}
+          {label && <p className="text-sm text-muted-foreground">{label}</p>}
           <h1 className="text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">{operator.name}</h1>
           {operator.description && (
             <p className="mt-2 max-w-[68ch] text-lg text-muted-foreground">{operator.description}</p>
@@ -85,7 +87,7 @@ export async function OperatorHeader({ operator }: Props) {
         </div>
       </div>
 
-      <dl aria-label={t('facts')} className="grid grid-cols-2 gap-px border-t bg-border lg:grid-cols-4">
+      <dl aria-label={t('facts')} className="grid grid-cols-2 gap-px border-t-2 bg-border lg:grid-cols-4">
         {facts.map((fact) => (
           <div key={fact.label} className="bg-card px-4 py-4 sm:px-6">
             <dt className="text-[0.8125rem] font-medium text-muted-foreground">{fact.label}</dt>

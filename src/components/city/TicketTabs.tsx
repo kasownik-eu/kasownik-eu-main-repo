@@ -7,17 +7,17 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Card } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import type { City } from '@/payload-types'
+import type { Operator } from '@/payload-types'
 
 import { ModeBadges } from './ModeBadges'
 import { Section } from './Section'
 
-type Ticket = NonNullable<City['tickets']>[number]
-type Luggage = NonNullable<City['luggage']>[number]
+type Ticket = NonNullable<Operator['tickets']>[number]
+type Luggage = NonNullable<Operator['luggage']>[number]
 
 type Props = {
-  tickets: City['tickets']
-  luggage: City['luggage']
+  tickets: Operator['tickets']
+  luggage: Operator['luggage']
   rulesNote?: string | null
   rulesUrl?: string | null
   currency: string

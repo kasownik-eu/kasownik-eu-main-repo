@@ -2,7 +2,9 @@
   "Metadata": {
     "siteTitle": "City transport",
     "cityTitle": "{city} — tickets and public transport",
-    "citiesTitle": "Cities"
+    "citiesTitle": "Cities",
+    "operatorTitle": "{operator} — tickets and public transport",
+    "operatorsTitle": "Operators"
   },
   "Common": {
     "opensInNewTab": "(opens in a new tab)"
@@ -19,13 +21,17 @@
       "0": "Text size: standard",
       "1": "Text size: larger",
       "2": "Text size: largest"
-    }
+    },
+    "operators": "Operators"
   },
   "CityPage": {
+    "countryPoland": "Poland",
+    "cityInRegion": "{city}<muted>, {region}</muted>",
     "cities": "Cities",
     "breadcrumbs": "Breadcrumbs",
     "sampleDataTitle": "Sample data",
-    "sampleDataDescription": "Names, prices and rules on this page are made up and do not come from any operator."
+    "sampleDataDescription": "Names, prices and rules on this page are made up and do not come from any operator.",
+    "operators": "Operators"
   },
   "CitiesList": {
     "title": "Cities",
@@ -45,6 +51,27 @@
     "reportMissing": "Report a missing city",
     "otherRegion": "Other",
     "footerNote": "Can't see your city? Report it and we'll add its ticket information."
+  },
+  "OperatorsList": {
+    "title": "Operators",
+    "lead": "Companies that run public transport in one or more cities. Pick a city to open the operator's page.",
+    "empty": "No operators to show.",
+    "breadcrumbs": "Breadcrumbs",
+    "countryPoland": "Poland",
+    "searchLabel": "Search for an operator or city",
+    "searchPlaceholder": "e.g. MZT or Katowice",
+    "clearSearch": "Clear search",
+    "statusAll": "All operators: {count}",
+    "statusFound": "Found: {count, plural, one {# operator} other {# operators}}",
+    "citiesCount": "Serves {count, plural, one {# city} other {# cities}}",
+    "showAllCities": "Show all cities (+{count})",
+    "showLess": "Show less",
+    "cityLinkHint": "(operator page)",
+    "noResultsTitle": "No results for “{query}”",
+    "noResultsDescription": "Check the spelling or type a city name. If an operator is missing, let us know.",
+    "reportMissing": "Report a missing operator",
+    "showMore": "Show more operators",
+    "footerNote": "Can't find your operator? Report it and we'll add its ticket information."
   },
   "OperatorHeader": {
     "logoAlt": "Logo: {operator}",
@@ -72,7 +99,8 @@
     "hotline": "{operator} hotline",
     "servicePoint": "{operator} customer service point",
     "helpDisclaimer": "The hotline and service points belong to the transport operator, not to our site.",
-    "print": "Print these instructions"
+    "print": "Print these instructions",
+    "photoAlt": "Validation photo {index} of {count}"
   },
   "TicketTabs": {
     "title": "Tickets and fares",
@@ -114,13 +142,39 @@
     "lead": "The ticket price depends on the zones you travel through.",
     "map": "Zone map",
     "mapAlt": "Zone map",
-    "noteTitle": "Good to know"
+    "noteTitle": "Good to know",
+    "zone": "Zone",
+    "covers": "Covers"
   },
   "SourceFooter": {
     "sources": "Sources",
     "aiAssisted": "Content prepared with AI assistance, verified by a moderator",
     "verified": "Verified {date}",
     "reportError": "Report an error"
+  },
+  "OperatorPage": {
+    "servedCities": "Cities served",
+    "servedCitiesLead": "The same tickets and rules apply in each of these cities."
+  },
+  "RelatedOperators": {
+    "title": "Related operators",
+    "lead": "Other operators whose vehicles also run in this area. Each has its own fares and rules.",
+    "alsoRunsIn": "Also runs in: {places}",
+    "seeOperator": "See the operator's page",
+    "showAll": "Show all ({count})",
+    "showLess": "Show less",
+    "relation": {
+      "neighbourCity": "Neighbouring city",
+      "sharedArea": "Shared area",
+      "regional": "Regional operator",
+      "private": "Private operator",
+      "sameCity": "In this city"
+    },
+    "validity": {
+      "valid": "Your ticket is valid",
+      "partial": "Partly valid",
+      "invalid": "Your ticket is not valid"
+    }
   },
   "TransportModes": {
     "tram": "tram",

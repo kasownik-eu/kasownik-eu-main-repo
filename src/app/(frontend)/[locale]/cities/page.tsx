@@ -40,17 +40,35 @@ export default async function CitiesPage({ params }: Props) {
     collection: 'cities',
     locale,
     select: { name: true, slug: true, regionPath: true },
+    depth: 0,
     sort: 'name',
     limit: 200,
   })
+
+  // Cities nobody serves yet have no page to open
+  const { docs: operators } = await payload.find({
+    collection: 'operators',
+    where: { cities: { exists: true } },
+    select: { cities: true },
+    depth: 0,
+    pagination: false,
+  })
+  const servedCityIds = new Set(
+    operators.flatMap(({ cities }) => (cities ?? []).map((city) => (typeof city === 'object' ? city.id : city))),
+  )
 
   // Group by region, sorted by the locale's collation; cities without a region go last
   const otherRegion = t('otherRegion')
   const byRegion = new Map<string, CityGroup>()
   for (const city of docs) {
+    if (!servedCityIds.has(city.id)) continue
     const name = city.regionPath || otherRegion
     if (!byRegion.has(name)) byRegion.set(name, { id: `region-${byRegion.size}`, name, cities: [] })
-    byRegion.get(name)!.cities.push({ id: city.id, name: city.name, slug: city.slug })
+    byRegion.get(name)!.cities.push({
+      id: city.id,
+      name: city.name,
+      slug: city.slug,
+    })
   }
   const groups = [...byRegion.values()].sort((a, b) =>
     a.name === otherRegion ? 1 : b.name === otherRegion ? -1 : a.name.localeCompare(b.name, locale),
@@ -80,7 +98,7 @@ export default async function CitiesPage({ params }: Props) {
             <CountrySelect />
           </div>
 
-          {docs.length === 0 ? (
+          {groups.length === 0 ? (
             <p className="mt-6 text-muted-foreground">{t('empty')}</p>
           ) : (
             <CitiesBrowser groups={groups} reportUrl={REPORT_URL} />
@@ -88,12 +106,12 @@ export default async function CitiesPage({ params }: Props) {
         </main>
       </div>
 
-      <footer className="mt-16 border-t py-8">
+      <footer className="chrome mt-16 py-8">
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 sm:px-6">
           <p className="max-w-[70ch] flex-[1_1_20rem] text-sm text-muted-foreground">
             {t('footerNote')}
           </p>
-          <Button variant="outline" size="lg" nativeButton={false} render={<a href={REPORT_URL} />}>
+          <Button size="lg" nativeButton={false} render={<a href={REPORT_URL} />}>
             {t('reportMissing')}
           </Button>
         </div>

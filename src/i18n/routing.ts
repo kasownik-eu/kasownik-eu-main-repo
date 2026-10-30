@@ -14,6 +14,14 @@ export const routing = defineRouting({
       pl: '/miasto/[slug]',
       en: '/city/[slug]',
     },
+    '/operators': {
+      pl: '/przewoznicy',
+      en: '/operators',
+    },
+    '/operator/[slug]': {
+      pl: '/przewoznik/[slug]',
+      en: '/operator/[slug]',
+    },
   },
 })
 

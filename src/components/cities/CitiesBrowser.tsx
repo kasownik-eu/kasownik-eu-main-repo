@@ -26,7 +26,11 @@ import { Link } from '@/i18n/navigation'
 export type CityGroup = {
   id: string
   name: string
-  cities: { id: number | string; name: string; slug: string }[]
+  cities: {
+    id: number | string
+    name: string
+    slug: string
+  }[]
 }
 
 type Props = {
@@ -42,7 +46,7 @@ const normalize = (value: string) =>
     .normalize('NFD')
     .replace(/\p{Diacritic}/gu, '')
 
-// Matching a region name keeps all of its cities; otherwise only the matching cities remain
+// Matching a region name keeps all of its cities; otherwise only cities matching by name remain
 function filterGroups(groups: CityGroup[], query: string) {
   if (!query) return groups
 
@@ -123,7 +127,7 @@ export function CitiesBrowser({ groups, reportUrl = '#' }: Props) {
           {visible.map((group) => (
             <section key={group.id} aria-labelledby={group.id}>
               <Card className="gap-0 py-0 shadow-xs">
-                <CardHeader className="flex items-center justify-between gap-3 border-b bg-muted px-5 py-3.5 [.border-b]:pb-3.5">
+                <CardHeader className="flex items-center justify-between gap-3 border-b-2 bg-highlight px-5 py-3.5 [.border-b]:pb-3.5">
                   <CardTitle className="text-lg font-semibold">
                     <h2 id={group.id}>{group.name}</h2>
                   </CardTitle>
@@ -136,7 +140,7 @@ export function CitiesBrowser({ groups, reportUrl = '#' }: Props) {
                     <li key={city.id} className="border-b last:border-b-0">
                       <Link
                         href={{ pathname: '/city/[slug]', params: { slug: city.slug } }}
-                        className="group flex min-h-14 items-center justify-between gap-3 px-5 text-lg font-medium hover:bg-muted/60"
+                        className="group flex min-h-14 items-center justify-between gap-3 px-5 py-2 text-lg font-medium hover:bg-highlight"
                       >
                         <span>{city.name}</span>
                         <ChevronRightIcon

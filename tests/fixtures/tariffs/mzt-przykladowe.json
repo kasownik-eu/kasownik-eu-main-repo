@@ -1,0 +1,77 @@
+{
+  "tickets": [
+    {
+      "category": "single",
+      "name": { "pl": "Bilet 20-minutowy", "en": "20-minute ticket" },
+      "validity": { "pl": "20 min", "en": "20 min" },
+      "scope": { "pl": "Strefa A", "en": "Zone A" },
+      "transportModes": ["tram", "bus", "metro"],
+      "priceNormal": 3.6,
+      "priceReduced": 1.8,
+      "whereToBuy": { "pl": "automat, aplikacja, kierowca", "en": "machine, app, driver" }
+    },
+    {
+      "category": "single",
+      "name": { "pl": "Bilet 60-minutowy", "en": "60-minute ticket" },
+      "validity": { "pl": "60 min", "en": "60 min" },
+      "scope": { "pl": "Strefa A", "en": "Zone A" },
+      "transportModes": ["tram", "bus", "metro"],
+      "priceNormal": 5,
+      "priceReduced": 2.5,
+      "whereToBuy": { "pl": "automat, aplikacja", "en": "machine, app" }
+    },
+    {
+      "category": "short",
+      "name": { "pl": "Bilet 24-godzinny", "en": "24-hour ticket" },
+      "validity": { "pl": "24 godziny", "en": "24 hours" },
+      "scope": { "pl": "Strefa A", "en": "Zone A" },
+      "transportModes": ["tram", "bus", "metro"],
+      "priceNormal": 15,
+      "priceReduced": 7.5,
+      "whereToBuy": { "pl": "automat, aplikacja, punkt obsługi", "en": "machine, app, service point" }
+    },
+    {
+      "category": "long",
+      "name": { "pl": "Bilet miesięczny", "en": "Monthly ticket" },
+      "validity": { "pl": "30 dni", "en": "30 days" },
+      "scope": { "pl": "Strefa A", "en": "Zone A" },
+      "transportModes": ["tram", "bus", "metro"],
+      "priceNormal": 120,
+      "priceReduced": 60,
+      "whereToBuy": { "pl": "aplikacja, punkt obsługi", "en": "app, service point" }
+    }
+  ],
+  "luggage": [
+    {
+      "item": { "pl": "Bagaż ręczny", "en": "Hand luggage" },
+      "note": { "pl": "do 60 × 40 × 25 cm", "en": "up to 60 × 40 × 25 cm" },
+      "transportModes": ["tram", "bus", "metro"],
+      "fee": null,
+      "feeText": null,
+      "conditions": { "pl": "Nie blokuj przejścia.", "en": "Do not block the aisle." },
+      "whereToBuy": null
+    },
+    {
+      "item": { "pl": "Rower", "en": "Bike" },
+      "note": { "pl": "1 rower na pojazd", "en": "1 bike per vehicle" },
+      "transportModes": ["tram", "bus", "metro"],
+      "fee": null,
+      "feeText": { "pl": "bezpłatnie poza szczytem", "en": "free off-peak" },
+      "conditions": null,
+      "whereToBuy": { "pl": "automat, aplikacja", "en": "machine, app" }
+    }
+  ],
+  "zones": {
+    "enabled": true,
+    "items": [
+      { "name": { "pl": "Strefa A", "en": "Zone A" }, "covers": { "pl": "Miasto", "en": "City" } },
+      { "name": { "pl": "Strefa B", "en": "Zone B" }, "covers": { "pl": "Gminy ościenne", "en": "Neighbouring municipalities" } }
+    ],
+    "noteTitle": null,
+    "note": null
+  },
+  "rulesNote": {
+    "pl": "Ulgi przysługują m.in. uczniom, studentom i seniorom.",
+    "en": "Reduced fares apply to pupils, students and seniors, among others."
+  }
+}

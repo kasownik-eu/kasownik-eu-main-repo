@@ -1,4 +1,3 @@
-import { ChevronLeftIcon } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
@@ -15,36 +14,37 @@ import { Link } from '@/i18n/navigation'
 type Props = {
   city: string
   region?: string | null
+  // Which list the page was reached from: "Miasta › Polska › …" or "Przewoźnicy › Polska › …"
+  section?: 'cities' | 'operators'
 }
 
-// Full trail on desktop; on mobile a single step back to the city list
-export async function CityBreadcrumbs({ city, region }: Props) {
+// Regions have no page of their own, so the region rides along with the city name.
+// The full trail is always shown and wraps on narrow screens; it is never shortened
+export async function CityBreadcrumbs({ city, region, section = 'cities' }: Props) {
   const t = await getTranslations('CityPage')
+  const listHref = section === 'cities' ? '/cities' : '/operators'
 
   return (
     <Breadcrumb aria-label={t('breadcrumbs')} className="py-4">
-      <BreadcrumbList className="hidden sm:flex">
+      <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink render={<Link href="/cities" />}>{t('cities')}</BreadcrumbLink>
+          <BreadcrumbLink render={<Link href={listHref} />}>{t(section)}</BreadcrumbLink>
         </BreadcrumbItem>
-        {region && (
-          <>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>{region}</BreadcrumbItem>
-          </>
-        )}
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage className="font-medium">{city}</BreadcrumbPage>
+          <BreadcrumbLink render={<Link href={listHref} />}>{t('countryPoland')}</BreadcrumbLink>
         </BreadcrumbItem>
-      </BreadcrumbList>
-
-      <BreadcrumbList className="sm:hidden">
+        <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink render={<Link href="/cities" />} className="inline-flex min-h-11 items-center gap-1">
-            <ChevronLeftIcon aria-hidden="true" className="size-4" />
-            {t('cities')}
-          </BreadcrumbLink>
+          <BreadcrumbPage className="font-medium">
+            {region
+              ? t.rich('cityInRegion', {
+                  city,
+                  region,
+                  muted: (chunks) => <span className="font-normal text-muted-foreground">{chunks}</span>,
+                })
+              : city}
+          </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

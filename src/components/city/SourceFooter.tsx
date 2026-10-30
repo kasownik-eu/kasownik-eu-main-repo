@@ -2,10 +2,10 @@ import { getFormatter, getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { Button } from '@/components/ui/button'
-import type { City } from '@/payload-types'
+import type { Operator } from '@/payload-types'
 
 type Props = {
-  sources: City['sources']
+  sources: Operator['sources']
   verifiedAt?: string | null
   reportUrl?: string
 }
@@ -17,7 +17,7 @@ export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Pro
   const items = sources?.items ?? []
 
   return (
-    <footer className="mt-16 border-t py-8">
+    <footer className="chrome mt-16 py-8">
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 sm:px-6">
         <div className="max-w-[70ch] flex-[1_1_20rem] text-sm text-muted-foreground">
           {items.length > 0 && (
@@ -46,7 +46,7 @@ export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Pro
             </p>
           )}
         </div>
-        <Button variant="outline" size="lg" nativeButton={false} render={<a href={reportUrl} />}>
+        <Button size="lg" nativeButton={false} render={<a href={reportUrl} />}>
           {t('reportError')}
         </Button>
       </div>

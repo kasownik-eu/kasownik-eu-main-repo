@@ -48,7 +48,7 @@ export function TextSizeControl() {
           key={s.value}
           value={s.value}
           aria-label={t(`textSizes.${s.value}`)}
-          className="h-11 min-w-11 font-semibold aria-pressed:bg-primary aria-pressed:text-primary-foreground"
+          className="h-11 min-w-11 border-primary font-semibold aria-pressed:bg-primary aria-pressed:text-primary-foreground"
         >
           {s.label}
         </ToggleGroupItem>

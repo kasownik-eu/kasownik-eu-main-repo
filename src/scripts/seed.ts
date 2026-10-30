@@ -1,10 +1,10 @@
 import { getPayload } from 'payload'
 
 import config from '@payload-config'
-import type { City } from '@/payload-types'
+import type { Operator } from '@/payload-types'
 
 // Made-up content from the Transit Wireframe design (flagged as sample data on the page)
-type CityData = Omit<City, 'id' | 'createdAt' | 'updatedAt'>
+type OperatorData = Omit<Operator, 'id' | 'createdAt' | 'updatedAt' | 'cities'>
 type Mode = 'tram' | 'bus' | 'metro'
 
 const T3: Mode[] = ['tram', 'bus', 'metro']
@@ -21,27 +21,23 @@ const ticket = (
   whereToBuy: string,
 ) => ({ category, name, validity, scope, transportModes, priceNormal, priceReduced, whereToBuy })
 
-const pl: CityData = {
-  name: 'Miasto Przykładowe',
-  slug: 'miasto-przykladowe',
-  regionPath: 'Śląsk',
+const pl: OperatorData = {
+  name: 'Miejski Zarząd Transportu',
+  slug: 'mzt-przykladowe',
   sampleData: true,
-  operator: {
-    name: 'Miejski Zarząd Transportu',
-    shortName: 'MZT',
-    label: 'Miasto Przykładowe · przykład',
-    description:
-      'Organizator publicznego transportu w mieście i okolicznych gminach. Odpowiada za tramwaje, autobusy i metro, rozkłady jazdy oraz system biletowy.',
-    websiteUrl: 'https://example.com',
-    timetableUrl: 'https://example.com/rozklady',
-    transportModes: T3,
-    zoneCount: 3,
-    currency: 'PLN',
-    paymentInfo: 'PLN, karta, aplikacja',
-    hotline: '00 000 00 00',
-    servicePoint: 'ul. Przykładowa 1, pon.–pt. 8:00–16:00',
-    verifiedAt: new Date().toISOString(),
-  },
+  shortName: 'MZT',
+  label: 'Organizator transportu · przykład',
+  description:
+    'Organizator publicznego transportu w mieście i okolicznych gminach. Odpowiada za tramwaje, autobusy i metro, rozkłady jazdy oraz system biletowy.',
+  websiteUrl: 'https://example.com',
+  timetableUrl: 'https://example.com/rozklady',
+  transportModes: T3,
+  zoneCount: 3,
+  currency: 'PLN',
+  paymentInfo: 'PLN, karta, aplikacja',
+  hotline: '00 000 00 00',
+  servicePoint: 'ul. Przykładowa 1, pon.–pt. 8:00–16:00',
+  verifiedAt: new Date().toISOString(),
   purchaseMethods: [
     {
       type: 'machine',
@@ -170,15 +166,11 @@ const pl: CityData = {
 
 // English values for localized fields; array rows are matched by position after the Polish create
 const en = {
-  name: 'Sample City',
-  regionPath: 'Silesia',
-  operator: {
-    label: 'Sample City · example',
-    description:
-      'Organiser of public transport in the city and neighbouring municipalities. Runs trams, buses and the metro, timetables and the ticketing system.',
-    paymentInfo: 'PLN, card, app',
-    servicePoint: '1 Sample St, Mon–Fri 8:00–16:00',
-  },
+  label: 'Transport authority · example',
+  description:
+    'Organiser of public transport in the city and neighbouring municipalities. Runs trams, buses and the metro, timetables and the ticketing system.',
+  paymentInfo: 'PLN, card, app',
+  servicePoint: '1 Sample St, Mon–Fri 8:00–16:00',
   purchaseMethods: [
     {
       title: 'Ticket machine',
@@ -271,29 +263,145 @@ const en = {
 const localizeSteps = (rows: { text: string; id?: string | null }[] | null | undefined, texts?: string[]) =>
   rows?.map((row, i) => ({ ...row, text: texts?.[i] ?? row.text }))
 
+type Relation = NonNullable<Operator['relatedOperators']>[number]
+type LocalizedPair = { pl: string; en: string }
+
+type MinimalOperator = Pick<OperatorData, 'name' | 'slug' | 'shortName' | 'transportModes'> & { cities?: string[] }
+
+// Minimal carriers for the "related operators" section; relation and ticket validity are seen from MZT
+const related: {
+  data: MinimalOperator
+  relation: Relation['relation']
+  ticketValidity: Relation['ticketValidity']
+  note: LocalizedPair
+  coverage?: LocalizedPair
+}[] = [
+  {
+    data: {
+      name: 'Zarząd Komunikacji Sąsiednie Miasto',
+      slug: 'zks-przykladowe',
+      shortName: 'ZKS',
+      transportModes: ['bus'],
+      cities: ['miasto-sasiednie'],
+    },
+    relation: 'neighbourCity',
+    ticketValidity: 'valid',
+    note: { pl: 'Bilet miejski honorowany w całej sieci (przykład).', en: 'The city ticket is accepted across the network (example).' },
+  },
+  {
+    data: { name: 'Przewozy Aglomeracyjne', slug: 'pa-przykladowe', shortName: 'PA', transportModes: ['bus', 'tram'] },
+    relation: 'sharedArea',
+    ticketValidity: 'partial',
+    note: { pl: 'Tylko na wybranych liniach (przykład).', en: 'Only on selected lines (example).' },
+    coverage: { pl: 'strefy B i C', en: 'zones B and C' },
+  },
+  {
+    data: {
+      name: 'Koleje Regionalne',
+      slug: 'kr-przykladowe',
+      shortName: 'KR',
+      transportModes: ['train'],
+      cities: ['miasto-przykladowe', 'przykladowice', 'miasto-sasiednie'],
+    },
+    relation: 'regional',
+    ticketValidity: 'invalid',
+    note: { pl: 'Potrzebny osobny bilet (przykład).', en: 'A separate ticket is needed (example).' },
+    coverage: { pl: 'cały region', en: 'the whole region' },
+  },
+  {
+    data: { name: 'Gminny Transport Zachód', slug: 'gt-przykladowe', shortName: 'GT', transportModes: ['bus'] },
+    relation: 'sharedArea',
+    ticketValidity: 'invalid',
+    note: { pl: 'Własny cennik gminy (przykład).', en: "The municipality's own fares (example)." },
+    coverage: { pl: 'strefa C', en: 'zone C' },
+  },
+  {
+    data: { name: 'Busy Nocne', slug: 'bn-przykladowe', shortName: 'BN', transportModes: ['bus'] },
+    relation: 'private',
+    ticketValidity: 'invalid',
+    note: { pl: 'Bilet kupowany u kierowcy (przykład).', en: 'Ticket bought from the driver (example).' },
+    coverage: { pl: 'linie nocne', en: 'night lines' },
+  },
+]
+
+// Serves Miasto Przykładowe without a relation entry on MZT: shown there as "in this city"
+const sameCityOnly: MinimalOperator = {
+  name: 'Linie Lotniskowe',
+  slug: 'll-przykladowe',
+  shortName: 'LL',
+  transportModes: ['bus'],
+  cities: ['miasto-przykladowe'],
+}
+
+// Two cities share MZT (the alias case); Miasto Przykładowe also has KR and LL (several operators per city)
+const cities: { name: LocalizedPair; slug: string; regionPath: LocalizedPair; primary: string }[] = [
+  { name: { pl: 'Miasto Przykładowe', en: 'Sample City' }, slug: 'miasto-przykladowe', regionPath: { pl: 'Śląsk', en: 'Silesia' }, primary: pl.slug },
+  { name: { pl: 'Przykładowice', en: 'Przykładowice' }, slug: 'przykladowice', regionPath: { pl: 'Śląsk', en: 'Silesia' }, primary: pl.slug },
+  { name: { pl: 'Miasto Sąsiednie', en: 'Neighbour Town' }, slug: 'miasto-sasiednie', regionPath: { pl: 'Śląsk', en: 'Silesia' }, primary: 'zks-przykladowe' },
+]
+const mztCities = ['miasto-przykladowe', 'przykladowice']
+
 const payload = await getPayload({ config })
 
-const existing = await payload.find({
-  collection: 'cities',
-  where: { slug: { equals: pl.slug } },
-  limit: 1,
-  depth: 0,
-})
+// Find by slug, then update or create the Polish version
+const upsert = async <C extends 'operators' | 'cities'>(collection: C, slug: string, data: Record<string, unknown>) => {
+  const { docs } = await payload.find({ collection, where: { slug: { equals: slug } }, limit: 1, depth: 0 })
+  const args = { collection, data, locale: 'pl', depth: 0 } as const
+  return docs[0]
+    ? payload.update({ ...args, id: docs[0].id } as Parameters<typeof payload.update>[0])
+    : payload.create(args as Parameters<typeof payload.create>[0])
+}
 
-const city = existing.docs[0]
-  ? await payload.update({ collection: 'cities', id: existing.docs[0].id, data: pl, locale: 'pl', depth: 0 })
-  : await payload.create({ collection: 'cities', data: pl, locale: 'pl', depth: 0 })
+// Cities first: operators link to them
+const cityIds = new Map<string, number>()
+for (const city of cities) {
+  const doc = await upsert('cities', city.slug, { name: city.name.pl, slug: city.slug, regionPath: city.regionPath.pl })
+  await payload.update({
+    collection: 'cities',
+    id: doc.id,
+    locale: 'en',
+    depth: 0,
+    data: { name: city.name.en, regionPath: city.regionPath.en },
+  })
+  cityIds.set(city.slug, doc.id)
+}
+const toCityIds = (slugs: string[] = []) => slugs.map((slug) => cityIds.get(slug)!)
+
+const operatorIds = new Map<string, number>()
+for (const data of [...related.map((r) => r.data), sameCityOnly]) {
+  const doc = (await upsert('operators', data.slug, {
+    ...data,
+    cities: toCityIds(data.cities),
+    sampleData: true,
+    currency: 'PLN',
+  })) as Operator
+  operatorIds.set(data.slug, doc.id)
+}
+
+const operator = (await upsert('operators', pl.slug, {
+  ...pl,
+  cities: toCityIds(mztCities),
+  relatedOperators: related.map((r) => ({
+    operator: operatorIds.get(r.data.slug)!,
+    relation: r.relation,
+    ticketValidity: r.ticketValidity,
+    note: r.note.pl,
+    coverage: r.coverage?.pl ?? null,
+  })),
+})) as Operator
+operatorIds.set(pl.slug, operator.id)
 
 await payload.update({
-  collection: 'cities',
-  id: city.id,
+  collection: 'operators',
+  id: operator.id,
   locale: 'en',
   depth: 0,
   data: {
-    name: en.name,
-    regionPath: en.regionPath,
-    operator: { ...city.operator, ...en.operator },
-    purchaseMethods: city.purchaseMethods?.map((method, i) => {
+    label: en.label,
+    description: en.description,
+    paymentInfo: en.paymentInfo,
+    servicePoint: en.servicePoint,
+    purchaseMethods: operator.purchaseMethods?.map((method, i) => {
       const t = en.purchaseMethods[i]
       return {
         ...method,
@@ -304,21 +412,35 @@ await payload.update({
         noValidationText: t?.noValidationText ?? method.noValidationText,
       }
     }),
-    tickets: city.tickets?.map((row, i) => ({ ...row, ...en.tickets[i] })),
-    luggage: city.luggage?.map((row, i) => ({ ...row, ...en.luggage[i] })),
+    tickets: operator.tickets?.map((row, i) => ({ ...row, ...en.tickets[i] })),
+    luggage: operator.luggage?.map((row, i) => ({ ...row, ...en.luggage[i] })),
     rulesNote: en.rulesNote,
     zones: {
-      ...city.zones,
-      items: city.zones?.items?.map((zone, i) => ({ ...zone, ...en.zones[i] })),
+      ...operator.zones,
+      items: operator.zones?.items?.map((zone, i) => ({ ...zone, ...en.zones[i] })),
       noteTitle: en.zoneNoteTitle,
       note: en.zoneNote,
     },
     sources: {
-      ...city.sources,
-      items: city.sources?.items?.map((source, i) => ({ ...source, label: en.sources[i] ?? source.label })),
+      ...operator.sources,
+      items: operator.sources?.items?.map((source, i) => ({ ...source, label: en.sources[i] ?? source.label })),
     },
+    relatedOperators: operator.relatedOperators?.map((row, i) => ({
+      ...row,
+      note: related[i].note.en,
+      coverage: related[i].coverage?.en ?? null,
+    })),
   },
 })
 
-payload.logger.info(`Seeded city "${pl.slug}" (id ${city.id}) in pl and en`)
+for (const city of cities) {
+  await payload.update({
+    collection: 'cities',
+    id: cityIds.get(city.slug)!,
+    depth: 0,
+    data: { primaryOperator: operatorIds.get(city.primary)! },
+  })
+}
+
+payload.logger.info(`Seeded ${operatorIds.size} operators and ${cities.length} cities in pl and en`)
 process.exit(0)

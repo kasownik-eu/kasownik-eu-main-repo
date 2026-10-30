@@ -12,22 +12,26 @@ import {
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
-import type { purchaseMethodTypes } from '@/collections/Cities'
+import type { purchaseMethodTypes } from '@/collections/Operators'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import type { City } from '@/payload-types'
+import { cn } from '@/lib/utils'
+import type { Operator } from '@/payload-types'
 
+import { mediaUrl } from './format'
 import { PrintButton } from './PrintButton'
 import { Section } from './Section'
 
 type Props = {
-  methods: City['purchaseMethods']
-  operator: City['operator']
+  methods: Operator['purchaseMethods']
+  operator: Operator
 }
 
 type Steps = { text: string; id?: string | null }[] | null | undefined
+type Photos = NonNullable<Operator['purchaseMethods']>[number]['validationPhotos']
 
 const icons: Record<(typeof purchaseMethodTypes)[number], LucideIcon> = {
   machine: TicketIcon,
@@ -39,14 +43,18 @@ const icons: Record<(typeof purchaseMethodTypes)[number], LucideIcon> = {
   other: CircleHelpIcon,
 }
 
-function StepList({ steps }: { steps: Steps }) {
+function StepList({ steps, tone = 'dark' }: { steps: Steps; tone?: 'dark' | 'yellow' }) {
   return (
     <ol className="grid gap-4">
       {steps?.map((step, index) => (
         <li key={step.id ?? index} className="grid grid-cols-[2rem_1fr] items-start gap-3 text-lg">
           <span
             aria-hidden="true"
-            className="grid size-8 place-items-center rounded-full bg-muted text-sm font-semibold"
+            className={
+              tone === 'dark'
+                ? 'grid size-8 place-items-center rounded-full bg-foreground text-sm font-bold text-primary'
+                : 'grid size-8 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground ring-2 ring-border ring-inset'
+            }
           >
             {index + 1}
           </span>
@@ -54,6 +62,37 @@ function StepList({ steps }: { steps: Steps }) {
         </li>
       ))}
     </ol>
+  )
+}
+
+// 0–N photos with caption; none renders nothing, so no empty space is left
+async function PhotoList({ photos }: { photos: Photos }) {
+  const t = await getTranslations('PurchaseMethods')
+  const items = (photos ?? []).flatMap((photo) => {
+    const image = mediaUrl(photo.image)
+    return image ? [{ ...photo, image }] : []
+  })
+  if (!items.length) return null
+
+  return (
+    <ul className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(min(11.25rem,100%),15rem))] gap-3">
+      {items.map((photo, index) => (
+        <li key={photo.id ?? index}>
+          <figure>
+            <AspectRatio ratio={4 / 3} className="overflow-hidden rounded-lg border-2 bg-muted">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo.image.url!}
+                alt={photo.alt || photo.image.alt || t('photoAlt', { index: index + 1, count: items.length })}
+                loading="lazy"
+                className="size-full object-cover"
+              />
+            </AspectRatio>
+            <figcaption className="mt-2 text-sm">{photo.caption}</figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -75,18 +114,26 @@ export async function PurchaseMethods({ methods, operator }: Props) {
             return (
               <Card key={method.id ?? index} className="gap-0 py-0">
                 <Collapsible defaultOpen={index === 0}>
-                  <CollapsibleTrigger className="group flex min-h-19 w-full flex-wrap items-center gap-4 px-4 py-4 text-left transition-colors hover:bg-muted/50 data-panel-open:border-b sm:px-5">
-                    <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-muted" aria-hidden="true">
+                  <CollapsibleTrigger className="group flex min-h-19 w-full flex-wrap items-center gap-4 bg-highlight px-4 py-4 text-left transition-colors hover:bg-highlight-hover data-panel-open:border-b-2 sm:px-5">
+                    <span
+                      className="grid size-11 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground ring-2 ring-border ring-inset"
+                      aria-hidden="true"
+                    >
                       <Icon className="size-5" />
                     </span>
                     <span className="grid min-w-0 flex-[1_1_12rem] justify-items-start gap-0.5">
                       <span className="text-lg font-semibold">{method.title}</span>
                       {method.subtitle && <span className="text-sm text-muted-foreground">{method.subtitle}</span>}
-                      <Badge variant="outline" className="mt-1.5 h-auto rounded-md px-2.5 text-[0.8125rem]">
+                      <Badge className="mt-1.5 h-auto rounded-md border-border px-2.5 text-[0.8125rem] font-semibold">
                         {method.requiresValidation ? t('requiresValidation') : t('noValidation')}
                       </Badge>
                     </span>
-                    <span className={buttonVariants({ variant: 'outline', size: 'lg', className: 'max-sm:w-full' })}>
+                    <span
+                      className={cn(
+                        buttonVariants({ variant: 'outline', size: 'lg' }),
+                        'group-hover:bg-primary group-hover:text-primary-foreground max-sm:w-full',
+                      )}
+                    >
                       <span className="group-data-panel-open:hidden">{t('show')}</span>
                       <span className="hidden group-data-panel-open:inline">{t('hide')}</span>
                       <ChevronDownIcon
@@ -96,20 +143,21 @@ export async function PurchaseMethods({ methods, operator }: Props) {
                     </span>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
-                    <div className="grid gap-px bg-border md:grid-cols-2">
+                    <div className="grid gap-0.5 bg-border md:grid-cols-2">
                       <div className="bg-card p-4 sm:p-6">
                         <h3 className={stepHeading}>{t('howToBuy')}</h3>
                         <StepList steps={method.buySteps} />
                       </div>
-                      <div className="bg-card p-4 sm:p-6">
-                        <h3 className={stepHeading}>{t('howToValidate')}</h3>
+                      <div className="bg-highlight p-4 sm:p-6">
+                        <h3 className={cn(stepHeading, 'text-foreground')}>{t('howToValidate')}</h3>
                         {method.requiresValidation ? (
-                          <StepList steps={method.validationSteps} />
+                          <StepList steps={method.validationSteps} tone="yellow" />
                         ) : (
-                          <p className="rounded-lg border border-dashed p-4 text-lg">
+                          <p className="rounded-lg border-2 bg-card p-4 text-lg">
                             {method.noValidationText || t('noValidationDefault')}
                           </p>
                         )}
+                        <PhotoList photos={method.validationPhotos} />
                       </div>
                     </div>
                   </CollapsibleContent>
@@ -120,7 +168,7 @@ export async function PurchaseMethods({ methods, operator }: Props) {
         </div>
       )}
 
-      <Card className="mt-6 flex-row flex-wrap items-center justify-between gap-4 bg-muted px-4 py-5 sm:px-6">
+      <Card className="mt-6 flex-row flex-wrap items-center justify-between gap-4 bg-highlight px-4 py-5 sm:px-6">
         <div className="flex-[1_1_20rem] text-lg">
           <p className="font-semibold">{t('helpTitle')}</p>
           {operator.hotline && (

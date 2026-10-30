@@ -1,20 +1,13 @@
-import { TriangleAlertIcon } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import React, { cache } from 'react'
 
-import {
-  CityBreadcrumbs,
-  OperatorHeader,
-  PurchaseMethods,
-  SourceFooter,
-  TicketTabs,
-  ZoneInfo,
-} from '@/components/city'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { CityBreadcrumbs, OperatorContent, RelatedOperators, SourceFooter } from '@/components/city'
 import type { Locale } from '@/i18n/routing'
+import { getOperatorById } from '@/lib/operators'
 import config from '@/payload.config'
+import type { Operator } from '@/payload-types'
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>
@@ -27,7 +20,8 @@ const getCity = cache(async (slug: string, locale: Locale) => {
     where: { slug: { equals: slug } },
     locale,
     limit: 1,
-    depth: 1,
+    depth: 0,
+    select: { name: true, regionPath: true, primaryOperator: true, operators: true },
   })
 
   return docs[0] ?? null
@@ -42,7 +36,9 @@ export async function generateMetadata({ params }: Props) {
   return { title: t('cityTitle', { city: city.name }) }
 }
 
-// Same modules in the same order for every city; only the content differs
+const idOf = (value: number | Operator | null | undefined) => (typeof value === 'object' ? value?.id : value)
+
+// The city is an entry point: the main operator's content fills it, other operators of the city show as related
 export default async function CityPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
@@ -50,7 +46,14 @@ export default async function CityPage({ params }: Props) {
   const city = await getCity(slug, locale)
   if (!city) notFound()
 
-  const t = await getTranslations('CityPage')
+  const operatorIds = (city.operators?.docs ?? []).flatMap((doc) => idOf(doc) ?? [])
+  const primaryId = idOf(city.primaryOperator) ?? operatorIds[0]
+  if (!primaryId) notFound()
+
+  const [operator, ...sameCity] = await Promise.all(
+    [primaryId, ...operatorIds.filter((id) => id !== primaryId)].map((id) => getOperatorById(id, locale)),
+  )
+  if (!operator) notFound()
 
   return (
     <>
@@ -58,28 +61,15 @@ export default async function CityPage({ params }: Props) {
         <CityBreadcrumbs city={city.name} region={city.regionPath} />
 
         <main id="main" tabIndex={-1} className="outline-none">
-          {city.sampleData && (
-            <Alert role="note" className="mb-4 px-4 py-3">
-              <TriangleAlertIcon aria-hidden="true" />
-              <AlertTitle>{t('sampleDataTitle')}</AlertTitle>
-              <AlertDescription>{t('sampleDataDescription')}</AlertDescription>
-            </Alert>
-          )}
-
-          <OperatorHeader operator={city.operator} />
-          <PurchaseMethods methods={city.purchaseMethods} operator={city.operator} />
-          <TicketTabs
-            tickets={city.tickets}
-            luggage={city.luggage}
-            rulesNote={city.rulesNote}
-            rulesUrl={city.rulesUrl}
-            currency={city.operator.currency || 'PLN'}
+          <OperatorContent operator={operator} label={city.name} />
+          <RelatedOperators
+            related={operator.relatedOperators}
+            sameCity={sameCity.filter((other): other is Operator => Boolean(other))}
           />
-          <ZoneInfo zones={city.zones} />
         </main>
       </div>
 
-      <SourceFooter sources={city.sources} verifiedAt={city.operator.verifiedAt} />
+      <SourceFooter sources={operator.sources} verifiedAt={operator.verifiedAt} />
     </>
   )
 }

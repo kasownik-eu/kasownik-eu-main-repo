@@ -1,6 +1,6 @@
-import type { City, Media } from '@/payload-types'
+import type { Media, Operator } from '@/payload-types'
 
-export type TransportMode = NonNullable<City['operator']['transportModes']>[number]
+export type TransportMode = NonNullable<Operator['transportModes']>[number]
 
 export const mediaUrl = (media: number | Media | null | undefined): Media | null =>
   media && typeof media === 'object' && media.url ? media : null

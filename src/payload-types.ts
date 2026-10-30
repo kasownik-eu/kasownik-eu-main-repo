@@ -69,18 +69,28 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    operators: Operator;
     cities: City;
+    'tariff-syncs': TariffSync;
     'payload-kv': PayloadKv;
+    'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {};
+  collectionsJoins: {
+    cities: {
+      operators: 'operators';
+    };
+  };
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    operators: OperatorsSelect<false> | OperatorsSelect<true>;
     cities: CitiesSelect<false> | CitiesSelect<true>;
+    'tariff-syncs': TariffSyncsSelect<false> | TariffSyncsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
+    'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -89,15 +99,25 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('pl' | 'en') | ('pl' | 'en')[];
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'payload-jobs-stats': PayloadJobsStat;
+  };
+  globalsSelect: {
+    'payload-jobs-stats': PayloadJobsStatsSelect<false> | PayloadJobsStatsSelect<true>;
+  };
   locale: 'pl' | 'en';
   widgets: {
     collections: CollectionsWidget;
   };
   user: User;
   jobs: {
-    tasks: unknown;
+    tasks: {
+      syncTariffs: TaskSyncTariffs;
+      inline: {
+        input: unknown;
+        output: unknown;
+      };
+    };
     workflows: unknown;
   };
 }
@@ -166,48 +186,48 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "cities".
+ * via the `definition` "operators".
  */
-export interface City {
+export interface Operator {
   id: number;
   name: string;
   slug: string;
-  regionPath?: string | null;
   /**
    * Shows a notice that names, prices and rules are made up.
    */
   sampleData?: boolean | null;
-  operator: {
-    name: string;
-    /**
-     * Abbreviation, e.g. "ZTM". Used as logo fallback and in contact labels.
-     */
-    shortName?: string | null;
-    label?: string | null;
-    logo?: (number | null) | Media;
-    /**
-     * Max. 3 sentences.
-     */
-    description?: string | null;
-    websiteUrl?: string | null;
-    timetableUrl?: string | null;
-    transportModes?: ('tram' | 'bus' | 'metro' | 'train' | 'trolleybus' | 'ferry')[] | null;
-    zoneCount?: number | null;
-    currency?: string | null;
-    /**
-     * Short summary, e.g. "PLN, card, app".
-     */
-    paymentInfo?: string | null;
-    /**
-     * Operator's phone number.
-     */
-    hotline?: string | null;
-    /**
-     * Operator's customer service point: address and opening hours.
-     */
-    servicePoint?: string | null;
-    verifiedAt?: string | null;
-  };
+  /**
+   * Abbreviation, e.g. "ZTM". Used as logo fallback and in contact labels.
+   */
+  shortName?: string | null;
+  label?: string | null;
+  logo?: (number | null) | Media;
+  /**
+   * Max. 3 sentences.
+   */
+  description?: string | null;
+  websiteUrl?: string | null;
+  timetableUrl?: string | null;
+  transportModes?: ('tram' | 'bus' | 'metro' | 'train' | 'trolleybus' | 'ferry')[] | null;
+  zoneCount?: number | null;
+  currency?: string | null;
+  /**
+   * Short summary, e.g. "PLN, card, app".
+   */
+  paymentInfo?: string | null;
+  /**
+   * Operator's phone number.
+   */
+  hotline?: string | null;
+  /**
+   * Operator's customer service point: address and opening hours.
+   */
+  servicePoint?: string | null;
+  verifiedAt?: string | null;
+  /**
+   * Cities served by this operator. A city can be served by several operators.
+   */
+  cities?: (number | City)[] | null;
   /**
    * Shown in this order; the first one is expanded.
    */
@@ -230,6 +250,20 @@ export interface City {
             }[]
           | null;
         noValidationText?: string | null;
+        /**
+         * Photos of the validator or ticket screen, shown under "How to validate". Optional.
+         */
+        validationPhotos?:
+          | {
+              image: number | Media;
+              caption: string;
+              /**
+               * Describes the photo for screen readers. Falls back to the image's alt.
+               */
+              alt?: string | null;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -282,6 +316,25 @@ export interface City {
     noteTitle?: string | null;
     note?: string | null;
   };
+  /**
+   * Other carriers running in this area, shown on every city page of this operator.
+   */
+  relatedOperators?:
+    | {
+        operator: number | Operator;
+        relation: 'neighbourCity' | 'sharedArea' | 'regional' | 'private';
+        /**
+         * Whether this operator's ticket is accepted by the related carrier.
+         */
+        ticketValidity: 'valid' | 'partial' | 'invalid';
+        note?: string | null;
+        /**
+         * Where it runs, e.g. "whole region". Defaults to the cities it serves.
+         */
+        coverage?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   sources?: {
     items?:
       | {
@@ -292,6 +345,111 @@ export interface City {
       | null;
     aiAssisted?: boolean | null;
   };
+  /**
+   * Pages read by the tariff sync (tickets, luggage, zones, rules note).
+   */
+  tariffSources?: {
+    pages?:
+      | {
+          url: string;
+          /**
+           * Selects the tariff block. If it matches nothing, the sync fails.
+           */
+          xpath?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cities".
+ */
+export interface City {
+  id: number;
+  name: string;
+  slug: string;
+  regionPath?: string | null;
+  /**
+   * Operators serving this city. Link a city from the operator (Cities tab).
+   */
+  operators?: {
+    docs?: (number | Operator)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  /**
+   * Its content fills the city page; other operators are shown as related. Defaults to the first one.
+   */
+  primaryOperator?: (number | null) | Operator;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Review queue: open a "pending_review" run, check changes and reasons, then set status to approved or rejected.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tariff-syncs".
+ */
+export interface TariffSync {
+  id: number;
+  title?: string | null;
+  operator: number | Operator;
+  status:
+    | 'failed'
+    | 'unchanged_source'
+    | 'no_changes'
+    | 'applied'
+    | 'pending_review'
+    | 'approved'
+    | 'rejected'
+    | 'superseded';
+  /**
+   * Operator version created by this run (Versions tab).
+   */
+  appliedVersion?: string | null;
+  reviewReasons?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Diff against the operator at sync time: { path, kind, before, after, major }.
+   */
+  changes?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  failedStage?: ('fetch' | 'extract' | 'llm' | 'validate' | 'compare' | 'apply') | null;
+  error?: string | null;
+  pages?:
+    | {
+        url: string;
+        textHash?: string | null;
+        changed?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Validated LLM output (pl + en).
+   */
+  proposed?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -314,6 +472,107 @@ export interface PayloadKv {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs".
+ */
+export interface PayloadJob {
+  id: number;
+  /**
+   * Input data provided to the job
+   */
+  input?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  taskStatus?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  completedAt?: string | null;
+  totalTried?: number | null;
+  /**
+   * If hasError is true this job will not be retried
+   */
+  hasError?: boolean | null;
+  /**
+   * If hasError is true, this is the error that caused it
+   */
+  error?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Task execution log
+   */
+  log?:
+    | {
+        executedAt: string;
+        completedAt: string;
+        taskSlug: 'inline' | 'syncTariffs';
+        taskID: string;
+        input?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        output?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        state: 'failed' | 'succeeded';
+        error?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  taskSlug?: ('inline' | 'syncTariffs') | null;
+  queue?: string | null;
+  waitUntil?: string | null;
+  processing?: boolean | null;
+  meta?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -328,8 +587,16 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
+        relationTo: 'operators';
+        value: number | Operator;
+      } | null)
+    | ({
         relationTo: 'cities';
         value: number | City;
+      } | null)
+    | ({
+        relationTo: 'tariff-syncs';
+        value: number | TariffSync;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -416,31 +683,26 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "cities_select".
+ * via the `definition` "operators_select".
  */
-export interface CitiesSelect<T extends boolean = true> {
+export interface OperatorsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
-  regionPath?: T;
   sampleData?: T;
-  operator?:
-    | T
-    | {
-        name?: T;
-        shortName?: T;
-        label?: T;
-        logo?: T;
-        description?: T;
-        websiteUrl?: T;
-        timetableUrl?: T;
-        transportModes?: T;
-        zoneCount?: T;
-        currency?: T;
-        paymentInfo?: T;
-        hotline?: T;
-        servicePoint?: T;
-        verifiedAt?: T;
-      };
+  shortName?: T;
+  label?: T;
+  logo?: T;
+  description?: T;
+  websiteUrl?: T;
+  timetableUrl?: T;
+  transportModes?: T;
+  zoneCount?: T;
+  currency?: T;
+  paymentInfo?: T;
+  hotline?: T;
+  servicePoint?: T;
+  verifiedAt?: T;
+  cities?: T;
   purchaseMethods?:
     | T
     | {
@@ -461,6 +723,14 @@ export interface CitiesSelect<T extends boolean = true> {
               id?: T;
             };
         noValidationText?: T;
+        validationPhotos?:
+          | T
+          | {
+              image?: T;
+              caption?: T;
+              alt?: T;
+              id?: T;
+            };
         id?: T;
       };
   tickets?:
@@ -505,6 +775,16 @@ export interface CitiesSelect<T extends boolean = true> {
         noteTitle?: T;
         note?: T;
       };
+  relatedOperators?:
+    | T
+    | {
+        operator?: T;
+        relation?: T;
+        ticketValidity?: T;
+        note?: T;
+        coverage?: T;
+        id?: T;
+      };
   sources?:
     | T
     | {
@@ -517,6 +797,60 @@ export interface CitiesSelect<T extends boolean = true> {
             };
         aiAssisted?: T;
       };
+  tariffSources?:
+    | T
+    | {
+        pages?:
+          | T
+          | {
+              url?: T;
+              xpath?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cities_select".
+ */
+export interface CitiesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  regionPath?: T;
+  operators?: T;
+  primaryOperator?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tariff-syncs_select".
+ */
+export interface TariffSyncsSelect<T extends boolean = true> {
+  title?: T;
+  operator?: T;
+  status?: T;
+  appliedVersion?: T;
+  reviewReasons?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  changes?: T;
+  failedStage?: T;
+  error?: T;
+  pages?:
+    | T
+    | {
+        url?: T;
+        textHash?: T;
+        changed?: T;
+        id?: T;
+      };
+  proposed?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -527,6 +861,38 @@ export interface CitiesSelect<T extends boolean = true> {
 export interface PayloadKvSelect<T extends boolean = true> {
   key?: T;
   data?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs_select".
+ */
+export interface PayloadJobsSelect<T extends boolean = true> {
+  input?: T;
+  taskStatus?: T;
+  completedAt?: T;
+  totalTried?: T;
+  hasError?: T;
+  error?: T;
+  log?:
+    | T
+    | {
+        executedAt?: T;
+        completedAt?: T;
+        taskSlug?: T;
+        taskID?: T;
+        input?: T;
+        output?: T;
+        state?: T;
+        error?: T;
+        id?: T;
+      };
+  taskSlug?: T;
+  queue?: T;
+  waitUntil?: T;
+  processing?: T;
+  meta?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -562,6 +928,34 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs-stats".
+ */
+export interface PayloadJobsStat {
+  id: number;
+  stats?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs-stats_select".
+ */
+export interface PayloadJobsStatsSelect<T extends boolean = true> {
+  stats?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "collections_widget".
  */
 export interface CollectionsWidget {
@@ -569,6 +963,26 @@ export interface CollectionsWidget {
     [k: string]: unknown;
   };
   width: 'full';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TaskSyncTariffs".
+ */
+export interface TaskSyncTariffs {
+  input: {
+    slug?: string | null;
+  };
+  output: {
+    counts?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -3,17 +3,17 @@ import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Card } from '@/components/ui/card'
-import type { City } from '@/payload-types'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import type { Operator } from '@/payload-types'
 
 import { mediaUrl } from './format'
 import { Section } from './Section'
 
 type Props = {
-  zones: City['zones']
+  zones: Operator['zones']
 }
 
-// Optional module: skipped for single-fare cities. Map first, then the same info as a list
+// Optional module: skipped for single-fare cities. Map first, then the same info as a table
 export async function ZoneInfo({ zones }: Props) {
   if (!zones?.enabled) return null
 
@@ -40,16 +40,26 @@ export async function ZoneInfo({ zones }: Props) {
         )}
 
         {zones.items && zones.items.length > 0 && (
-          <Card className="gap-0 py-0">
-            <dl className="divide-y">
-              {zones.items.map((zone, index) => (
-                <div key={zone.id ?? index} className="px-4 py-5 sm:px-6">
-                  <dt className="font-semibold">{zone.name}</dt>
-                  {zone.covers && <dd className="text-muted-foreground">{zone.covers}</dd>}
-                </div>
-              ))}
-            </dl>
-          </Card>
+          <div className="self-start overflow-hidden rounded-lg border">
+            <Table className="text-base">
+              <TableHeader className="bg-muted">
+                <TableRow className="hover:bg-transparent">
+                  <TableHead className="h-11 px-3 text-muted-foreground">{t('zone')}</TableHead>
+                  <TableHead className="h-11 px-3 text-muted-foreground">{t('covers')}</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {zones.items.map((zone, index) => (
+                  <TableRow key={zone.id ?? index}>
+                    <TableHead scope="row" className="px-3 py-3 font-semibold whitespace-normal">
+                      {zone.name}
+                    </TableHead>
+                    <TableCell className="px-3 py-3 whitespace-normal">{zone.covers}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         )}
       </div>
 

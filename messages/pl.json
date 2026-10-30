@@ -2,7 +2,9 @@
   "Metadata": {
     "siteTitle": "Transport miejski",
     "cityTitle": "{city} — bilety i transport miejski",
-    "citiesTitle": "Miasta"
+    "citiesTitle": "Miasta",
+    "operatorTitle": "{operator} — bilety i transport miejski",
+    "operatorsTitle": "Przewoźnicy"
   },
   "Common": {
     "opensInNewTab": "(otwiera się w nowej karcie)"
@@ -19,13 +21,17 @@
       "0": "Rozmiar tekstu: standardowy",
       "1": "Rozmiar tekstu: powiększony",
       "2": "Rozmiar tekstu: największy"
-    }
+    },
+    "operators": "Przewoźnicy"
   },
   "CityPage": {
+    "countryPoland": "Polska",
+    "cityInRegion": "{city}<muted>, {region}</muted>",
     "cities": "Miasta",
     "breadcrumbs": "Okruszki",
     "sampleDataTitle": "Dane przykładowe",
-    "sampleDataDescription": "Nazwy, ceny i zasady na tej stronie są wymyślone i nie pochodzą od żadnego operatora."
+    "sampleDataDescription": "Nazwy, ceny i zasady na tej stronie są wymyślone i nie pochodzą od żadnego operatora.",
+    "operators": "Przewoźnicy"
   },
   "CitiesList": {
     "title": "Miasta",
@@ -35,7 +41,7 @@
     "country": "Kraj",
     "countryPoland": "Polska",
     "moreCountriesSoon": "Kolejne kraje wkrótce",
-    "searchLabel": "Szukaj miasta lub regionu",
+    "searchLabel": "Szukaj miasta lub województwa",
     "searchPlaceholder": "np. Katowice albo Śląsk",
     "clearSearch": "Wyczyść wyszukiwanie",
     "statusAll": "{cities, plural, one {# miasto} few {# miasta} other {# miast}} w {regions, plural, one {# regionie} other {# regionach}}",
@@ -45,6 +51,27 @@
     "reportMissing": "Zgłoś brakujące miasto",
     "otherRegion": "Pozostałe",
     "footerNote": "Nie widzisz swojego miasta? Zgłoś je, a dodamy informacje o biletach."
+  },
+  "OperatorsList": {
+    "title": "Przewoźnicy",
+    "lead": "Firmy, które obsługują transport w jednym lub kilku miastach. Wybierz miasto, żeby zobaczyć stronę przewoźnika.",
+    "empty": "Brak przewoźników do wyświetlenia.",
+    "breadcrumbs": "Okruszki",
+    "countryPoland": "Polska",
+    "searchLabel": "Szukaj przewoźnika lub miasta",
+    "searchPlaceholder": "np. MZT albo Katowice",
+    "clearSearch": "Wyczyść wyszukiwanie",
+    "statusAll": "Wszyscy przewoźnicy: {count}",
+    "statusFound": "Znaleziono: {count, plural, one {# przewoźnik} few {# przewoźników} other {# przewoźników}}",
+    "citiesCount": "Obsługuje {count, plural, one {# miasto} few {# miasta} other {# miast}}",
+    "showAllCities": "Pokaż wszystkie miasta (+{count})",
+    "showLess": "Pokaż mniej",
+    "cityLinkHint": "(strona przewoźnika)",
+    "noResultsTitle": "Brak wyników dla „{query}”",
+    "noResultsDescription": "Sprawdź pisownię albo wpisz nazwę miasta. Jeśli brakuje przewoźnika, daj nam znać.",
+    "reportMissing": "Zgłoś brakującego przewoźnika",
+    "showMore": "Pokaż więcej przewoźników",
+    "footerNote": "Nie widzisz swojego przewoźnika? Zgłoś go, a dodamy informacje o biletach."
   },
   "OperatorHeader": {
     "logoAlt": "Logo: {operator}",
@@ -72,7 +99,8 @@
     "hotline": "Infolinia {operator}",
     "servicePoint": "Punkt obsługi {operator}",
     "helpDisclaimer": "Infolinia i punkty obsługi należą do operatora transportu, nie do naszego serwisu.",
-    "print": "Wydrukuj ten opis"
+    "print": "Wydrukuj ten opis",
+    "photoAlt": "Zdjęcie kasowania {index} z {count}"
   },
   "TicketTabs": {
     "title": "Bilety i cennik",
@@ -114,13 +142,39 @@
     "lead": "Cena biletu zależy od stref, przez które jedziesz.",
     "map": "Mapa stref",
     "mapAlt": "Mapa stref",
-    "noteTitle": "Ważne"
+    "noteTitle": "Ważne",
+    "zone": "Strefa",
+    "covers": "Obejmuje"
   },
   "SourceFooter": {
     "sources": "Źródła",
     "aiAssisted": "Treść przygotowana z pomocą AI, zweryfikowana przez moderatora",
     "verified": "Zweryfikowano {date}",
     "reportError": "Zgłoś błąd"
+  },
+  "OperatorPage": {
+    "servedCities": "Obsługiwane miasta",
+    "servedCitiesLead": "Te same bilety i zasady obowiązują w każdym z tych miast."
+  },
+  "RelatedOperators": {
+    "title": "Powiązani przewoźnicy",
+    "lead": "Inni przewoźnicy, których pojazdy jeżdżą też po tym obszarze. Każdy ma własny cennik i własne zasady.",
+    "alsoRunsIn": "Jeździ też w: {places}",
+    "seeOperator": "Zobacz stronę przewoźnika",
+    "showAll": "Pokaż wszystkich ({count})",
+    "showLess": "Pokaż mniej",
+    "relation": {
+      "neighbourCity": "Sąsiednie miasto",
+      "sharedArea": "Wspólny obszar",
+      "regional": "Przewoźnik regionalny",
+      "private": "Przewoźnik prywatny",
+      "sameCity": "W tym mieście"
+    },
+    "validity": {
+      "valid": "Twój bilet jest ważny",
+      "partial": "Ważny częściowo",
+      "invalid": "Twój bilet jest nieważny"
+    }
   },
   "TransportModes": {
     "tram": "tramwaj",
