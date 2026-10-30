@@ -131,7 +131,8 @@ export async function PurchaseMethods({ methods, operator }: Props) {
                     <span
                       className={cn(
                         buttonVariants({ variant: 'outline', size: 'lg' }),
-                        'group-hover:bg-primary group-hover:text-primary-foreground max-sm:w-full',
+                        // hover: too, so the outline variant's own hover:bg-muted doesn't win on the button itself
+                        'group-hover:bg-primary group-hover:text-primary-foreground hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary max-sm:w-full',
                       )}
                     >
                       <span className="group-data-panel-open:hidden">{t('show')}</span>

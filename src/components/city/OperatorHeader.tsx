@@ -42,7 +42,7 @@ export async function OperatorHeader({ operator, label = operator.label }: Props
 
   return (
     <Card className="gap-0 py-0">
-      <div className="flex flex-wrap items-start gap-4 p-4 sm:gap-6 sm:p-6">
+      <div className="flex flex-wrap items-start gap-4 bg-highlight p-4 sm:gap-6 sm:p-6">
         <Avatar className="size-16 rounded-xl after:rounded-xl sm:size-24">
           {logo && (
             <AvatarImage
