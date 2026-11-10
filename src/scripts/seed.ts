@@ -3,6 +3,8 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import type { Operator } from '@/payload-types'
 
+import { seedRegions } from './data/regions'
+
 // Made-up content from the Transit Wireframe design (flagged as sample data on the page)
 type OperatorData = Omit<Operator, 'id' | 'createdAt' | 'updatedAt' | 'cities'>
 type Mode = 'tram' | 'bus' | 'metro'
@@ -334,14 +336,16 @@ const sameCityOnly: MinimalOperator = {
 }
 
 // Two cities share MZT (the alias case); Miasto Przykładowe also has KR and LL (several operators per city)
-const cities: { name: LocalizedPair; slug: string; regionPath: LocalizedPair; primary: string }[] = [
-  { name: { pl: 'Miasto Przykładowe', en: 'Sample City' }, slug: 'miasto-przykladowe', regionPath: { pl: 'Śląsk', en: 'Silesia' }, primary: pl.slug },
-  { name: { pl: 'Przykładowice', en: 'Przykładowice' }, slug: 'przykladowice', regionPath: { pl: 'Śląsk', en: 'Silesia' }, primary: pl.slug },
-  { name: { pl: 'Miasto Sąsiednie', en: 'Neighbour Town' }, slug: 'miasto-sasiednie', regionPath: { pl: 'Śląsk', en: 'Silesia' }, primary: 'zks-przykladowe' },
+// region: ISO 3166-2 code from the regions dictionary
+const cities: { name: LocalizedPair; slug: string; region: string; primary: string }[] = [
+  { name: { pl: 'Miasto Przykładowe', en: 'Sample City' }, slug: 'miasto-przykladowe', region: 'PL-24', primary: pl.slug },
+  { name: { pl: 'Przykładowice', en: 'Przykładowice' }, slug: 'przykladowice', region: 'PL-24', primary: pl.slug },
+  { name: { pl: 'Miasto Sąsiednie', en: 'Neighbour Town' }, slug: 'miasto-sasiednie', region: 'PL-24', primary: 'zks-przykladowe' },
 ]
 const mztCities = ['miasto-przykladowe', 'przykladowice']
 
 const payload = await getPayload({ config })
+const regionIds = await seedRegions(payload)
 
 // Find by slug, then update or create the Polish version
 const upsert = async <C extends 'operators' | 'cities'>(collection: C, slug: string, data: Record<string, unknown>) => {
@@ -355,13 +359,19 @@ const upsert = async <C extends 'operators' | 'cities'>(collection: C, slug: str
 // Cities first: operators link to them
 const cityIds = new Map<string, number>()
 for (const city of cities) {
-  const doc = await upsert('cities', city.slug, { name: city.name.pl, slug: city.slug, regionPath: city.regionPath.pl })
+  const region = regionIds.get(city.region)!
+  const doc = await upsert('cities', city.slug, {
+    name: city.name.pl,
+    slug: city.slug,
+    country: region.country,
+    region: region.id,
+  })
   await payload.update({
     collection: 'cities',
     id: doc.id,
     locale: 'en',
     depth: 0,
-    data: { name: city.name.en, regionPath: city.regionPath.en },
+    data: { name: city.name.en },
   })
   cityIds.set(city.slug, doc.id)
 }

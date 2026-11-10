@@ -16,6 +16,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
+import { regionName } from '@/lib/regions'
 import config from '@/payload.config'
 
 type Props = {
@@ -42,10 +43,11 @@ export default async function OperatorsPage({ params }: Props) {
     locale,
     select: { name: true, shortName: true, slug: true, logo: true, transportModes: true, cities: true },
     populate: {
-      cities: { name: true, regionPath: true },
+      cities: { name: true, region: true },
+      regions: { name: true },
       media: { url: true, alt: true },
     },
-    depth: 1,
+    depth: 2,
     sort: 'name',
     pagination: false,
   })
@@ -64,7 +66,7 @@ export default async function OperatorsPage({ params }: Props) {
       logo: logo ? { url: logo.url!, alt: logo.alt } : null,
       modes: operator.transportModes ?? [],
       // Regions have no field of their own on the operator: the regions of the cities it serves
-      region: [...new Set(cities.flatMap((city) => city.regionPath || []))].join(', '),
+      region: [...new Set(cities.flatMap((city) => regionName(city.region) || []))].join(', '),
       cities: cities.map(({ id, name }) => ({ id, name })),
     }
   })

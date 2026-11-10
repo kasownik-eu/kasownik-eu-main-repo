@@ -6,6 +6,7 @@ import React, { cache } from 'react'
 import { CityBreadcrumbs, OperatorContent, RelatedOperators, SourceFooter } from '@/components/city'
 import type { Locale } from '@/i18n/routing'
 import { getOperatorById } from '@/lib/operators'
+import { regionName } from '@/lib/regions'
 import config from '@/payload.config'
 import type { Operator } from '@/payload-types'
 
@@ -20,8 +21,10 @@ const getCity = cache(async (slug: string, locale: Locale) => {
     where: { slug: { equals: slug } },
     locale,
     limit: 1,
-    depth: 0,
-    select: { name: true, regionPath: true, primaryOperator: true, operators: true },
+    depth: 1,
+    select: { name: true, region: true, primaryOperator: true, operators: true },
+    // Only the region's name is needed; operators are loaded in full below
+    populate: { regions: { name: true }, operators: { slug: true } },
   })
 
   return docs[0] ?? null
@@ -58,7 +61,7 @@ export default async function CityPage({ params }: Props) {
   return (
     <>
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-        <CityBreadcrumbs city={city.name} region={city.regionPath} />
+        <CityBreadcrumbs city={city.name} region={regionName(city.region)} />
 
         <main id="main" tabIndex={-1} className="outline-none">
           <OperatorContent operator={operator} label={city.name} />

@@ -12,7 +12,7 @@ import { notifyFailure, notifyReview } from './notify'
 import { hashText, isUnchanged, promote, storeFetched } from './pageCache'
 import { tariffInstructions } from './prompt'
 import { reviewReasons } from './reviewPolicy'
-import { tariffJsonSchema, tariffSchema } from './schema'
+import { tariffSchemaFor } from './schema'
 import type { TariffData } from './types'
 
 export type SyncStatus = TariffSync['status']
@@ -88,14 +88,23 @@ export const syncOperatorTariff = async (
     }
 
     stage = 'llm'
-    const raw = await getTariffExtractor().extract({
-      pages: result.pages.map(({ url, text }) => ({ url, text })),
-      operator: { slug: operator.slug, name: operator.name },
-      jsonSchema: tariffJsonSchema,
-      instructions: tariffInstructions,
-    })
+    // The LLM may only assign the operator's own modes
+    const modes = operator.transportModes
+    if (!modes?.length) throw new Error(`Operator "${operator.slug}" has no transport modes set`)
+    const schema = tariffSchemaFor(modes)
+    const extractor = getTariffExtractor()
+    const raw = await extractor
+      .extract({
+        pages: result.pages.map(({ url, text }) => ({ url, text })),
+        operator: { slug: operator.slug, name: operator.name },
+        jsonSchema: z.toJSONSchema(schema),
+        instructions: tariffInstructions(modes),
+      })
+      .catch((err: Error) => {
+        throw new Error(`LLM provider "${extractor.name}": ${err.message}`, { cause: err })
+      })
     stage = 'validate'
-    const parsed = tariffSchema.safeParse(raw)
+    const parsed = schema.safeParse(raw)
     if (!parsed.success) throw new Error(`LLM output failed validation:\n${z.prettifyError(parsed.error)}`)
 
     stage = 'compare'

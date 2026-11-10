@@ -1,66 +1,65 @@
-# Payload Blank Template
+# Kasownik.eu
 
-This template comes configured with the bare minimum to get started on anything you need.
+## Tariff sync
 
-## Quick start
+Keeps operator tariffs (tickets, luggage, zones, rules note) up to date from the operators' own web pages. Each run, for every operator that has pages under **Sources → Tariff sources** (URL + optional XPath):
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+1. fetches the pages and cuts out the XPath block (no match or an invalid XPath fails the operator),
+2. caches them in `TARIFF_CACHE_DIR` and stops when the extracted text is unchanged,
+3. asks the LLM provider for data matching the tariff schema, validates it with Zod,
+4. diffs it against the current operator: small changes are applied (PL + EN), large ones wait for manual review,
+5. emails `TARIFF_NOTIFY_EMAILS` on failures and when a review is needed.
 
-## Quick Start - local setup
+Every run is logged in admin under **Sync → Tariff syncs**. To review, open a `pending_review` run, check `changes` and `reviewReasons`, then set the status to `approved` (applies it) or `rejected`. Every write creates an operator version, so it can be reverted with **Restore** in the operator's Versions tab.
 
-To spin up this template locally, follow these steps:
+### Configuration (`.env`)
 
-### Clone
+| Variable                                                                                                                                                                                           | Purpose                                                                                    |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| `TARIFF_LLM_PROVIDER`                                                                                                                                                                              | LLM provider: `ollama-cloud` or `fixture` (returns `<TARIFF_LLM_FIXTURE_DIR>/<slug>.json`) |
+| `TARIFF_LLM_FIXTURE_DIR`                                                                                                                                                                           | Fixture directory, default `tests/fixtures/tariffs`                                        |
+| `OLLAMA_API_KEY`                                                                                                                                                                                   | Ollama Cloud API key (secret, required for `ollama-cloud`)                                 |
+| `OLLAMA_MODEL`, `OLLAMA_BASE_URL`, `OLLAMA_THINK`, `OLLAMA_TEMPERATURE`, `OLLAMA_SEED`, `OLLAMA_NUM_CTX`, `OLLAMA_NUM_PREDICT`, `OLLAMA_TIMEOUT_MS`, `OLLAMA_MAX_RETRIES`, `OLLAMA_RETRY_DELAY_MS` | Optional overrides; defaults in `src/tariffs/llm/ollama-cloud/config.ts`                   |
+| `TARIFF_CACHE_DIR`                                                                                                                                                                                 | Downloaded page cache, default `.tmp/tariffs` (git-ignored)                                |
+| `TARIFF_NOTIFY_EMAILS`                                                                                                                                                                             | Comma-separated recipients of failure / review emails; empty = no emails                   |
+| `SERVER_URL`                                                                                                                                                                                       | Base URL used for admin links in emails                                                    |
+| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `EMAIL_FROM_ADDRESS`, `EMAIL_FROM_NAME`                                                                                                        | SMTP settings; without `SMTP_HOST` emails are only written to the server log               |
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+### Running from the CLI (script)
 
-### Development
+Runs the sync immediately, without the jobs queue:
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URL` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+```bash
+npm run sync:tariffs                                   # all operators with tariff pages
+npm run sync:tariffs -- <slug>                         # one operator
+npm run sync:tariffs -- <slug> dry-run                 # fetch, extract, validate and print the diff; writes nothing, sends no email
+npm run sync:tariffs -- <slug> force                   # ignore the page cache and always call the LLM
+```
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+Arguments are plain words (`dry-run`, `force`), not `--flags`: `payload run` drops flags and only forwards positional arguments. The command exits with code `1` when any operator failed, so it can be used from a system crontab, e.g.:
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+```cron
+0 3 * * * cd /path/to/transport-helper && npm run sync:tariffs >> /var/log/tariff-sync.log 2>&1
+```
 
-#### Docker (Optional)
+### Running as a Payload job (scheduled)
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+The `syncTariffs` task (`src/jobs/syncTariffs.ts`) is scheduled daily at 03:00 on the `tariffs` queue. While the app server is running (`npm run dev` / `npm run start`), the `autoRun` cron in `src/payload.config.ts` checks the queue every 5 minutes, queues the scheduled run and executes it. Nothing runs when the server is down (e.g. serverless hosting); use the CLI options below instead.
 
-To do so, follow these steps:
+Without the app server, use the Payload jobs CLI:
 
-- Modify the `MONGODB_URL` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URL` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+```bash
+npm run payload -- jobs:run --queue tariffs --handle-schedules   # queue due scheduled runs, then run queued jobs
+npm run payload -- jobs:run --queue tariffs --handle-schedules --cron "*/5 * * * *"   # keep running as a worker
+```
 
-## How it works
+To queue a run on demand (e.g. from code or a custom endpoint):
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
+```ts
+await payload.jobs.queue({ task: 'syncTariffs', queue: 'tariffs', input: { slug: 'some-operator' } }) // slug optional
+```
 
-### Collections
-
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
-
-- #### Users (Authentication)
-
-  Users are auth-enabled collections that have access to the admin panel.
-
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/3.x/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
-
-- #### Media
-
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
-
-### Docker
-
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
-
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
-
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+A failed job (any operator failed) is marked as errored and retried once; see the `payload-jobs` collection and the failure emails. Note that `jobs:run` itself exits with code `0` even when a job fails.
 
 ## Questions
 

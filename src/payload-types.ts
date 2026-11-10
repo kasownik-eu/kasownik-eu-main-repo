@@ -71,6 +71,8 @@ export interface Config {
     media: Media;
     operators: Operator;
     cities: City;
+    countries: Country;
+    regions: Region;
     'tariff-syncs': TariffSync;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
@@ -82,12 +84,17 @@ export interface Config {
     cities: {
       operators: 'operators';
     };
+    countries: {
+      regions: 'regions';
+    };
   };
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     operators: OperatorsSelect<false> | OperatorsSelect<true>;
     cities: CitiesSelect<false> | CitiesSelect<true>;
+    countries: CountriesSelect<false> | CountriesSelect<true>;
+    regions: RegionsSelect<false> | RegionsSelect<true>;
     'tariff-syncs': TariffSyncsSelect<false> | TariffSyncsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
@@ -371,7 +378,8 @@ export interface City {
   id: number;
   name: string;
   slug: string;
-  regionPath?: string | null;
+  country?: (number | null) | Country;
+  region?: (number | null) | Region;
   /**
    * Operators serving this city. Link a city from the operator (Cities tab).
    */
@@ -384,6 +392,40 @@ export interface City {
    * Its content fills the city page; other operators are shown as related. Defaults to the first one.
    */
   primaryOperator?: (number | null) | Operator;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "countries".
+ */
+export interface Country {
+  id: number;
+  name: string;
+  /**
+   * ISO 3166-1 alpha-2, e.g. "PL".
+   */
+  code: string;
+  regions?: {
+    docs?: (number | Region)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "regions".
+ */
+export interface Region {
+  id: number;
+  name: string;
+  /**
+   * ISO 3166-2, e.g. "PL-24".
+   */
+  code: string;
+  country: number | Country;
   updatedAt: string;
   createdAt: string;
 }
@@ -593,6 +635,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'cities';
         value: number | City;
+      } | null)
+    | ({
+        relationTo: 'countries';
+        value: number | Country;
+      } | null)
+    | ({
+        relationTo: 'regions';
+        value: number | Region;
       } | null)
     | ({
         relationTo: 'tariff-syncs';
@@ -818,9 +868,32 @@ export interface OperatorsSelect<T extends boolean = true> {
 export interface CitiesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
-  regionPath?: T;
+  country?: T;
+  region?: T;
   operators?: T;
   primaryOperator?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "countries_select".
+ */
+export interface CountriesSelect<T extends boolean = true> {
+  name?: T;
+  code?: T;
+  regions?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "regions_select".
+ */
+export interface RegionsSelect<T extends boolean = true> {
+  name?: T;
+  code?: T;
+  country?: T;
   updatedAt?: T;
   createdAt?: T;
 }

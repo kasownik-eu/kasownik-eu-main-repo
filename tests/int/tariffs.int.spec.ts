@@ -7,7 +7,7 @@ import { diffTariff } from '@/tariffs/diffTariff'
 import { extractContent, TariffXPathError } from '@/tariffs/extractContent'
 import { isUnchanged, promote, storeFetched } from '@/tariffs/pageCache'
 import { reviewReasons } from '@/tariffs/reviewPolicy'
-import { tariffSchema } from '@/tariffs/schema'
+import { tariffSchema, tariffSchemaFor } from '@/tariffs/schema'
 import type { TariffData } from '@/tariffs/types'
 
 const html = `<html><body>
@@ -80,6 +80,12 @@ describe('tariffSchema', () => {
     const data = await fixture()
     const bad = { ...data, tickets: [{ ...data.tickets[0], category: 'lifetime' }] }
     expect(tariffSchema.safeParse(bad).success).toBe(false)
+  })
+
+  it("rejects modes the operator doesn't run", async () => {
+    const data = await fixture()
+    expect(tariffSchemaFor(['tram', 'bus', 'metro']).safeParse(data).success).toBe(true)
+    expect(tariffSchemaFor(['tram', 'bus']).safeParse(data).success).toBe(false)
   })
 })
 

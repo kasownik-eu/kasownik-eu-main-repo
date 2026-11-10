@@ -9,6 +9,8 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Cities } from './collections/Cities'
+import { Countries } from './collections/Countries'
+import { Regions } from './collections/Regions'
 import { Operators } from './collections/Operators'
 import { TariffSyncs } from './collections/TariffSyncs'
 import { syncTariffsTask } from './jobs/syncTariffs'
@@ -23,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Operators, Cities, TariffSyncs],
+  collections: [Users, Media, Operators, Cities, Countries, Regions, TariffSyncs],
   jobs: {
     tasks: [syncTariffsTask],
     // Picks up scheduled tariff syncs; needs a long-running server (next dev / next start)

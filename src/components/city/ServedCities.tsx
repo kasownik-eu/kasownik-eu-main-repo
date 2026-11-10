@@ -4,6 +4,7 @@ import React from 'react'
 
 import { Card } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
+import { regionName } from '@/lib/regions'
 import type { Operator } from '@/payload-types'
 
 import { Section } from './Section'
@@ -31,8 +32,8 @@ export async function ServedCities({ cities }: Props) {
               >
                 <span>
                   {city.name}
-                  {city.regionPath && (
-                    <span className="block text-sm font-normal text-muted-foreground">{city.regionPath}</span>
+                  {regionName(city.region) && (
+                    <span className="block text-sm font-normal text-muted-foreground">{regionName(city.region)}</span>
                   )}
                 </span>
                 <ChevronRightIcon

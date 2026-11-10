@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
+import { regionName } from '@/lib/regions'
 import config from '@/payload.config'
 
 type Props = {
@@ -39,8 +40,9 @@ export default async function CitiesPage({ params }: Props) {
   const { docs } = await payload.find({
     collection: 'cities',
     locale,
-    select: { name: true, slug: true, regionPath: true },
-    depth: 0,
+    select: { name: true, slug: true, region: true },
+    populate: { regions: { name: true } },
+    depth: 1,
     sort: 'name',
     limit: 200,
   })
@@ -62,7 +64,7 @@ export default async function CitiesPage({ params }: Props) {
   const byRegion = new Map<string, CityGroup>()
   for (const city of docs) {
     if (!servedCityIds.has(city.id)) continue
-    const name = city.regionPath || otherRegion
+    const name = regionName(city.region) || otherRegion
     if (!byRegion.has(name)) byRegion.set(name, { id: `region-${byRegion.size}`, name, cities: [] })
     byRegion.get(name)!.cities.push({
       id: city.id,

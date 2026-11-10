@@ -1,4 +1,12 @@
-import type { CollectionConfig, Condition, Field } from 'payload'
+import type {
+  CollectionConfig,
+  Condition,
+  Field,
+  PayloadRequest,
+  TextareaFieldValidation,
+  TextFieldSingleValidation,
+} from 'payload'
+import { text, textarea } from 'payload/shared'
 
 // Option values are stable keys; frontend labels come from messages/<locale>.json (TransportModes)
 export const transportModes = ['tram', 'bus', 'metro', 'train', 'trolleybus', 'ferry'] as const
@@ -25,12 +33,21 @@ const transportModesField = (name = 'transportModes'): Field => ({
   options: transportModeOptions,
 })
 
+// Localized texts are required only in the default locale; other locales fall back to it (localization.fallback).
+// Otherwise one missing translation (e.g. a source label) blocks saving any other field in that locale.
+const isDefaultLocale = (req: PayloadRequest) =>
+  !req.payload.config.localization || req.locale === req.payload.config.localization.defaultLocale
+const requiredText: TextFieldSingleValidation = (value, args) =>
+  text(value, { ...args, required: isDefaultLocale(args.req) })
+const requiredTextarea: TextareaFieldValidation = (value, args) =>
+  textarea(value, { ...args, required: isDefaultLocale(args.req) })
+
 const stepsField = (name: string, condition?: Condition): Field => ({
   name,
   type: 'array',
   maxRows: 6,
   admin: { condition },
-  fields: [{ name: 'text', type: 'textarea', required: true, localized: true }],
+  fields: [{ name: 'text', type: 'textarea', required: true, localized: true, validate: requiredTextarea }],
 })
 
 // Holds all ticket content and the cities it serves (many-to-many: a city may have several operators)
@@ -123,7 +140,7 @@ export const Operators: CollectionConfig = {
                   defaultValue: 'machine',
                   options: purchaseMethodTypes.map((value) => ({ label: value, value })),
                 },
-                { name: 'title', type: 'text', required: true, localized: true },
+                { name: 'title', type: 'text', required: true, localized: true, validate: requiredText },
                 { name: 'subtitle', type: 'text', localized: true },
                 { name: 'requiresValidation', type: 'checkbox', defaultValue: true },
                 stepsField('buySteps'),
@@ -144,7 +161,7 @@ export const Operators: CollectionConfig = {
                   },
                   fields: [
                     { name: 'image', type: 'upload', relationTo: 'media', required: true },
-                    { name: 'caption', type: 'text', required: true, localized: true },
+                    { name: 'caption', type: 'text', required: true, localized: true, validate: requiredText },
                     {
                       name: 'alt',
                       type: 'text',
@@ -171,7 +188,7 @@ export const Operators: CollectionConfig = {
                   required: true,
                   options: ticketCategories.map((value) => ({ label: value, value })),
                 },
-                { name: 'name', type: 'text', required: true, localized: true },
+                { name: 'name', type: 'text', required: true, localized: true, validate: requiredText },
                 { name: 'validity', type: 'text', localized: true },
                 { name: 'scope', type: 'text', localized: true },
                 transportModesField(),
@@ -185,7 +202,7 @@ export const Operators: CollectionConfig = {
               type: 'array',
               admin: { initCollapsed: true },
               fields: [
-                { name: 'item', type: 'text', required: true, localized: true },
+                { name: 'item', type: 'text', required: true, localized: true, validate: requiredText },
                 {
                   name: 'note',
                   type: 'text',
@@ -232,7 +249,7 @@ export const Operators: CollectionConfig = {
                   type: 'array',
                   admin: { condition: (_, siblingData) => Boolean(siblingData?.enabled) },
                   fields: [
-                    { name: 'name', type: 'text', required: true, localized: true },
+                    { name: 'name', type: 'text', required: true, localized: true, validate: requiredText },
                     { name: 'covers', type: 'text', localized: true },
                   ],
                 },
@@ -307,7 +324,7 @@ export const Operators: CollectionConfig = {
                   name: 'items',
                   type: 'array',
                   fields: [
-                    { name: 'label', type: 'text', required: true, localized: true },
+                    { name: 'label', type: 'text', required: true, localized: true, validate: requiredText },
                     { name: 'url', type: 'text' },
                   ],
                 },
