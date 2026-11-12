@@ -33,6 +33,14 @@ const buttonVariants = cva(
         "icon-lg": "size-9",
       },
     },
+    // Variant A "rail" buttons: the large primary/outline buttons get a double bottom edge like a track
+    compoundVariants: [
+      {
+        variant: ["default", "outline"],
+        size: "lg",
+        className: "rounded-[6px] border-b-[6px] border-double",
+      },
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",

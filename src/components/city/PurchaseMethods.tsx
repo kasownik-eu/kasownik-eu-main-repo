@@ -43,18 +43,21 @@ const icons: Record<(typeof purchaseMethodTypes)[number], LucideIcon> = {
   other: CircleHelpIcon,
 }
 
-function StepList({ steps, tone = 'dark' }: { steps: Steps; tone?: 'dark' | 'yellow' }) {
+// Steps drawn as stops on a line: ringed numbers joined by a black segment down to the next stop
+function StepList({ steps, tone = 'white' }: { steps: Steps; tone?: 'white' | 'yellow' }) {
   return (
     <ol className="grid gap-4">
       {steps?.map((step, index) => (
-        <li key={step.id ?? index} className="grid grid-cols-[2rem_1fr] items-start gap-3 text-lg">
+        <li
+          key={step.id ?? index}
+          className="relative grid grid-cols-[2rem_1fr] items-start gap-3 text-lg not-last:before:absolute not-last:before:top-8 not-last:before:-bottom-4 not-last:before:left-3.5 not-last:before:w-1 not-last:before:bg-foreground"
+        >
           <span
             aria-hidden="true"
-            className={
-              tone === 'dark'
-                ? 'grid size-8 place-items-center rounded-full bg-foreground text-sm font-bold text-primary'
-                : 'grid size-8 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground ring-2 ring-border ring-inset'
-            }
+            className={cn(
+              'grid size-8 place-items-center rounded-full border-4 border-foreground text-sm font-bold',
+              tone === 'white' ? 'bg-background text-foreground' : 'bg-primary text-primary-foreground',
+            )}
           >
             {index + 1}
           </span>
