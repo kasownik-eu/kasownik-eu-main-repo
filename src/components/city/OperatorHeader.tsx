@@ -4,6 +4,7 @@ import React from 'react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import { TicketArt } from '@/components/site/decor'
 import { Card } from '@/components/ui/card'
 import type { Operator } from '@/payload-types'
 
@@ -42,7 +43,8 @@ export async function OperatorHeader({ operator, label = operator.label }: Props
 
   return (
     <Card className="gap-0 py-0">
-      <div className="flex flex-wrap items-start gap-4 bg-highlight p-4 sm:gap-6 sm:p-6">
+      <div className="relative isolate flex flex-wrap items-start gap-4 overflow-hidden bg-highlight p-4 sm:gap-6 sm:p-6">
+        <TicketArt />
         <Avatar className="size-16 rounded-xl after:rounded-xl sm:size-24">
           {logo && (
             <AvatarImage

@@ -1,6 +1,7 @@
 import { getFormatter, getTranslations } from 'next-intl/server'
 import React from 'react'
 
+import { TramStrip } from '@/components/site/TramStrip'
 import { Button } from '@/components/ui/button'
 import type { Operator } from '@/payload-types'
 
@@ -17,7 +18,8 @@ export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Pro
   const items = sources?.items ?? []
 
   return (
-    <footer className="chrome mt-16 py-8">
+    <footer className="chrome mt-16 pb-8">
+      <TramStrip />
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 sm:px-6">
         <div className="max-w-[70ch] flex-[1_1_20rem] text-sm text-muted-foreground">
           {items.length > 0 && (
