@@ -10,7 +10,9 @@ const dirname = path.dirname(__filename)
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   images: {
+    unoptimized: true, // no sharp on the host
     localPatterns: [
       {
         pathname: '/api/media/file/**',
