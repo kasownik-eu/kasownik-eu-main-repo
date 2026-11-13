@@ -4,6 +4,7 @@ import { ChevronRightIcon, SearchIcon, XIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import React, { useId, useMemo, useState } from 'react'
 
+import { StopDot } from '@/components/site/decor'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
@@ -131,7 +132,7 @@ export function CitiesBrowser({ groups, reportUrl = '#' }: Props) {
                   <CardTitle className="text-lg font-semibold">
                     <h2 id={group.id}>{group.name}</h2>
                   </CardTitle>
-                  <Badge variant="outline" className="bg-background text-[0.8125rem]">
+                  <Badge className="h-auto rounded-full border-border px-3 text-[0.8125rem] font-bold">
                     {group.cities.length}
                   </Badge>
                 </CardHeader>
@@ -142,7 +143,10 @@ export function CitiesBrowser({ groups, reportUrl = '#' }: Props) {
                         href={{ pathname: '/city/[slug]', params: { slug: city.slug } }}
                         className="group flex min-h-14 items-center justify-between gap-3 px-5 py-2 text-lg font-medium hover:bg-highlight"
                       >
-                        <span>{city.name}</span>
+                        <span className="flex items-center gap-3">
+                          <StopDot />
+                          <span>{city.name}</span>
+                        </span>
                         <ChevronRightIcon
                           aria-hidden="true"
                           className="size-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"

@@ -13,6 +13,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import { LineMark } from '@/components/site/decor'
+import { TramStrip } from '@/components/site/TramStrip'
 import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
@@ -89,7 +91,10 @@ export default async function OperatorsPage({ params }: Props) {
         <main id="main" tabIndex={-1} className="outline-none">
           <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
             <div className="flex-[1_1_26rem]">
-              <h1 className="text-4xl leading-tight font-extrabold tracking-tight">{t('title')}</h1>
+              <h1 className="flex items-center gap-3.5 text-4xl leading-tight font-extrabold tracking-tight">
+                <LineMark size="lg" />
+                <span>{t('title')}</span>
+              </h1>
               <p className="mt-2 max-w-[62ch] text-lg text-muted-foreground">{t('lead')}</p>
             </div>
             <CountrySelect />
@@ -103,7 +108,8 @@ export default async function OperatorsPage({ params }: Props) {
         </main>
       </div>
 
-      <footer className="chrome mt-16 py-8">
+      <footer className="chrome mt-16 pb-8">
+        <TramStrip />
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 sm:px-6">
           <p className="max-w-[70ch] flex-[1_1_20rem] text-sm text-muted-foreground">{t('footerNote')}</p>
           <Button size="lg" nativeButton={false} render={<a href={REPORT_URL} />}>

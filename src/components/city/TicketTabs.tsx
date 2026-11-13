@@ -2,6 +2,7 @@ import { InfoIcon } from 'lucide-react'
 import { getFormatter, getTranslations } from 'next-intl/server'
 import React from 'react'
 
+import { TicketNotches } from '@/components/site/decor'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Card } from '@/components/ui/card'
@@ -96,9 +97,11 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
         {/* Mobile: each row becomes a card with the price first */}
         <div className="grid gap-3 md:hidden">
           {rows.map((ticket, index) => (
-            <Card key={ticket.id ?? index} className="gap-3 px-4">
-              <h3 className="border-b pb-3 text-lg font-semibold">
+            <Card key={ticket.id ?? index} className="gap-3 overflow-visible px-4">
+              {/* Dashed tear line with notches: the card reads as a ticket */}
+              <h3 className="relative border-b-2 border-dashed pb-3 text-lg font-semibold">
                 {ticket.name}
+                <TicketNotches />
               </h3>
               <div className="grid grid-cols-2 gap-x-5 gap-y-3 text-base">
                 <Field label={t('columns.normal')}>
@@ -191,7 +194,7 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
           className="grid w-full grid-cols-2 group-data-horizontal/tabs:h-auto sm:flex sm:w-fit sm:flex-wrap"
         >
           {tabOrder.map((id) => (
-            <TabsTrigger key={id} value={id} className="min-h-11 px-4 text-[0.9375rem] whitespace-normal">
+            <TabsTrigger key={id} value={id} className="min-h-11 rounded-[6px] px-4 text-[0.9375rem] whitespace-normal">
               {t(`tabs.${id}`)}
             </TabsTrigger>
           ))}

@@ -40,6 +40,8 @@
     --color-background: var(--background);
     --color-highlight: var(--highlight);
     --color-highlight-hover: var(--highlight-hover);
+    --color-highlight-strong: var(--highlight-strong);
+    --color-rail: var(--rail);
     --color-chrome: var(--chrome);
     --color-chrome-foreground: var(--chrome-foreground);
     --color-line-soft: var(--line-soft);
@@ -74,6 +76,9 @@
     --ring: #111111;
     --highlight: #fff1b8;
     --highlight-hover: #ffe98a;
+    /* Decorative only (hero ticket art, tram sleepers), never for text */
+    --highlight-strong: #ffdf6b;
+    --rail: #76839a;
     --chrome: #111111;
     --chrome-foreground: #ffffff;
     --line-soft: #d0d6e0;
@@ -115,6 +120,8 @@
     --ring: #ffc400;
     --highlight: #3b3200;
     --highlight-hover: #4d4100;
+    --highlight-strong: #5c4d00;
+    --rail: #76839a;
     --chrome: #000000;
     --chrome-foreground: #ffffff;
     --line-soft: #3a4558;
