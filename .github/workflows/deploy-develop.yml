@@ -1,0 +1,71 @@
+name: Deploy develop
+
+# Builds the app and publishes it to the `develop-latest` release.
+# The host pulls it from there by cron (deploy/deploy.sh); GitHub holds no host credentials.
+
+on:
+  push:
+    branches: [develop]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-develop
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PAYLOAD_SECRET: ci-only
+      DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/ci
+      NEXT_TELEMETRY_DISABLED: '1'
+    services:
+      postgres: # static pages query the DB at build time
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+      - name: Assemble bundle
+        run: |
+          cp -R .next/static .next/standalone/.next/static
+          # sharp comes in via next as optional dep, never used (images.unoptimized)
+          rm -rf .next/standalone/node_modules/sharp .next/standalone/node_modules/@img .next/standalone/.env*
+          # The host is FreeBSD: native addons would not load there
+          if find .next/standalone -name '*.node' | grep .; then echo "Native modules in bundle"; exit 1; fi
+
+      - name: Smoke test
+        working-directory: .next/standalone
+        run: |
+          node server.js > "$RUNNER_TEMP/server.log" 2>&1 &
+          PID=$!
+          code=$(curl -s -o /dev/null -w '%{http_code}' --retry 15 --retry-connrefused --retry-delay 2 --max-time 120 http://127.0.0.1:3000/admin || true)
+          kill $PID
+          echo "/admin -> $code"
+          [ "$code" = 200 ] || { cat "$RUNNER_TEMP/server.log"; exit 1; }
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tar -czf "bundle-$GITHUB_SHA.tar.gz" -C .next/standalone .
+          echo "$GITHUB_SHA" > version.txt
+          gh release view develop-latest >/dev/null 2>&1 ||
+            gh release create develop-latest --prerelease --title "develop (latest build)" --notes "Pulled by the dev server."
+          # bundle first, version last: the host never sees a version without its bundle
+          gh release upload develop-latest "bundle-$GITHUB_SHA.tar.gz" --clobber
+          gh release upload develop-latest version.txt --clobber
+          gh release view develop-latest --json assets --jq '.assets | map(select(.name | startswith("bundle-"))) | sort_by(.createdAt) | reverse | .[3:] | .[].name' |
+            xargs -r -n1 gh release delete-asset develop-latest --yes

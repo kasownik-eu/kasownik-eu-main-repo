@@ -1,10 +1,9 @@
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -14,6 +13,7 @@ import { Regions } from './collections/Regions'
 import { Operators } from './collections/Operators'
 import { TariffSyncs } from './collections/TariffSyncs'
 import { syncTariffsTask } from './jobs/syncTariffs'
+import { migrations } from './migrations'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -56,11 +56,12 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  db: sqliteAdapter({
-    client: {
-      url: process.env.DATABASE_URL || '',
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URL || '',
     },
+    // Applied on boot in production. After schema changes: `npm run payload migrate:create <name>`
+    prodMigrations: migrations,
   }),
-  sharp,
   plugins: [],
 })

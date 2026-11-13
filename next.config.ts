@@ -25,8 +25,10 @@ const allowedDevOrigins = [
 ]
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   allowedDevOrigins,
   images: {
+    unoptimized: true, // no sharp on the host
     localPatterns: [
       {
         pathname: '/api/media/file/**',
