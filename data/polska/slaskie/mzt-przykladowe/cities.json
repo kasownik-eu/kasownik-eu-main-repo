@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "miasto-przykladowe",
+    "name": {
+      "pl": "Miasto Przykładowe",
+      "en": "Sample City"
+    },
+    "primary": true
+  },
+  {
+    "slug": "przykladowice",
+    "name": {
+      "pl": "Przykładowice"
+    },
+    "primary": true
+  }
+]

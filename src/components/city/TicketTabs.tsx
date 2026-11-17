@@ -3,22 +3,34 @@ import { getFormatter, getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { TicketNotches } from '@/components/site/decor'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Card } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import type { Operator } from '@/payload-types'
+import type { LuggageView, TicketView } from '@/content'
 
 import { ModeBadges } from './ModeBadges'
 import { Section } from './Section'
 
-type Ticket = NonNullable<Operator['tickets']>[number]
-type Luggage = NonNullable<Operator['luggage']>[number]
+type Ticket = TicketView
+type Luggage = LuggageView
 
 type Props = {
-  tickets: Operator['tickets']
-  luggage: Operator['luggage']
+  tickets: Ticket[]
+  luggage: Luggage[]
   rulesNote?: string | null
   rulesUrl?: string | null
   currency: string
@@ -32,7 +44,15 @@ const tableHead = 'h-11 px-3 text-muted-foreground'
 const tableCell = 'px-3 py-3 whitespace-normal'
 
 // Label/value pair used in the mobile card view of a table row
-function Field({ label, children, className }: { label: string; children: React.ReactNode; className?: string }) {
+function Field({
+  label,
+  children,
+  className,
+}: {
+  label: string
+  children: React.ReactNode
+  className?: string
+}) {
   return (
     <div className={className}>
       <div className={fieldLabel}>{label}</div>
@@ -48,7 +68,8 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
 
   const price = (value: number | null | undefined) =>
     value == null ? '—' : format.number(value, { style: 'currency', currency })
-  const fee = (row: Luggage) => row.feeText || (row.fee == null || row.fee === 0 ? t('free') : price(row.fee))
+  const fee = (row: Luggage) =>
+    row.feeText || (row.fee == null || row.fee === 0 ? t('free') : price(row.fee))
 
   const empty = <p className="text-muted-foreground">{t('empty')}</p>
 
@@ -72,7 +93,7 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
             </TableHeader>
             <TableBody>
               {rows.map((ticket, index) => (
-                <TableRow key={ticket.id ?? index}>
+                <TableRow key={index}>
                   <TableHead scope="row" className={`${tableCell} font-semibold`}>
                     {ticket.name}
                   </TableHead>
@@ -97,7 +118,7 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
         {/* Mobile: each row becomes a card with the price first */}
         <div className="grid gap-3 md:hidden">
           {rows.map((ticket, index) => (
-            <Card key={ticket.id ?? index} className="gap-3 overflow-visible px-4">
+            <Card key={index} className="gap-3 overflow-visible px-4">
               {/* Dashed tear line with notches: the card reads as a ticket */}
               <h3 className="relative border-b-2 border-dashed pb-3 text-lg font-semibold">
                 {ticket.name}
@@ -105,10 +126,14 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
               </h3>
               <div className="grid grid-cols-2 gap-x-5 gap-y-3 text-base">
                 <Field label={t('columns.normal')}>
-                  <span className="text-xl font-semibold tabular-nums">{price(ticket.priceNormal)}</span>
+                  <span className="text-xl font-semibold tabular-nums">
+                    {price(ticket.priceNormal)}
+                  </span>
                 </Field>
                 <Field label={t('columns.reduced')}>
-                  <span className="text-xl font-semibold tabular-nums">{price(ticket.priceReduced)}</span>
+                  <span className="text-xl font-semibold tabular-nums">
+                    {price(ticket.priceReduced)}
+                  </span>
                 </Field>
                 <Field label={t('columns.validity')}>{ticket.validity}</Field>
                 <Field label={t('columns.scope')}>{ticket.scope}</Field>
@@ -143,10 +168,14 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
             </TableHeader>
             <TableBody>
               {rows.map((row, index) => (
-                <TableRow key={row.id ?? index}>
+                <TableRow key={index}>
                   <TableHead scope="row" className={tableCell}>
                     <span className="block font-semibold">{row.item}</span>
-                    {row.note && <span className="block text-sm font-normal text-muted-foreground">{row.note}</span>}
+                    {row.note && (
+                      <span className="block text-sm font-normal text-muted-foreground">
+                        {row.note}
+                      </span>
+                    )}
                   </TableHead>
                   <TableCell className={tableCell}>
                     <ModeBadges modes={row.transportModes} />
@@ -162,13 +191,15 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
 
         {/* Mobile: expandable list; collapsed row shows the item and its fee */}
         <Card className="py-0 md:hidden">
-          <Accordion defaultValue={[rows[0].id ?? 0]}>
+          <Accordion defaultValue={[0]}>
             {rows.map((row, index) => (
-              <AccordionItem key={row.id ?? index} value={row.id ?? index}>
+              <AccordionItem key={index} value={index}>
                 <AccordionTrigger className="min-h-14 items-center gap-3 rounded-none px-4 py-3 text-base hover:no-underline">
                   <span className="grid flex-1 gap-0.5">
                     <span className="font-semibold">{row.item}</span>
-                    {row.note && <span className="text-sm font-normal text-muted-foreground">{row.note}</span>}
+                    {row.note && (
+                      <span className="text-sm font-normal text-muted-foreground">{row.note}</span>
+                    )}
                   </span>
                   <span className="font-semibold">{fee(row)}</span>
                 </AccordionTrigger>
@@ -176,8 +207,12 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
                   <Field label={t('columns.modes')}>
                     <ModeBadges modes={row.transportModes} />
                   </Field>
-                  {row.conditions && <Field label={t('columns.conditions')}>{row.conditions}</Field>}
-                  {row.whereToBuy && <Field label={t('columns.whereToBuy')}>{row.whereToBuy}</Field>}
+                  {row.conditions && (
+                    <Field label={t('columns.conditions')}>{row.conditions}</Field>
+                  )}
+                  {row.whereToBuy && (
+                    <Field label={t('columns.whereToBuy')}>{row.whereToBuy}</Field>
+                  )}
                 </AccordionContent>
               </AccordionItem>
             ))}
@@ -194,7 +229,11 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
           className="grid w-full grid-cols-2 group-data-horizontal/tabs:h-auto sm:flex sm:w-fit sm:flex-wrap"
         >
           {tabOrder.map((id) => (
-            <TabsTrigger key={id} value={id} className="min-h-11 rounded-[6px] px-4 text-[0.9375rem] whitespace-normal">
+            <TabsTrigger
+              key={id}
+              value={id}
+              className="min-h-11 rounded-[6px] px-4 text-[0.9375rem] whitespace-normal"
+            >
               {t(`tabs.${id}`)}
             </TabsTrigger>
           ))}

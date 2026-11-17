@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "miasto-przykladowe",
+    "name": {
+      "pl": "Miasto Przykładowe",
+      "en": "Sample City"
+    }
+  },
+  {
+    "slug": "przykladowice",
+    "name": {
+      "pl": "Przykładowice"
+    }
+  },
+  {
+    "slug": "miasto-sasiednie",
+    "name": {
+      "pl": "Miasto Sąsiednie",
+      "en": "Neighbour Town"
+    }
+  }
+]

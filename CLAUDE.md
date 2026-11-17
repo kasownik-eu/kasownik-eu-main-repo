@@ -1,13 +1,25 @@
 # Claude Code
 
-This project uses the Payload CMS skill at `.claude/skills/payload/`.
-Start with `.claude/skills/payload/SKILL.md` for a quick reference, then see `.claude/skills/payload/reference/` for detailed docs.
+## Content (no database)
+The site is a static export (`output: 'export'`, HTML in `out/`) built from JSON files in `data/` — there is no CMS, server or database.
+- Layout: `data/<country>/<voivodeship>/<operator>/` with `operator.json`, `cities.json`, `purchase.json`, `tickets.json`, `zones.json` and `images/`; `country.json` / `voivodeship.json` sit in their folders. Folder names are URL slugs.
+- Translatable texts are inline `{ "pl": "…", "en": "…" }`; `en` is optional and falls back to `pl`.
+- Zod schemas: `src/content/schema.ts` (strict: unknown keys fail). Loader + cross-file checks: `src/content/load.ts`. Pages read only through `src/content/index.ts` (locale-resolved views), never `fs` directly.
+- After changing a schema run `npm run generate:schemas` (VS Code autocomplete for `data/`); `npm run validate:data` lists every problem in `data/`.
+- Write JSON as `JSON.stringify(value, null, 2) + '\n'` (the tariff sync does too); `data/` is in `.prettierignore`.
+- No middleware/proxy, rewrites, route handlers that read the request, or server actions: they don't exist in a static export. Localized URLs are real folders: `src/app/(frontend)/pl/miasta` and `src/app/(frontend)/en/cities` both render `_views/CitiesPage.tsx`; add a route in both locales and in `src/i18n/routing.ts`.
+
+## Templates and blocks (how pages are rendered)
+Every page is a template: `templates/<page>/<name>.json` (`page` = `city`, `operator`, `cities`, `operators`) listing blocks in three slots — `top` (above `<main>`, breadcrumbs), `main`, `bottom` (full width, footers). `src/blocks/RenderTemplate.tsx` renders them; pages in `_views/` only build the context and pick the template.
+- A block is `{ "type": "<blockType>", ...settings }`. Types, the pages each is allowed on and their settings (strict Zod) live in `src/blocks/schema.ts` (no React); components in `src/blocks/*Block(s).tsx`, mapped in `src/blocks/registry.tsx`.
+- Add a block: 1) `define(pages, settings)` in `blockDefinitions`, 2) a component typed `BlockProps<'yourType'>` (ctx is narrowed to its pages, texts in settings arrive localized), built from shadcn components / `src/components`, 3) register it (TypeScript fails until you do), 4) `npm run generate:schemas`, 5) user-facing fixed strings go to `messages/{pl,en}.json`.
+- Texts in block settings are `{ pl, en }` like content. `notice` and `text` are generic parts; blocks with `operatorContent: true` may also be used in an operator's own `blocks` (operator.json), rendered where the template has `{ "type": "operatorBlocks" }`.
+- Every page kind needs `default.json`; an operator picks others with `"templates": { "city": "<name>", "operator": "<name>" }`. The loader rejects unknown blocks, misspelled settings, blocks used on the wrong page and missing templates.
 
 ## UI rules
 - Use ONLY shadcn/ui components (install via `npx shadcn@latest add <name>`).
 - Do not write custom UI components if an equivalent exists in shadcn or in the blocks registries.
 - Styling with Tailwind only, mobile-first (default to mobile, then sm:/md:/lg:).
-- Each Payload Block = one component in /blocks, composed of shadcn components.
 - Before adding a new component, check whether it already exists in /components/ui.
 
 ## LLM providers

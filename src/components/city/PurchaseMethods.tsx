@@ -12,26 +12,25 @@ import {
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
-import type { purchaseMethodTypes } from '@/collections/Operators'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import { cn } from '@/lib/utils'
-import type { Operator } from '@/payload-types'
+import type { purchaseMethodTypes } from '@/content/enums'
+import type { OperatorView, PurchaseMethodView } from '@/content'
 
-import { mediaUrl } from './format'
 import { PrintButton } from './PrintButton'
 import { Section } from './Section'
 
 type Props = {
-  methods: Operator['purchaseMethods']
-  operator: Operator
+  methods: PurchaseMethodView[]
+  operator: OperatorView
 }
 
-type Steps = { text: string; id?: string | null }[] | null | undefined
-type Photos = NonNullable<Operator['purchaseMethods']>[number]['validationPhotos']
+type Steps = string[] | null | undefined
+type Photos = PurchaseMethodView['validationPhotos']
 
 const icons: Record<(typeof purchaseMethodTypes)[number], LucideIcon> = {
   machine: TicketIcon,
@@ -49,19 +48,21 @@ function StepList({ steps, tone = 'white' }: { steps: Steps; tone?: 'white' | 'y
     <ol className="grid gap-4">
       {steps?.map((step, index) => (
         <li
-          key={step.id ?? index}
+          key={index}
           className="relative grid grid-cols-[2rem_1fr] items-start gap-3 text-lg not-last:before:absolute not-last:before:top-8 not-last:before:-bottom-4 not-last:before:left-3.5 not-last:before:w-1 not-last:before:bg-foreground"
         >
           <span
             aria-hidden="true"
             className={cn(
               'grid size-8 place-items-center rounded-full border-4 border-foreground text-sm font-bold',
-              tone === 'white' ? 'bg-background text-foreground' : 'bg-primary text-primary-foreground',
+              tone === 'white'
+                ? 'bg-background text-foreground'
+                : 'bg-primary text-primary-foreground',
             )}
           >
             {index + 1}
           </span>
-          <span>{step.text}</span>
+          <span>{step}</span>
         </li>
       ))}
     </ol>
@@ -71,22 +72,23 @@ function StepList({ steps, tone = 'white' }: { steps: Steps; tone?: 'white' | 'y
 // 0–N photos with caption; none renders nothing, so no empty space is left
 async function PhotoList({ photos }: { photos: Photos }) {
   const t = await getTranslations('PurchaseMethods')
-  const items = (photos ?? []).flatMap((photo) => {
-    const image = mediaUrl(photo.image)
-    return image ? [{ ...photo, image }] : []
-  })
+  const items = photos ?? []
   if (!items.length) return null
 
   return (
     <ul className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(min(11.25rem,100%),15rem))] gap-3">
       {items.map((photo, index) => (
-        <li key={photo.id ?? index}>
+        <li key={index}>
           <figure>
             <AspectRatio ratio={4 / 3} className="overflow-hidden rounded-lg border-2 bg-muted">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={photo.image.url!}
-                alt={photo.alt || photo.image.alt || t('photoAlt', { index: index + 1, count: items.length })}
+                src={photo.image.url}
+                alt={
+                  photo.alt ||
+                  photo.image.alt ||
+                  t('photoAlt', { index: index + 1, count: items.length })
+                }
                 loading="lazy"
                 className="size-full object-cover"
               />
@@ -115,7 +117,7 @@ export async function PurchaseMethods({ methods, operator }: Props) {
             const Icon = icons[method.type]
 
             return (
-              <Card key={method.id ?? index} className="gap-0 py-0">
+              <Card key={index} className="gap-0 py-0">
                 <Collapsible defaultOpen={index === 0}>
                   <CollapsibleTrigger className="group flex min-h-19 w-full flex-wrap items-center gap-4 bg-highlight px-4 py-4 text-left transition-colors hover:bg-highlight-hover data-panel-open:border-b-2 sm:px-5">
                     <span
@@ -126,7 +128,9 @@ export async function PurchaseMethods({ methods, operator }: Props) {
                     </span>
                     <span className="grid min-w-0 flex-[1_1_12rem] justify-items-start gap-0.5">
                       <span className="text-lg font-semibold">{method.title}</span>
-                      {method.subtitle && <span className="text-sm text-muted-foreground">{method.subtitle}</span>}
+                      {method.subtitle && (
+                        <span className="text-sm text-muted-foreground">{method.subtitle}</span>
+                      )}
                       <Badge className="mt-1.5 h-auto rounded-md border-border px-2.5 text-[0.8125rem] font-semibold">
                         {method.requiresValidation ? t('requiresValidation') : t('noValidation')}
                       </Badge>
@@ -178,7 +182,10 @@ export async function PurchaseMethods({ methods, operator }: Props) {
           {operator.hotline && (
             <p>
               {t('hotline', { operator: contactName })}:{' '}
-              <a href={`tel:${operator.hotline.replace(/\s+/g, '')}`} className="underline underline-offset-3">
+              <a
+                href={`tel:${operator.hotline.replace(/\s+/g, '')}`}
+                className="underline underline-offset-3"
+              >
                 {operator.hotline}
               </a>
             </p>

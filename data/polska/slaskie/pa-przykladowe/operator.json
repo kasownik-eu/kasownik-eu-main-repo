@@ -1,0 +1,10 @@
+{
+  "name": "Przewozy Aglomeracyjne",
+  "shortName": "PA",
+  "sampleData": true,
+  "transportModes": [
+    "bus",
+    "tram"
+  ],
+  "currency": "PLN"
+}

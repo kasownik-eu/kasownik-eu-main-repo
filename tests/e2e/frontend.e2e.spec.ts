@@ -1,20 +1,20 @@
-import { test, expect, Page } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
+// Runs against `next dev` (playwright.config.ts) with the sample operators in data/
 test.describe('Frontend', () => {
-  let page: Page
-
-  test.beforeAll(async ({ browser }, testInfo) => {
-    const context = await browser.newContext()
-    page = await context.newPage()
+  test('the root opens the Polish city list', async ({ page }) => {
+    await page.goto('http://localhost:3000/')
+    await expect(page).toHaveURL(/\/pl\/miasta\/$/)
+    await expect(page.locator('h1').first()).toHaveText('Miasta')
   })
 
-  test('can go on homepage', async ({ page }) => {
-    await page.goto('http://localhost:3000')
+  test('a city shows its primary operator and switches language', async ({ page }) => {
+    await page.goto('http://localhost:3000/pl/miasto/miasto-przykladowe/')
+    await expect(page.locator('h1').first()).toHaveText('Miejski Zarząd Transportu')
+    await expect(page.getByText('Bilet 20-minutowy').first()).toBeVisible()
 
-    await expect(page).toHaveTitle(/Payload Blank Template/)
-
-    const heading = page.locator('h1').first()
-
-    await expect(heading).toHaveText('Welcome to your new project.')
+    await page.locator('nav a[lang=en]').click()
+    await expect(page).toHaveURL(/\/en\/city\/miasto-przykladowe\/$/)
+    await expect(page.getByText('20-minute ticket').first()).toBeVisible()
   })
 })

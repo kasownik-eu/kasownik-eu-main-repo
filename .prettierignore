@@ -1,0 +1,4 @@
+# Written by scripts with JSON.stringify(_, null, 2); the tariff sync rewrites them in that style
+data/
+schemas/
+templates/

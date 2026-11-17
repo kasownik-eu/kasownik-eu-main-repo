@@ -1,13 +1,11 @@
 import { z } from 'zod'
 
-import { ticketCategories, transportModes } from '@/collections/Operators'
-import type { TariffData } from './types'
+import { ticketCategories, transportModes, type TransportMode } from '@/content/enums'
+import { ticketsFile, zonesFile } from '@/content/schema'
 
 const text = z.object({ pl: z.string().min(1), en: z.string().min(1) })
 const optionalText = text.nullable()
 const price = z.number().nonnegative().nullable()
-
-type TransportMode = (typeof transportModes)[number]
 
 // The transportModes enum is narrowed to the modes of the operator being synced
 export const tariffSchemaFor = (allowedModes: readonly TransportMode[]) => {
@@ -46,13 +44,15 @@ export const tariffSchemaFor = (allowedModes: readonly TransportMode[]) => {
   })
 }
 
-// Accepts every known mode: used where the operator's current modes don't matter (approving a stored proposal)
+// Accepts every known mode: used where the operator's current modes don't matter
 export const tariffSchema = tariffSchemaFor(transportModes)
 
-// Compile-time guard: the schema and the Payload-derived type must match in both directions
+// Compile-time guard: whatever the LLM returns must also be a valid tickets.json / zones.json
 type Infer = z.infer<typeof tariffSchema>
 type Assert<T extends true> = T
-export type _SchemaMatchesPayload = Assert<
-  [Infer] extends [TariffData] ? ([TariffData] extends [Infer] ? true : false) : false
+export type _FitsTicketsFile = Assert<
+  Pick<Infer, 'tickets' | 'luggage' | 'rulesNote'> extends z.input<typeof ticketsFile>
+    ? true
+    : false
 >
-
+export type _FitsZonesFile = Assert<Infer['zones'] extends z.input<typeof zonesFile> ? true : false>

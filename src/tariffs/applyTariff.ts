@@ -1,90 +1,78 @@
-import type { Payload, PayloadRequest } from 'payload'
+import { readFile, writeFile } from 'fs/promises'
+import path from 'path'
+
+import { OPERATOR_FILES, type RawOperator } from '@/content/load'
+import type { LocalizedText as ContentText, TicketsFile, ZonesFile } from '@/content/schema'
 
 import type { LocalizedText, TariffData } from './types'
 
-type Locale = 'pl' | 'en'
+// Content files may omit the English text (it falls back to Polish); the tariff shape always has both
+const both = (text: ContentText | null | undefined): LocalizedText | null =>
+  text ? { pl: text.pl, en: text.en ?? text.pl } : null
+const required = (text: ContentText): LocalizedText => both(text)!
 
-const pick = (text: LocalizedText | null, locale: Locale) => (text ? text[locale] : null)
-
-const tariffFor = (data: TariffData, locale: Locale) => ({
-  tickets: data.tickets.map((t) => ({
-    ...t,
-    name: t.name[locale],
-    validity: pick(t.validity, locale),
-    scope: pick(t.scope, locale),
-    whereToBuy: pick(t.whereToBuy, locale),
+// The operator's current tariff in the shape the LLM returns, so the two can be diffed
+export const toTariffData = ({
+  tickets,
+  zones,
+}: Pick<RawOperator, 'tickets' | 'zones'>): TariffData => ({
+  tickets: (tickets?.tickets ?? []).map((t) => ({
+    category: t.category,
+    name: required(t.name),
+    validity: both(t.validity),
+    scope: both(t.scope),
+    transportModes: t.transportModes ?? null,
+    priceNormal: t.priceNormal ?? null,
+    priceReduced: t.priceReduced ?? null,
+    whereToBuy: both(t.whereToBuy),
   })),
-  luggage: data.luggage.map((l) => ({
-    ...l,
-    item: l.item[locale],
-    note: pick(l.note, locale),
-    feeText: pick(l.feeText, locale),
-    conditions: pick(l.conditions, locale),
-    whereToBuy: pick(l.whereToBuy, locale),
+  luggage: (tickets?.luggage ?? []).map((l) => ({
+    item: required(l.item),
+    note: both(l.note),
+    transportModes: l.transportModes ?? null,
+    fee: l.fee ?? null,
+    feeText: both(l.feeText),
+    conditions: both(l.conditions),
+    whereToBuy: both(l.whereToBuy),
   })),
   zones: {
-    enabled: data.zones.enabled,
-    items: data.zones.items.map((z) => ({ name: z.name[locale], covers: pick(z.covers, locale) })),
-    noteTitle: pick(data.zones.noteTitle, locale),
-    note: pick(data.zones.note, locale),
+    enabled: Boolean(zones?.enabled),
+    items: (zones?.items ?? []).map((z) => ({ name: required(z.name), covers: both(z.covers) })),
+    noteTitle: both(zones?.noteTitle),
+    note: both(zones?.note),
   },
-  rulesNote: pick(data.rulesNote, locale),
+  rulesNote: both(tickets?.rulesNote),
 })
 
-// Writes tariff fields only (never purchaseMethods); returns the id of the operator version it created
+export const writeJson = (file: string, data: unknown) =>
+  writeFile(file, `${JSON.stringify(data, null, 2)}\n`)
+
+// Rewrites tickets.json and zones.json (never purchase.json); keeps fields the LLM doesn't produce (zone map).
+// The first tariff page becomes the rules link, and the operator's sources get the "AI assisted" note
 export const applyTariff = async (
-  payload: Payload,
-  id: number,
+  operator: Pick<RawOperator, 'dir' | 'tickets' | 'zones'>,
   data: TariffData,
-  { req, rulesUrl }: { req?: PayloadRequest; rulesUrl?: string | null } = {},
-): Promise<string | null> => {
-  const current = await payload.findByID({ collection: 'operators', id, locale: 'pl', depth: 0, req })
-  const pl = tariffFor(data, 'pl')
-  const en = tariffFor(data, 'en')
-  const context = { tariffSync: true }
+  { rulesUrl }: { rulesUrl?: string | null } = {},
+) => {
+  const tickets: TicketsFile = {
+    tickets: data.tickets,
+    luggage: data.luggage,
+    rulesNote: data.rulesNote,
+    rulesUrl: rulesUrl ?? operator.tickets?.rulesUrl ?? null,
+  }
+  const zones: ZonesFile = {
+    ...data.zones,
+    ...(operator.zones?.map ? { map: operator.zones.map } : {}),
+  }
 
-  // Polish pass replaces the arrays; the English pass reuses the new row ids so translations stay aligned
-  const operator = await payload.update({
-    collection: 'operators',
-    id,
-    locale: 'pl',
-    depth: 0,
-    req,
-    context,
-    data: {
-      ...pl,
-      zones: { ...current.zones, ...pl.zones },
-      rulesUrl: rulesUrl ?? current.rulesUrl,
-      sources: { ...current.sources, aiAssisted: true },
-    },
-  })
+  await writeJson(path.join(operator.dir, OPERATOR_FILES.tickets), tickets)
+  await writeJson(path.join(operator.dir, OPERATOR_FILES.zones), zones)
 
-  await payload.update({
-    collection: 'operators',
-    id,
-    locale: 'en',
-    depth: 0,
-    req,
-    context,
-    data: {
-      tickets: operator.tickets?.map((row, i) => ({ ...row, ...en.tickets[i] })),
-      luggage: operator.luggage?.map((row, i) => ({ ...row, ...en.luggage[i] })),
-      zones: {
-        ...operator.zones,
-        ...en.zones,
-        items: operator.zones?.items?.map((row, i) => ({ ...row, ...en.zones.items[i] })),
-      },
-      rulesNote: en.rulesNote,
-    },
-  })
-
-  const versions = await payload.findVersions({
-    collection: 'operators',
-    where: { parent: { equals: id } },
-    sort: '-updatedAt',
-    limit: 1,
-    depth: 0,
-    req,
-  })
-  return versions.docs[0] ? String(versions.docs[0].id) : null
+  // Edited as raw JSON, not the parsed value, so the editor's key order and formatting survive
+  const infoFile = path.join(operator.dir, OPERATOR_FILES.info)
+  const info = JSON.parse(await readFile(infoFile, 'utf8'))
+  if (info.sources?.aiAssisted !== true) {
+    info.sources = { ...info.sources, aiAssisted: true }
+    await writeJson(infoFile, info)
+  }
 }
