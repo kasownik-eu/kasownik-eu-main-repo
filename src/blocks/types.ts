@@ -1,12 +1,20 @@
 import type React from 'react'
 
-import type { CityRef, CityView, Localized, OperatorSummary, OperatorView } from '@/content'
+import type {
+  CityRef,
+  CityView,
+  Localized,
+  OperatorSummary,
+  OperatorView,
+  SearchEntry,
+} from '@/content'
 import type { Locale } from '@/i18n/routing'
 
 import type { BlockOf, BlockPages, BlockType, PageKind } from './schema'
 
 // What each page kind hands to its blocks
 type PageContexts = {
+  home: { page: 'home'; locale: Locale; search: SearchEntry[] }
   city: {
     page: 'city'
     locale: Locale

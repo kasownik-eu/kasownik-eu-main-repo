@@ -6,8 +6,7 @@ import { CountrySelect } from '@/components/cities/CountrySelect'
 import { initials } from '@/components/city/format'
 import { OperatorsBrowser, type OperatorItem } from '@/components/operators/OperatorsBrowser'
 import { LineMark } from '@/components/site/decor'
-import { TramStrip } from '@/components/site/TramStrip'
-import { Button } from '@/components/ui/button'
+import { SiteFooter } from '@/components/site/SiteFooter'
 
 import type { BlockProps, PageContext } from './types'
 
@@ -85,16 +84,8 @@ export async function ListFooterBlock({ ctx }: BlockProps<'listFooter'>) {
   const t = await messagesOf(ctx)
 
   return (
-    <footer className="chrome mt-16 pb-8">
-      <TramStrip />
-      <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 sm:px-6">
-        <p className="max-w-[70ch] flex-[1_1_20rem] text-sm text-muted-foreground">
-          {t('footerNote')}
-        </p>
-        <Button size="lg" nativeButton={false} render={<a href={REPORT_URL} />}>
-          {t('reportMissing')}
-        </Button>
-      </div>
-    </footer>
+    <SiteFooter actionLabel={t('reportMissing')} actionHref={REPORT_URL}>
+      <p>{t('footerNote')}</p>
+    </SiteFooter>
   )
 }

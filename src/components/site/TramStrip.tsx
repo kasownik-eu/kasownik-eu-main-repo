@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef } from 'react'
 
-// Tram track along the top of the black footer; the tram rolls in once the track is fully in view.
+// Tram track along the top of the black footer, with a stop platform; the tram rolls in to the platform
+// once the track is fully in view.
 // Without JS or with reduced motion it simply stands still.
 export function TramStrip() {
   const ref = useRef<HTMLDivElement>(null)
@@ -37,17 +38,19 @@ export function TramStrip() {
   }, [])
 
   return (
-    <div ref={ref} aria-hidden="true" className="group/track relative mb-6 h-3.5 overflow-hidden print:hidden">
+    <div ref={ref} aria-hidden="true" className="group/track relative mb-6 h-[26px] overflow-hidden print:hidden">
       {/* sleepers */}
-      <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,var(--rail)_0_4px,transparent_4px_16px)]" />
+      <div className="absolute inset-x-0 top-0 h-3.5 bg-[repeating-linear-gradient(90deg,var(--rail)_0_4px,transparent_4px_16px)]" />
       {/* rails */}
       <div className="absolute inset-x-0 top-[3px] h-0.5 bg-primary" />
       <div className="absolute inset-x-0 top-[9px] h-0.5 bg-primary" />
+      {/* platform under the stopped tram */}
+      <div className="absolute top-4 left-[calc(62%-16px)] h-2.5 w-36 border-t-2 border-primary bg-platform" />
       <svg
         viewBox="0 0 112 14"
         width="112"
         height="14"
-        className="absolute top-0 left-[58%] group-data-[phase=go]/track:transition-[left] group-data-[phase=go]/track:duration-[4s] group-data-[phase=go]/track:ease-[cubic-bezier(0.2,0.7,0.3,1)] group-data-[phase=start]/track:-left-[120px]"
+        className="absolute top-0 left-[62%] group-data-[phase=go]/track:transition-[left] group-data-[phase=go]/track:duration-[4s] group-data-[phase=go]/track:ease-[cubic-bezier(0.2,0.7,0.3,1)] group-data-[phase=start]/track:-left-[120px]"
       >
         <g className="fill-rail">
           <rect x="32" y="3" width="7" height="8" />

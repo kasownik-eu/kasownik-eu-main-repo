@@ -1,0 +1,14 @@
+{
+  "description": "Home page: what the site answers and the search, a tour of an operator page, where the information comes from",
+  "hero": [{ "type": "homeHero" }],
+  "main": [{ "type": "operatorTour" }, { "type": "aiSources" }],
+  "bottom": [
+    {
+      "type": "siteFooter",
+      "note": {
+        "pl": "Kasownik to niezależny serwis informacyjny. Nie sprzedajemy biletów i nie jesteśmy przewoźnikiem.",
+        "en": "Kasownik is an independent information service. We don't sell tickets and we are not a transport operator."
+      }
+    }
+  ]
+}

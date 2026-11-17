@@ -1,5 +1,6 @@
 import { BreadcrumbsBlock } from './BreadcrumbsBlock'
 import { NoticeBlock, TextBlock } from './ContentBlocks'
+import { AiSourcesBlock, HomeHeroBlock, OperatorTourBlock, SiteFooterBlock } from './HomeBlocks'
 import {
   CitiesBrowserBlock,
   ListFooterBlock,
@@ -23,6 +24,10 @@ import type { BlockComponent } from './types'
 // "operatorBlocks" has no component: RenderTemplate replaces it with the operator's own blocks
 export const blockRegistry: { [T in Exclude<BlockType, 'operatorBlocks'>]: BlockComponent<T> } = {
   breadcrumbs: BreadcrumbsBlock,
+  homeHero: HomeHeroBlock,
+  operatorTour: OperatorTourBlock,
+  aiSources: AiSourcesBlock,
+  siteFooter: SiteFooterBlock,
   sampleNotice: SampleNoticeBlock,
   operatorHeader: OperatorHeaderBlock,
   purchaseMethods: PurchaseMethodsBlock,

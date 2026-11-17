@@ -218,6 +218,36 @@ export const getCity = (slug: string, locale: Locale): CityView | null => {
 export const getCities = (locale: Locale): CityRef[] =>
   [...getCatalog().cities.values()].map((city) => cityRef(city, locale)).sort(byName(locale))
 
+// Every city and operator in every country, for the site-wide search (the home page)
+export type SearchEntry = {
+  kind: 'city' | 'operator'
+  slug: string
+  name: string
+  country: string | null
+}
+
+export const getSearchIndex = (locale: Locale): SearchEntry[] => {
+  const { countries, cities, operators } = getCatalog()
+  const countryName = (slug: string) => {
+    const country = countries.find((entry) => entry.slug === slug)
+    return country ? pickLocale(country.name, locale) : null
+  }
+  return [
+    ...[...cities.values()].map((city) => ({
+      kind: 'city' as const,
+      slug: city.slug,
+      name: pickLocale(city.name, locale),
+      country: countryName(city.country),
+    })),
+    ...[...operators.values()].map((operator) => ({
+      kind: 'operator' as const,
+      slug: operator.slug,
+      name: operator.info.name,
+      country: countryName(operator.country),
+    })),
+  ].sort(byName(locale))
+}
+
 // The loader guarantees every page kind has a default and that operators only name existing templates
 export const getTemplate = (page: PageKind, name: string = DEFAULT_TEMPLATE): Template => {
   const template = getCatalog().templates[page].get(name)
