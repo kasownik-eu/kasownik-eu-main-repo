@@ -1,0 +1,14 @@
+{
+  "description": "City page: the city's primary operator fills it, the city's other operators show as related",
+  "top": [{ "type": "breadcrumbs" }],
+  "main": [
+    { "type": "sampleNotice" },
+    { "type": "operatorHeader" },
+    { "type": "operatorBlocks" },
+    { "type": "purchaseMethods" },
+    { "type": "tickets" },
+    { "type": "zones" },
+    { "type": "relatedOperators", "visible": 3 }
+  ],
+  "bottom": [{ "type": "sourceFooter" }]
+}

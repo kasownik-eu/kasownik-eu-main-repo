@@ -31,6 +31,30 @@ data/
   `src/content/schema.ts`, run `npm run generate:schemas`.
 - `images/` are copied to `public/media/<operator>/` before `dev` and `build`; restart `npm run dev` after adding images.
 
+## Templates
+
+Pages are assembled from reusable blocks. Each page kind has templates in `templates/<page>/<name>.json`
+(`city`, `operator`, `cities`, `operators`; `default.json` is required) that list blocks in three slots:
+
+```json
+{
+  "top": [{ "type": "breadcrumbs" }],
+  "main": [
+    { "type": "operatorHeader" },
+    { "type": "notice", "tone": "info", "text": { "pl": "Nowy cennik od 1 stycznia.", "en": "New fares from 1 January." } },
+    { "type": "tickets" },
+    { "type": "relatedOperators", "visible": 3 }
+  ],
+  "bottom": [{ "type": "sourceFooter" }]
+}
+```
+
+- Block types, where each may be used and its settings: `src/blocks/schema.ts`; components: `src/blocks/`.
+- An operator uses another template with `"templates": { "city": "compact" }` in `operator.json`, and can add its own
+  `notice` / `text` blocks in `"blocks": [...]`; they appear where the template has `{ "type": "operatorBlocks" }`.
+- Validation is the same as for content: unknown blocks, misspelled settings, blocks on the wrong page and missing
+  templates fail `npm run validate:data` and the build. VS Code autocompletes templates too.
+
 ## Development
 
 ```bash

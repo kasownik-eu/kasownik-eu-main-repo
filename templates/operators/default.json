@@ -1,0 +1,6 @@
+{
+  "description": "List of all operators, grouped and searchable",
+  "top": [{ "type": "breadcrumbs" }],
+  "main": [{ "type": "pageHeading", "countrySelect": true }, { "type": "operatorsBrowser" }],
+  "bottom": [{ "type": "listFooter" }]
+}

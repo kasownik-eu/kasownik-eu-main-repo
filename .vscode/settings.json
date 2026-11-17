@@ -8,7 +8,8 @@
     { "fileMatch": ["data/*/*/*/cities.json"], "url": "./schemas/cities.schema.json" },
     { "fileMatch": ["data/*/*/*/purchase.json"], "url": "./schemas/purchase.schema.json" },
     { "fileMatch": ["data/*/*/*/tickets.json"], "url": "./schemas/tickets.schema.json" },
-    { "fileMatch": ["data/*/*/*/zones.json"], "url": "./schemas/zones.schema.json" }
+    { "fileMatch": ["data/*/*/*/zones.json"], "url": "./schemas/zones.schema.json" },
+    { "fileMatch": ["templates/*/*.json"], "url": "./schemas/template.schema.json" }
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[typescript]": {

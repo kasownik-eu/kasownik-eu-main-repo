@@ -24,6 +24,8 @@ type Props = {
   related: RelatedView[]
   // Other operators of the same city that the main operator has no relation entry for
   sameCity?: OperatorSummary[]
+  // Cards shown before "Show all"
+  visible?: number
 }
 
 type Related = Omit<RelatedView, 'operator'>
@@ -115,7 +117,7 @@ async function RelatedCard({ row, operator }: Omit<Item, 'key'>) {
 }
 
 // Other carriers in the area; the whole card links to the carrier's own page
-export async function RelatedOperators({ related, sameCity = [] }: Props) {
+export async function RelatedOperators({ related, sameCity = [], visible = VISIBLE }: Props) {
   const rows: Item[] = related.map(({ operator, ...row }) => ({
     key: operator.slug,
     row,
@@ -139,8 +141,8 @@ export async function RelatedOperators({ related, sameCity = [] }: Props) {
     <Section id="related" title={t('title')} lead={t('lead')}>
       <ShowMoreList
         className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        visible={cards.slice(0, VISIBLE)}
-        hidden={cards.slice(VISIBLE)}
+        visible={cards.slice(0, visible)}
+        hidden={cards.slice(visible)}
         showAllLabel={t('showAll', { count: items.length })}
         showLessLabel={t('showLess')}
       />

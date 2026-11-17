@@ -3,6 +3,8 @@ import { tmpdir } from 'os'
 import path from 'path'
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
+import { resolveSlot } from '@/blocks/resolve'
+import { pageKinds, type Template } from '@/blocks/schema'
 import { getCities, getCity, getOperator, getOperatorSummaries, localize } from '@/content'
 import { jsonSchemas } from '@/content/jsonSchemas'
 import { ContentError, loadCatalog } from '@/content/load'
@@ -144,5 +146,115 @@ describe('JSON schemas for editors', () => {
       const file = path.resolve('schemas', `${name}.schema.json`)
       expect(JSON.parse(await readFile(file, 'utf8')), file).toEqual(schema)
     }
+  })
+})
+
+describe('templates', () => {
+  let templates: string
+  const TEMPLATES = path.resolve('templates')
+  const write = (file: string, data: unknown) =>
+    writeFile(path.join(templates, file), JSON.stringify(data))
+  const problems = (content = FIXTURE) => {
+    try {
+      loadCatalog(content, templates)
+    } catch (err) {
+      if (err instanceof ContentError) return err.problems
+      throw err
+    }
+    return []
+  }
+
+  beforeEach(async () => {
+    templates = await mkdtemp(path.join(tmpdir(), 'templates-'))
+    await cp(TEMPLATES, templates, { recursive: true })
+  })
+  afterEach(() => rm(templates, { recursive: true, force: true }))
+
+  it('loads a default template for every page', () => {
+    const catalog = loadCatalog(FIXTURE, templates)
+    for (const page of pageKinds) expect(catalog.templates[page].has('default')).toBe(true)
+  })
+
+  it('rejects unknown blocks, misspelled settings and blocks from another page', async () => {
+    await write('city/broken.json', {
+      main: [
+        { type: 'carousel' },
+        { type: 'relatedOperators', visibel: 3 },
+        { type: 'citiesBrowser' },
+      ],
+    })
+    expect(problems()).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/templates\/city\/broken\.json at main\.0\.type: /),
+        expect.stringMatching(
+          /templates\/city\/broken\.json at main\.1: Unrecognized key: "visibel"/,
+        ),
+      ]),
+    )
+
+    await write('city/broken.json', { main: [{ type: 'citiesBrowser' }] })
+    expect(problems()).toEqual([
+      'templates/city/broken.json at main.0: block "citiesBrowser" cannot be used on city pages',
+    ])
+  })
+
+  it('requires a default per page and known page folders', async () => {
+    await unlink(path.join(templates, 'operators', 'default.json'))
+    await cp(path.join(templates, 'city'), path.join(templates, 'town'), { recursive: true })
+    expect(problems()).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/templates\/operators\/default\.json: file is missing/),
+        expect.stringMatching(/templates\/town: unknown page/),
+      ]),
+    )
+  })
+
+  it("checks the operator's template names and own blocks", async () => {
+    const content = await mkdtemp(path.join(tmpdir(), 'content-'))
+    try {
+      await cp(FIXTURE, content, { recursive: true })
+      const file = path.join(content, 'polska', 'slaskie', 'testowy', 'operator.json')
+      const info = JSON.parse(await readFile(file, 'utf8'))
+      await writeFile(
+        file,
+        JSON.stringify({ ...info, templates: { city: 'ghost' }, blocks: [{ type: 'tickets' }] }),
+      )
+      expect(problems(content)).toEqual(
+        expect.arrayContaining([
+          expect.stringMatching(/testowy\/operator\.json at blocks\.0\.type: /),
+        ]),
+      )
+
+      await writeFile(file, JSON.stringify({ ...info, templates: { city: 'ghost' } }))
+      expect(problems(content)).toEqual([
+        expect.stringMatching(
+          /testowy\/operator\.json: template "ghost" does not exist in templates\/city\//,
+        ),
+      ])
+    } finally {
+      await rm(content, { recursive: true, force: true })
+    }
+  })
+
+  it("puts the operator's own blocks where the template says", () => {
+    process.env.CONTENT_DIR = FIXTURE
+    const operator = getOperator('testowy', 'pl')!
+    expect(operator.templates).toEqual({ city: 'default', operator: 'default' })
+    const template = {
+      main: [{ type: 'operatorHeader' }, { type: 'operatorBlocks' }, { type: 'tickets' }],
+    } as Template
+
+    const blocks = resolveSlot(template, 'main', { page: 'operator', locale: 'pl', operator })
+    expect(blocks.map((block) => block.type)).toEqual(['operatorHeader', 'notice', 'tickets'])
+    expect(localize(blocks[1], 'en')).toEqual({
+      type: 'notice',
+      tone: 'warning',
+      title: 'Disruption',
+      text: 'Objazd linii 1.',
+    })
+    // List pages have no operator: the placeholder renders nothing
+    expect(
+      resolveSlot(template, 'main', { page: 'cities', locale: 'pl', cities: [] }),
+    ).toHaveLength(2)
   })
 })

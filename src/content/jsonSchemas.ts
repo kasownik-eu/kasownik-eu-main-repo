@@ -1,5 +1,7 @@
 import { z } from 'zod'
 
+import { templateFile } from '@/blocks/schema'
+
 import {
   citiesFile,
   countryFile,
@@ -10,7 +12,8 @@ import {
   zonesFile,
 } from './schema'
 
-// JSON Schemas for editors, keyed by the file they describe (country.json -> schemas/country.schema.json)
+// JSON Schemas for editors, keyed by the file they describe (country.json -> schemas/country.schema.json;
+// template -> templates/<page>/<name>.json)
 export const jsonSchemas = () =>
   Object.fromEntries(
     Object.entries({
@@ -21,5 +24,6 @@ export const jsonSchemas = () =>
       purchase: purchaseFile,
       tickets: ticketsFile,
       zones: zonesFile,
+      template: templateFile,
     }).map(([name, schema]) => [name, z.toJSONSchema(schema, { io: 'input' })]),
   )

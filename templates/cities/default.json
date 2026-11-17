@@ -1,0 +1,6 @@
+{
+  "description": "List of all cities, grouped and searchable",
+  "top": [{ "type": "breadcrumbs" }],
+  "main": [{ "type": "pageHeading", "countrySelect": true }, { "type": "citiesBrowser" }],
+  "bottom": [{ "type": "listFooter" }]
+}

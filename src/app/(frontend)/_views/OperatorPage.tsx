@@ -2,9 +2,9 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-import { CityBreadcrumbs, OperatorContent, RelatedOperators, ServedCities, SourceFooter } from '@/components/city'
+import { RenderTemplate } from '@/blocks/RenderTemplate'
+import { getOperator, getOperatorSlugs, getTemplate } from '@/content'
 import type { Locale } from '@/i18n/routing'
-import { getOperator, getOperatorSlugs } from '@/content'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -28,20 +28,11 @@ export const operatorPage = (locale: Locale) => ({
     const operator = getOperator((await params).slug, locale)
     if (!operator) notFound()
 
-  return (
-    <>
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-        <CityBreadcrumbs city={operator.name} section="operators" />
-
-        <main id="main" tabIndex={-1} className="outline-none">
-          <OperatorContent operator={operator} />
-          <ServedCities cities={operator.cities} />
-          <RelatedOperators related={operator.related} />
-        </main>
-      </div>
-
-      <SourceFooter sources={operator.sources} verifiedAt={operator.verifiedAt} />
-    </>
-  )
+    return (
+      <RenderTemplate
+        template={getTemplate('operator', operator.templates.operator)}
+        ctx={{ page: 'operator', locale, operator }}
+      />
+    )
   },
 })

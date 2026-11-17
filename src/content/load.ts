@@ -2,6 +2,8 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
 import { z } from 'zod'
 
+import { allowsPage, pageKinds, type PageKind, type Template, templateFile } from '@/blocks/schema'
+
 import {
   citiesFile,
   countryFile,
@@ -64,16 +66,21 @@ export type Catalog = {
   voivodeships: Map<string, Voivodeship>
   operators: Map<string, RawOperator>
   cities: Map<string, RawCity>
+  // templates/<page>/<name>.json
+  templates: Record<PageKind, Map<string, Template>>
 }
+
+export const DEFAULT_TEMPLATE = 'default'
 
 export class ContentError extends Error {
   constructor(readonly problems: string[]) {
-    super(`Invalid content in the data folder:\n${problems.map((p) => `  - ${p}`).join('\n')}`)
+    super(`Invalid content or templates:\n${problems.map((p) => `  - ${p}`).join('\n')}`)
     this.name = 'ContentError'
   }
 }
 
 export const contentDir = () => path.resolve(process.env.CONTENT_DIR || 'data')
+export const templatesDir = () => path.resolve(process.env.TEMPLATES_DIR || 'templates')
 
 const subdirs = (dir: string) =>
   readdirSync(dir, { withFileTypes: true })
@@ -82,8 +89,9 @@ const subdirs = (dir: string) =>
     .sort()
 
 // Collects every problem instead of stopping at the first one, so one build run lists all of them
-const createReader = (root: string, problems: string[]) => {
-  const rel = (file: string) => path.relative(root, file) || '.'
+// Problems name files relative to `root`, after `label` (e.g. "templates/city/default.json")
+const createReader = (root: string, problems: string[], label = '') => {
+  const rel = (file: string) => label + path.relative(root, file) || '.'
 
   function read<S extends z.ZodType>(file: string, schema: S, optional: true): z.infer<S> | null
   function read<S extends z.ZodType>(
@@ -123,7 +131,57 @@ const imagesOf = (op: Pick<RawOperator, 'info' | 'purchase' | 'zones'>): ImageRe
   ...op.purchase.flatMap((method) => (method.validationPhotos ?? []).map((photo) => photo.image)),
 ]
 
-export const loadCatalog = (root = contentDir()): Catalog => {
+// templates/<page>/<name>.json; every page kind needs a "default"
+const loadTemplates = (root: string, problems: string[]) => {
+  const { read, rel } = createReader(root, problems, 'templates/')
+  const templates = Object.fromEntries(
+    pageKinds.map((page) => [page, new Map()]),
+  ) as Catalog['templates']
+  if (!existsSync(root)) {
+    problems.push(`templates folder ${root} does not exist`)
+    return templates
+  }
+
+  for (const page of subdirs(root)) {
+    if (!(pageKinds as readonly string[]).includes(page)) {
+      problems.push(
+        `${rel(path.join(root, page))}: unknown page (expected ${pageKinds.join(', ')})`,
+      )
+      continue
+    }
+    const files = readdirSync(path.join(root, page)).filter((file) => file.endsWith('.json'))
+    for (const file of files) {
+      const name = path.basename(file, '.json')
+      const location = path.join(root, page, file)
+      if (!SLUG.test(name)) {
+        problems.push(
+          `${rel(location)}: template names are slugs (lowercase letters, digits and hyphens)`,
+        )
+        continue
+      }
+      const template = read(location, templateFile)
+      if (!template) continue
+      for (const slot of ['top', 'main', 'bottom'] as const) {
+        template[slot]?.forEach((block, index) => {
+          if (!allowsPage(block.type, page as PageKind)) {
+            problems.push(
+              `${rel(location)} at ${slot}.${index}: block "${block.type}" cannot be used on ${page} pages`,
+            )
+          }
+        })
+      }
+      templates[page as PageKind].set(name, template)
+    }
+  }
+  for (const page of pageKinds) {
+    if (!templates[page].has(DEFAULT_TEMPLATE)) {
+      problems.push(`${rel(path.join(root, page, `${DEFAULT_TEMPLATE}.json`))}: file is missing`)
+    }
+  }
+  return templates
+}
+
+export const loadCatalog = (root = contentDir(), templatesRoot = templatesDir()): Catalog => {
   if (!existsSync(root)) throw new ContentError([`content folder ${root} does not exist`])
 
   const problems: string[] = []
@@ -133,6 +191,7 @@ export const loadCatalog = (root = contentDir()): Catalog => {
     voivodeships: new Map(),
     operators: new Map(),
     cities: new Map(),
+    templates: loadTemplates(templatesRoot, problems),
   }
   const checkSlug = (dir: string) => {
     if (SLUG.test(path.basename(dir))) return true
@@ -228,6 +287,14 @@ export const loadCatalog = (root = contentDir()): Catalog => {
       }
     }
 
+    for (const [page, name] of Object.entries(operator.info.templates ?? {})) {
+      if (name && !catalog.templates[page as PageKind].has(name)) {
+        problems.push(
+          `${rel(path.join(operator.dir, OPERATOR_FILES.info))}: template "${name}" does not exist in templates/${page}/`,
+        )
+      }
+    }
+
     const seen = new Set<string>()
     for (const entry of operator.cities) {
       if (seen.has(entry.slug)) problems.push(`${file}: city "${entry.slug}" is listed twice`)
@@ -285,10 +352,12 @@ export const loadCatalog = (root = contentDir()): Catalog => {
 }
 
 // Built once per process for production builds; re-read on every request in `next dev` so JSON edits show up
-let cached: { root: string; catalog: Catalog } | null = null
+let cached: { key: string; catalog: Catalog } | null = null
 export const getCatalog = (): Catalog => {
   const root = contentDir()
-  if (process.env.NODE_ENV === 'development') return loadCatalog(root)
-  if (cached?.root !== root) cached = { root, catalog: loadCatalog(root) }
+  const templates = templatesDir()
+  if (process.env.NODE_ENV === 'development') return loadCatalog(root, templates)
+  const key = `${root}\0${templates}`
+  if (cached?.key !== key) cached = { key, catalog: loadCatalog(root, templates) }
   return cached.catalog
 }

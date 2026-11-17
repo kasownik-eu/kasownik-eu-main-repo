@@ -1,5 +1,7 @@
 import { defaultLocale, type locales, type TransportMode } from './enums'
-import { getCatalog, type RawCity, type RawOperator } from './load'
+import type { Block, PageKind, Template } from '@/blocks/schema'
+
+import { DEFAULT_TEMPLATE, getCatalog, type RawCity, type RawOperator } from './load'
 import type {
   ImageRef,
   LocalizedText,
@@ -88,6 +90,10 @@ export type OperatorView = OperatorSummary & {
   zones: ZonesView | null
   related: RelatedView[]
   sources: SourcesView | null
+  // Template names for the operator's city and operator pages
+  templates: { city: string; operator: string }
+  // The operator's own content parts, still in both locales (blocks are localized when rendered)
+  blocks: Block[]
 }
 
 export type CityView = {
@@ -181,6 +187,11 @@ const view = (operator: RawOperator, locale: Locale): OperatorView => {
       operator: summary(operators.get(row.operator)!, locale),
     })),
     sources: info.sources ? localize(info.sources, locale) : null,
+    templates: {
+      city: info.templates?.city ?? DEFAULT_TEMPLATE,
+      operator: info.templates?.operator ?? DEFAULT_TEMPLATE,
+    },
+    blocks: info.blocks ?? [],
   }
 }
 
@@ -206,3 +217,10 @@ export const getCity = (slug: string, locale: Locale): CityView | null => {
 // Only cities some operator serves exist at all, so every one has a page
 export const getCities = (locale: Locale): CityRef[] =>
   [...getCatalog().cities.values()].map((city) => cityRef(city, locale)).sort(byName(locale))
+
+// The loader guarantees every page kind has a default and that operators only name existing templates
+export const getTemplate = (page: PageKind, name: string = DEFAULT_TEMPLATE): Template => {
+  const template = getCatalog().templates[page].get(name)
+  if (!template) throw new Error(`Template "${name}" for ${page} pages does not exist`)
+  return template
+}

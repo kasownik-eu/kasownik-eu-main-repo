@@ -7,20 +7,15 @@ import {
   ticketValidities,
   transportModes,
 } from './enums'
+import { operatorBlockSchema } from '@/blocks/schema'
+
+import { localizedText, optionalText, slug } from './primitives'
+
+export { localizedText } from './primitives'
 
 // Schemas of the files under data/<country>/<voivodeship>/<operator>/. Objects are strict so a typo in a key
 // fails the build instead of silently hiding a field. Optional fields accept null (the tariff sync writes nulls).
 
-const slug = z
-  .string()
-  .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'Use lowercase letters, digits and hyphens')
-
-// Polish is required; English falls back to Polish when missing
-export const localizedText = z.strictObject({
-  pl: z.string().min(1),
-  en: z.string().min(1).optional(),
-})
-const optionalText = localizedText.nullish()
 const url = z.url().nullish()
 const price = z.number().nonnegative().nullish()
 const modes = z.array(z.enum(transportModes)).nullish()
@@ -78,6 +73,10 @@ export const operatorFile = z.strictObject({
     .nullish(),
   // Pages read by the tariff sync (tickets, luggage, zones, rules note)
   tariffSources: z.array(z.strictObject({ url: z.url(), xpath: z.string().nullish() })).nullish(),
+  // Page templates (templates/<page>/<name>.json) for this operator's city and operator pages; default "default"
+  templates: z.strictObject({ city: slug.optional(), operator: slug.optional() }).nullish(),
+  // The operator's own content parts (notice, text), rendered where the template puts "operatorBlocks"
+  blocks: z.array(operatorBlockSchema).nullish(),
 })
 
 // The cities this operator serves. A city may be listed by several operators; `primary` picks whose content

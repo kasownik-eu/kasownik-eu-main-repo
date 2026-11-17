@@ -1,0 +1,15 @@
+{
+  "description": "Operator page: target of related-carrier cards and home of carriers that serve no city",
+  "top": [{ "type": "breadcrumbs" }],
+  "main": [
+    { "type": "sampleNotice" },
+    { "type": "operatorHeader" },
+    { "type": "operatorBlocks" },
+    { "type": "purchaseMethods" },
+    { "type": "tickets" },
+    { "type": "zones" },
+    { "type": "servedCities" },
+    { "type": "relatedOperators", "visible": 3 }
+  ],
+  "bottom": [{ "type": "sourceFooter" }]
+}
