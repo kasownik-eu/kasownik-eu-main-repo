@@ -28,9 +28,8 @@ export type CityGroup = {
   id: string
   name: string
   cities: {
-    id: number | string
-    name: string
     slug: string
+    name: string
   }[]
 }
 
@@ -138,7 +137,7 @@ export function CitiesBrowser({ groups, reportUrl = '#' }: Props) {
                 </CardHeader>
                 <ul>
                   {group.cities.map((city) => (
-                    <li key={city.id} className="border-b last:border-b-0">
+                    <li key={city.slug} className="border-b last:border-b-0">
                       <Link
                         href={{ pathname: '/city/[slug]', params: { slug: city.slug } }}
                         className="group flex min-h-14 items-center justify-between gap-3 px-5 py-2 text-lg font-medium hover:bg-highlight"

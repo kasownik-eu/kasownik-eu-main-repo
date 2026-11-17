@@ -1,0 +1,9 @@
+{
+  "name": "Gminny Transport Zachód",
+  "shortName": "GT",
+  "sampleData": true,
+  "transportModes": [
+    "bus"
+  ],
+  "currency": "PLN"
+}

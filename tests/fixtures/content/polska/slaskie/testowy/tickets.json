@@ -1,0 +1,4 @@
+{
+  "tickets": [{ "category": "single", "name": { "pl": "Bilet jednorazowy" }, "priceNormal": 4 }],
+  "rulesUrl": "https://example.com/regulamin"
+}

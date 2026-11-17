@@ -1,0 +1,115 @@
+{
+  "name": "Miejski Zarząd Transportu",
+  "shortName": "MZT",
+  "sampleData": true,
+  "label": {
+    "pl": "Organizator transportu · przykład",
+    "en": "Transport authority · example"
+  },
+  "description": {
+    "pl": "Organizator publicznego transportu w mieście i okolicznych gminach. Odpowiada za tramwaje, autobusy i metro, rozkłady jazdy oraz system biletowy.",
+    "en": "Organiser of public transport in the city and neighbouring municipalities. Runs trams, buses and the metro, timetables and the ticketing system."
+  },
+  "websiteUrl": "https://example.com",
+  "timetableUrl": "https://example.com/rozklady",
+  "transportModes": [
+    "tram",
+    "bus",
+    "metro"
+  ],
+  "zoneCount": 3,
+  "currency": "PLN",
+  "paymentInfo": {
+    "pl": "PLN, karta, aplikacja",
+    "en": "PLN, card, app"
+  },
+  "hotline": "00 000 00 00",
+  "servicePoint": {
+    "pl": "ul. Przykładowa 1, pon.–pt. 8:00–16:00",
+    "en": "1 Sample St, Mon–Fri 8:00–16:00"
+  },
+  "verifiedAt": "2026-11-12",
+  "related": [
+    {
+      "operator": "zks-przykladowe",
+      "relation": "neighbourCity",
+      "ticketValidity": "valid",
+      "note": {
+        "pl": "Bilet miejski honorowany w całej sieci (przykład).",
+        "en": "The city ticket is accepted across the network (example)."
+      }
+    },
+    {
+      "operator": "pa-przykladowe",
+      "relation": "sharedArea",
+      "ticketValidity": "partial",
+      "note": {
+        "pl": "Tylko na wybranych liniach (przykład).",
+        "en": "Only on selected lines (example)."
+      },
+      "coverage": {
+        "pl": "strefy B i C",
+        "en": "zones B and C"
+      }
+    },
+    {
+      "operator": "kr-przykladowe",
+      "relation": "regional",
+      "ticketValidity": "invalid",
+      "note": {
+        "pl": "Potrzebny osobny bilet (przykład).",
+        "en": "A separate ticket is needed (example)."
+      },
+      "coverage": {
+        "pl": "cały region",
+        "en": "the whole region"
+      }
+    },
+    {
+      "operator": "gt-przykladowe",
+      "relation": "sharedArea",
+      "ticketValidity": "invalid",
+      "note": {
+        "pl": "Własny cennik gminy (przykład).",
+        "en": "The municipality's own fares (example)."
+      },
+      "coverage": {
+        "pl": "strefa C",
+        "en": "zone C"
+      }
+    },
+    {
+      "operator": "bn-przykladowe",
+      "relation": "private",
+      "ticketValidity": "invalid",
+      "note": {
+        "pl": "Bilet kupowany u kierowcy (przykład).",
+        "en": "Ticket bought from the driver (example)."
+      },
+      "coverage": {
+        "pl": "linie nocne",
+        "en": "night lines"
+      }
+    }
+  ],
+  "sources": {
+    "items": [
+      {
+        "label": {
+          "pl": "Oficjalna strona operatora (przykład)",
+          "en": "Official operator website (example)"
+        },
+        "url": "https://example.com"
+      },
+      {
+        "label": {
+          "pl": "Cennik",
+          "en": "Price list"
+        },
+        "url": "https://example.com/cennik"
+      }
+    ],
+    "aiAssisted": true
+  },
+  "tariffSources": []
+}

@@ -1,7 +1,7 @@
 name: Deploy develop
 
-# Builds the app and publishes it to the `develop-latest` release.
-# The host pulls it from there by cron (deploy/deploy.sh); GitHub holds no host credentials.
+# Builds the static site (out/, from the JSON files in data/) and publishes it to the `develop-latest` release.
+# The host pulls it from there by cron and serves the files as they are; GitHub holds no host credentials.
 
 on:
   push:
@@ -19,16 +19,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PAYLOAD_SECRET: ci-only
-      DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/ci
       NEXT_TELEMETRY_DISABLED: '1'
-    services:
-      postgres: # static pages query the DB at build time
-        image: postgres:16
-        env:
-          POSTGRES_PASSWORD: postgres
-        ports: ['5432:5432']
-        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,31 +27,24 @@ jobs:
           node-version: '22.23.4'
           cache: npm
       - run: npm ci
-      - run: npm run build
-
-      - name: Assemble bundle
-        run: |
-          cp -R .next/static .next/standalone/.next/static
-          # sharp comes in via next as optional dep, never used (images.unoptimized)
-          rm -rf .next/standalone/node_modules/sharp .next/standalone/node_modules/@img .next/standalone/.env*
-          # The host is FreeBSD: native addons would not load there
-          if find .next/standalone -name '*.node' | grep .; then echo "Native modules in bundle"; exit 1; fi
+      - run: npm run test:int
+      - run: npm run build # also validates data/
 
       - name: Smoke test
-        working-directory: .next/standalone
+        working-directory: out
         run: |
-          node server.js > "$RUNNER_TEMP/server.log" 2>&1 &
+          python3 -m http.server 3000 > "$RUNNER_TEMP/server.log" 2>&1 &
           PID=$!
-          code=$(curl -s -o /dev/null -w '%{http_code}' --retry 15 --retry-connrefused --retry-delay 2 --max-time 120 http://127.0.0.1:3000/admin || true)
+          code=$(curl -s -o /dev/null -w '%{http_code}' --retry 15 --retry-connrefused --retry-delay 1 --max-time 30 http://127.0.0.1:3000/pl/miasta/ || true)
           kill $PID
-          echo "/admin -> $code"
+          echo "/pl/miasta/ -> $code"
           [ "$code" = 200 ] || { cat "$RUNNER_TEMP/server.log"; exit 1; }
 
       - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          tar -czf "bundle-$GITHUB_SHA.tar.gz" -C .next/standalone .
+          tar -czf "bundle-$GITHUB_SHA.tar.gz" -C out .
           echo "$GITHUB_SHA" > version.txt
           gh release view develop-latest >/dev/null 2>&1 ||
             gh release create develop-latest --prerelease --title "develop (latest build)" --notes "Pulled by the dev server."

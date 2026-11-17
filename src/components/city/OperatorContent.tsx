@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import type { Operator } from '@/payload-types'
+import type { OperatorView } from '@/content'
 
 import { OperatorHeader } from './OperatorHeader'
 import { PurchaseMethods } from './PurchaseMethods'
@@ -11,7 +11,7 @@ import { TicketTabs } from './TicketTabs'
 import { ZoneInfo } from './ZoneInfo'
 
 type Props = {
-  operator: Operator
+  operator: OperatorView
   label?: string | null
 }
 
@@ -36,7 +36,7 @@ export async function OperatorContent({ operator, label }: Props) {
         luggage={operator.luggage}
         rulesNote={operator.rulesNote}
         rulesUrl={operator.rulesUrl}
-        currency={operator.currency || 'PLN'}
+        currency={operator.currency}
       />
       <ZoneInfo zones={operator.zones} />
     </>

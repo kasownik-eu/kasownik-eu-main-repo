@@ -3,10 +3,10 @@ import React from 'react'
 
 import { TramStrip } from '@/components/site/TramStrip'
 import { Button } from '@/components/ui/button'
-import type { Operator } from '@/payload-types'
+import type { SourcesView } from '@/content'
 
 type Props = {
-  sources: Operator['sources']
+  sources: SourcesView | null
   verifiedAt?: string | null
   reportUrl?: string
 }
@@ -26,10 +26,15 @@ export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Pro
             <p>
               {t('sources')}:{' '}
               {items.map((source, index) => (
-                <React.Fragment key={source.id ?? index}>
+                <React.Fragment key={index}>
                   {index > 0 && ', '}
                   {source.url ? (
-                    <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-3 hover:text-foreground">
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-3 hover:text-foreground"
+                    >
                       {source.label}
                       <span className="sr-only"> {tCommon('opensInNewTab')}</span>
                     </a>
@@ -44,7 +49,10 @@ export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Pro
             <p className="mt-1">
               {sources?.aiAssisted && t('aiAssisted')}
               {sources?.aiAssisted && verifiedAt && ' · '}
-              {verifiedAt && t('verified', { date: format.dateTime(new Date(verifiedAt), { dateStyle: 'medium' }) })}
+              {verifiedAt &&
+                t('verified', {
+                  date: format.dateTime(new Date(verifiedAt), { dateStyle: 'medium' }),
+                })}
             </p>
           )}
         </div>

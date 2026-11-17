@@ -9,14 +9,24 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/ui/input-group'
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+} from '@/components/ui/empty'
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+} from '@/components/ui/input-group'
 import { Label } from '@/components/ui/label'
 import { Link } from '@/i18n/navigation'
 import type { TransportMode } from '@/components/city/format'
 
 export type OperatorItem = {
-  id: number
   name: string
   slug: string
   // Logo fallback: short name or initials
@@ -24,7 +34,7 @@ export type OperatorItem = {
   logo: { url: string; alt?: string | null } | null
   modes: TransportMode[]
   region: string
-  cities: { id: number; name: string }[]
+  cities: { slug: string; name: string }[]
 }
 
 type Props = {
@@ -52,8 +62,14 @@ function OperatorCard({ operator }: { operator: OperatorItem }) {
   const href = { pathname: '/operator/[slug]', params: { slug: operator.slug } } as const
 
   const cityLink = (city: OperatorItem['cities'][number]) => (
-    <li key={city.id}>
-      <Button variant="outline" size="lg" className="text-[0.9375rem]" nativeButton={false} render={<Link href={href} />}>
+    <li key={city.slug}>
+      <Button
+        variant="outline"
+        size="lg"
+        className="text-[0.9375rem]"
+        nativeButton={false}
+        render={<Link href={href} />}
+      >
         {city.name}
         <span className="sr-only"> {t('cityLinkHint')}</span>
       </Button>
@@ -88,7 +104,11 @@ function OperatorCard({ operator }: { operator: OperatorItem }) {
         {operator.modes.length > 0 && (
           <span className="flex flex-wrap gap-1.5">
             {operator.modes.map((mode) => (
-              <Badge key={mode} variant="secondary" className="h-auto rounded-md px-2.5 text-[0.8125rem]">
+              <Badge
+                key={mode}
+                variant="secondary"
+                className="h-auto rounded-md px-2.5 text-[0.8125rem]"
+              >
                 {tModes(mode)}
               </Badge>
             ))}
@@ -102,14 +122,24 @@ function OperatorCard({ operator }: { operator: OperatorItem }) {
           <p className="mb-2 text-sm font-semibold tracking-wide text-muted-foreground uppercase">
             {t('citiesCount', { count: operator.cities.length })}
           </p>
-          <ul className="flex flex-wrap gap-2">{operator.cities.slice(0, VISIBLE_CITIES).map(cityLink)}</ul>
+          <ul className="flex flex-wrap gap-2">
+            {operator.cities.slice(0, VISIBLE_CITIES).map(cityLink)}
+          </ul>
           {operator.cities.length > VISIBLE_CITIES && (
             <Collapsible open={open} onOpenChange={setOpen} className="mt-2">
               <CollapsibleContent>
-                <ul className="mb-2 flex flex-wrap gap-2">{operator.cities.slice(VISIBLE_CITIES).map(cityLink)}</ul>
+                <ul className="mb-2 flex flex-wrap gap-2">
+                  {operator.cities.slice(VISIBLE_CITIES).map(cityLink)}
+                </ul>
               </CollapsibleContent>
-              <CollapsibleTrigger render={<Button variant="link" size="lg" className="px-0 text-[0.9375rem] underline" />}>
-                {open ? t('showLess') : t('showAllCities', { count: operator.cities.length - VISIBLE_CITIES })}
+              <CollapsibleTrigger
+                render={
+                  <Button variant="link" size="lg" className="px-0 text-[0.9375rem] underline" />
+                }
+              >
+                {open
+                  ? t('showLess')
+                  : t('showAllCities', { count: operator.cities.length - VISIBLE_CITIES })}
               </CollapsibleTrigger>
             </Collapsible>
           )}
@@ -131,8 +161,8 @@ export function OperatorsBrowser({ operators, reportUrl = '#' }: Props) {
     () =>
       normalizedQuery
         ? operators.filter((operator) =>
-            [operator.name, operator.fallback, ...operator.cities.map((city) => city.name)].some((value) =>
-              normalize(value).includes(normalizedQuery),
+            [operator.name, operator.fallback, ...operator.cities.map((city) => city.name)].some(
+              (value) => normalize(value).includes(normalizedQuery),
             ),
           )
         : operators,
@@ -165,21 +195,30 @@ export function OperatorsBrowser({ operators, reportUrl = '#' }: Props) {
           />
           {query && (
             <InputGroupAddon align="inline-end">
-              <InputGroupButton size="icon-sm" className="size-11" aria-label={t('clearSearch')} onClick={() => search('')}>
+              <InputGroupButton
+                size="icon-sm"
+                className="size-11"
+                aria-label={t('clearSearch')}
+                onClick={() => search('')}
+              >
                 <XIcon aria-hidden="true" className="size-5" />
               </InputGroupButton>
             </InputGroupAddon>
           )}
         </InputGroup>
         <p role="status" aria-live="polite" className="mt-2 text-sm text-muted-foreground">
-          {normalizedQuery ? t('statusFound', { count: matches.length }) : t('statusAll', { count: matches.length })}
+          {normalizedQuery
+            ? t('statusFound', { count: matches.length })
+            : t('statusAll', { count: matches.length })}
         </p>
       </div>
 
       {matches.length === 0 ? (
         <Empty className="mt-6 border border-dashed py-12">
           <EmptyHeader>
-            <EmptyTitle className="text-xl">{t('noResultsTitle', { query: query.trim() })}</EmptyTitle>
+            <EmptyTitle className="text-xl">
+              {t('noResultsTitle', { query: query.trim() })}
+            </EmptyTitle>
             <EmptyDescription className="text-base">{t('noResultsDescription')}</EmptyDescription>
           </EmptyHeader>
           <EmptyContent className="flex-row flex-wrap justify-center">
@@ -195,14 +234,19 @@ export function OperatorsBrowser({ operators, reportUrl = '#' }: Props) {
         <>
           <ul className="mt-4 grid gap-4">
             {matches.slice(0, limit).map((operator) => (
-              <li key={operator.id}>
+              <li key={operator.slug}>
                 <OperatorCard operator={operator} />
               </li>
             ))}
           </ul>
           {matches.length > limit && (
             <div className="mt-6 flex justify-center">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto" onClick={() => setLimit(limit + PAGE_SIZE)}>
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto"
+                onClick={() => setLimit(limit + PAGE_SIZE)}
+              >
                 {t('showMore')}
               </Button>
             </div>
