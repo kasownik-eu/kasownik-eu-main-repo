@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "siteTitle": "Transport miejski",
+    "siteTitle": "Kasownik",
     "cityTitle": "{city} — bilety i transport miejski",
     "citiesTitle": "Miasta",
     "operatorTitle": "{operator} — bilety i transport miejski",
@@ -15,8 +15,6 @@
     "skipToContent": "Przejdź do treści",
     "mainNav": "Główna",
     "cities": "Miasta",
-    "menu": "Menu",
-    "close": "Zamknij",
     "language": "Język",
     "textSize": "Rozmiar tekstu",
     "textSizes": {

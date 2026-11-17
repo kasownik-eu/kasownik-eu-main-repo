@@ -6,8 +6,7 @@ import { Section } from '@/components/city/Section'
 import { SiteSearch } from '@/components/home/SiteSearch'
 import { TourPreview, type TourPreviewKind } from '@/components/home/TourPreview'
 import { ValidatorArt } from '@/components/home/ValidatorArt'
-import { TramStrip } from '@/components/site/TramStrip'
-import { Button } from '@/components/ui/button'
+import { SiteFooter } from '@/components/site/SiteFooter'
 
 import type { BlockProps } from './types'
 
@@ -140,19 +139,13 @@ export async function AiSourcesBlock({ id }: BlockProps<'aiSources'>) {
   )
 }
 
-// Black footer with the tram strip; the note is set per template
+// The site footer with the note set per template
 export async function SiteFooterBlock({ block }: BlockProps<'siteFooter'>) {
   const t = await getTranslations('SiteFooter')
 
   return (
-    <footer className="chrome mt-16 pb-8">
-      <TramStrip />
-      <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 sm:px-6">
-        <p className="max-w-[70ch] flex-[1_1_20rem] text-sm">{block.note}</p>
-        <Button size="lg" nativeButton={false} render={<a href={REPORT_URL} />}>
-          {t('reportError')}
-        </Button>
-      </div>
-    </footer>
+    <SiteFooter actionLabel={t('reportError')} actionHref={REPORT_URL}>
+      <p>{block.note}</p>
+    </SiteFooter>
   )
 }

@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "siteTitle": "City transport",
+    "siteTitle": "Kasownik",
     "cityTitle": "{city} — tickets and public transport",
     "citiesTitle": "Cities",
     "operatorTitle": "{operator} — tickets and public transport",
@@ -15,8 +15,6 @@
     "skipToContent": "Skip to content",
     "mainNav": "Main",
     "cities": "Cities",
-    "menu": "Menu",
-    "close": "Close",
     "language": "Language",
     "textSize": "Text size",
     "textSizes": {

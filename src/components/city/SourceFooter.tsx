@@ -1,8 +1,7 @@
 import { getFormatter, getTranslations } from 'next-intl/server'
 import React from 'react'
 
-import { TramStrip } from '@/components/site/TramStrip'
-import { Button } from '@/components/ui/button'
+import { SiteFooter } from '@/components/site/SiteFooter'
 import type { SourcesView } from '@/content'
 
 type Props = {
@@ -18,10 +17,7 @@ export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Pro
   const items = sources?.items ?? []
 
   return (
-    <footer className="chrome mt-16 pb-8">
-      <TramStrip />
-      <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 sm:px-6">
-        <div className="max-w-[70ch] flex-[1_1_20rem] text-sm text-muted-foreground">
+    <SiteFooter actionLabel={t('reportError')} actionHref={reportUrl}>
           {items.length > 0 && (
             <p>
               {t('sources')}:{' '}
@@ -33,7 +29,7 @@ export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Pro
                       href={source.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline underline-offset-3 hover:text-foreground"
+                      className="underline underline-offset-3 hover:text-primary"
                     >
                       {source.label}
                       <span className="sr-only"> {tCommon('opensInNewTab')}</span>
@@ -55,11 +51,6 @@ export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Pro
                 })}
             </p>
           )}
-        </div>
-        <Button size="lg" nativeButton={false} render={<a href={reportUrl} />}>
-          {t('reportError')}
-        </Button>
-      </div>
-    </footer>
+    </SiteFooter>
   )
 }
