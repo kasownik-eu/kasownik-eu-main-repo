@@ -5,15 +5,18 @@ import { localizedText, optionalText, slug } from '@/content/primitives'
 // Block and template definitions without React, so the content loader and CLI scripts can validate templates.
 // A template (templates/<page>/<name>.json) lists blocks per slot; src/blocks/registry.tsx renders each type.
 
-export const pageKinds = ['city', 'operator', 'cities', 'operators'] as const
+export const pageKinds = ['home', 'city', 'operator', 'cities', 'operators'] as const
 export type PageKind = (typeof pageKinds)[number]
 
-// Slots of the page shell (src/blocks/RenderTemplate.tsx): above <main>, inside <main>, full width below it
-export const templateSlots = ['top', 'main', 'bottom'] as const
+// Slots of the page shell (src/blocks/RenderTemplate.tsx): above <main>; full width at the start of <main>;
+// the content column of <main>; full width below it
+export const templateSlots = ['top', 'hero', 'main', 'bottom'] as const
 export type TemplateSlot = (typeof templateSlots)[number]
 
 const OPERATOR_PAGES = ['city', 'operator'] as const
 const LIST_PAGES = ['cities', 'operators'] as const
+// Pages that sit somewhere in the city/operator tree; the home page is its root and has no breadcrumbs
+const TREE_PAGES = [...OPERATOR_PAGES, ...LIST_PAGES] as const
 const ALL_PAGES = pageKinds
 
 type BlockDefinition = {
@@ -33,7 +36,7 @@ const define = <P extends readonly PageKind[], S extends z.ZodObject>(
 
 export const blockDefinitions = {
   // Shared: "Cities › Poland › region › city" on detail pages, "Cities › Poland" on lists
-  breadcrumbs: define(ALL_PAGES, none()),
+  breadcrumbs: define(TREE_PAGES, none()),
 
   // City and operator pages (content of the page's operator; on a city page, the city's primary operator)
   sampleNotice: define(OPERATOR_PAGES, none()),
@@ -63,6 +66,21 @@ export const blockDefinitions = {
   citiesBrowser: define(['cities'] as const, none()),
   operatorsBrowser: define(['operators'] as const, none()),
   listFooter: define(LIST_PAGES, none()),
+
+  // Home page: the yellow hero with the search (a full-width band: put it in "hero"), the tour of an operator page
+  homeHero: define(['home'] as const, none()),
+  operatorTour: define(['home'] as const, none()),
+
+  // Shared parts, usable on any page
+  // "Where our information comes from": AI drafts, a person checks, readers report errors
+  aiSources: define(ALL_PAGES, none()),
+  // Black footer with the tram strip, a page-specific note and "Report an error"
+  siteFooter: define(
+    ALL_PAGES,
+    z.strictObject({
+      note: localizedText,
+    }),
+  ),
 
   // Generic content parts, usable anywhere and in an operator's own blocks
   notice: define(
@@ -116,6 +134,7 @@ export const templateFile = z.strictObject({
   // What the template is for; not rendered
   description: z.string().optional(),
   top: z.array(blockSchema).optional(),
+  hero: z.array(blockSchema).optional(),
   main: z.array(blockSchema).optional(),
   bottom: z.array(blockSchema).optional(),
 })

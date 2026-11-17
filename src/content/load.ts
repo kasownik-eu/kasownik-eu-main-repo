@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
 import { z } from 'zod'
 
-import { allowsPage, pageKinds, type PageKind, type Template, templateFile } from '@/blocks/schema'
+import { allowsPage, pageKinds, type PageKind, type Template, templateFile, templateSlots } from '@/blocks/schema'
 
 import {
   citiesFile,
@@ -161,7 +161,7 @@ const loadTemplates = (root: string, problems: string[]) => {
       }
       const template = read(location, templateFile)
       if (!template) continue
-      for (const slot of ['top', 'main', 'bottom'] as const) {
+      for (const slot of templateSlots) {
         template[slot]?.forEach((block, index) => {
           if (!allowsPage(block.type, page as PageKind)) {
             problems.push(

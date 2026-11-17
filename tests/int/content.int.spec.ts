@@ -5,7 +5,14 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 import { resolveSlot } from '@/blocks/resolve'
 import { pageKinds, type Template } from '@/blocks/schema'
-import { getCities, getCity, getOperator, getOperatorSummaries, localize } from '@/content'
+import {
+  getCities,
+  getCity,
+  getOperator,
+  getOperatorSummaries,
+  getSearchIndex,
+  localize,
+} from '@/content'
 import { jsonSchemas } from '@/content/jsonSchemas'
 import { ContentError, loadCatalog } from '@/content/load'
 
@@ -52,6 +59,22 @@ describe('content views', () => {
       operators: ['testowy'],
     })
     expect(getOperatorSummaries('pl').map((operator) => operator.slug)).toEqual(['inny', 'testowy'])
+  })
+
+  it('indexes every city and operator with its country for the site search', () => {
+    const index = getSearchIndex('en')
+    expect(index.filter((entry) => entry.kind === 'city').map((entry) => entry.name)).toEqual(
+      getCities('en').map((city) => city.name),
+    )
+    expect(index.filter((entry) => entry.kind === 'operator')).toHaveLength(
+      getOperatorSummaries('en').length,
+    )
+    expect(index.find((entry) => entry.slug === 'testowo')).toEqual({
+      kind: 'city',
+      slug: 'testowo',
+      name: 'Testville',
+      country: 'Poland',
+    })
   })
 
   it('returns null for unknown slugs', () => {

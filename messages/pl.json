@@ -4,7 +4,9 @@
     "cityTitle": "{city} — bilety i transport miejski",
     "citiesTitle": "Miasta",
     "operatorTitle": "{operator} — bilety i transport miejski",
-    "operatorsTitle": "Przewoźnicy"
+    "operatorsTitle": "Przewoźnicy",
+    "homeTitle": "Kasownik — jak kupić i skasować bilet",
+    "homeDescription": "Jak i gdzie kupić bilet komunikacji miejskiej, jak go skasować i jakie strefy obejmuje. Miasta i przewoźnicy w jednym miejscu."
   },
   "Common": {
     "opensInNewTab": "(otwiera się w nowej karcie)"
@@ -183,5 +185,94 @@
     "train": "pociąg",
     "trolleybus": "trolejbus",
     "ferry": "prom"
+  },
+  "HomeHero": {
+    "title": "Sprawdź, jak kupić i skasować bilet",
+    "point1": "jak i gdzie kupić bilet",
+    "point2": "jak skasować bilet",
+    "point3": "jakie strefy obejmuje bilet",
+    "artLabel": "Rysunek: bilet włożony do kasownika, zielone lampki pokazują, że bilet jest skasowany",
+    "artInsert": "Włóż bilet",
+    "artStamped": "Bilet skasowany"
+  },
+  "SiteSearch": {
+    "label": "Wpisz miasto lub przewoźnika",
+    "submit": "Szukaj",
+    "hint": "Na przykład: Katowice albo nazwa firmy przewozowej. Szukamy we wszystkich krajach naraz, nie musisz wybierać kraju.",
+    "found": "Znalezione: {count}",
+    "noResults": "Nic nie znaleźliśmy. Sprawdź pisownię albo otwórz listę miast w menu.",
+    "kind": {
+      "city": "Miasto",
+      "operator": "Przewoźnik"
+    }
+  },
+  "OperatorTour": {
+    "title": "Co znajdziesz na stronie przewoźnika",
+    "lead": "Każdy przewoźnik ma u nas stronę zbudowaną tak samo. Przejdź przez nią jak przez trzy przystanki.",
+    "steps": {
+      "buy": {
+        "title": "Krok 1. Jak kupić i skasować bilet",
+        "text": "Pokazujemy każdy sposób zakupu: automat, aplikację, punkt obsługi, kartę. Przy każdym są kroki po kolei i informacja, czy bilet trzeba skasować."
+      },
+      "prices": {
+        "title": "Krok 2. Ile kosztuje bilet",
+        "text": "Cennik w jednym miejscu: bilety jednorazowe, na kilka dni i miesięczne. Od razu widzisz cenę normalną i ulgową."
+      },
+      "zones": {
+        "title": "Krok 3. W jakich strefach działa bilet",
+        "text": "Schemat stref i prosty opis, dokąd dojedziesz na danym bilecie."
+      }
+    },
+    "finish": {
+      "title": "Koniec trasy",
+      "text": "Wiesz, jaki bilet kupić, ile kosztuje i dokąd na nim dojedziesz. Teraz sprawdź swoje miasto."
+    },
+    "preview": {
+      "caption": "Fragment strony przewoźnika · dane przykładowe",
+      "buy": {
+        "label": "Podgląd: sposób zakupu „Automat biletowy” z trzema krokami i informacją, że bilet wymaga kasowania",
+        "method": "Automat biletowy",
+        "badge": "wymaga kasowania",
+        "step1": "Znajdź automat na przystanku.",
+        "step2": "Wybierz bilet na ekranie i zapłać.",
+        "step3": "W pojeździe skasuj bilet w kasowniku."
+      },
+      "prices": {
+        "label": "Podgląd: cennik z dwoma biletami, każdy z ważnością oraz miejscem na cenę normalną i ulgową. Ceny pojawią się na stronie przewoźnika.",
+        "ticket1": "Bilet 20-minutowy",
+        "validity1": "20 min",
+        "ticket2": "Bilet 24-godzinny",
+        "validity2": "24 godz.",
+        "validity": "Ważność",
+        "normal": "Normalny",
+        "reduced": "Ulgowy"
+      },
+      "zones": {
+        "label": "Podgląd: schemat trzech stref, Strefa 1, Strefa 2 i Strefa 3, z krótkim opisem każdej",
+        "zone": "Strefa {number}",
+        "zone1": "śródmieście",
+        "zone2": "gminy sąsiednie",
+        "zone3": "dalsze okolice"
+      }
+    }
+  },
+  "AiSources": {
+    "title": "Skąd mamy te informacje",
+    "lead": "Treści przygotowuje sztuczna inteligencja (AI) na podstawie oficjalnych stron przewoźników. Sprawdza je człowiek.",
+    "read": {
+      "title": "AI czyta strony przewoźników",
+      "text": "Zbiera informacje z oficjalnych regulaminów i cenników."
+    },
+    "check": {
+      "title": "Człowiek sprawdza treść",
+      "text": "Moderator porównuje stronę ze źródłem. Podajemy źródło i datę sprawdzenia."
+    },
+    "report": {
+      "title": "Ty możesz zgłosić błąd",
+      "text": "Na każdej stronie jest przycisk „Zgłoś błąd”. Ceny i zasady zawsze potwierdź u przewoźnika."
+    }
+  },
+  "SiteFooter": {
+    "reportError": "Zgłoś błąd"
   }
 }

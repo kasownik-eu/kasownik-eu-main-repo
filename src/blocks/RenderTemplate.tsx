@@ -25,16 +25,22 @@ function Slot({ template, ctx, slot }: Props & { slot: TemplateSlot }) {
   })
 }
 
-// Page shell shared by every page: top (breadcrumbs) and main in the content column, bottom full width
+// Page shell shared by every page: top (breadcrumbs) in the content column, then <main> with the full-width
+// hero bands and the content column, and bottom full width
 export function RenderTemplate({ template, ctx }: Props) {
   return (
     <>
-      <div className="mx-auto w-full max-w-6xl px-4 pb-4 sm:px-6">
-        <Slot template={template} ctx={ctx} slot="top" />
-        <main id="main" tabIndex={-1} className="outline-none">
+      {template.top?.length ? (
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <Slot template={template} ctx={ctx} slot="top" />
+        </div>
+      ) : null}
+      <main id="main" tabIndex={-1} className="outline-none">
+        <Slot template={template} ctx={ctx} slot="hero" />
+        <div className="mx-auto w-full max-w-6xl px-4 pb-4 sm:px-6">
           <Slot template={template} ctx={ctx} slot="main" />
-        </main>
-      </div>
+        </div>
+      </main>
       <Slot template={template} ctx={ctx} slot="bottom" />
     </>
   )

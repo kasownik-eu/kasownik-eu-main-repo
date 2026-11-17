@@ -34,7 +34,9 @@ data/
 ## Templates
 
 Pages are assembled from reusable blocks. Each page kind has templates in `templates/<page>/<name>.json`
-(`city`, `operator`, `cities`, `operators`; `default.json` is required) that list blocks in three slots:
+(`home`, `city`, `operator`, `cities`, `operators`; `default.json` is required) that list blocks in four slots:
+`top` (above `<main>`, breadcrumbs), `hero` (full-width bands at the start of `<main>`, e.g. the home page's yellow
+hero), `main` (the content column) and `bottom` (full width, footers):
 
 ```json
 {

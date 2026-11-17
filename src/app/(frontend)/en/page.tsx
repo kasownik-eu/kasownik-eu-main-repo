@@ -1,5 +1,5 @@
-import { MetaRedirect } from '@/components/site/MetaRedirect'
+import { homePage } from '../_views/HomePage'
 
-export default function HomePage() {
-  return <MetaRedirect locale="en" />
-}
+const page = homePage('en')
+export const generateMetadata = page.generateMetadata
+export default page.Page
