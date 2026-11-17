@@ -42,6 +42,7 @@
     --color-highlight-hover: var(--highlight-hover);
     --color-highlight-strong: var(--highlight-strong);
     --color-rail: var(--rail);
+    --color-platform: var(--platform);
     --color-chrome: var(--chrome);
     --color-chrome-foreground: var(--chrome-foreground);
     --color-line-soft: var(--line-soft);
@@ -79,6 +80,8 @@
     /* Decorative only (hero ticket art, tram sleepers), never for text */
     --highlight-strong: #ffdf6b;
     --rail: #76839a;
+    /* Tram stop platform in the footer strip; decorative */
+    --platform: #3a4558;
     --chrome: #111111;
     --chrome-foreground: #ffffff;
     --line-soft: #d0d6e0;
@@ -122,6 +125,7 @@
     --highlight-hover: #4d4100;
     --highlight-strong: #5c4d00;
     --rail: #76839a;
+    --platform: #3a4558;
     --chrome: #000000;
     --chrome-foreground: #ffffff;
     --line-soft: #3a4558;
