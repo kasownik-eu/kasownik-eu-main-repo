@@ -9,6 +9,10 @@ The site is a static export (`output: 'export'`, HTML in `out/`) built from JSON
 - Write JSON as `JSON.stringify(value, null, 2) + '\n'` (the tariff sync does too); `data/` is in `.prettierignore`.
 - No middleware/proxy, rewrites, route handlers that read the request, or server actions: they don't exist in a static export. Localized URLs are real folders: `src/app/(frontend)/pl/miasta` and `src/app/(frontend)/en/cities` both render `_views/CitiesPage.tsx`; add a route in both locales and in `src/i18n/routing.ts`.
 
+## Site search
+- One component for every search bar: `src/components/search/SiteSearch.tsx` (`variant` inline/menu, controlled `query` for list pages). Don't add another search field; list filters use `useSearch()` from `src/search/useSearch.ts`.
+- Data comes from `getSearchData()` → `/search/<locale>.json`, cached in IndexedDB by version. Bump `SEARCH_FORMAT` in `src/search/config.ts` when the document shape or MiniSearch options change.
+
 ## Templates and blocks (how pages are rendered)
 Every page is a template: `templates/<page>/<name>.json` (`page` = `home`, `city`, `operator`, `cities`, `operators`) listing blocks in four slots — `top` (above `<main>`, breadcrumbs), `hero` (full-width bands at the start of `<main>`), `main` (content column), `bottom` (full width, footers). `src/blocks/RenderTemplate.tsx` renders them; pages in `_views/` only build the context and pick the template.
 - A block is `{ "type": "<blockType>", ...settings }`. Types, the pages each is allowed on and their settings (strict Zod) live in `src/blocks/schema.ts` (no React); components in `src/blocks/*Block(s).tsx`, mapped in `src/blocks/registry.tsx`.

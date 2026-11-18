@@ -57,6 +57,20 @@ hero), `main` (the content column) and `bottom` (full width, footers):
 - Validation is the same as for content: unknown blocks, misspelled settings, blocks on the wrong page and missing
   templates fail `npm run validate:data` and the build. VS Code autocompletes templates too.
 
+## Site search
+
+One search for the whole site (`src/components/search/SiteSearch.tsx`): the home hero and tour, the header button and the
+list pages all use the same component, data and matching ([MiniSearch](https://github.com/lucaong/minisearch): prefix,
+diacritic-insensitive, typo-tolerant in longer words). On the city and operator lists the same query also filters the list.
+
+- Data: `getSearchData()` (`src/content/index.ts`) builds one document per city and operator; the build writes it to
+  `out/search/<locale>.json` (`src/app/(root)/search/[file]/route.ts`). Pages carry only its version, never the data.
+- Version: a hash of the documents plus `SEARCH_FORMAT` (`src/search/config.ts`). Bump `SEARCH_FORMAT` when the document
+  shape or the MiniSearch options change, so browsers drop their stored copy.
+- Browser: fetched on first use (focus, hover, typing) as `/search/<locale>.json?v=<version>`, stored in IndexedDB
+  (`kasownik` / `search`, one record per locale). A page with another version fetches again and overwrites the record.
+  One index per page is shared by every search bar; above 2000 documents it is built in chunks.
+
 ## Development
 
 ```bash

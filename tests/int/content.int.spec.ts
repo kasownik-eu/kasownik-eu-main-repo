@@ -10,7 +10,8 @@ import {
   getCity,
   getOperator,
   getOperatorSummaries,
-  getSearchIndex,
+  getSearchData,
+  getSearchSource,
   localize,
 } from '@/content'
 import { jsonSchemas } from '@/content/jsonSchemas'
@@ -61,19 +62,34 @@ describe('content views', () => {
     expect(getOperatorSummaries('pl').map((operator) => operator.slug)).toEqual(['inny', 'testowy'])
   })
 
-  it('indexes every city and operator with its country for the site search', () => {
-    const index = getSearchIndex('en')
-    expect(index.filter((entry) => entry.kind === 'city').map((entry) => entry.name)).toEqual(
+  it('builds the site search data for every city and operator, versioned by content', () => {
+    const data = getSearchData('en')
+    expect(data.docs.filter((doc) => doc.kind === 'city').map((doc) => doc.name)).toEqual(
       getCities('en').map((city) => city.name),
     )
-    expect(index.filter((entry) => entry.kind === 'operator')).toHaveLength(
+    expect(data.docs.filter((doc) => doc.kind === 'operator')).toHaveLength(
       getOperatorSummaries('en').length,
     )
-    expect(index.find((entry) => entry.slug === 'testowo')).toEqual({
+    expect(data.docs.find((doc) => doc.id === 'city:testowo')).toEqual({
+      id: 'city:testowo',
       kind: 'city',
       slug: 'testowo',
       name: 'Testville',
       country: 'Poland',
+      region: 'Silesian',
+      keywords: '',
+    })
+    // Operators are found by the cities they serve
+    expect(data.docs.find((doc) => doc.id === 'operator:testowy')?.keywords).toContain('Testville')
+    // The city most operators serve comes first among the popular ones
+    expect(data.popular[0]).toBe('city:wspolne')
+    expect(data.version).toMatch(/^[0-9a-f]{16}$/)
+    expect(getSearchData('en').version).toBe(data.version)
+    expect(getSearchData('pl').version).not.toBe(data.version)
+    expect(getSearchSource('en')).toEqual({
+      locale: 'en',
+      version: data.version,
+      url: `/search/en.json?v=${data.version}`,
     })
   })
 

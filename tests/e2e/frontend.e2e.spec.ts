@@ -7,9 +7,28 @@ test.describe('Frontend', () => {
     await expect(page).toHaveURL(/\/pl\/$/)
     await expect(page.locator('h1').first()).toHaveText('Sprawdź, jak kupić i skasować bilet')
 
-    await page.getByRole('searchbox', { name: 'Wpisz miasto lub przewoźnika' }).first().fill('przyklad')
-    await page.getByRole('link', { name: /Miasto Przykładowe/ }).first().click()
+    await page.getByRole('combobox', { name: 'Wpisz miasto lub przewoźnika' }).first().fill('przyklad')
+    await page.getByRole('option', { name: /Miasto Przykładowe/ }).click()
     await expect(page).toHaveURL(/\/pl\/miasto\/miasto-przykladowe\/$/)
+  })
+
+  test('the header search opens a dialog and picks a result with the keyboard', async ({ page }) => {
+    await page.goto('http://localhost:3000/pl/miasta/')
+    await page.locator('header').getByRole('button', { name: 'Szukaj' }).click()
+    const dialog = page.getByRole('dialog', { name: 'Wyszukiwarka' })
+    await expect(dialog).toBeVisible()
+    await dialog.getByRole('combobox').fill('lotnisk')
+    await expect(dialog.getByRole('option')).toHaveCount(1)
+    await page.keyboard.press('ArrowDown')
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\/pl\/przewoznik\/ll-przykladowe\/$/)
+  })
+
+  test('the list page search also filters the list', async ({ page }) => {
+    await page.goto('http://localhost:3000/pl/przewoznicy/')
+    await page.getByRole('combobox', { name: 'Wpisz miasto lub przewoźnika' }).fill('lotnisk')
+    await expect(page.getByText('Znaleziono: 1 przewoźnik')).toBeVisible()
+    await expect(page.getByRole('heading', { level: 2, name: 'Linie Lotniskowe' })).toBeVisible()
   })
 
   test('a city shows its primary operator and switches language', async ({ page }) => {

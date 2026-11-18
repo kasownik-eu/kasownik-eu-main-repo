@@ -6,12 +6,14 @@ import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 
+import { SiteSearch } from '@/components/search/SiteSearch'
+
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { MainNav } from './MainNav'
 import { TextSizeControl } from './TextSizeControl'
 
-// Every option stays visible (no hamburger). Desktop: one row, brand · nav · text size · language.
-// Phone: brand and text size on the first row, nav and language on the second
+// Every option stays visible (no hamburger). Desktop: one row, brand · nav · search · text size · language.
+// Phone: brand, search and text size on the first row, nav and language on the second
 export async function SiteHeader() {
   const t = await getTranslations('SiteHeader')
   const tMeta = await getTranslations('Metadata')
@@ -37,7 +39,8 @@ export async function SiteHeader() {
 
         <span className="flex-1 md:order-3" />
 
-        <div className="md:order-4">
+        <div className="flex items-center gap-x-2 sm:gap-x-4 md:order-4">
+          <SiteSearch variant="menu" />
           <TextSizeControl />
         </div>
 

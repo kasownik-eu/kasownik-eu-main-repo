@@ -1,8 +1,7 @@
 'use client'
 
-import { SearchIcon, XIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import React, { useId, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
@@ -16,14 +15,9 @@ import {
   EmptyHeader,
   EmptyTitle,
 } from '@/components/ui/empty'
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from '@/components/ui/input-group'
-import { Label } from '@/components/ui/label'
+import { SiteSearch } from '@/components/search/SiteSearch'
 import { Link } from '@/i18n/navigation'
+import { useSearch } from '@/search/useSearch'
 import type { TransportMode } from '@/components/city/format'
 
 export type OperatorItem = {
@@ -45,14 +39,6 @@ type Props = {
 // Cities shown before "Show all cities"; operators shown before "Show more operators"
 const VISIBLE_CITIES = 6
 const PAGE_SIZE = 20
-
-// Case- and diacritic-insensitive, so "slask" finds "Śląsk" ("ł" has no NFD decomposition)
-const normalize = (value: string) =>
-  value
-    .toLowerCase()
-    .replace(/ł/g, 'l')
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
 
 function OperatorCard({ operator }: { operator: OperatorItem }) {
   const t = useTranslations('OperatorsList')
@@ -149,25 +135,25 @@ function OperatorCard({ operator }: { operator: OperatorItem }) {
   )
 }
 
-// One row per operator with the cities it serves; every link opens the operator's page
+// One row per operator with the cities it serves; every link opens the operator's page.
+// The list follows the site search: the same data and matching as the search bar above it
+// (an operator matches by its name, short name and the cities it serves)
 export function OperatorsBrowser({ operators, reportUrl = '#' }: Props) {
   const t = useTranslations('OperatorsList')
-  const searchId = useId()
   const [query, setQuery] = useState('')
   const [limit, setLimit] = useState(PAGE_SIZE)
+  const { hits, active, status } = useSearch(query)
 
-  const normalizedQuery = normalize(query.trim())
-  const matches = useMemo(
-    () =>
-      normalizedQuery
-        ? operators.filter((operator) =>
-            [operator.name, operator.fallback, ...operator.cities.map((city) => city.name)].some(
-              (value) => normalize(value).includes(normalizedQuery),
-            ),
-          )
-        : operators,
-    [operators, normalizedQuery],
-  )
+  const matches = useMemo(() => {
+    if (!active || !hits) return operators
+    // In the order of relevance, like the search panel
+    const rank = new Map(
+      hits.flatMap((hit) => (hit.kind === 'operator' ? [hit.slug] : [])).map((slug, i) => [slug, i]),
+    )
+    return operators
+      .filter((operator) => rank.has(operator.slug))
+      .sort((a, b) => rank.get(a.slug)! - rank.get(b.slug)!)
+  }, [operators, hits, active])
 
   const search = (value: string) => {
     setQuery(value)
@@ -176,45 +162,19 @@ export function OperatorsBrowser({ operators, reportUrl = '#' }: Props) {
 
   return (
     <>
-      <div role="search" className="mt-6">
-        <Label htmlFor={searchId} className="mb-1.5">
-          {t('searchLabel')}
-        </Label>
-        <InputGroup className="h-13 rounded-[10px] bg-background shadow-xs">
-          <InputGroupAddon>
-            <SearchIcon aria-hidden="true" className="size-5" />
-          </InputGroupAddon>
-          <InputGroupInput
-            id={searchId}
-            type="search"
-            autoComplete="off"
-            value={query}
-            onChange={(event) => search(event.target.value)}
-            placeholder={t('searchPlaceholder')}
-            className="text-lg md:text-lg [&::-webkit-search-cancel-button]:hidden"
-          />
-          {query && (
-            <InputGroupAddon align="inline-end">
-              <InputGroupButton
-                size="icon-sm"
-                className="size-11"
-                aria-label={t('clearSearch')}
-                onClick={() => search('')}
-              >
-                <XIcon aria-hidden="true" className="size-5" />
-              </InputGroupButton>
-            </InputGroupAddon>
-          )}
-        </InputGroup>
-        <p role="status" aria-live="polite" className="mt-2 text-sm text-muted-foreground">
-          {normalizedQuery
-            ? t('statusFound', { count: matches.length })
-            : t('statusAll', { count: matches.length })}
+      <div className="relative z-10 mt-6">
+        <SiteSearch query={query} onQueryChange={search} />
+        <p aria-live="polite" className="mt-4 mb-4 text-sm text-muted-foreground">
+          {active && status === 'loading'
+            ? null
+            : active
+              ? t('statusFound', { count: matches.length })
+              : t('statusAll', { count: matches.length })}
         </p>
       </div>
 
       {matches.length === 0 ? (
-        <Empty className="mt-6 border border-dashed py-12">
+        <Empty className="mt-6 rounded-[14px] border-2 border-solid py-12">
           <EmptyHeader>
             <EmptyTitle className="text-xl">
               {t('noResultsTitle', { query: query.trim() })}
@@ -232,7 +192,7 @@ export function OperatorsBrowser({ operators, reportUrl = '#' }: Props) {
         </Empty>
       ) : (
         <>
-          <ul className="mt-4 grid gap-4">
+          <ul className="grid gap-4">
             {matches.slice(0, limit).map((operator) => (
               <li key={operator.slug}>
                 <OperatorCard operator={operator} />
