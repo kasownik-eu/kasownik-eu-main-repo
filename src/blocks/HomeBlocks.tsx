@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { Section } from '@/components/city/Section'
-import { SiteSearch } from '@/components/home/SiteSearch'
+import { SiteSearch } from '@/components/search/SiteSearch'
 import { TourPreview, type TourPreviewKind } from '@/components/home/TourPreview'
 import { ValidatorArt } from '@/components/home/ValidatorArt'
 import { SiteFooter } from '@/components/site/SiteFooter'
@@ -13,7 +13,7 @@ import type { BlockProps } from './types'
 const REPORT_URL = '#'
 
 // Yellow band: what the site answers, the search, and a ticket being stamped (desktop only)
-export async function HomeHeroBlock({ ctx, id }: BlockProps<'homeHero'>) {
+export async function HomeHeroBlock({ id }: BlockProps<'homeHero'>) {
   const t = await getTranslations('HomeHero')
   const points = [t('point1'), t('point2'), t('point3')]
 
@@ -24,14 +24,15 @@ export async function HomeHeroBlock({ ctx, id }: BlockProps<'homeHero'>) {
       className="border-b-2 bg-primary text-primary-foreground [&_:focus-visible]:shadow-[0_0_0_6px_var(--background)]"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-end gap-x-14 gap-y-8 px-4 pt-8 sm:px-6 md:pt-14">
-        <div className="min-w-0 flex-[999_1_27.5rem] pb-10 md:pb-14">
+        {/* Phones: the search right under the title, the three points after it */}
+        <div className="flex min-w-0 flex-[999_1_27.5rem] flex-col pb-10 md:pb-14">
           <h1
             id={`${id}-title`}
-            className="text-[2rem] leading-[1.1] font-extrabold tracking-tight md:text-[2.75rem]"
+            className="mb-4 text-[2rem] leading-[1.1] font-extrabold tracking-tight md:mb-0 md:text-[2.75rem]"
           >
             {t('title')}
           </h1>
-          <ul className="mt-5 mb-8 grid gap-2.5 text-lg leading-snug font-semibold md:text-xl">
+          <ul className="order-3 mt-7 grid gap-2.5 text-lg leading-snug font-semibold md:order-2 md:mt-5 md:mb-8 md:text-xl">
             {points.map((point) => (
               <li key={point} className="grid grid-cols-[1.75rem_1fr] items-center gap-3">
                 <CheckIcon aria-hidden="true" className="size-7" strokeWidth={2.5} />
@@ -39,7 +40,7 @@ export async function HomeHeroBlock({ ctx, id }: BlockProps<'homeHero'>) {
               </li>
             ))}
           </ul>
-          <SiteSearch entries={ctx.search} />
+          <SiteSearch className="order-2 md:order-3" />
         </div>
         <ValidatorArt className="hidden min-w-0 flex-[1_1_16rem] md:block" />
       </div>
@@ -57,7 +58,7 @@ const stopMarker =
   'relative z-10 grid size-11 place-items-center rounded-full border-4 border-foreground font-bold'
 
 // "What an operator page holds" as a route: three stops with a drawn preview each, then the search again
-export async function OperatorTourBlock({ ctx, id }: BlockProps<'operatorTour'>) {
+export async function OperatorTourBlock({ id }: BlockProps<'operatorTour'>) {
   const t = await getTranslations('OperatorTour')
 
   return (
@@ -95,7 +96,7 @@ export async function OperatorTourBlock({ ctx, id }: BlockProps<'operatorTour'>)
               <p className="text-lg">{t('finish.text')}</p>
             </div>
             <div className="col-span-2 mt-5 rounded-[14px] border-2 bg-highlight p-4 md:p-5 lg:col-span-1 lg:mt-0 lg:ml-5">
-              <SiteSearch entries={ctx.search} />
+              <SiteSearch placement="up" />
             </div>
           </li>
         </ol>

@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import React from 'react'
 
 import { RenderTemplate } from '@/blocks/RenderTemplate'
-import { getSearchIndex, getTemplate } from '@/content'
+import { getTemplate } from '@/content'
 import type { Locale } from '@/i18n/routing'
 
 export const homePage = (locale: Locale) => ({
@@ -16,7 +16,7 @@ export const homePage = (locale: Locale) => ({
     return (
       <RenderTemplate
         template={getTemplate('home')}
-        ctx={{ page: 'home', locale, search: getSearchIndex(locale) }}
+        ctx={{ page: 'home', locale }}
       />
     )
   },

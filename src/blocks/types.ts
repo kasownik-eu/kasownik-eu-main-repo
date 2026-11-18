@@ -6,7 +6,6 @@ import type {
   Localized,
   OperatorSummary,
   OperatorView,
-  SearchEntry,
 } from '@/content'
 import type { Locale } from '@/i18n/routing'
 
@@ -14,7 +13,7 @@ import type { BlockOf, BlockPages, BlockType, PageKind } from './schema'
 
 // What each page kind hands to its blocks
 type PageContexts = {
-  home: { page: 'home'; locale: Locale; search: SearchEntry[] }
+  home: { page: 'home'; locale: Locale }
   city: {
     page: 'city'
     locale: Locale

@@ -1,3 +1,13 @@
+import { createHash } from 'node:crypto'
+
+import {
+  SEARCH_FORMAT,
+  searchDataPath,
+  type SearchData,
+  type SearchDocument,
+  type SearchSource,
+} from '@/search/config'
+
 import { defaultLocale, type locales, type TransportMode } from './enums'
 import type { Block, PageKind, Template } from '@/blocks/schema'
 
@@ -218,34 +228,75 @@ export const getCity = (slug: string, locale: Locale): CityView | null => {
 export const getCities = (locale: Locale): CityRef[] =>
   [...getCatalog().cities.values()].map((city) => cityRef(city, locale)).sort(byName(locale))
 
-// Every city and operator in every country, for the site-wide search (the home page)
-export type SearchEntry = {
-  kind: 'city' | 'operator'
-  slug: string
-  name: string
-  country: string | null
-}
+// Every city and operator in every country, for the site-wide search. Written once per locale to
+// /search/<locale>.json (app/(root)/search) and fetched by the browser; pages only carry the version
+const POPULAR_COUNT = 3
 
-export const getSearchIndex = (locale: Locale): SearchEntry[] => {
-  const { countries, cities, operators } = getCatalog()
+// Per catalog (dev reloads the catalog on every request) and locale: every page asks for the version
+const searchCache = new WeakMap<object, Map<Locale, SearchData>>()
+
+export const getSearchData = (locale: Locale): SearchData => {
+  const catalog = getCatalog()
+  if (!searchCache.has(catalog)) searchCache.set(catalog, new Map())
+  const cached = searchCache.get(catalog)!.get(locale)
+  if (cached) return cached
+
+  const { countries, cities, operators } = catalog
   const countryName = (slug: string) => {
     const country = countries.find((entry) => entry.slug === slug)
     return country ? pickLocale(country.name, locale) : null
   }
-  return [
-    ...[...cities.values()].map((city) => ({
+  const cityList = [...cities.values()]
+  const docs: SearchDocument[] = [
+    ...cityList.map((city) => ({
+      id: `city:${city.slug}`,
       kind: 'city' as const,
       slug: city.slug,
       name: pickLocale(city.name, locale),
       country: countryName(city.country),
+      region: regionName(city.voivodeship, locale),
+      keywords: '',
     })),
     ...[...operators.values()].map((operator) => ({
+      id: `operator:${operator.slug}`,
       kind: 'operator' as const,
       slug: operator.slug,
       name: operator.info.name,
       country: countryName(operator.country),
+      region: null,
+      keywords: [
+        operator.info.shortName,
+        ...operator.cities.map((entry) => pickLocale(cities.get(entry.slug)!.name, locale)),
+      ]
+        .filter(Boolean)
+        .join(' '),
     })),
   ].sort(byName(locale))
+
+  // No visit statistics in a static site: the cities most operators serve stand in for "popular"
+  const popular = [...cityList]
+    .sort(
+      (a, b) =>
+        b.operators.length - a.operators.length ||
+        pickLocale(a.name, locale).localeCompare(pickLocale(b.name, locale), locale),
+    )
+    .slice(0, POPULAR_COUNT)
+    .map((city) => `city:${city.slug}`)
+
+  // The version changes with the content and with the format, so browsers replace their stored copy
+  const version = createHash('sha256')
+    .update(JSON.stringify([SEARCH_FORMAT, locale, docs, popular]))
+    .digest('hex')
+    .slice(0, 16)
+
+  const data: SearchData = { version, locale, docs, popular }
+  searchCache.get(catalog)!.set(locale, data)
+  return data
+}
+
+export const getSearchSource = (locale: Locale): SearchSource => {
+  const { version } = getSearchData(locale)
+  return { locale, version, url: `${searchDataPath(locale)}?v=${version}` }
 }
 
 // The loader guarantees every page kind has a default and that operators only name existing templates

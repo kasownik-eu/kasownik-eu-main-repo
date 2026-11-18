@@ -6,6 +6,8 @@ import React from 'react'
 import '../globals.css'
 
 import { SiteHeader } from '@/components/site/SiteHeader'
+import { getSearchSource } from '@/content'
+import { SearchSourceProvider } from '@/search/useSearch'
 import type { Locale } from '@/i18n/routing'
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'], variable: '--font-sans' })
@@ -25,8 +27,11 @@ export const localeLayout = (locale: Locale) => ({
       <html lang={locale} className={inter.variable}>
         <body className="min-h-screen antialiased">
           <NextIntlClientProvider>
-            <SiteHeader />
-            {children}
+            {/* Only the data version goes into the page; the search data itself is fetched on first use */}
+            <SearchSourceProvider source={getSearchSource(locale)}>
+              <SiteHeader />
+              {children}
+            </SearchSourceProvider>
           </NextIntlClientProvider>
         </body>
       </html>
