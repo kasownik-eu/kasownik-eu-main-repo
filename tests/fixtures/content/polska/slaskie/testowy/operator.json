@@ -1,6 +1,7 @@
 {
   "name": "Testowy Przewoźnik",
   "shortName": "TP",
+  "websiteUrl": "https://www.example.com/",
   "logo": { "file": "map.svg" },
   "transportModes": ["tram", "bus", "metro"],
   "related": [{ "operator": "inny", "relation": "sharedArea", "ticketValidity": "partial" }],

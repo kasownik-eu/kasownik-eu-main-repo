@@ -7,6 +7,9 @@ export const transportModes = ['tram', 'bus', 'metro', 'train', 'trolleybus', 'f
 
 export const ticketCategories = ['single', 'short', 'long', 'other'] as const
 
+// What a luggage row is about (rules for carrying it); a closed list so the tariff sync LLM cannot invent kinds
+export const luggageTypes = ['luggage', 'bike', 'pet', 'stroller', 'other'] as const
+
 // Decides the icon shown next to a purchase method; labels live in the method itself
 export const purchaseMethodTypes = [
   'machine',

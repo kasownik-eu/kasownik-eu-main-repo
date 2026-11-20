@@ -1,0 +1,363 @@
+{
+  "tickets": [
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop do 5 min"
+      },
+      "priceNormal": 2.1,
+      "priceReduced": 1.05
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop powyżej 5 do 10 minut"
+      },
+      "priceNormal": 3.2,
+      "priceReduced": 1.6
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop powyżej 10 do 15 minut"
+      },
+      "priceNormal": 3.7,
+      "priceReduced": 1.85
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop powyżej 15 do 20 minut"
+      },
+      "priceNormal": 4.2,
+      "priceReduced": 2.1
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop powyżej 20 do 30 minut"
+      },
+      "priceNormal": 4.7,
+      "priceReduced": 2.35
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop powyżej 30 do 40 minut"
+      },
+      "priceNormal": 5.2,
+      "priceReduced": 2.6
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop powyżej 40 do 60 minut"
+      },
+      "priceNormal": 5.7,
+      "priceReduced": 2.85
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop powyżej 60 do 120 minut"
+      },
+      "priceNormal": 6.6,
+      "priceReduced": 3.3
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet jednorazowy papierowy 20 minut"
+      },
+      "priceNormal": 4.6,
+      "priceReduced": 2.3
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet jednorazowy papierowy 40 minut"
+      },
+      "priceNormal": 5.6,
+      "priceReduced": 2.8
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet jednorazowy papierowy 120 minut"
+      },
+      "priceNormal": 7,
+      "priceReduced": 3.5
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet jednorazowy papierowy Grupowy"
+      },
+      "priceNormal": 13.8,
+      "priceReduced": 6.9
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet jednorazowy elektroniczny 20 minut"
+      },
+      "priceNormal": 4.2,
+      "priceReduced": 2.1
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet jednorazowy elektroniczny 40 minut"
+      },
+      "priceNormal": 5.2,
+      "priceReduced": 2.6
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet jednorazowy elektroniczny 120 minut"
+      },
+      "priceNormal": 6.6,
+      "priceReduced": 3.3
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet jednorazowy elektroniczny Grupowy"
+      },
+      "priceNormal": 12.8,
+      "priceReduced": 6.4
+    },
+    {
+      "category": "other",
+      "name": {
+        "pl": "Pakiet 20"
+      },
+      "priceNormal": 60,
+      "priceReduced": 30
+    },
+    {
+      "category": "other",
+      "name": {
+        "pl": "Pakiet 40"
+      },
+      "priceNormal": 110,
+      "priceReduced": 55
+    },
+    {
+      "category": "other",
+      "name": {
+        "pl": "Pakiet 80"
+      },
+      "priceNormal": 200,
+      "priceReduced": 100
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Bilet dzienny"
+      },
+      "priceNormal": 13,
+      "priceReduced": 6.5
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Metrobilet 24h"
+      },
+      "priceNormal": 24,
+      "priceReduced": 12
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metrobilet Miasto 30"
+      },
+      "priceNormal": 119,
+      "priceReduced": 59.5
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Miasto 90"
+      },
+      "priceNormal": 300,
+      "priceReduced": 150
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metrobilet 2 Miasta 30"
+      },
+      "priceNormal": 149,
+      "priceReduced": 74.5
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "2 Miasta 90"
+      },
+      "priceNormal": 380,
+      "priceReduced": 190
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metrobilet Obszarowy 30"
+      },
+      "priceNormal": 189,
+      "priceReduced": 94.5
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Sieć 7"
+      },
+      "priceNormal": 60,
+      "priceReduced": 30
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metrobilet Sieć 30"
+      },
+      "priceNormal": 249,
+      "priceReduced": 124.5
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Sieć 90"
+      },
+      "priceNormal": 460,
+      "priceReduced": 230
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Sieć 180"
+      },
+      "priceNormal": 600,
+      "priceReduced": 300
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Sieć 7 Okaziciel"
+      },
+      "priceNormal": 63,
+      "priceReduced": 31.5
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Sieć 30 Okaziciel"
+      },
+      "priceNormal": 230,
+      "priceReduced": 115
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "R-1 (rok)"
+      },
+      "priceNormal": 300
+    }
+  ],
+  "luggage": [
+    {
+      "type": "luggage",
+      "item": {
+        "pl": "Bagaż"
+      },
+      "note": {
+        "pl": "do 3 sztuk, suma wymiarów do 200 cm"
+      },
+      "conditions": {
+        "pl": "Nie wolno umieszczać na miejscach siedzących. Bagaż na plecach należy zdjąć podczas przejazdu."
+      }
+    },
+    {
+      "type": "bike",
+      "item": {
+        "pl": "Rower"
+      },
+      "note": {
+        "pl": "tylko w wyznaczonych miejscach lub za zgodą kierowcy"
+      },
+      "conditions": {
+        "pl": "Należy unieruchomić i zabezpieczyć przed przemieszczaniem się. Należy ustąpić miejsca osobie na wózku inwalidzkim lub z wózkiem dziecięcym."
+      }
+    },
+    {
+      "type": "pet",
+      "item": {
+        "pl": "Pies"
+      },
+      "note": {
+        "pl": "na smyczy, z kagańcem, ze szczepieniami"
+      },
+      "conditions": {
+        "pl": "Zwierzę nie może zachowywać się agresywnie. Pies asystujący może być przewożony bez kagańca i smyczy, ale musi mieć uprząż."
+      }
+    },
+    {
+      "type": "pet",
+      "item": {
+        "pl": "Małe zwierzęta"
+      },
+      "note": {
+        "pl": "w koszu/klatce"
+      },
+      "conditions": {
+        "pl": "Nie mogą być uciążliwe (hałas, zapach)."
+      }
+    },
+    {
+      "type": "stroller",
+      "item": {
+        "pl": "Wózek dziecięcy"
+      },
+      "conditions": {
+        "pl": "Należy zabezpieczyć dziecko przed wypadnięciem oraz wózek przed przemieszczaniem się."
+      }
+    },
+    {
+      "type": "other",
+      "item": {
+        "pl": "Hulajnogi elektryczne i urządzenia transportu osobistego"
+      },
+      "note": {
+        "pl": "złożone, trzymane w ręku"
+      },
+      "conditions": {
+        "pl": "Należy unieruchomić i zabezpieczyć przed przemieszczaniem się."
+      }
+    },
+    {
+      "type": "other",
+      "item": {
+        "pl": "Inne urządzenia wspomagające ruch"
+      },
+      "note": {
+        "pl": "małe hulajnogi dziecięce, wrotek, roleki, deski"
+      },
+      "conditions": {
+        "pl": "Należy unieruchomić i zabezpieczyć przed przemieszczaniem się."
+      }
+    },
+    {
+      "type": "other",
+      "item": {
+        "pl": "Wózek inwalidzki"
+      },
+      "conditions": {
+        "pl": "Należy skorzystać z urządzeń zabezpieczających w pojeździe, jeśli są dostępne. Należy unieruchomić i zabezpieczyć przed przemieszczaniem się."
+      }
+    }
+  ],
+  "rulesNote": {
+    "pl": "Ceny biletów podane w Cenniku są cenami brutto i zawierają podatek od towarów i usług. Dyrektor ZTM na podstawie odrębnego Zarządzenia może na okres nie dłuższy niż 6 miesięcy wprowadzić odstępstwa polegające na zmianie zakresu lub zawieszeniu obowiązywania określonych biletów, wprowadzaniu promocji cenowych, zmianie terminu wejścia w życie oraz okresu obowiązywania promocji (w tym cenowych)."
+  },
+  "rulesUrl": "https://transportgzm.pl/price-list/"
+}

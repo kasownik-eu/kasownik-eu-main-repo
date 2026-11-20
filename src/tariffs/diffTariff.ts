@@ -27,13 +27,14 @@ const keyed = <T>(rows: T[], key: (row: T) => string) => {
   )
 }
 
-const diffText = (path: string, before: LocalizedText | null, after: LocalizedText | null): TariffChange[] => {
+const diffText = (path: string, before: LocalizedText | null | undefined, after: LocalizedText | null | undefined): TariffChange[] => {
   if (!before || !after) {
     return same(before, after) ? [] : [{ path, kind: before ? 'removed' : 'added', before, after, major: false }]
   }
+  // The proposal is Polish only: a missing `en` is not a change (existing translations are carried over before diffing)
   return (['pl', 'en'] as const)
-    .filter((l) => before[l] !== after[l])
-    .map((l) => ({ path: `${path}.${l}`, kind: 'changed', before: before[l], after: after[l], major: false }))
+    .filter((l) => (l === 'pl' || after.en != null) && (before[l] ?? null) !== (after[l] ?? null))
+    .map((l) => ({ path: `${path}.${l}`, kind: 'changed', before: before[l] ?? null, after: after[l] ?? null, major: false }))
 }
 
 const diffRow = <T>(path: string, before: T, after: T, fields: Fields<T>): TariffChange[] => [
@@ -79,7 +80,7 @@ export const diffTariff = (current: TariffData, proposed: TariffData): TariffCha
     text: ['name', 'validity', 'scope', 'whereToBuy'],
   }),
   ...diffRows('luggage', current.luggage, proposed.luggage, (l) => l.item.pl, {
-    major: ['transportModes', 'fee'],
+    major: ['type', 'transportModes', 'fee'],
     text: ['item', 'note', 'feeText', 'conditions', 'whereToBuy'],
   }),
   ...(current.zones.enabled === proposed.zones.enabled

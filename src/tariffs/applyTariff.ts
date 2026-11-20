@@ -6,9 +6,9 @@ import type { LocalizedText as ContentText, TicketsFile, ZonesFile } from '@/con
 
 import type { LocalizedText, TariffData } from './types'
 
-// Content files may omit the English text (it falls back to Polish); the tariff shape always has both
+// The English text is optional in the content (it falls back to Polish) and stays absent here when missing
 const both = (text: ContentText | null | undefined): LocalizedText | null =>
-  text ? { pl: text.pl, en: text.en ?? text.pl } : null
+  text ? { pl: text.pl, ...(text.en ? { en: text.en } : {}) } : null
 const required = (text: ContentText): LocalizedText => both(text)!
 
 // The operator's current tariff in the shape the LLM returns, so the two can be diffed
@@ -27,6 +27,7 @@ export const toTariffData = ({
     whereToBuy: both(t.whereToBuy),
   })),
   luggage: (tickets?.luggage ?? []).map((l) => ({
+    type: l.type ?? null,
     item: required(l.item),
     note: both(l.note),
     transportModes: l.transportModes ?? null,
@@ -47,6 +48,18 @@ export const toTariffData = ({
 export const writeJson = (file: string, data: unknown) =>
   writeFile(file, `${JSON.stringify(data, null, 2)}\n`)
 
+// Empty fields are left out of the files (all of them are optional), so rows that were not touched keep a minimal diff
+const withoutNulls = (value: unknown): unknown => {
+  if (Array.isArray(value)) return value.map(withoutNulls)
+  if (value && typeof value === 'object')
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([, item]) => item != null)
+        .map(([key, item]) => [key, withoutNulls(item)]),
+    )
+  return value
+}
+
 // Rewrites tickets.json and zones.json (never purchase.json); keeps fields the LLM doesn't produce (zone map).
 // The first tariff page becomes the rules link, and the operator's sources get the "AI assisted" note
 export const applyTariff = async (
@@ -65,8 +78,8 @@ export const applyTariff = async (
     ...(operator.zones?.map ? { map: operator.zones.map } : {}),
   }
 
-  await writeJson(path.join(operator.dir, OPERATOR_FILES.tickets), tickets)
-  await writeJson(path.join(operator.dir, OPERATOR_FILES.zones), zones)
+  await writeJson(path.join(operator.dir, OPERATOR_FILES.tickets), withoutNulls(tickets))
+  await writeJson(path.join(operator.dir, OPERATOR_FILES.zones), withoutNulls(zones))
 
   // Edited as raw JSON, not the parsed value, so the editor's key order and formatting survive
   const infoFile = path.join(operator.dir, OPERATOR_FILES.info)

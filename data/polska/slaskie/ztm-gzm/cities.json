@@ -1,0 +1,262 @@
+[
+  {
+    "slug": "katowice",
+    "name": {
+      "pl": "Katowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "bedzin",
+    "name": {
+      "pl": "Będzin"
+    }
+  },
+  {
+    "slug": "bierun",
+    "name": {
+      "pl": "Bieruń"
+    }
+  },
+  {
+    "slug": "bobrowniki",
+    "name": {
+      "pl": "Bobrowniki"
+    }
+  },
+  {
+    "slug": "bojszowy",
+    "name": {
+      "pl": "Bojszowy"
+    }
+  },
+  {
+    "slug": "bytom",
+    "name": {
+      "pl": "Bytom"
+    },
+    "primary": true
+  },
+  {
+    "slug": "chelm-slaski",
+    "name": {
+      "pl": "Chełm Śląski"
+    }
+  },
+  {
+    "slug": "chorzow",
+    "name": {
+      "pl": "Chorzów"
+    },
+    "primary": true
+  },
+  {
+    "slug": "czeladz",
+    "name": {
+      "pl": "Czeladź"
+    },
+    "primary": true
+  },
+  {
+    "slug": "dabrowa-gornicza",
+    "name": {
+      "pl": "Dąbrowa Górnicza"
+    },
+    "primary": true
+  },
+  {
+    "slug": "gieraltowice",
+    "name": {
+      "pl": "Gierałtowice"
+    }
+  },
+  {
+    "slug": "gliwice",
+    "name": {
+      "pl": "Gliwice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "imielin",
+    "name": {
+      "pl": "Imielin"
+    }
+  },
+  {
+    "slug": "knurow",
+    "name": {
+      "pl": "Knurów"
+    }
+  },
+  {
+    "slug": "kobior",
+    "name": {
+      "pl": "Kobiór"
+    }
+  },
+  {
+    "slug": "laziska-gorne",
+    "name": {
+      "pl": "Łaziska Górne"
+    }
+  },
+  {
+    "slug": "ledziny",
+    "name": {
+      "pl": "Lędziny"
+    }
+  },
+  {
+    "slug": "mierzecice",
+    "name": {
+      "pl": "Mierzęcice"
+    }
+  },
+  {
+    "slug": "mikolow",
+    "name": {
+      "pl": "Mikołów"
+    }
+  },
+  {
+    "slug": "myslowice",
+    "name": {
+      "pl": "Mysłowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "ozarowice",
+    "name": {
+      "pl": "Ożarowice"
+    }
+  },
+  {
+    "slug": "piekary-slaskie",
+    "name": {
+      "pl": "Piekary Śląskie"
+    },
+    "primary": true
+  },
+  {
+    "slug": "pilchowice",
+    "name": {
+      "pl": "Pilchowice"
+    }
+  },
+  {
+    "slug": "psary",
+    "name": {
+      "pl": "Psary"
+    }
+  },
+  {
+    "slug": "pyskowice",
+    "name": {
+      "pl": "Pyskowice"
+    }
+  },
+  {
+    "slug": "radzionkow",
+    "name": {
+      "pl": "Radzionków"
+    }
+  },
+  {
+    "slug": "ruda-slaska",
+    "name": {
+      "pl": "Ruda Śląska"
+    },
+    "primary": true
+  },
+  {
+    "slug": "rudziniec",
+    "name": {
+      "pl": "Rudziniec"
+    }
+  },
+  {
+    "slug": "siemianowice-slaskie",
+    "name": {
+      "pl": "Siemianowice Śląskie"
+    },
+    "primary": true
+  },
+  {
+    "slug": "siewierz",
+    "name": {
+      "pl": "Siewierz"
+    }
+  },
+  {
+    "slug": "slawkow",
+    "name": {
+      "pl": "Sławków"
+    }
+  },
+  {
+    "slug": "sosnicowice",
+    "name": {
+      "pl": "Sośnicowice"
+    }
+  },
+  {
+    "slug": "sosnowiec",
+    "name": {
+      "pl": "Sosnowiec"
+    },
+    "primary": true
+  },
+  {
+    "slug": "swierklaniec",
+    "name": {
+      "pl": "Świerklaniec"
+    }
+  },
+  {
+    "slug": "swietochlowice",
+    "name": {
+      "pl": "Świętochłowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "tarnowskie-gory",
+    "name": {
+      "pl": "Tarnowskie Góry"
+    }
+  },
+  {
+    "slug": "tychy",
+    "name": {
+      "pl": "Tychy"
+    },
+    "primary": true
+  },
+  {
+    "slug": "wojkowice",
+    "name": {
+      "pl": "Wojkowice"
+    }
+  },
+  {
+    "slug": "wyry",
+    "name": {
+      "pl": "Wyry"
+    }
+  },
+  {
+    "slug": "zabrze",
+    "name": {
+      "pl": "Zabrze"
+    },
+    "primary": true
+  },
+  {
+    "slug": "zbroslawice",
+    "name": {
+      "pl": "Zbrosławice"
+    }
+  }
+]

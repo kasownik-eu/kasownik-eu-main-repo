@@ -4,6 +4,7 @@ import {
   operatorRelations,
   purchaseMethodTypes,
   ticketCategories,
+  luggageTypes,
   ticketValidities,
   transportModes,
 } from './enums'
@@ -19,6 +20,8 @@ export { localizedText } from './primitives'
 const url = z.url().nullish()
 const price = z.number().nonnegative().nullish()
 const modes = z.array(z.enum(transportModes)).nullish()
+// Pages an LLM pipeline reads: the whole <main>/<body> text, or only the XPath block
+const sourcePages = z.array(z.strictObject({ url: z.url(), xpath: z.string().nullish() })).nullish()
 
 // A file in the operator's images/ folder
 export const image = z.strictObject({
@@ -71,8 +74,14 @@ export const operatorFile = z.strictObject({
       aiAssisted: z.boolean().optional(),
     })
     .nullish(),
-  // Pages read by the tariff sync (tickets, luggage, zones, rules note)
-  tariffSources: z.array(z.strictObject({ url: z.url(), xpath: z.string().nullish() })).nullish(),
+  // Pages read by the tariff sync (tickets, zones, rules note)
+  tariffSources: sourcePages,
+  // Pages with the rules for luggage, bikes, pets and strollers, read by the luggage pass of the tariff sync
+  luggageSources: sourcePages,
+  // Pages on how to buy and validate tickets, for the purchase.json pipeline
+  purchaseSources: sourcePages,
+  // Pages describing the fare zones (list, map), for the zones.json pipeline
+  zoneSources: sourcePages,
   // Page templates (templates/<page>/<name>.json) for this operator's city and operator pages; default "default"
   templates: z.strictObject({ city: slug.optional(), operator: slug.optional() }).nullish(),
   // The operator's own content parts (notice, text), rendered where the template puts "operatorBlocks"
@@ -125,6 +134,7 @@ export const ticketsFile = z.strictObject({
   luggage: z
     .array(
       z.strictObject({
+        type: z.enum(luggageTypes).nullish(),
         item: localizedText,
         note: optionalText,
         transportModes: modes,
