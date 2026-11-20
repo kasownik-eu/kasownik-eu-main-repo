@@ -163,6 +163,23 @@
           "items": {
             "type": "object",
             "properties": {
+              "type": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "luggage",
+                      "bike",
+                      "pet",
+                      "stroller",
+                      "other"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
               "item": {
                 "type": "object",
                 "properties": {

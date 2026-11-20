@@ -84,6 +84,21 @@ URLs are localized by real folders (no middleware in a static export): `/pl/mias
 `/`, `/pl/` and `/en/` redirect with a meta refresh. Unknown pages are served as `out/404.html` by the host; in
 `next dev` they show Next's "missing param in generateStaticParams" error instead.
 
+## Operator research (Claude Code)
+
+`/operator-research <operator website URL>` (skill in `.claude/skills/operator-research/`) creates or checks an
+operator's base data: the `operator.json` header (name, label, description, logo, transport modes, contact), its
+`cities.json`, and the pages the LLM pipelines read: `tariffSources` (tariff sync), `purchaseSources` (how to buy and
+validate tickets) and `zoneSources` (fare zones). An operator whose `websiteUrl` has the same host is verified
+(differences are corrected and reported), otherwise a new folder is created. Review the result with `git diff data/`.
+
+Helper scripts used by the skill:
+
+```bash
+npm run research:context -- <url>                 # verify/discover, existing cities, operators, voivodeships (JSON)
+npm run research:check-source -- <url> [xpath]   # fetch + extract a page exactly like the LLM pipelines do
+```
+
 ## Tariff sync
 
 Keeps operator tariffs (tickets, luggage, zones, rules note) up to date from the operators' own web pages. Each run, for every operator with `tariffSources` in `operator.json` (URL + optional XPath):
@@ -102,10 +117,11 @@ There is no review step: changes are written straight into `data/`. Review them 
 | Variable                                                                                                                                                                                           | Purpose                                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
 | `ALLOWED_DEV_ORIGINS`                                                                                                                                                                              | Dev only: extra comma-separated hosts allowed to load JS from `next dev` (LAN IPs and `*.local` are built in) |
-| `TARIFF_LLM_PROVIDER`                                                                                                                                                                              | LLM provider: `ollama-cloud` or `fixture` (returns `<TARIFF_LLM_FIXTURE_DIR>/<slug>.json`) |
+| `TARIFF_LLM_PROVIDER`                                                                                                                                                                              | LLM provider: `ollama-cloud`, `ollama-local` or `fixture` (returns `<TARIFF_LLM_FIXTURE_DIR>/<slug>.json`) |
 | `TARIFF_LLM_FIXTURE_DIR`                                                                                                                                                                           | Fixture directory, default `tests/fixtures/tariffs`                                        |
 | `OLLAMA_API_KEY`                                                                                                                                                                                   | Ollama Cloud API key (secret, required for `ollama-cloud`)                                 |
 | `OLLAMA_MODEL`, `OLLAMA_BASE_URL`, `OLLAMA_THINK`, `OLLAMA_TEMPERATURE`, `OLLAMA_SEED`, `OLLAMA_NUM_CTX`, `OLLAMA_NUM_PREDICT`, `OLLAMA_TIMEOUT_MS`, `OLLAMA_MAX_RETRIES`, `OLLAMA_RETRY_DELAY_MS` | Optional overrides; defaults in `src/tariffs/llm/ollama-cloud/config.ts`                   |
+| `OLLAMA_LOCAL_MODEL`, `OLLAMA_LOCAL_BASE_URL`, `OLLAMA_LOCAL_THINK`, `OLLAMA_LOCAL_TEMPERATURE`, `OLLAMA_LOCAL_SEED`, `OLLAMA_LOCAL_NUM_CTX`, `OLLAMA_LOCAL_NUM_PREDICT`, `OLLAMA_LOCAL_TIMEOUT_MS`, `OLLAMA_LOCAL_MAX_RETRIES`, `OLLAMA_LOCAL_RETRY_DELAY_MS` | `ollama-local` provider (no API key): the model you pulled with `ollama pull` (default `qwen3:8b`), server URL (default `http://localhost:11434`) and optional overrides; defaults in `src/tariffs/llm/ollama-local/config.ts` |
 | `TARIFF_CACHE_DIR`                                                                                                                                                                                 | Downloaded page cache, default `.tmp/tariffs` (git-ignored)                                |
 | `CONTENT_DIR`                                                                                                                                                                                      | Content folder for the build and the sync, default `data/`                                 |
 
@@ -117,6 +133,16 @@ npm run sync:tariffs -- <slug>                         # one operator
 npm run sync:tariffs -- <slug> dry-run                 # fetch, extract, validate and print the diff; writes nothing
 npm run sync:tariffs -- <slug> force                   # ignore the page cache and always call the LLM
 ```
+
+The sync has two independent passes, each with its own LLM call, schema and prompt: **tickets** (zones and rules note
+too) from `tariffSources`, and **luggage** (rules for luggage, bikes, pets, strollers; `type` is one of
+`luggage | bike | pet | stroller | other`) from `luggageSources` in `operator.json`. A pass runs only when its pages
+changed (or with `force`); a pass that does not run, or an operator without `luggageSources`, keeps the current data.
+A page may be used by both passes with different `xpath`s (the page cache is keyed by URL and XPath).
+
+The LLM does not extract `whereToBuy` (where a ticket or luggage fee is sold): with free text the models invent sales
+channels the pages never mention. Values already in `tickets.json` are kept on every sync. Planned: an enum of sales
+channels the LLM may pick from (see the TODO in `src/tariffs/schema.ts`).
 
 `--dry-run` / `--force` work too. The command exits with code `1` when any operator failed, so it can run from cron or
 a scheduled CI job; the site only changes once the updated JSON is committed and rebuilt:

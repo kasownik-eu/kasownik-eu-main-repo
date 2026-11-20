@@ -1,4 +1,4 @@
-import { cp, mkdtemp, readFile, rm } from 'fs/promises'
+import { cp, mkdtemp, readFile, rm, writeFile } from 'fs/promises'
 import { tmpdir } from 'os'
 import path from 'path'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -7,10 +7,11 @@ import { loadCatalog } from '@/content/load'
 import { applyTariff, toTariffData } from '@/tariffs/applyTariff'
 import { diffTariff } from '@/tariffs/diffTariff'
 import { extractContent, TariffXPathError } from '@/tariffs/extractContent'
+import { keepTranslations, keepWhereToBuy } from '@/tariffs/keepTranslations'
 import { isUnchanged, promote, storeFetched } from '@/tariffs/pageCache'
 import { tariffSchema, tariffSchemaFor } from '@/tariffs/schema'
 import { syncAllTariffs } from '@/tariffs/syncTariffs'
-import type { TariffData } from '@/tariffs/types'
+import type { LocalizedText, TariffData } from '@/tariffs/types'
 
 const html = `<html><body>
   <nav>Menu Home Contact</nav>
@@ -104,7 +105,7 @@ describe('diffTariff', () => {
   it('marks translation tweaks as minor', async () => {
     const data = await fixture()
     const next = structuredClone(data)
-    next.tickets[0].name.en = '20 minute ticket'
+    ;(next.tickets[0].name as LocalizedText).en = '20 minute ticket'
     expect(diffTariff(data, next)).toEqual([
       expect.objectContaining({ path: 'tickets[single:bilet 20-minutowy].name.en', major: false }),
     ])
@@ -166,12 +167,9 @@ describe('applyTariff', () => {
     expect(diffTariff(toTariffData(reloaded), data)).toEqual([])
   })
 
-  it('reads English as Polish where the content has no translation', () => {
+  it('leaves English out where the content has no translation', () => {
     const operator = loadCatalog(dir).operators.get('testowy')!
-    expect(toTariffData(operator).tickets[0].name).toEqual({
-      pl: 'Bilet jednorazowy',
-      en: 'Bilet jednorazowy',
-    })
+    expect(toTariffData(operator).tickets[0].name).toEqual({ pl: 'Bilet jednorazowy' })
   })
 })
 
@@ -201,15 +199,52 @@ describe('syncAllTariffs', () => {
   })
 
   it('applies the extracted tariff to the JSON files, then skips an unchanged page', async () => {
+    const existing = toTariffData(loadCatalog(dir).operators.get('testowy')!)
     const first = await syncAllTariffs({ contentDir: dir })
     expect(first.counts).toEqual({ applied: 1 })
     const written = JSON.parse(
       await readFile(path.join(dir, 'polska/slaskie/testowy/tickets.json'), 'utf8'),
     )
-    expect(written.tickets).toEqual((await fixture()).tickets)
+    // The LLM output is Polish only; English that already exists for the same Polish text is kept
+    // whereToBuy is not extracted (the existing content has none, so none is written)
+    const extracted = await fixture()
+    extracted.tickets = extracted.tickets.map(({ whereToBuy: _whereToBuy, ...ticket }) => ticket)
+    expect(written.tickets).toEqual(keepWhereToBuy(existing, keepTranslations(existing, extracted)).tickets)
+    expect(written.tickets.some((t: { scope?: { en?: string } }) => t.scope?.en)).toBe(true)
 
     const second = await syncAllTariffs({ contentDir: dir })
     expect(second.counts).toEqual({ unchanged_source: 1 })
+  })
+
+  it('runs the luggage pass from luggageSources and keeps luggage when an operator has none', async () => {
+    const file = path.join(dir, 'polska/slaskie/testowy/operator.json')
+    const info = JSON.parse(await readFile(file, 'utf8'))
+    info.luggageSources = [{ url: 'https://example.com/regulamin' }]
+    await writeFile(file, JSON.stringify(info, null, 2))
+
+    const first = await syncAllTariffs({ contentDir: dir })
+    expect(first.counts).toEqual({ applied: 1 })
+    expect(first.results[0].pages.map((p) => p.url)).toEqual([
+      'https://example.com/cennik',
+      'https://example.com/regulamin',
+    ])
+    const tickets = JSON.parse(await readFile(path.join(dir, 'polska/slaskie/testowy/tickets.json'), 'utf8'))
+    expect(tickets.luggage.map((l: { type: string }) => l.type)).toEqual(['luggage', 'bike'])
+
+    // Both passes are cached: nothing runs again
+    expect((await syncAllTariffs({ contentDir: dir })).counts).toEqual({ unchanged_source: 1 })
+  })
+
+  it('leaves existing luggage alone when there are no luggage sources', async () => {
+    const file = path.join(dir, 'polska/slaskie/testowy/tickets.json')
+    const seeded = JSON.parse(await readFile(file, 'utf8'))
+    seeded.luggage = [{ type: 'pet', item: { pl: 'Pies', en: 'Dog' }, conditions: { pl: 'Na smyczy', en: 'On a leash' } }]
+    await writeFile(file, JSON.stringify(seeded, null, 2))
+
+    expect((await syncAllTariffs({ contentDir: dir })).counts).toEqual({ applied: 1 })
+    const after = JSON.parse(await readFile(file, 'utf8'))
+    expect(after.luggage).toHaveLength(1)
+    expect(after.luggage[0]).toMatchObject(seeded.luggage[0])
   })
 
   it('writes nothing in dry-run mode', async () => {

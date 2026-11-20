@@ -1,10 +1,12 @@
 import { fixtureExtractor } from './fixture'
 import { ollamaCloudExtractor } from './ollama-cloud'
+import { ollamaLocalExtractor } from './ollama-local'
 import type { TariffExtractor } from './types'
 
 const providers: Record<string, TariffExtractor> = {
   fixture: fixtureExtractor,
   'ollama-cloud': ollamaCloudExtractor,
+  'ollama-local': ollamaLocalExtractor,
 }
 
 export const getTariffExtractor = (): TariffExtractor => {

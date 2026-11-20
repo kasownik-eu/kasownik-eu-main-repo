@@ -16,6 +16,7 @@ for (const r of summary.results) {
     console.log(`  ${p.changed ? 'changed  ' : 'unchanged'} ${p.url} (${p.text.length} chars)`)
     if (dryRun) console.log(p.text.slice(0, 800).replace(/^/gm, '    | '))
   }
+  if (r.skipped?.length) console.log(`  Skipped, not tickets (${r.skipped.length}): ${r.skipped.map((x) => `${x.name} [${x.kind}]`).join('; ')}`)
   if (r.changes?.length) {
     console.log(`  ${dryRun ? 'Would change' : 'Changed'} (${r.changes.length}):`)
     for (const c of r.changes) {

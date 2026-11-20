@@ -3,13 +3,16 @@ import { z } from 'zod'
 import { loadCatalog, type RawOperator } from '@/content/load'
 
 import { applyTariff, toTariffData } from './applyTariff'
+import { classifyTariff } from './classify'
 import { diffTariff, type TariffChange } from './diffTariff'
 import { extractContent } from './extractContent'
 import { fetchPage } from './fetchPage'
+import { keepTranslations, keepWhereToBuy } from './keepTranslations'
 import { getTariffExtractor } from './llm'
+import { normalizeLlmOutput } from './normalizeOutput'
 import { hashText, isUnchanged, promote, storeFetched } from './pageCache'
-import { tariffInstructions } from './prompt'
-import { tariffSchemaFor } from './schema'
+import { luggageInstructions, tariffInstructions } from './prompt'
+import { luggageExtractionSchemaFor, ticketsExtractionSchemaFor } from './schema'
 import type { TariffData } from './types'
 
 // Writes straight into data/: there is no review queue, the git diff of the JSON files is the review
@@ -25,67 +28,126 @@ export type OperatorSyncResult = {
   status: SyncStatus
   error?: string
   failedStage?: SyncStage
-  pages: { url: string; textHash: string; changed: boolean; text: string }[]
+  pages: { url: string; xpath?: string | null; textHash: string; changed: boolean; text: string }[]
   changes?: TariffChange[]
+  // Rows the model reported that are not tickets (events, fees, luggage): left out of the tariff
+  skipped?: { name: string; kind: string }[]
   proposed?: TariffData
 }
 
+type Page = OperatorSyncResult['pages'][number]
+type Source = NonNullable<RawOperator['info']['tariffSources']>[number]
+
+// Fetches the pages of one pass; any page failure (HTTP, content type, XPath) aborts the operator before anything is written
+const fetchPages = async (slug: string, sources: Source[], onStage: (stage: SyncStage) => void): Promise<Page[]> => {
+  const pages: Page[] = []
+  for (const source of sources) {
+    onStage('fetch')
+    const html = await fetchPage(source.url)
+    onStage('extract')
+    const text = extractContent(html, source.url, source.xpath)
+    await storeFetched(slug, source.url, html, text, source.xpath)
+    const changed = !(await isUnchanged(slug, source.url, text, source.xpath))
+    pages.push({ url: source.url, xpath: source.xpath, textHash: hashText(text), changed, text })
+  }
+  return pages
+}
+
+// One LLM call: the pass's pages in, validated data out
+const runPass = async <T extends z.ZodType>(
+  extractor: ReturnType<typeof getTariffExtractor>,
+  operator: RawOperator,
+  pages: Page[],
+  schema: T,
+  instructions: string,
+  onStage: (stage: SyncStage) => void,
+): Promise<z.infer<T>> => {
+  onStage('llm')
+  const raw = await extractor
+    .extract({
+      pages: pages.map(({ url, text }) => ({ url, text })),
+      operator: { slug: operator.slug, name: operator.info.name },
+      jsonSchema: z.toJSONSchema(schema),
+      instructions,
+    })
+    .catch((err: Error) => {
+      throw new Error(`LLM provider "${extractor.name}": ${err.message}`, { cause: err })
+    })
+  onStage('validate')
+  const parsed = schema.safeParse(normalizeLlmOutput(raw))
+  if (!parsed.success) throw new Error(`LLM output failed validation:\n${z.prettifyError(parsed.error)}`)
+  return parsed.data
+}
+
+// Two independent passes: tickets (tariffSources) and luggage rules (luggageSources). A pass runs only when its pages
+// changed (or with force); a pass that did not run, or has no sources, keeps what is in the content now
 export const syncOperatorTariff = async (
   operator: RawOperator,
   { dryRun = false, force = false }: SyncOptions = {},
 ): Promise<OperatorSyncResult> => {
   const result: OperatorSyncResult = { slug: operator.slug, status: 'failed', pages: [] }
   let stage: SyncStage = 'fetch'
+  const onStage = (next: SyncStage) => {
+    stage = next
+  }
 
   try {
-    // Any page failure (HTTP, content type, XPath) aborts the operator before anything is written
-    for (const page of operator.info.tariffSources ?? []) {
-      stage = 'fetch'
-      const html = await fetchPage(page.url)
-      stage = 'extract'
-      const text = extractContent(html, page.url, page.xpath)
-      await storeFetched(operator.slug, page.url, html, text)
-      const changed = !(await isUnchanged(operator.slug, page.url, text))
-      result.pages.push({ url: page.url, textHash: hashText(text), changed, text })
-    }
+    const ticketPages = await fetchPages(operator.slug, operator.info.tariffSources ?? [], onStage)
+    const luggagePages = await fetchPages(operator.slug, operator.info.luggageSources ?? [], onStage)
+    result.pages = [...ticketPages, ...luggagePages]
 
-    if (!force && result.pages.every((p) => !p.changed)) {
+    const needsRun = (pages: Page[]) => pages.length > 0 && (force || pages.some((p) => p.changed))
+    const runTickets = needsRun(ticketPages)
+    const runLuggage = needsRun(luggagePages)
+    if (!runTickets && !runLuggage) {
       result.status = 'unchanged_source'
       return result
     }
 
-    stage = 'llm'
     // The LLM may only assign the operator's own modes
     const modes = operator.info.transportModes
     if (!modes?.length) throw new Error(`Operator "${operator.slug}" has no transport modes set`)
-    const schema = tariffSchemaFor(modes)
     const extractor = getTariffExtractor()
-    const raw = await extractor
-      .extract({
-        pages: result.pages.map(({ url, text }) => ({ url, text })),
-        operator: { slug: operator.slug, name: operator.info.name },
-        jsonSchema: z.toJSONSchema(schema),
-        instructions: tariffInstructions(modes),
-      })
-      .catch((err: Error) => {
-        throw new Error(`LLM provider "${extractor.name}": ${err.message}`, { cause: err })
-      })
-    stage = 'validate'
-    const parsed = schema.safeParse(raw)
-    if (!parsed.success)
-      throw new Error(`LLM output failed validation:\n${z.prettifyError(parsed.error)}`)
+    const current = toTariffData(operator)
+    let data: TariffData = current
+
+    if (runTickets) {
+      const extracted = await runPass(
+        extractor,
+        operator,
+        ticketPages,
+        ticketsExtractionSchemaFor(modes),
+        tariffInstructions(modes),
+        onStage,
+      )
+      const { data: classified, skipped } = classifyTariff(extracted)
+      result.skipped = skipped
+      data = { ...data, ...classified }
+    }
+    if (runLuggage) {
+      const { luggage } = await runPass(
+        extractor,
+        operator,
+        luggagePages,
+        luggageExtractionSchemaFor(modes),
+        luggageInstructions(modes),
+        onStage,
+      )
+      data = { ...data, luggage }
+    }
 
     stage = 'compare'
-    result.proposed = parsed.data
-    result.changes = diffTariff(toTariffData(operator), parsed.data)
+    const proposed = keepWhereToBuy(current, keepTranslations(current, data))
+    result.proposed = proposed
+    result.changes = diffTariff(current, proposed)
     result.status = result.changes.length ? 'applied' : 'no_changes'
     if (dryRun) return result
 
     stage = 'apply'
     if (result.status === 'applied')
-      await applyTariff(operator, parsed.data, { rulesUrl: result.pages[0]?.url })
-    // Only now is the fetched page the new baseline; a failed run is retried on the next sync
-    await Promise.all(result.pages.map((p) => promote(operator.slug, p.url)))
+      await applyTariff(operator, proposed, { rulesUrl: ticketPages[0]?.url ?? operator.tickets?.rulesUrl })
+    // Only now are the fetched pages the new baseline; a failed run is retried on the next sync
+    await Promise.all(result.pages.map((p) => promote(operator.slug, p.url, p.xpath)))
     return result
   } catch (err) {
     result.status = 'failed'
@@ -110,7 +172,7 @@ export const syncAllTariffs = async ({
   if (slug && !catalog.operators.has(slug))
     throw new Error(`Operator "${slug}" does not exist in the data folder`)
   const operators = [...catalog.operators.values()].filter(
-    (operator) => operator.info.tariffSources?.length && (!slug || operator.slug === slug),
+    (operator) => (operator.info.tariffSources?.length || operator.info.luggageSources?.length) && (!slug || operator.slug === slug),
   )
 
   const summary: SyncSummary = { counts: {}, failed: [], results: [] }

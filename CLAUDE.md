@@ -37,6 +37,7 @@ LLM providers live next to the pipeline that uses them, one folder per provider 
 - Retry only transient failures (network, 429, 5xx) with backoff; use a request timeout.
 - Prefer the provider's official npm SDK when one is installed (e.g. `ollama` for Ollama); inject timeouts through the SDK's options/`fetch` hook if it has no timeout of its own. Don't add new dependencies without asking.
 - Add an integration test in `tests/int/` that stubs `fetch` (no real network calls / API keys in tests).
+- Building a new LLM pipeline (purchase, zones, …): read `docs/llm-extraction.md` first (what makes runs slow, facts-from-LLM/decisions-in-code, enums instead of free text, separate passes and sources, how to validate output). Keep `whereToBuy` out of the LLM output until it is an enum.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
