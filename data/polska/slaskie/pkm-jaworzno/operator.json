@@ -1,0 +1,154 @@
+{
+  "name": "Przedsiębiorstwo Komunikacji Miejskiej Spółka z o.o. w Jaworznie",
+  "shortName": "PKM",
+  "label": {
+    "pl": "Przewoźnik miejski · Jaworzno",
+    "en": "City carrier · Jaworzno"
+  },
+  "logo": {
+    "file": "logo.png",
+    "alt": {
+      "pl": "Logo PKM Jaworzno",
+      "en": "PKM Jaworzno logo"
+    }
+  },
+  "description": {
+    "pl": "Miejski przewoźnik autobusowy z Jaworzna, obsługujący linie dzienne i nocne w mieście oraz połączenia do Katowic, Sosnowca, Mysłowic i Chrzanowa. Sprzedaje bilety i prowadzi kontrolę biletów, a organizatorem transportu w mieście jest Miejski Zarząd Dróg i Mostów.",
+    "en": "Municipal bus operator from Jaworzno, running day and night lines in the city and links to Katowice, Sosnowiec, Mysłowice and Chrzanów. It sells tickets and checks them on board, while the transport authority of the city is the Municipal Roads and Bridges Authority (MZDiM)."
+  },
+  "websiteUrl": "https://www.pkm.jaworzno.pl/www/",
+  "timetableUrl": "https://www.pkm.jaworzno.pl/rozklady/",
+  "transportModes": [
+    "bus"
+  ],
+  "currency": "PLN",
+  "paymentInfo": {
+    "pl": "gotówka, karta płatnicza (zbliżeniowo), BLIK, Przelewy24, aplikacja mPKM Jaworzno",
+    "en": "cash, contactless payment card, BLIK, Przelewy24, mPKM Jaworzno app"
+  },
+  "hotline": "+48 32 753 55 47",
+  "servicePoint": {
+    "pl": "Centrum Obsługi Klienta, ul. Krakowska 9, pon. i pt. 7:00–15:00, wt.–śr. 8:00–16:00, czw. 9:00–17:00",
+    "en": "Customer Service Centre, 9 Krakowska St, Mon and Fri 7:00–15:00, Tue–Wed 8:00–16:00, Thu 9:00–17:00"
+  },
+  "verifiedAt": "2026-11-21",
+  "sources": {
+    "items": [
+      {
+        "label": {
+          "pl": "Oficjalna strona",
+          "en": "Official website"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/"
+      },
+      {
+        "label": {
+          "pl": "Cennik biletów",
+          "en": "Price list"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/"
+      },
+      {
+        "label": {
+          "pl": "Regulamin przewozów",
+          "en": "Carriage regulations"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/bilety/regulamin-przewozow/"
+      },
+      {
+        "label": {
+          "pl": "Automaty biletowe",
+          "en": "Ticket machines"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/"
+      },
+      {
+        "label": {
+          "pl": "Open Payment System",
+          "en": "Open Payment System"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/"
+      },
+      {
+        "label": {
+          "pl": "Sprzedaż biletów u kierowców",
+          "en": "Tickets from drivers"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/bilety/sprzedaz-biletow-u-kierowcow/"
+      },
+      {
+        "label": {
+          "pl": "Aplikacja mobilna PKM",
+          "en": "PKM mobile app"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/bilety/aplikacja-mobilna-pkm/"
+      },
+      {
+        "label": {
+          "pl": "Sklep internetowy",
+          "en": "Online shop"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/"
+      },
+      {
+        "label": {
+          "pl": "Centrum Obsługi Klienta",
+          "en": "Customer Service Centre"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/inne/centrum-obslugi-klienta/"
+      },
+      {
+        "label": {
+          "pl": "Kontakt",
+          "en": "Contact"
+        },
+        "url": "https://www.pkm.jaworzno.pl/www/inne/kontakt/"
+      },
+      {
+        "label": {
+          "pl": "Rozkłady jazdy",
+          "en": "Timetables"
+        },
+        "url": "https://www.pkm.jaworzno.pl/rozklady/"
+      }
+    ],
+    "aiAssisted": true
+  },
+  "tariffSources": [
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/"
+    }
+  ],
+  "luggageSources": [
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/regulamin-przewozow/"
+    }
+  ],
+  "purchaseSources": [
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/"
+    },
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/"
+    },
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/"
+    },
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/sprzedaz-biletow-u-kierowcow/"
+    },
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/aplikacja-mobilna-pkm/"
+    },
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/"
+    },
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/inne/centrum-obslugi-klienta/"
+    },
+    {
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/regulamin-przewozow/"
+    }
+  ],
+  "zoneSources": []
+}

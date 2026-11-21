@@ -1,0 +1,263 @@
+{
+  "tickets": [
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednorazowy – jedno miasto (gmina)",
+        "en": "Single – one city (gmina)"
+      },
+      "validity": {
+        "pl": "Jeden przejazd",
+        "en": "Single ride"
+      },
+      "scope": {
+        "pl": "Teren jednego miasta (gminy)",
+        "en": "Area of one city (gmina)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 4.0,
+      "priceReduced": 2.0,
+      "whereToBuy": {
+        "pl": "kierowca, biletomat w autobusie, terminal Open Payment System, aplikacja mPKM Jaworzno",
+        "en": "driver, on-board ticket machine, Open Payment System terminal, mPKM Jaworzno app"
+      }
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednorazowy – dwa sąsiadujące miasta (gminy)",
+        "en": "Single – two neighbouring cities (gminas)"
+      },
+      "validity": {
+        "pl": "Jeden przejazd",
+        "en": "Single ride"
+      },
+      "scope": {
+        "pl": "Teren dwóch sąsiadujących miast (gmin)",
+        "en": "Area of two neighbouring cities (gminas)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 4.6,
+      "priceReduced": 2.3,
+      "whereToBuy": {
+        "pl": "kierowca, biletomat w autobusie, terminal Open Payment System, aplikacja mPKM Jaworzno",
+        "en": "driver, on-board ticket machine, Open Payment System terminal, mPKM Jaworzno app"
+      }
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednorazowy – trzy i więcej miast (gmin)",
+        "en": "Single – three or more cities (gminas)"
+      },
+      "validity": {
+        "pl": "Jeden przejazd",
+        "en": "Single ride"
+      },
+      "scope": {
+        "pl": "Teren trzech i więcej miast (gmin)",
+        "en": "Area of three or more cities (gminas)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 5.0,
+      "priceReduced": 2.5,
+      "whereToBuy": {
+        "pl": "kierowca, biletomat w autobusie, terminal Open Payment System, aplikacja mPKM Jaworzno",
+        "en": "driver, on-board ticket machine, Open Payment System terminal, mPKM Jaworzno app"
+      }
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Dzienny",
+        "en": "Daily"
+      },
+      "validity": {
+        "pl": "do 24:00 dnia zakupu",
+        "en": "until 24:00 on the day of purchase"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 7.0,
+      "priceReduced": 3.5,
+      "whereToBuy": {
+        "pl": "kierowca, biletomat w autobusie, terminal Open Payment System, aplikacja mPKM Jaworzno",
+        "en": "driver, on-board ticket machine, Open Payment System terminal, mPKM Jaworzno app"
+      }
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Okresowy imienny 7-dniowy (T–C)",
+        "en": "Named period ticket, 7 days (T–C)"
+      },
+      "validity": {
+        "pl": "7 dni",
+        "en": "7 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 38.0,
+      "priceReduced": 19.0,
+      "whereToBuy": {
+        "pl": "sklep internetowy, punkt sprzedaży, aplikacja mPKM Jaworzno",
+        "en": "online shop, sales point, mPKM Jaworzno app"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Okresowy imienny 30-dniowy (M–C)",
+        "en": "Named period ticket, 30 days (M–C)"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 100.0,
+      "priceReduced": 50.0,
+      "whereToBuy": {
+        "pl": "sklep internetowy, punkt sprzedaży, aplikacja mPKM Jaworzno",
+        "en": "online shop, sales point, mPKM Jaworzno app"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Okresowy imienny 90-dniowy (K–C)",
+        "en": "Named period ticket, 90 days (K–C)"
+      },
+      "validity": {
+        "pl": "90 dni",
+        "en": "90 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 200.0,
+      "priceReduced": 100.0,
+      "whereToBuy": {
+        "pl": "sklep internetowy, punkt sprzedaży, aplikacja mPKM Jaworzno",
+        "en": "online shop, sales point, mPKM Jaworzno app"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Roczny imienny (R–C, z J-ka)",
+        "en": "Named annual ticket (R–C, with J-ka card)"
+      },
+      "validity": {
+        "pl": "rok",
+        "en": "1 year"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 300.0,
+      "priceReduced": 150.0,
+      "whereToBuy": {
+        "pl": "sklep internetowy, punkt sprzedaży, aplikacja mPKM Jaworzno",
+        "en": "online shop, sales point, mPKM Jaworzno app"
+      }
+    }
+  ],
+  "luggage": [
+    {
+      "type": "luggage",
+      "item": {
+        "pl": "Bagaż podręczny",
+        "en": "Hand luggage"
+      },
+      "note": {
+        "pl": "bezpłatnie",
+        "en": "free of charge"
+      },
+      "conditions": {
+        "pl": "Nie może utrudniać przejścia ani zagrażać bezpieczeństwu. Nie wolno wozić dużych przedmiotów, np. lodówek.",
+        "en": "It must not block the aisle or endanger safety. Large items such as fridges are not allowed."
+      }
+    },
+    {
+      "type": "pet",
+      "item": {
+        "pl": "Małe zwierzę",
+        "en": "Small animal"
+      },
+      "note": {
+        "pl": "trzymane na ręku, bezpłatnie",
+        "en": "held in the arms, free of charge"
+      },
+      "conditions": {
+        "pl": "Pasażer opiekuje się zwierzęciem i odpowiada za szkody.",
+        "en": "The passenger looks after the animal and is liable for damage."
+      }
+    },
+    {
+      "type": "stroller",
+      "item": {
+        "pl": "Wózek dziecięcy i inwalidzki",
+        "en": "Pushchair and wheelchair"
+      },
+      "note": {
+        "pl": "bezpłatnie",
+        "en": "free of charge"
+      },
+      "conditions": {
+        "pl": "Dziecko w wózku musi być zabezpieczone przed wypadnięciem.",
+        "en": "A child in a pushchair must be secured against falling out."
+      }
+    },
+    {
+      "type": "bike",
+      "item": {
+        "pl": "Rower",
+        "en": "Bicycle"
+      },
+      "note": {
+        "pl": "nie wolno przewozić",
+        "en": "not allowed"
+      },
+      "conditions": {
+        "pl": "Regulamin wymienia rowery wśród przedmiotów, których nie wolno wozić w autobusie.",
+        "en": "The regulations list bicycles among items that may not be carried on board."
+      }
+    }
+  ],
+  "rulesNote": {
+    "pl": "Opłata za przejazd upoważnia do przewozu bagażu, wózka i zwierzęcia bez dodatkowej opłaty. Zasady opisuje Regulamin przewozów.",
+    "en": "The fare also covers luggage, a pushchair and an animal at no extra charge. The rules are in the carriage regulations."
+  },
+  "rulesUrl": "https://www.pkm.jaworzno.pl/www/bilety/regulamin-przewozow/"
+}

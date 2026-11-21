@@ -1,0 +1,271 @@
+{
+  "verifiedAt": "2026-11-21",
+  "facts": [
+    {
+      "file": "tickets",
+      "path": "tickets[0].priceNormal",
+      "value": 4.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Teren jednego miasta (gminy). | 4,00 zł | 2,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[0].priceReduced",
+      "value": 2.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Teren jednego miasta (gminy). | 4,00 zł | 2,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[1].priceNormal",
+      "value": 4.6,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Teren dwóch sąsiadujących miast (gmin). | 4,60 zł | 2,30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[1].priceReduced",
+      "value": 2.3,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Teren dwóch sąsiadujących miast (gmin). | 4,60 zł | 2,30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[2].priceNormal",
+      "value": 5.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Teren trzech i więcej miast (gmin). | 5,00 zł | 2,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[2].priceReduced",
+      "value": 2.5,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Teren trzech i więcej miast (gmin). | 5,00 zł | 2,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[3].priceNormal",
+      "value": 7.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Dzienny | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. -ważny do godz. 24:00 dnia, w którym został zakupiony. | 7,00 zł | 3,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[3].priceReduced",
+      "value": 3.5,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Dzienny | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. -ważny do godz. 24:00 dnia, w którym został zakupiony. | 7,00 zł | 3,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[4].priceNormal",
+      "value": 38.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "T – C | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. przez okres 7 dni od daty oznaczonej na bilecie. | 38,00 zł | 19,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[4].priceReduced",
+      "value": 19.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "T – C | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. przez okres 7 dni od daty oznaczonej na bilecie. | 38,00 zł | 19,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[5].priceNormal",
+      "value": 100.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "M – C | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. przez okres 30 dni od daty oznaczonej na bilecie. | 100,00 zł | 50,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[5].priceReduced",
+      "value": 50.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "M – C | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. przez okres 30 dni od daty oznaczonej na bilecie. | 100,00 zł | 50,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[6].priceNormal",
+      "value": 200.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "K – C | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. przez okres 90 dni od daty oznaczonej na bilecie. | 200,00 zł | 100,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[6].priceReduced",
+      "value": 100.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "K – C | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. przez okres 90 dni od daty oznaczonej na bilecie. | 200,00 zł | 100,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[7].priceNormal",
+      "value": 300.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "R – C | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. przez okres roczny od daty oznaczonej na bilecie pod warunkiem okazania „J-ka Jaworznickiej Karty Mieszkańca”. | 300,00 zł | 150,00 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[7].priceReduced",
+      "value": 150.0,
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "R – C | Bilet upoważnia do przejazdu wszystkimi liniami na terenie całej sieci PKM Sp. z o.o. przez okres roczny od daty oznaczonej na bilecie pod warunkiem okazania „J-ka Jaworznickiej Karty Mieszkańca”. | 300,00 zł | 150,00 zł"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].type",
+      "value": "machine",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Biletomat w wybranych pojazdach. | Wszystkie bilety jednorazowe i czasowe na okaziciela. | Bilon (10 gr, 20 gr, 50 gr, 1 zł, 2 zł, 5 zł), karty płatnicze (zbliżeniowo)."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[0].text.pl",
+      "value": "Wybierz bilet na głównym ekranie biletomatu.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/",
+      "quote": "Każdy bilet na przejazd jednorazowy można wybrać – jednym dotknięciem – bezpośrednio z głównego ekranu urządzenia."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[1].text.pl",
+      "value": "Zapłać monetami lub zbliżeniową kartą płatniczą.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/",
+      "quote": "Monety o nominale: 10 gr, 20 gr, 50 gr, 1 zł, 2 zł i 5 zł. Zbliżeniowe karty płatnicze."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[2].text.pl",
+      "value": "Bilet z biletomatu jest już skasowany – nic więcej nie rób.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/",
+      "quote": "Wydrukowany bilet jest skasowany i nie wymaga przykładania go do kasownika."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].type",
+      "value": "app",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Aplikacja mobilna PKM. | Wszystkie rodzaje biletów. | Płatności internetowe."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[0].text.pl",
+      "value": "Zarejestruj konto w aplikacji mPKM Jaworzno.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/aplikacja-mobilna-pkm/",
+      "quote": "Zakup bilet możliwy jest po wcześniejszej rejestracji konta."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[1].text.pl",
+      "value": "Wybierz bilet i zapłać w aplikacji.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/aplikacja-mobilna-pkm/",
+      "quote": "umożliwia wygodny zakup każdego biletu z naszej oferty"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[2].text.pl",
+      "value": "Podczas kontroli pokaż kontrolerowi ważny bilet na ekranie.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/aplikacja-mobilna-pkm/",
+      "quote": "wystarczy wyświetlić ważny bilet w aplikacji i okazać ekran swojego urządzenia mobilnego kontrolerowi."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].type",
+      "value": "office",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Stacjonarne punkty sprzedaży. | Wszystkie imienne bilety okresowe. | Gotówka, wybrane punkty sprzedaży akceptują także karty płatnicze."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].steps[0].text.pl",
+      "value": "Kup imienny bilet okresowy w punkcie doładowania karty.",
+      "url": "https://www.pkm.jaworzno.pl/www/inne/centrum-obslugi-klienta/",
+      "quote": "zakupu biletu można dokonać w licznych punktach doładowania Jaworznickiej Karty Miejskiej."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].steps[1].text.pl",
+      "value": "Kodowanie biletu na karcie jest dobrowolne i nie wpływa na ważność.",
+      "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/",
+      "quote": "Kodowanie biletu na kartach nie ma znaczenia dla ich ważności. Jest to opcja dobrowolna."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].type",
+      "value": "contactless",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Czytniki Open Payment System. | Wszystkie bilety jednorazowe i czasowe na okaziciela. | Karty płatnicze (zbliżeniowo)."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[0].text.pl",
+      "value": "Wybierz bilet na terminalu z przodu autobusu.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/",
+      "quote": "Pasażer na dotykowym terminalu (zamontowanym w przedniej części autobusu) wybiera potrzebny bilet"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[1].text.pl",
+      "value": "Zbliż kartę płatniczą do ekranu terminala.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/",
+      "quote": "opłaca przejazd poprzez zbliżenie karty płatniczej do ekranu."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[2].text.pl",
+      "value": "Podczas kontroli zbliż tę samą kartę do sprawdzarki.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/",
+      "quote": "pasażer zbliża kartę płatniczą, którą opłacił przejazd (nie wypuszczając jej z ręki), do sprawdzarki kontrolera."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].type",
+      "value": "driver",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/sprzedaz-biletow-u-kierowcow/",
+      "quote": "pasażerowie mają możliwość zakupu biletu jednorazowego lub czasowego u kierowcy z kasy fiskalnej."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[0].text.pl",
+      "value": "Zapłać od razu po wejściu do autobusu.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/regulamin-przewozow/",
+      "quote": "Pasażerowie opłacający przejazd w pojeździe zobowiązani są to uczynić niezwłocznie po wejściu do środka."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[1].text.pl",
+      "value": "Kup bilet u kierowcy, płacąc gotówką lub kartą.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/sprzedaz-biletow-u-kierowcow/",
+      "quote": "Aby ograniczyć obrót gotówki u kierowców akceptowana jest także płatność kartami płatniczymi."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[5].type",
+      "value": "other",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/cennik-biletow/",
+      "quote": "Sklep internetowy bilety.pkmjaworzno.pl | Wszystkie imienne bilety okresowe. | Płatności internetowe."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[5].steps[0].text.pl",
+      "value": "Załóż konto i podaj numer Jaworznickiej Karty Miejskiej.",
+      "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/",
+      "quote": "numer Jaworznickiej Karty Miejskiej (znajdujący się w prawym górnym rogu karty)."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[5].steps[1].text.pl",
+      "value": "Wybierz imienny bilet okresowy i zapłać online.",
+      "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/",
+      "quote": "W ofercie sklepu dostępne są wszystkie imienne bilety okresowe zgodne z aktualną taryfą."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[5].steps[2].text.pl",
+      "value": "Kodowanie biletu na karcie jest dobrowolne i nie wpływa na ważność.",
+      "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/",
+      "quote": "Kodowanie biletu na kartach nie ma znaczenia dla ich ważności. Jest to opcja dobrowolna."
+    }
+  ]
+}
