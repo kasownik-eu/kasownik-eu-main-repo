@@ -41,7 +41,7 @@ describe('content views', () => {
 
   it('resolves an operator for one locale', () => {
     const operator = getOperator('testowy', 'en')!
-    expect(operator.logo).toEqual({ url: '/media/testowy/map.svg', alt: null })
+    expect(operator.logo).toEqual({ url: '/media/testowy/map.svg', alt: null, background: 'light' })
     expect(operator.zones?.map).toEqual({ url: '/media/testowy/map.svg', alt: 'Mapa stref' })
     expect(operator.zones?.items).toEqual([{ name: 'Zone A' }])
     expect(operator.tickets[0]).toMatchObject({ name: 'Bilet jednorazowy', priceNormal: 4 })
