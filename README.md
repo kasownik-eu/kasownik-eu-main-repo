@@ -12,9 +12,9 @@ data/
     slaskie/                    # voivodeship
       voivodeship.json          # { code: "PL-24", name }
       mzt-przykladowe/          # operator; the folder name is its URL slug
-        operator.json           # basic info, related operators, sources, tariff-sync pages
+        operator.json           # basic info, related operators, source pages
         cities.json             # cities it serves: [{ slug, name, primary? }]
-        purchase.json           # how to buy and validate a ticket
+        purchase.json           # how to buy a ticket and start the ride (one flow of steps)
         tickets.json            # tickets, luggage, rules
         zones.json              # zone definitions and zone map
         images/                 # logo, zone map, validator photos ({ "file": "logo.svg" } in the JSON)
@@ -86,67 +86,48 @@ URLs are localized by real folders (no middleware in a static export): `/pl/mias
 
 ## Operator research (Claude Code)
 
-`/operator-research <operator website URL>` (skill in `.claude/skills/operator-research/`) creates or checks an
-operator's base data: the `operator.json` header (name, label, description, logo, transport modes, contact), its
-`cities.json`, and the pages the LLM pipelines read: `tariffSources` (tariff sync), `purchaseSources` (how to buy and
-validate tickets) and `zoneSources` (fare zones). An operator whose `websiteUrl` has the same host is verified
-(differences are corrected and reported), otherwise a new folder is created. Review the result with `git diff data/`.
+`/operator-research <operator website URL>` (skill in `.claude/skills/operator-research/`) researches an operator and
+writes **all** its data: the `operator.json` header (name, label, description, logo, transport modes, contact),
+`cities.json`, `tickets.json`, `zones.json`, `purchase.json` and `evidence.json`, a verbatim quote from an official page for
+every fact (prices, fees, purchase methods and steps, zones, contact). The pages it used are kept in `tariffSources`,
+`luggageSources`, `purchaseSources` (buying and starting the ride are one flow) and `zoneSources`. An operator whose
+`websiteUrl` has the same host is verified (differences are corrected and reported), otherwise a new folder is created.
+Review the result with `git diff data/`.
 
 Helper scripts used by the skill:
 
 ```bash
-npm run research:context -- <url>                 # verify/discover, existing cities, operators, voivodeships (JSON)
-npm run research:check-source -- <url> [xpath]   # fetch + extract a page exactly like the LLM pipelines do
+npm run research:context -- <url>                       # verify/discover, existing cities, operators, voivodeships (JSON)
+npm run research:check-source -- <url> [xpath] [--full] # fetch + extract a page exactly like the checker does
 ```
 
-## Tariff sync
+## Operator check
 
-Keeps operator tariffs (tickets, luggage, zones, rules note) up to date from the operators' own web pages. Each run, for every operator with `tariffSources` in `operator.json` (URL + optional XPath):
+A small agent keeps the researched data honest. `npm run check:operators -- [<slug>] [--no-llm]` re-reads the pages of every
+operator with an `evidence.json` and, per fact, checks that
 
-1. fetches the pages and cuts out the XPath block (no match or an invalid XPath fails the operator),
-2. caches them in `TARIFF_CACHE_DIR` and stops when the extracted text is unchanged,
-3. asks the LLM provider for data matching the tariff schema, validates it with Zod,
-4. diffs it against the operator's current `tickets.json` / `zones.json` and, when anything changed, rewrites both files
-   (PL + EN; the zone map and `purchase.json` are kept) and marks the operator's sources as AI-assisted.
+1. the quote is still on the page and the data still holds the fact's value (`ok`, otherwise `drift` / `unverified`),
+2. when the quote vanished, a small LLM (`CHECK_LLM_PROVIDER`) says whether the fact is still stated, changed or gone; its
+   answer counts only when the quote it gives is really on the page (`confirmed` / `changed` / `not_found`).
 
-There is no review step: changes are written straight into `data/`. Review them with `git diff data/` before committing;
-`git checkout data/` undoes a run. Failures are printed and make the command exit with code `1`; nothing else reports them yet.
+It also lists the lines that were added to or removed from a page since the last good check. It never edits `data/`: it prints
+a report (also `.tmp/check/report.json`) and exits with `1` when an operator is stale or unreachable, so it can run from cron
+or CI. A stale operator is researched again with `/operator-research`. Design notes: `docs/operator-checks.md`.
+
+```cron
+0 3 * * 1 cd /path/to/kasownik && npm run check:operators >> /var/log/operator-check.log 2>&1
+```
 
 ### Configuration (`.env`)
 
 | Variable                                                                                                                                                                                           | Purpose                                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
 | `ALLOWED_DEV_ORIGINS`                                                                                                                                                                              | Dev only: extra comma-separated hosts allowed to load JS from `next dev` (LAN IPs and `*.local` are built in) |
-| `TARIFF_LLM_PROVIDER`                                                                                                                                                                              | LLM provider: `ollama-cloud`, `ollama-local` or `fixture` (returns `<TARIFF_LLM_FIXTURE_DIR>/<slug>.json`) |
-| `TARIFF_LLM_FIXTURE_DIR`                                                                                                                                                                           | Fixture directory, default `tests/fixtures/tariffs`                                        |
+| `CHECK_LLM_PROVIDER` | Provider of the checker's small model: `ollama-cloud`, `ollama-local` or `fixture` (returns `<CHECK_LLM_FIXTURE_DIR>/<slug>.check.json`) |
+| `CHECK_LLM_FIXTURE_DIR` | Fixture directory, default `tests/fixtures/check` |
 | `OLLAMA_API_KEY`                                                                                                                                                                                   | Ollama Cloud API key (secret, required for `ollama-cloud`)                                 |
-| `OLLAMA_MODEL`, `OLLAMA_BASE_URL`, `OLLAMA_THINK`, `OLLAMA_TEMPERATURE`, `OLLAMA_SEED`, `OLLAMA_NUM_CTX`, `OLLAMA_NUM_PREDICT`, `OLLAMA_TIMEOUT_MS`, `OLLAMA_MAX_RETRIES`, `OLLAMA_RETRY_DELAY_MS` | Optional overrides; defaults in `src/tariffs/llm/ollama-cloud/config.ts`                   |
-| `OLLAMA_LOCAL_MODEL`, `OLLAMA_LOCAL_BASE_URL`, `OLLAMA_LOCAL_THINK`, `OLLAMA_LOCAL_TEMPERATURE`, `OLLAMA_LOCAL_SEED`, `OLLAMA_LOCAL_NUM_CTX`, `OLLAMA_LOCAL_NUM_PREDICT`, `OLLAMA_LOCAL_TIMEOUT_MS`, `OLLAMA_LOCAL_MAX_RETRIES`, `OLLAMA_LOCAL_RETRY_DELAY_MS` | `ollama-local` provider (no API key): the model you pulled with `ollama pull` (default `qwen3:8b`), server URL (default `http://localhost:11434`) and optional overrides; defaults in `src/tariffs/llm/ollama-local/config.ts` |
-| `TARIFF_CACHE_DIR`                                                                                                                                                                                 | Downloaded page cache, default `.tmp/tariffs` (git-ignored)                                |
-| `CONTENT_DIR`                                                                                                                                                                                      | Content folder for the build and the sync, default `data/`                                 |
+| `OLLAMA_MODEL`, `OLLAMA_BASE_URL`, `OLLAMA_THINK`, `OLLAMA_TEMPERATURE`, `OLLAMA_SEED`, `OLLAMA_NUM_CTX`, `OLLAMA_NUM_PREDICT`, `OLLAMA_TIMEOUT_MS`, `OLLAMA_MAX_RETRIES`, `OLLAMA_RETRY_DELAY_MS` | Optional overrides; defaults in `src/check/llm/ollama-cloud/config.ts`                   |
+| `OLLAMA_LOCAL_MODEL`, `OLLAMA_LOCAL_BASE_URL`, `OLLAMA_LOCAL_THINK`, `OLLAMA_LOCAL_TEMPERATURE`, `OLLAMA_LOCAL_SEED`, `OLLAMA_LOCAL_NUM_CTX`, `OLLAMA_LOCAL_NUM_PREDICT`, `OLLAMA_LOCAL_TIMEOUT_MS`, `OLLAMA_LOCAL_MAX_RETRIES`, `OLLAMA_LOCAL_RETRY_DELAY_MS` | `ollama-local` provider (no API key): the model you pulled with `ollama pull` (default `qwen3:8b`), server URL (default `http://localhost:11434`) and optional overrides; defaults in `src/check/llm/ollama-local/config.ts` |
+| `CHECK_CACHE_DIR` | Downloaded page cache and report, default `.tmp/check` (git-ignored) |
+| `CONTENT_DIR` | Content folder for the build and the checker, default `data/` |
 
-### Running
-
-```bash
-npm run sync:tariffs                                   # all operators with tariff pages
-npm run sync:tariffs -- <slug>                         # one operator
-npm run sync:tariffs -- <slug> dry-run                 # fetch, extract, validate and print the diff; writes nothing
-npm run sync:tariffs -- <slug> force                   # ignore the page cache and always call the LLM
-```
-
-The sync has two independent passes, each with its own LLM call, schema and prompt: **tickets** (zones and rules note
-too) from `tariffSources`, and **luggage** (rules for luggage, bikes, pets, strollers; `type` is one of
-`luggage | bike | pet | stroller | other`) from `luggageSources` in `operator.json`. A pass runs only when its pages
-changed (or with `force`); a pass that does not run, or an operator without `luggageSources`, keeps the current data.
-A page may be used by both passes with different `xpath`s (the page cache is keyed by URL and XPath).
-
-The LLM does not extract `whereToBuy` (where a ticket or luggage fee is sold): with free text the models invent sales
-channels the pages never mention. Values already in `tickets.json` are kept on every sync. Planned: an enum of sales
-channels the LLM may pick from (see the TODO in `src/tariffs/schema.ts`).
-
-`--dry-run` / `--force` work too. The command exits with code `1` when any operator failed, so it can run from cron or
-a scheduled CI job; the site only changes once the updated JSON is committed and rebuilt:
-
-```cron
-0 3 * * * cd /path/to/kasownik && npm run sync:tariffs >> /var/log/tariff-sync.log 2>&1
-```

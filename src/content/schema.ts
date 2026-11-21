@@ -1,8 +1,11 @@
 import { z } from 'zod'
 
 import {
+  evidenceFiles,
   operatorRelations,
+  stepKinds,
   purchaseMethodTypes,
+  validationKinds,
   ticketCategories,
   luggageTypes,
   ticketValidities,
@@ -15,12 +18,12 @@ import { localizedText, optionalText, slug } from './primitives'
 export { localizedText } from './primitives'
 
 // Schemas of the files under data/<country>/<voivodeship>/<operator>/. Objects are strict so a typo in a key
-// fails the build instead of silently hiding a field. Optional fields accept null (the tariff sync writes nulls).
+// fails the build instead of silently hiding a field. Optional fields accept null.
 
 const url = z.url().nullish()
 const price = z.number().nonnegative().nullish()
 const modes = z.array(z.enum(transportModes)).nullish()
-// Pages an LLM pipeline reads: the whole <main>/<body> text, or only the XPath block
+// Pages the operator-research skill used and the checker re-reads: the whole <main>/<body> text, or only the XPath block
 const sourcePages = z.array(z.strictObject({ url: z.url(), xpath: z.string().nullish() })).nullish()
 
 // A file in the operator's images/ folder
@@ -74,13 +77,13 @@ export const operatorFile = z.strictObject({
       aiAssisted: z.boolean().optional(),
     })
     .nullish(),
-  // Pages read by the tariff sync (tickets, zones, rules note)
+  // Pages with the price list, zones and rules note (tickets.json, zones.json)
   tariffSources: sourcePages,
-  // Pages with the rules for luggage, bikes, pets and strollers, read by the luggage pass of the tariff sync
+  // Pages with the rules for luggage, bikes, pets and strollers (tickets.json `luggage`)
   luggageSources: sourcePages,
-  // Pages on how to buy and validate tickets, for the purchase.json pipeline
+  // Pages on how to buy tickets and start a ride with them (purchase.json): buying and validating is one flow
   purchaseSources: sourcePages,
-  // Pages describing the fare zones (list, map), for the zones.json pipeline
+  // Pages describing the fare zones (list, map), for zones.json
   zoneSources: sourcePages,
   // Page templates (templates/<page>/<name>.json) for this operator's city and operator pages; default "default"
   templates: z.strictObject({ city: slug.optional(), operator: slug.optional() }).nullish(),
@@ -104,19 +107,42 @@ export const purchaseFile = z
   .array(
     z.strictObject({
       type: z.enum(purchaseMethodTypes),
-      title: localizedText,
+      // Overrides the label of the type (messages "PurchaseMethods.type")
+      title: optionalText,
       subtitle: optionalText,
-      requiresValidation: z.boolean(),
-      buySteps: z.array(localizedText).max(6).nullish(),
-      validationSteps: z.array(localizedText).max(6).nullish(),
+      validation: z.array(z.enum(validationKinds)).max(3).nullish(),
+      // One ordered flow: buying the ticket, then starting the ride with it
+      steps: z
+        .array(z.strictObject({ kind: z.enum(stepKinds), text: localizedText }))
+        .max(10)
+        .nullish(),
       noValidationText: optionalText,
-      validationPhotos: z
+      photos: z
         .array(z.strictObject({ image, caption: localizedText, alt: optionalText }))
         .max(6)
         .nullish(),
     }),
   )
   .max(6)
+
+// What the operator-research skill found out and where: every fact it is sure about, with a verbatim quote from an
+// official page. The checker (`npm run check:operators`) re-reads the pages and reports facts whose quote is gone.
+// `url` + `xpath` must be one of the operator's source pages; `quote` is copied from the text
+// `npm run research:check-source -- <url> [xpath] --full` prints (table rows are `cell | cell`)
+export const evidenceFile = z.strictObject({
+  verifiedAt: z.iso.date(),
+  facts: z.array(
+    z.strictObject({
+      file: z.enum(evidenceFiles),
+      // Where the value sits in that file, e.g. `tickets[3].priceNormal`, `luggage[0].fee`, `purchase[1].type`
+      path: z.string().min(1),
+      value: z.union([z.string(), z.number(), z.boolean()]),
+      url: z.url(),
+      xpath: z.string().nullish(),
+      quote: z.string().min(3),
+    }),
+  ),
+})
 
 export const ticketsFile = z.strictObject({
   tickets: z.array(
@@ -165,6 +191,7 @@ export type CountryFile = z.infer<typeof countryFile>
 export type VoivodeshipFile = z.infer<typeof voivodeshipFile>
 export type OperatorFile = z.infer<typeof operatorFile>
 export type CitiesFile = z.infer<typeof citiesFile>
+export type EvidenceFile = z.infer<typeof evidenceFile>
 export type PurchaseFile = z.infer<typeof purchaseFile>
 export type TicketsFile = z.infer<typeof ticketsFile>
 export type ZonesFile = z.infer<typeof zonesFile>

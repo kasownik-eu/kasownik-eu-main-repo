@@ -5,12 +5,6 @@
     "pl": "Organizator transportu · Metropolia GZM",
     "en": "Transport authority · GZM Metropolis"
   },
-  "description": {
-    "pl": "Organizator publicznego transportu zbiorowego w Górnośląsko-Zagłębiowskiej Metropolii, działający pod marką Transport GZM. Odpowiada za autobusy, tramwaje i trolejbusy, rozkłady jazdy, taryfę oraz system biletowy i konta pasażerów.",
-    "en": "Organiser of public transport in the Upper Silesian–Zagłębie Metropolis, operating under the Transport GZM brand. Responsible for buses, trams and trolleybuses, timetables, the fare tariff, the ticketing system and passenger accounts."
-  },
-  "websiteUrl": "https://transportgzm.pl/",
-  "timetableUrl": "https://rj.transportgzm.pl/",
   "logo": {
     "file": "logo.svg",
     "alt": {
@@ -18,22 +12,29 @@
       "en": "Transport GZM logo"
     }
   },
+  "description": {
+    "pl": "Organizator publicznego transportu zbiorowego w Górnośląsko-Zagłębiowskiej Metropolii, działający pod marką Transport GZM. Odpowiada za autobusy, tramwaje i trolejbusy, taryfę, system biletowy i punkty obsługi pasażera.",
+    "en": "Organiser of public transport in the Upper Silesian–Zagłębie Metropolis, operating under the Transport GZM brand. It is responsible for buses, trams and trolleybuses, the tariff, the ticketing system and passenger service points."
+  },
+  "websiteUrl": "https://transportgzm.pl/",
+  "timetableUrl": "https://rj.transportgzm.pl/",
   "transportModes": [
     "bus",
     "tram",
-    "trolleybus"
+    "trolleybus",
+    "train"
   ],
   "currency": "PLN",
   "paymentInfo": {
-    "pl": "aplikacja Transport GZM, aplikacje zewnętrzne (SkyCash, moBiLET, zBiletem, jakdojade), biletomaty, punkty sprzedaży",
-    "en": "Transport GZM app, third-party apps (SkyCash, moBiLET, zBiletem, jakdojade), ticket machines, sales points"
+    "pl": "karta płatnicza, BLIK, Apple Pay / Google Pay, przelew elektroniczny (portal), środki zasilone na koncie",
+    "en": "payment card, BLIK, Apple Pay / Google Pay, bank transfer (portal), funds topped up on the account"
   },
   "hotline": "800 16 30 30",
   "servicePoint": {
     "pl": "ul. Barbary 21a, Katowice, pon.–pt. 7:00–15:00",
     "en": "21a Barbary St, Katowice, Mon–Fri 7:00–15:00"
   },
-  "verifiedAt": "2026-11-19",
+  "verifiedAt": "2026-11-21",
   "sources": {
     "items": [
       {
@@ -45,31 +46,38 @@
       },
       {
         "label": {
-          "pl": "Cennik",
-          "en": "Price list"
-        },
-        "url": "https://transportgzm.pl/price-list/"
-      },
-      {
-        "label": {
-          "pl": "Taryfa",
-          "en": "Tariff"
+          "pl": "Taryfa przewozu osób i bagażu",
+          "en": "Tariff of carriage of persons and luggage"
         },
         "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm"
       },
       {
         "label": {
-          "pl": "Kontakt",
-          "en": "Contact"
+          "pl": "Regulamin przewozu",
+          "en": "Carriage regulations"
         },
-        "url": "https://transportgzm.pl/pages/skontaktuj-sie-z-nami"
+        "url": "https://transportgzm.pl/documents/regulamin-przewozu"
       },
       {
         "label": {
-          "pl": "Punkty obsługi pasażera",
-          "en": "Passenger service points"
+          "pl": "Regulamin systemu Transport GZM",
+          "en": "Transport GZM system regulations"
         },
-        "url": "https://transportgzm.pl/pages/punkty-obsugi-pasazera"
+        "url": "https://transportgzm.pl/documents/regulamin-systemu-transport-gzm"
+      },
+      {
+        "label": {
+          "pl": "Zakup biletu",
+          "en": "Buying a ticket"
+        },
+        "url": "https://transportgzm.pl/help/bilety/zakup-biletu"
+      },
+      {
+        "label": {
+          "pl": "Podróż Start/Stop",
+          "en": "Start/Stop trip"
+        },
+        "url": "https://transportgzm.pl/help/bilety/podroz-startstop"
       },
       {
         "label": {
@@ -80,17 +88,24 @@
       },
       {
         "label": {
-          "pl": "Biletomaty",
-          "en": "Ticket machines"
+          "pl": "Punkty Obsługi Pasażera",
+          "en": "Passenger service points"
         },
-        "url": "https://transportgzm.pl/pages/biletomaty"
+        "url": "https://transportgzm.pl/pages/punkty-obsugi-pasazera"
       },
       {
         "label": {
-          "pl": "Wyjątki strefowe",
-          "en": "Zone exceptions"
+          "pl": "Punkty sprzedaży",
+          "en": "Sales points"
         },
-        "url": "https://transportgzm.pl/documents/wyjatki-strefowe"
+        "url": "https://transportgzm.pl/pages/punkty-sprzedazy"
+      },
+      {
+        "label": {
+          "pl": "Kontakt",
+          "en": "Contact"
+        },
+        "url": "https://transportgzm.pl/pages/skontaktuj-sie-z-nami"
       },
       {
         "label": {
@@ -98,45 +113,49 @@
           "en": "Timetables"
         },
         "url": "https://rj.transportgzm.pl/"
+      },
+      {
+        "label": {
+          "pl": "Metropolia GZM",
+          "en": "GZM Metropolis"
+        },
+        "url": "https://metropoliagzm.pl/o-metropolii/"
       }
     ],
     "aiAssisted": true
   },
   "tariffSources": [
     {
-      "url": "https://transportgzm.pl/price-list/"
-    },
-    {
       "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
-      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*"
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]"
     }
   ],
   "luggageSources": [
     {
-      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
-      "xpath": "//p[contains(normalize-space(.), 'przewozić zwierzę lub bagaż') or contains(normalize-space(.), 'przewóz zwierzęcia lub bagażu')]"
+      "url": "https://transportgzm.pl/documents/regulamin-przewozu"
     },
     {
-      "url": "https://transportgzm.pl/documents/regulamin-przewozu"
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 5']/following-sibling::*[position() <= 2]"
     }
   ],
   "purchaseSources": [
     {
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu"
+    },
+    {
+      "url": "https://transportgzm.pl/help/bilety/podroz-startstop"
+    },
+    {
       "url": "https://transportgzm.pl/documents/kup-bilet-przez-telefon"
     },
     {
-      "url": "https://transportgzm.pl/pages/biletomaty"
-    },
-    {
-      "url": "https://transportgzm.pl/pages/punkty-sprzedazy"
-    },
-    {
       "url": "https://transportgzm.pl/pages/punkty-obsugi-pasazera"
+    },
+    {
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]"
     }
   ],
-  "zoneSources": [
-    {
-      "url": "https://transportgzm.pl/documents/wyjatki-strefowe"
-    }
-  ]
+  "zoneSources": []
 }

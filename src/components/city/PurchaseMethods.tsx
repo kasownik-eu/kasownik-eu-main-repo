@@ -3,6 +3,7 @@ import {
   ChevronDownIcon,
   CircleHelpIcon,
   CreditCardIcon,
+  IdCardIcon,
   type LucideIcon,
   MessageSquareIcon,
   SmartphoneIcon,
@@ -29,21 +30,23 @@ type Props = {
   operator: OperatorView
 }
 
-type Steps = string[] | null | undefined
-type Photos = PurchaseMethodView['validationPhotos']
+type Steps = PurchaseMethodView['steps']
+type Photos = PurchaseMethodView['photos']
 
 const icons: Record<(typeof purchaseMethodTypes)[number], LucideIcon> = {
   machine: TicketIcon,
   app: SmartphoneIcon,
   office: StoreIcon,
   contactless: CreditCardIcon,
+  metrokarta: IdCardIcon,
   driver: BusIcon,
   sms: MessageSquareIcon,
   other: CircleHelpIcon,
 }
 
-// Steps drawn as stops on a line: ringed numbers joined by a black segment down to the next stop
-function StepList({ steps, tone = 'white' }: { steps: Steps; tone?: 'white' | 'yellow' }) {
+// One flow of buying and starting the ride, drawn as stops on a line: ringed numbers joined by a black segment down to
+// the next stop; the steps that start the ride (validate) are yellow
+function StepList({ steps }: { steps: Steps }) {
   return (
     <ol className="grid gap-4">
       {steps?.map((step, index) => (
@@ -55,21 +58,21 @@ function StepList({ steps, tone = 'white' }: { steps: Steps; tone?: 'white' | 'y
             aria-hidden="true"
             className={cn(
               'grid size-8 place-items-center rounded-full border-4 border-foreground text-sm font-bold',
-              tone === 'white'
+              step.kind === 'buy'
                 ? 'bg-background text-foreground'
                 : 'bg-primary text-primary-foreground',
             )}
           >
             {index + 1}
           </span>
-          <span>{step}</span>
+          <span>{step.text}</span>
         </li>
       ))}
     </ol>
   )
 }
 
-// 0–N photos with caption; none renders nothing, so no empty space is left
+// 0–N photos with caption (what the validator / reader looks like); none renders nothing
 async function PhotoList({ photos }: { photos: Photos }) {
   const t = await getTranslations('PurchaseMethods')
   const items = photos ?? []
@@ -101,11 +104,13 @@ async function PhotoList({ photos }: { photos: Photos }) {
   )
 }
 
+const hasValidateStep = (method: PurchaseMethodView) =>
+  !!method.steps?.some((step) => step.kind === 'validate')
+
 // Each method expands in place (independent rows, first open); instructions sit right under it
 export async function PurchaseMethods({ methods, operator }: Props) {
   const t = await getTranslations('PurchaseMethods')
   const contactName = operator.shortName || operator.name
-  const stepHeading = 'mb-4 text-sm font-semibold tracking-wide text-muted-foreground uppercase'
 
   return (
     <Section id="purchase" title={t('title')} lead={t('lead')}>
@@ -127,13 +132,22 @@ export async function PurchaseMethods({ methods, operator }: Props) {
                       <Icon className="size-5" />
                     </span>
                     <span className="grid min-w-0 flex-[1_1_12rem] justify-items-start gap-0.5">
-                      <span className="text-lg font-semibold">{method.title}</span>
+                      <span className="text-lg font-semibold">{method.title || t(`type.${method.type}`)}</span>
                       {method.subtitle && (
                         <span className="text-sm text-muted-foreground">{method.subtitle}</span>
                       )}
-                      <Badge className="mt-1.5 h-auto rounded-md border-border px-2.5 text-[0.8125rem] font-semibold">
-                        {method.requiresValidation ? t('requiresValidation') : t('noValidation')}
-                      </Badge>
+                      {!!method.validation?.length && (
+                        <span className="mt-1.5 flex flex-wrap gap-1.5">
+                          {method.validation.map((kind) => (
+                            <Badge
+                              key={kind}
+                              className="h-auto rounded-md border-border px-2.5 text-[0.8125rem] font-semibold"
+                            >
+                              {t(`validationKind.${kind}`)}
+                            </Badge>
+                          ))}
+                        </span>
+                      )}
                     </span>
                     <span
                       className={cn(
@@ -151,22 +165,20 @@ export async function PurchaseMethods({ methods, operator }: Props) {
                     </span>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
-                    <div className="grid gap-0.5 bg-border md:grid-cols-2">
-                      <div className="bg-card p-4 sm:p-6">
-                        <h3 className={stepHeading}>{t('howToBuy')}</h3>
-                        <StepList steps={method.buySteps} />
-                      </div>
-                      <div className="bg-highlight p-4 sm:p-6">
-                        <h3 className={cn(stepHeading, 'text-foreground')}>{t('howToValidate')}</h3>
-                        {method.requiresValidation ? (
-                          <StepList steps={method.validationSteps} tone="yellow" />
-                        ) : (
-                          <p className="rounded-lg border-2 bg-card p-4 text-lg">
-                            {method.noValidationText || t('noValidationDefault')}
-                          </p>
-                        )}
-                        <PhotoList photos={method.validationPhotos} />
-                      </div>
+                    <div className="grid gap-4 bg-card p-4 sm:p-6">
+                      <StepList steps={method.steps} />
+                      {!hasValidateStep(method) && !!method.validation?.length && (
+                        <div className="grid gap-3">
+                          {method.validation.map((kind) => (
+                            <p key={kind} className="rounded-lg border-2 bg-highlight p-4 text-lg">
+                              {kind === 'none'
+                                ? method.noValidationText || t('noValidationDefault')
+                                : t(`validationHint.${kind}`)}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+                      <PhotoList photos={method.photos} />
                     </div>
                   </CollapsibleContent>
                 </Collapsible>

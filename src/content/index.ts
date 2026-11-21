@@ -66,8 +66,8 @@ export type OperatorSummary = {
   cities: CityRef[]
 }
 
-export type PurchaseMethodView = Omit<Localized<PurchaseFile[number]>, 'validationPhotos'> & {
-  validationPhotos: { image: MediaView; caption: string; alt: string | null }[]
+export type PurchaseMethodView = Omit<Localized<PurchaseFile[number]>, 'photos'> & {
+  photos: { image: MediaView; caption: string; alt: string | null }[]
 }
 export type TicketView = Localized<TicketsFile['tickets'][number]>
 export type LuggageView = Localized<NonNullable<TicketsFile['luggage']>[number]>
@@ -174,9 +174,9 @@ const view = (operator: RawOperator, locale: Locale): OperatorView => {
     hotline: info.hotline ?? null,
     servicePoint: text(info.servicePoint, locale),
     verifiedAt: info.verifiedAt ?? null,
-    purchaseMethods: operator.purchase.map(({ validationPhotos, ...method }) => ({
+    purchaseMethods: operator.purchase.map(({ photos, ...method }) => ({
       ...localize(method, locale),
-      validationPhotos: (validationPhotos ?? []).map((photo) => ({
+      photos: (photos ?? []).map((photo) => ({
         image: media(operator, photo.image, locale)!,
         caption: pickLocale(photo.caption, locale),
         alt: text(photo.alt, locale),
