@@ -20,31 +20,31 @@ export async function ServedCities({ cities }: Props) {
 
   return (
     <Section id="cities" title={t('servedCities')} lead={t('servedCitiesLead')}>
-      <Card className="gap-0 py-0 shadow-xs md:max-w-xl">
-        <ul>
-          {cities.map((city) => (
-            <li key={city.slug} className="border-b last:border-b-0">
+      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {cities.map((city) => (
+          <li key={city.slug}>
+            <Card className="gap-0 py-0 shadow-xs transition-colors hover:bg-highlight">
               <Link
                 href={{ pathname: '/city/[slug]', params: { slug: city.slug } }}
-                className="group flex min-h-14 items-center justify-between gap-3 px-5 py-2 text-lg font-medium hover:bg-highlight"
+                className="group flex min-h-12 items-center justify-between gap-2 px-3 py-2 font-medium"
               >
-                <span>
-                  {city.name}
+                <span className="min-w-0">
+                  <span className="block truncate">{city.name}</span>
                   {city.region && (
-                    <span className="block text-sm font-normal text-muted-foreground">
+                    <span className="block truncate text-xs font-normal text-muted-foreground">
                       {city.region}
                     </span>
                   )}
                 </span>
                 <ChevronRightIcon
                   aria-hidden="true"
-                  className="size-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"
+                  className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"
                 />
               </Link>
-            </li>
-          ))}
-        </ul>
-      </Card>
+            </Card>
+          </li>
+        ))}
+      </ul>
     </Section>
   )
 }
