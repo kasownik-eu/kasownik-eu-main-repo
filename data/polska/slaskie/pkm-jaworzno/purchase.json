@@ -1,0 +1,174 @@
+[
+  {
+    "type": "machine",
+    "subtitle": {
+      "pl": "w wybranych autobusach",
+      "en": "in selected buses"
+    },
+    "validation": [
+      "none"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wybierz bilet na głównym ekranie biletomatu.",
+          "en": "Choose a ticket on the machine’s main screen."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zapłać monetami lub zbliżeniową kartą płatniczą.",
+          "en": "Pay with coins or a contactless card."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Bilet z biletomatu jest już skasowany – nic więcej nie rób.",
+          "en": "A machine ticket is already validated – do nothing more."
+        }
+      }
+    ]
+  },
+  {
+    "type": "app",
+    "subtitle": {
+      "pl": "mPKM Jaworzno",
+      "en": "mPKM Jaworzno"
+    },
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zarejestruj konto w aplikacji mPKM Jaworzno.",
+          "en": "Register an account in the mPKM Jaworzno app."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wybierz bilet i zapłać w aplikacji.",
+          "en": "Choose a ticket and pay in the app."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Podczas kontroli pokaż kontrolerowi ważny bilet na ekranie.",
+          "en": "During inspection, show the valid ticket on your screen."
+        }
+      }
+    ]
+  },
+  {
+    "type": "office",
+    "subtitle": {
+      "pl": "punkty sprzedaży i doładowania karty",
+      "en": "sales and card top-up points"
+    },
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup imienny bilet okresowy w punkcie doładowania karty.",
+          "en": "Buy a named period ticket at a card top-up point."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Kodowanie biletu na karcie jest dobrowolne i nie wpływa na ważność.",
+          "en": "Encoding the ticket on the card is optional and does not affect validity."
+        }
+      }
+    ]
+  },
+  {
+    "type": "contactless",
+    "subtitle": {
+      "pl": "terminal Open Payment System",
+      "en": "Open Payment System terminal"
+    },
+    "validation": [
+      "none"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wybierz bilet na terminalu z przodu autobusu.",
+          "en": "Choose a ticket on the terminal at the front of the bus."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zbliż kartę płatniczą do ekranu terminala.",
+          "en": "Tap your payment card on the terminal screen."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Podczas kontroli zbliż tę samą kartę do sprawdzarki.",
+          "en": "During inspection, tap the same card to the inspector’s reader."
+        }
+      }
+    ]
+  },
+  {
+    "type": "driver",
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zapłać od razu po wejściu do autobusu.",
+          "en": "Pay straight after boarding the bus."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet u kierowcy, płacąc gotówką lub kartą.",
+          "en": "Buy a ticket from the driver, paying cash or by card."
+        }
+      }
+    ]
+  },
+  {
+    "type": "other",
+    "title": {
+      "pl": "Sklep internetowy",
+      "en": "Online shop"
+    },
+    "subtitle": {
+      "pl": "bilety.pkmjaworzno.pl",
+      "en": "bilety.pkmjaworzno.pl"
+    },
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Załóż konto i podaj numer Jaworznickiej Karty Miejskiej.",
+          "en": "Create an account and enter your Jaworzno City Card number."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wybierz imienny bilet okresowy i zapłać online.",
+          "en": "Choose a named period ticket and pay online."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Kodowanie biletu na karcie jest dobrowolne i nie wpływa na ważność.",
+          "en": "Encoding the ticket on the card is optional and does not affect validity."
+        }
+      }
+    ]
+  }
+]
