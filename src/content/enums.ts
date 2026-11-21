@@ -5,6 +5,9 @@ export const defaultLocale = 'pl'
 
 export const transportModes = ['tram', 'bus', 'metro', 'train', 'trolleybus', 'ferry'] as const
 
+// Plaque behind the operator logo: white by default, dark when the logo is too light to read on white
+export const logoBackgrounds = ['light', 'dark'] as const
+
 export const ticketCategories = ['single', 'short', 'long', 'other'] as const
 
 // What a luggage row is about (rules for carrying it); a closed list, so a row is always one of these kinds
@@ -39,5 +42,6 @@ export const operatorRelations = ['neighbourCity', 'sharedArea', 'regional', 'pr
 export const ticketValidities = ['valid', 'partial', 'invalid'] as const
 
 export type TransportMode = (typeof transportModes)[number]
+export type LogoBackground = (typeof logoBackgrounds)[number]
 export type ValidationKind = (typeof validationKinds)[number]
 export type PurchaseMethodType = (typeof purchaseMethodTypes)[number]

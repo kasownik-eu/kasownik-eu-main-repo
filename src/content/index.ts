@@ -8,7 +8,7 @@ import {
   type SearchSource,
 } from '@/search/config'
 
-import { defaultLocale, type locales, type TransportMode } from './enums'
+import { defaultLocale, type locales, type LogoBackground, type TransportMode } from './enums'
 import type { Block, PageKind, Template } from '@/blocks/schema'
 
 import { DEFAULT_TEMPLATE, getCatalog, type RawCity, type RawOperator } from './load'
@@ -53,13 +53,14 @@ export const localize = <T>(value: T, locale: Locale): Localized<T> => {
 }
 
 export type MediaView = { url: string; alt: string | null }
+export type LogoView = MediaView & { background: LogoBackground }
 export type CityRef = { slug: string; name: string; region: string | null }
 
 export type OperatorSummary = {
   slug: string
   name: string
   shortName: string | null
-  logo: MediaView | null
+  logo: LogoView | null
   transportModes: TransportMode[]
   // The voivodeship folder the operator lives in
   region: string | null
@@ -128,6 +129,13 @@ const media = (
 ): MediaView | null =>
   image ? { url: mediaPath(operator.slug, image.file), alt: text(image.alt, locale) } : null
 
+const logoOf = (operator: RawOperator, locale: Locale): LogoView | null => {
+  const { logo } = operator.info
+  return logo
+    ? { ...media(operator, logo, locale)!, background: logo.background ?? 'light' }
+    : null
+}
+
 const byName = (locale: Locale) => (a: { name: string }, b: { name: string }) =>
   a.name.localeCompare(b.name, locale)
 
@@ -148,7 +156,7 @@ const summary = (operator: RawOperator, locale: Locale): OperatorSummary => {
     slug: operator.slug,
     name: operator.info.name,
     shortName: operator.info.shortName ?? null,
-    logo: media(operator, operator.info.logo, locale),
+    logo: logoOf(operator, locale),
     transportModes: operator.info.transportModes ?? [],
     region: regionName(operator.voivodeship, locale),
     cities: operator.cities

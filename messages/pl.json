@@ -76,6 +76,7 @@
     "facts": "Najważniejsze informacje",
     "factModes": "Środki transportu",
     "factZones": "Liczba stref",
+    "zonesUnknown": "Nie zdefiniowano stref",
     "factPayment": "Płatność",
     "factVerified": "Zweryfikowano",
     "unknown": "—"
@@ -157,7 +158,9 @@
     "mapAlt": "Mapa stref",
     "noteTitle": "Ważne",
     "zone": "Strefa",
-    "covers": "Obejmuje"
+    "covers": "Obejmuje",
+    "none": "Nie zdefiniowano stref",
+    "noneText": "Dla tego przewoźnika nie mamy jeszcze opisu stref."
   },
   "SourceFooter": {
     "sources": "Źródła",

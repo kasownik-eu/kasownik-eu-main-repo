@@ -7,6 +7,7 @@ import {
   purchaseMethodTypes,
   validationKinds,
   ticketCategories,
+  logoBackgrounds,
   luggageTypes,
   ticketValidities,
   transportModes,
@@ -48,7 +49,8 @@ export const operatorFile = z.strictObject({
   // Shows a notice that names, prices and rules are made up
   sampleData: z.boolean().optional(),
   label: optionalText,
-  logo: image.nullish(),
+  // `background` is set by `npm run prebuild` (copyImages) from the logo's contrast with white
+  logo: image.extend({ background: z.enum(logoBackgrounds).optional() }).nullish(),
   description: optionalText,
   websiteUrl: url,
   timetableUrl: url,

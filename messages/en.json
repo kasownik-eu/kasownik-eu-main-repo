@@ -75,6 +75,7 @@
     "timetables": "Timetables",
     "facts": "Key facts",
     "factModes": "Transport modes",
+    "zonesUnknown": "No zones defined",
     "factZones": "Number of zones",
     "factPayment": "Payment",
     "factVerified": "Verified",
@@ -157,7 +158,9 @@
     "mapAlt": "Zone map",
     "noteTitle": "Good to know",
     "zone": "Zone",
-    "covers": "Covers"
+    "covers": "Covers",
+    "none": "No zones defined",
+    "noneText": "We have no zone description for this operator yet."
   },
   "SourceFooter": {
     "sources": "Sources",

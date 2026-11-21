@@ -10,7 +10,8 @@
     "alt": {
       "pl": "Logo Transport GZM",
       "en": "Transport GZM logo"
-    }
+    },
+    "background": "dark"
   },
   "description": {
     "pl": "Organizator publicznego transportu zbiorowego w Górnośląsko-Zagłębiowskiej Metropolii, działający pod marką Transport GZM. Odpowiada za autobusy, tramwaje i trolejbusy, taryfę, system biletowy i punkty obsługi pasażera.",

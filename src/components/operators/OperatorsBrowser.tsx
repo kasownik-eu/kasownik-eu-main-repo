@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import React, { useMemo, useState } from 'react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { OperatorLogo } from '@/components/city/OperatorLogo'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -19,13 +19,14 @@ import { SiteSearch } from '@/components/search/SiteSearch'
 import { Link } from '@/i18n/navigation'
 import { useSearch } from '@/search/useSearch'
 import type { TransportMode } from '@/components/city/format'
+import type { LogoBackground } from '@/content/enums'
 
 export type OperatorItem = {
   name: string
   slug: string
   // Logo fallback: short name or initials
   fallback: string
-  logo: { url: string; alt?: string | null } | null
+  logo: { url: string; alt?: string | null; background?: LogoBackground } | null
   modes: TransportMode[]
   region: string
   cities: { slug: string; name: string }[]
@@ -64,22 +65,13 @@ function OperatorCard({ operator }: { operator: OperatorItem }) {
 
   return (
     <Card className="grid grid-cols-[4.5rem_minmax(0,1fr)] gap-4 p-4 shadow-xs md:grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1.6fr)] md:gap-6 md:p-5">
-      <Avatar className="size-18 rounded-xl after:rounded-xl">
-        {operator.logo && (
-          <AvatarImage
-            src={operator.logo.url}
-            alt={operator.logo.alt || tHeader('logoAlt', { operator: operator.name })}
-            className="rounded-xl object-contain"
-          />
-        )}
-        <AvatarFallback
-          className="rounded-xl bg-primary text-[1.375rem] font-bold text-primary-foreground ring-2 ring-border ring-inset"
-          role="img"
-          aria-label={tHeader('logoAlt', { operator: operator.name })}
-        >
-          {operator.fallback}
-        </AvatarFallback>
-      </Avatar>
+      <OperatorLogo
+        logo={operator.logo}
+        fallback={operator.fallback}
+        label={tHeader('logoAlt', { operator: operator.name })}
+        className="size-18 text-[1.375rem]"
+        padding="p-2"
+      />
 
       <div className="grid content-start gap-2">
         <h2 className="text-xl font-semibold">
