@@ -1,7 +1,7 @@
 import { Ollama, type ChatRequest, type ChatResponse } from 'ollama'
 import { Agent } from 'undici'
 
-import type { TariffExtractor } from '../types'
+import type { LlmExtractor } from '../types'
 import { getOllamaLocalConfig, type OllamaLocalConfig } from './config'
 import { systemPrompt, userPrompt } from './prompts'
 
@@ -62,9 +62,9 @@ const chatWithRetry = async (
   }
 }
 
-export const ollamaLocalExtractor: TariffExtractor = {
+export const ollamaLocalExtractor: LlmExtractor = {
   name: 'ollama-local',
-  async extract({ pages, operator, jsonSchema, instructions }) {
+  async extract({ pages, operator, jsonSchema, instructions, task }) {
     const config = getOllamaLocalConfig()
     const response = await chatWithRetry(createClient(config), config, {
       model: config.model,
@@ -74,7 +74,7 @@ export const ollamaLocalExtractor: TariffExtractor = {
       options: config.options,
       messages: [
         { role: 'system', content: systemPrompt(instructions, jsonSchema) },
-        { role: 'user', content: userPrompt({ operator, pages }) },
+        { role: 'user', content: userPrompt({ operator, pages, task }) },
       ],
     })
 

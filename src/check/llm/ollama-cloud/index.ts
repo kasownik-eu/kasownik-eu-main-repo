@@ -1,6 +1,6 @@
 import { Ollama, type ChatRequest, type ChatResponse } from 'ollama'
 
-import type { TariffExtractor } from '../types'
+import type { LlmExtractor } from '../types'
 import { getOllamaCloudConfig, type OllamaCloudConfig } from './config'
 import { systemPrompt, userPrompt } from './prompts'
 
@@ -47,9 +47,9 @@ const chatWithRetry = async (
   }
 }
 
-export const ollamaCloudExtractor: TariffExtractor = {
+export const ollamaCloudExtractor: LlmExtractor = {
   name: 'ollama-cloud',
-  async extract({ pages, operator, jsonSchema, instructions }) {
+  async extract({ pages, operator, jsonSchema, instructions, task }) {
     const config = getOllamaCloudConfig()
     const response = await chatWithRetry(createClient(config), config, {
       model: config.model,
@@ -59,7 +59,7 @@ export const ollamaCloudExtractor: TariffExtractor = {
       options: config.options,
       messages: [
         { role: 'system', content: systemPrompt(instructions, jsonSchema) },
-        { role: 'user', content: userPrompt({ operator, pages }) },
+        { role: 'user', content: userPrompt({ operator, pages, task }) },
       ],
     })
 

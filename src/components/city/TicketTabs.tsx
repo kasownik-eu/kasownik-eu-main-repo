@@ -36,7 +36,7 @@ type Props = {
   currency: string
 }
 
-// Fixed tab order for every city: single, short, long, luggage, other
+// Fixed tab order for every city: single, short, long, luggage, other (shown only when it has tickets)
 const tabOrder = ['single', 'short', 'long', 'luggage', 'other'] as const
 
 const fieldLabel = 'text-xs font-medium tracking-wider text-muted-foreground uppercase'
@@ -70,6 +70,10 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
     value == null ? '—' : format.number(value, { style: 'currency', currency })
   const fee = (row: Luggage) =>
     row.feeText || (row.fee == null || row.fee === 0 ? t('free') : price(row.fee))
+
+  const tabs = tabOrder.filter(
+    (id) => id !== 'other' || (tickets ?? []).some((ticket) => ticket.category === 'other'),
+  )
 
   const empty = <p className="text-muted-foreground">{t('empty')}</p>
 
@@ -228,7 +232,7 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
           aria-label={t('tabsLabel')}
           className="grid w-full grid-cols-2 group-data-horizontal/tabs:h-auto sm:flex sm:w-fit sm:flex-wrap"
         >
-          {tabOrder.map((id) => (
+          {tabs.map((id) => (
             <TabsTrigger
               key={id}
               value={id}
@@ -239,7 +243,7 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
           ))}
         </TabsList>
 
-        {tabOrder.map((id) => (
+        {tabs.map((id) => (
           <TabsContent key={id} value={id} tabIndex={0} className="text-base">
             <p className="mb-4 text-muted-foreground">{t(`intro.${id}`)}</p>
             {id === 'luggage'

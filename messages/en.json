@@ -75,21 +75,39 @@
     "timetables": "Timetables",
     "facts": "Key facts",
     "factModes": "Transport modes",
+    "zonesUnknown": "No zones defined",
     "factZones": "Number of zones",
     "factPayment": "Payment",
     "factVerified": "Verified",
     "unknown": "—"
   },
   "PurchaseMethods": {
-    "title": "How to buy and validate a ticket",
+    "title": "How to buy a ticket and start your ride",
     "lead": "Choose a way to buy and press “Show instructions”. The instructions open right below it.",
     "empty": "No information about ways to buy tickets.",
     "show": "Show instructions",
     "hide": "Hide instructions",
-    "requiresValidation": "needs validating",
-    "noValidation": "no validation",
-    "howToBuy": "How to buy",
-    "howToValidate": "How to validate",
+    "type": {
+      "machine": "Ticket machine",
+      "app": "Mobile app",
+      "office": "Sales point",
+      "contactless": "Card payment",
+      "metrokarta": "Metrokarta",
+      "driver": "Buy from the driver",
+      "sms": "Buy by SMS",
+      "other": "Other way"
+    },
+    "validationKind": {
+      "punch": "validate in the validator",
+      "qr": "scan the QR code on board",
+      "tap": "tap your card on the reader",
+      "none": "no validation"
+    },
+    "validationHint": {
+      "punch": "Put your paper ticket into the validator right after boarding.",
+      "qr": "After boarding, scan the QR code in the vehicle with the app.",
+      "tap": "Tap your card on the reader right after boarding. When you pay per ride (Start/Stop), do it again when you get off."
+    },
     "noValidationDefault": "This ticket does not need validating.",
     "helpTitle": "Need help?",
     "hotline": "{operator} hotline",
@@ -140,7 +158,9 @@
     "mapAlt": "Zone map",
     "noteTitle": "Good to know",
     "zone": "Zone",
-    "covers": "Covers"
+    "covers": "Covers",
+    "none": "No zones defined",
+    "noneText": "We have no zone description for this operator yet."
   },
   "SourceFooter": {
     "sources": "Sources",

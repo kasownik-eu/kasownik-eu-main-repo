@@ -1,0 +1,137 @@
+[
+  {
+    "type": "machine",
+    "validation": [
+      "punch"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup papierowy bilet w automacie biletowym.",
+          "en": "Buy a paper ticket at a ticket machine."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Po wejściu skasuj bilet w kasowniku i zachowaj go do końca podróży.",
+          "en": "After boarding, validate the ticket in the validator and keep it until the end of the ride."
+        }
+      }
+    ]
+  },
+  {
+    "type": "app",
+    "subtitle": {
+      "pl": "Transport GZM, SkyCash, moBiLET, zBiletem, jakdojade",
+      "en": "Transport GZM, SkyCash, moBiLET, zBiletem, jakdojade"
+    },
+    "validation": [
+      "qr"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zaloguj się w aplikacji i wybierz Bilety, a potem Kup bilet.",
+          "en": "Log in to the app and choose Tickets, then Buy ticket."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wybierz bilet z listy i ustaw jego parametry.",
+          "en": "Choose a ticket from the list and set its parameters."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Przejdź do koszyka, kliknij Przejdź do płatności i zapłać.",
+          "en": "Go to the cart, click Proceed to payment and pay."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Bilet jednorazowy kupisz po zeskanowaniu kodu QR w pojeździe.",
+          "en": "A single ticket is bought by scanning the QR code in the vehicle."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Podczas kontroli pokaż kontrolerowi aktywny bilet z kodem QR.",
+          "en": "During a ticket check, show the inspector the active ticket with the QR code."
+        }
+      }
+    ]
+  },
+  {
+    "type": "office",
+    "validation": [
+      "punch"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet w Punkcie Obsługi Pasażera lub w punkcie sprzedaży.",
+          "en": "Buy a ticket at a passenger service point or a sales point."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Po wejściu skasuj papierowy bilet w kasowniku.",
+          "en": "After boarding, validate the paper ticket in the validator."
+        }
+      }
+    ]
+  },
+  {
+    "type": "contactless",
+    "validation": [
+      "tap"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Po wejściu przyłóż kartę płatniczą lub telefon do kasownika.",
+          "en": "After boarding, tap your payment card or phone on the validator."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Przy wysiadaniu przyłóż tę samą kartę do kasownika.",
+          "en": "When getting off, tap the same card on the validator."
+        }
+      }
+    ]
+  },
+  {
+    "type": "metrokarta",
+    "validation": [
+      "tap"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Odbierz Metrokartę w Punkcie Obsługi Pasażera.",
+          "en": "Pick up a Metrokarta at a passenger service point."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Przyłóż Metrokartę do czytnika zaraz po wejściu i przed wyjściem.",
+          "en": "Tap the Metrokarta on the reader right after boarding and just before getting off."
+        }
+      }
+    ]
+  }
+]

@@ -15,7 +15,7 @@
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" playwright test --config=playwright.config.ts",
     "validate:data": "tsx src/scripts/validateData.ts",
-    "sync:tariffs": "tsx src/scripts/syncTariffs.ts",
+    "check:operators": "tsx src/scripts/checkOperators.ts",
     "generate:schemas": "tsx src/scripts/generateSchemas.ts",
     "research:context": "tsx src/scripts/researchContext.ts",
     "research:check-source": "tsx src/scripts/researchCheckSource.ts"

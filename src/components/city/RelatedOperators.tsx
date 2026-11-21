@@ -10,13 +10,13 @@ import React from 'react'
 
 import type { OperatorSummary, RelatedView } from '@/content'
 import type { ticketValidities } from '@/content/enums'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
 
 import { initials } from './format'
 import { ModeBadges } from './ModeBadges'
+import { OperatorLogo } from './OperatorLogo'
 import { Section } from './Section'
 import { ShowMoreList } from './ShowMoreList'
 
@@ -55,22 +55,13 @@ async function RelatedCard({ row, operator }: Omit<Item, 'key'>) {
   return (
     <Card className="relative h-full gap-0 overflow-hidden py-0 has-[a:hover]:bg-highlight">
       <div className="grid grid-cols-[3.5rem_1fr] items-center gap-4 px-5 pt-5 pb-3">
-        <Avatar className="size-14 rounded-[10px] after:rounded-[10px]">
-          {logo && (
-            <AvatarImage
-              src={logo.url}
-              alt={logo.alt || tHeader('logoAlt', { operator: operator.name })}
-              className="rounded-[10px] object-contain"
-            />
-          )}
-          <AvatarFallback
-            className="rounded-[10px] bg-primary text-lg font-bold text-primary-foreground ring-2 ring-border ring-inset"
-            role="img"
-            aria-label={tHeader('logoAlt', { operator: operator.name })}
-          >
-            {operator.shortName || initials(operator.name)}
-          </AvatarFallback>
-        </Avatar>
+        <OperatorLogo
+          logo={logo}
+          fallback={operator.shortName || initials(operator.name)}
+          label={tHeader('logoAlt', { operator: operator.name })}
+          className="size-14 text-lg"
+          padding="p-1.5"
+        />
         <div className="min-w-0">
           <Badge variant="outline" className="mb-1.5 text-[0.8125rem]">
             {t(`relation.${row?.relation ?? 'sameCity'}`)}

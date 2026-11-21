@@ -12,27 +12,35 @@
           "app",
           "office",
           "contactless",
+          "metrokarta",
           "driver",
           "sms",
           "other"
         ]
       },
       "title": {
-        "type": "object",
-        "properties": {
-          "pl": {
-            "type": "string",
-            "minLength": 1
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "pl": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "pl"
+            ],
+            "additionalProperties": false
           },
-          "en": {
-            "type": "string",
-            "minLength": 1
+          {
+            "type": "null"
           }
-        },
-        "required": [
-          "pl"
-        ],
-        "additionalProperties": false
+        ]
       },
       "subtitle": {
         "anyOf": [
@@ -58,30 +66,19 @@
           }
         ]
       },
-      "requiresValidation": {
-        "type": "boolean"
-      },
-      "buySteps": {
+      "validation": {
         "anyOf": [
           {
-            "maxItems": 6,
+            "maxItems": 3,
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "pl": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "en": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "pl"
-              ],
-              "additionalProperties": false
+              "type": "string",
+              "enum": [
+                "punch",
+                "qr",
+                "tap",
+                "none"
+              ]
             }
           },
           {
@@ -89,25 +86,42 @@
           }
         ]
       },
-      "validationSteps": {
+      "steps": {
         "anyOf": [
           {
-            "maxItems": 6,
+            "maxItems": 10,
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "pl": {
+                "kind": {
                   "type": "string",
-                  "minLength": 1
+                  "enum": [
+                    "buy",
+                    "validate"
+                  ]
                 },
-                "en": {
-                  "type": "string",
-                  "minLength": 1
+                "text": {
+                  "type": "object",
+                  "properties": {
+                    "pl": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "pl"
+                  ],
+                  "additionalProperties": false
                 }
               },
               "required": [
-                "pl"
+                "kind",
+                "text"
               ],
               "additionalProperties": false
             }
@@ -141,7 +155,7 @@
           }
         ]
       },
-      "validationPhotos": {
+      "photos": {
         "anyOf": [
           {
             "maxItems": 6,
@@ -242,9 +256,7 @@
       }
     },
     "required": [
-      "type",
-      "title",
-      "requiresValidation"
+      "type"
     ],
     "additionalProperties": false
   }

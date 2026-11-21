@@ -7,6 +7,8 @@ import { allowsPage, pageKinds, type PageKind, type Template, templateFile, temp
 import {
   citiesFile,
   countryFile,
+  evidenceFile,
+  type EvidenceFile,
   type CitiesFile,
   type CountryFile,
   type ImageRef,
@@ -22,13 +24,14 @@ import {
   type ZonesFile,
 } from './schema'
 
-// data/<country>/<voivodeship>/<operator>/{operator,cities,purchase,tickets,zones}.json + images/
+// data/<country>/<voivodeship>/<operator>/{operator,cities,purchase,tickets,zones,evidence}.json + images/
 export const OPERATOR_FILES = {
   info: 'operator.json',
   cities: 'cities.json',
   purchase: 'purchase.json',
   tickets: 'tickets.json',
   zones: 'zones.json',
+  evidence: 'evidence.json',
 } as const
 export const IMAGES_DIR = 'images'
 const COUNTRY_FILE = 'country.json'
@@ -50,6 +53,8 @@ export type RawOperator = {
   purchase: PurchaseFile
   tickets: TicketsFile | null
   zones: ZonesFile | null
+  // Quotes backing the facts, written by the operator-research skill, read by the checker
+  evidence: EvidenceFile | null
 }
 
 export type RawCity = {
@@ -128,7 +133,7 @@ const createReader = (root: string, problems: string[], label = '') => {
 const imagesOf = (op: Pick<RawOperator, 'info' | 'purchase' | 'zones'>): ImageRef[] => [
   ...(op.info.logo ? [op.info.logo] : []),
   ...(op.zones?.map ? [op.zones.map] : []),
-  ...op.purchase.flatMap((method) => (method.validationPhotos ?? []).map((photo) => photo.image)),
+  ...op.purchase.flatMap((method) => (method.photos ?? []).map((photo) => photo.image)),
 ]
 
 // templates/<page>/<name>.json; every page kind needs a "default"
@@ -240,6 +245,7 @@ export const loadCatalog = (root = contentDir(), templatesRoot = templatesDir())
         const purchase = read(path.join(dir, OPERATOR_FILES.purchase), purchaseFile, true) ?? []
         const tickets = read(path.join(dir, OPERATOR_FILES.tickets), ticketsFile, true)
         const zones = read(path.join(dir, OPERATOR_FILES.zones), zonesFile, true)
+        const evidence = read(path.join(dir, OPERATOR_FILES.evidence), evidenceFile, true)
         if (!info) continue
 
         const existing = catalog.operators.get(operatorSlug)
@@ -259,6 +265,7 @@ export const loadCatalog = (root = contentDir(), templatesRoot = templatesDir())
           purchase,
           tickets,
           zones,
+          evidence,
         }
         for (const image of imagesOf(operator)) {
           const file = path.join(dir, IMAGES_DIR, image.file)

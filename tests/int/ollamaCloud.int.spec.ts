@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { ollamaCloudExtractor } from '@/tariffs/llm/ollama-cloud'
+import { ollamaCloudExtractor } from '@/check/llm/ollama-cloud'
 
 const args = {
   pages: [{ url: 'https://example.com/cennik', text: 'Bilet 20 min | 3,40 zł' }],
   operator: { slug: 'mzt', name: 'MZT' },
   jsonSchema: { type: 'object' },
-  instructions: 'Extract tariffs.',
+  instructions: 'Check facts.',
 }
 
 const reply = (body: object, status = 200) =>
@@ -49,7 +49,7 @@ describe('ollamaCloudExtractor', () => {
   })
 
   it('rejects non-JSON and truncated output', async () => {
-    fetchMock.mockResolvedValueOnce(reply({ done: true, message: { content: 'Here is the tariff' } }))
+    fetchMock.mockResolvedValueOnce(reply({ done: true, message: { content: 'Here is the answer' } }))
     await expect(ollamaCloudExtractor.extract(args)).rejects.toThrow('non-JSON')
 
     fetchMock.mockResolvedValueOnce(reply({ done: true, done_reason: 'length', message: { content: '{"ti' } }))

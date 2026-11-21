@@ -10,25 +10,29 @@
     "slug": "bedzin",
     "name": {
       "pl": "Będzin"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "bierun",
     "name": {
       "pl": "Bieruń"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "bobrowniki",
     "name": {
       "pl": "Bobrowniki"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "bojszowy",
     "name": {
       "pl": "Bojszowy"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "bytom",
@@ -41,7 +45,8 @@
     "slug": "chelm-slaski",
     "name": {
       "pl": "Chełm Śląski"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "chorzow",
@@ -68,7 +73,8 @@
     "slug": "gieraltowice",
     "name": {
       "pl": "Gierałtowice"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "gliwice",
@@ -81,43 +87,50 @@
     "slug": "imielin",
     "name": {
       "pl": "Imielin"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "knurow",
     "name": {
       "pl": "Knurów"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "kobior",
     "name": {
       "pl": "Kobiór"
-    }
-  },
-  {
-    "slug": "laziska-gorne",
-    "name": {
-      "pl": "Łaziska Górne"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "ledziny",
     "name": {
       "pl": "Lędziny"
-    }
+    },
+    "primary": true
+  },
+  {
+    "slug": "laziska-gorne",
+    "name": {
+      "pl": "Łaziska Górne"
+    },
+    "primary": true
   },
   {
     "slug": "mierzecice",
     "name": {
       "pl": "Mierzęcice"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "mikolow",
     "name": {
       "pl": "Mikołów"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "myslowice",
@@ -130,7 +143,8 @@
     "slug": "ozarowice",
     "name": {
       "pl": "Ożarowice"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "piekary-slaskie",
@@ -143,25 +157,29 @@
     "slug": "pilchowice",
     "name": {
       "pl": "Pilchowice"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "psary",
     "name": {
       "pl": "Psary"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "pyskowice",
     "name": {
       "pl": "Pyskowice"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "radzionkow",
     "name": {
       "pl": "Radzionków"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "ruda-slaska",
@@ -174,7 +192,8 @@
     "slug": "rudziniec",
     "name": {
       "pl": "Rudziniec"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "siemianowice-slaskie",
@@ -187,19 +206,15 @@
     "slug": "siewierz",
     "name": {
       "pl": "Siewierz"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "slawkow",
     "name": {
       "pl": "Sławków"
-    }
-  },
-  {
-    "slug": "sosnicowice",
-    "name": {
-      "pl": "Sośnicowice"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "sosnowiec",
@@ -209,10 +224,18 @@
     "primary": true
   },
   {
+    "slug": "sosnicowice",
+    "name": {
+      "pl": "Sośnicowice"
+    },
+    "primary": true
+  },
+  {
     "slug": "swierklaniec",
     "name": {
       "pl": "Świerklaniec"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "swietochlowice",
@@ -225,7 +248,8 @@
     "slug": "tarnowskie-gory",
     "name": {
       "pl": "Tarnowskie Góry"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "tychy",
@@ -238,13 +262,15 @@
     "slug": "wojkowice",
     "name": {
       "pl": "Wojkowice"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "wyry",
     "name": {
       "pl": "Wyry"
-    }
+    },
+    "primary": true
   },
   {
     "slug": "zabrze",
@@ -257,6 +283,7 @@
     "slug": "zbroslawice",
     "name": {
       "pl": "Zbrosławice"
-    }
+    },
+    "primary": true
   }
 ]

@@ -5,6 +5,7 @@ import { templateFile } from '@/blocks/schema'
 import {
   citiesFile,
   countryFile,
+  evidenceFile,
   operatorFile,
   purchaseFile,
   ticketsFile,
@@ -24,6 +25,7 @@ export const jsonSchemas = () =>
       purchase: purchaseFile,
       tickets: ticketsFile,
       zones: zonesFile,
+      evidence: evidenceFile,
       template: templateFile,
     }).map(([name, schema]) => [name, z.toJSONSchema(schema, { io: 'input' })]),
   )

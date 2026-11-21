@@ -76,20 +76,38 @@
     "facts": "Najważniejsze informacje",
     "factModes": "Środki transportu",
     "factZones": "Liczba stref",
+    "zonesUnknown": "Nie zdefiniowano stref",
     "factPayment": "Płatność",
     "factVerified": "Zweryfikowano",
     "unknown": "—"
   },
   "PurchaseMethods": {
-    "title": "Jak kupić i skasować bilet",
+    "title": "Jak kupić bilet i rozpocząć przejazd",
     "lead": "Wybierz sposób zakupu i naciśnij „Pokaż instrukcję”. Instrukcja otworzy się pod nim.",
     "empty": "Brak informacji o sposobach zakupu.",
     "show": "Pokaż instrukcję",
     "hide": "Ukryj instrukcję",
-    "requiresValidation": "wymaga kasowania",
-    "noValidation": "bez kasowania",
-    "howToBuy": "Jak kupić",
-    "howToValidate": "Jak skasować",
+    "type": {
+      "machine": "Automat biletowy",
+      "app": "Aplikacja mobilna",
+      "office": "Punkt sprzedaży",
+      "contactless": "Płatność kartą",
+      "metrokarta": "Metrokarta",
+      "driver": "Zakup u kierowcy",
+      "sms": "Zakup przez SMS",
+      "other": "Inny sposób"
+    },
+    "validationKind": {
+      "punch": "kasuj w kasowniku",
+      "qr": "zeskanuj kod QR w pojeździe",
+      "tap": "przyłóż kartę do czytnika",
+      "none": "bez kasowania"
+    },
+    "validationHint": {
+      "punch": "Włóż papierowy bilet do kasownika zaraz po wejściu do pojazdu.",
+      "qr": "Po wejściu do pojazdu zeskanuj w aplikacji kod QR umieszczony w pojeździe.",
+      "tap": "Przyłóż kartę do czytnika zaraz po wejściu do pojazdu. Gdy płacisz za przejazd (Start/Stop), zrób to też przy wyjściu."
+    },
     "noValidationDefault": "Ten bilet nie wymaga kasowania.",
     "helpTitle": "Potrzebujesz pomocy?",
     "hotline": "Infolinia {operator}",
@@ -140,7 +158,9 @@
     "mapAlt": "Mapa stref",
     "noteTitle": "Ważne",
     "zone": "Strefa",
-    "covers": "Obejmuje"
+    "covers": "Obejmuje",
+    "none": "Nie zdefiniowano stref",
+    "noneText": "Dla tego przewoźnika nie mamy jeszcze opisu stref."
   },
   "SourceFooter": {
     "sources": "Źródła",

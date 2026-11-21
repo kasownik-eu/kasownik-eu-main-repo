@@ -2,7 +2,6 @@ import { ExternalLinkIcon } from 'lucide-react'
 import { getFormatter, getTranslations } from 'next-intl/server'
 import React from 'react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { TicketArt } from '@/components/site/decor'
 import { Card } from '@/components/ui/card'
@@ -10,6 +9,7 @@ import type { OperatorView } from '@/content'
 
 import { initials } from './format'
 import { ModeBadges } from './ModeBadges'
+import { OperatorLogo } from './OperatorLogo'
 
 type Props = {
   operator: OperatorView
@@ -22,6 +22,8 @@ export async function OperatorHeader({ operator, label = operator.label }: Props
   const tCommon = await getTranslations('Common')
   const format = await getFormatter()
   const { logo } = operator
+  // Without an explicit count, count the listed zones; nothing listed means we have no zone info
+  const zoneCount = operator.zoneCount ?? (operator.zones?.items?.length || null)
 
   const links = [
     { href: operator.websiteUrl, label: t('officialWebsite'), variant: 'default' as const },
@@ -35,7 +37,7 @@ export async function OperatorHeader({ operator, label = operator.label }: Props
         <ModeBadges modes={operator.transportModes} />
       ) : null,
     },
-    { label: t('factZones'), value: operator.zoneCount },
+    { label: t('factZones'), value: zoneCount ?? t('zonesUnknown') },
     { label: t('factPayment'), value: operator.paymentInfo || operator.currency || null },
     {
       label: t('factVerified'),
@@ -49,22 +51,13 @@ export async function OperatorHeader({ operator, label = operator.label }: Props
     <Card className="gap-0 py-0">
       <div className="relative isolate flex flex-wrap items-start gap-4 overflow-hidden bg-highlight p-4 sm:gap-6 sm:p-6">
         <TicketArt />
-        <Avatar className="size-16 rounded-xl after:rounded-xl sm:size-24">
-          {logo && (
-            <AvatarImage
-              src={logo.url}
-              alt={logo.alt || t('logoAlt', { operator: operator.name })}
-              className="rounded-xl object-contain"
-            />
-          )}
-          <AvatarFallback
-            className="rounded-xl bg-primary text-xl font-bold text-primary-foreground ring-2 ring-border ring-inset sm:text-3xl"
-            role="img"
-            aria-label={t('logoAlt', { operator: operator.name })}
-          >
-            {operator.shortName || initials(operator.name)}
-          </AvatarFallback>
-        </Avatar>
+        <OperatorLogo
+          logo={logo}
+          fallback={operator.shortName || initials(operator.name)}
+          label={t('logoAlt', { operator: operator.name })}
+          className="size-16 text-xl sm:size-24 sm:text-3xl"
+          padding="p-2 sm:p-3"
+        />
 
         <div className="min-w-0 flex-[1_1_16rem]">
           {label && <p className="text-sm text-muted-foreground">{label}</p>}

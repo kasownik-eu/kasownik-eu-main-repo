@@ -1,0 +1,665 @@
+{
+  "verifiedAt": "2026-11-21",
+  "facts": [
+    {
+      "file": "tickets",
+      "path": "tickets[0].priceNormal",
+      "value": 4.6,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "20 minut | ważny przez 20 minut od momentu skasowania (z możliwością przesiadek) | 4,60 zł | 2,30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[0].priceReduced",
+      "value": 2.3,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "20 minut | ważny przez 20 minut od momentu skasowania (z możliwością przesiadek) | 4,60 zł | 2,30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[1].priceNormal",
+      "value": 5.6,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "40 minut | ważny przez 40 minut od momentu skasowania (z możliwością przesiadek) | 5,60 zł | 2,80 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[1].priceReduced",
+      "value": 2.8,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "40 minut | ważny przez 40 minut od momentu skasowania (z możliwością przesiadek) | 5,60 zł | 2,80 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[2].priceNormal",
+      "value": 7.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "120 minut | ważny przez 120 minut od momentu skasowania (z możliwością przesiadek) | 7,00 zł | 3,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[2].priceReduced",
+      "value": 3.5,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "120 minut | ważny przez 120 minut od momentu skasowania (z możliwością przesiadek) | 7,00 zł | 3,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[3].priceNormal",
+      "value": 13.8,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Grupowy | upoważnia do podróży grupę maksymalnie pięciorga osób przez 120 minut od momentu skasowania (z możliwością przesiadek) | 13,80 zł | 6,90 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[3].priceReduced",
+      "value": 6.9,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Grupowy | upoważnia do podróży grupę maksymalnie pięciorga osób przez 120 minut od momentu skasowania (z możliwością przesiadek) | 13,80 zł | 6,90 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[4].priceNormal",
+      "value": 4.2,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "20 minut | ważny przez 20 minut od momentu zakupu (z możliwością przesiadek) | 4,20 zł | 2,10 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[4].priceReduced",
+      "value": 2.1,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "20 minut | ważny przez 20 minut od momentu zakupu (z możliwością przesiadek) | 4,20 zł | 2,10 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[5].priceNormal",
+      "value": 5.2,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "40 minut | ważny przez 40 minut od momentu zakupu (z możliwością przesiadek) | 5,20 zł | 2,60 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[5].priceReduced",
+      "value": 2.6,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "40 minut | ważny przez 40 minut od momentu zakupu (z możliwością przesiadek) | 5,20 zł | 2,60 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[6].priceNormal",
+      "value": 6.6,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "120 minut | ważny przez 120 minut od momentu zakupu (z możliwością przesiadek) | 6,60 zł | 3,30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[6].priceReduced",
+      "value": 3.3,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "120 minut | ważny przez 120 minut od momentu zakupu (z możliwością przesiadek) | 6,60 zł | 3,30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[7].priceNormal",
+      "value": 12.8,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Grupowy | upoważnia do podróży grupę maksymalnie pięciorga osób przez 120 minut od momentu zakupu (z możliwością przesiadek) | 12,80 zł | 6,40 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[7].priceReduced",
+      "value": 6.4,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Grupowy | upoważnia do podróży grupę maksymalnie pięciorga osób przez 120 minut od momentu zakupu (z możliwością przesiadek) | 12,80 zł | 6,40 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[8].priceNormal",
+      "value": 2.1,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "do 5 minut | 2,10 zł | 1,05 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[8].priceReduced",
+      "value": 1.05,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "do 5 minut | 2,10 zł | 1,05 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[9].priceNormal",
+      "value": 3.2,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 5 do 10 minut | 3,20 zł | 1,60 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[9].priceReduced",
+      "value": 1.6,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 5 do 10 minut | 3,20 zł | 1,60 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[10].priceNormal",
+      "value": 3.7,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 10 do 15 minut | 3,70 zł | 1,85 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[10].priceReduced",
+      "value": 1.85,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 10 do 15 minut | 3,70 zł | 1,85 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[11].priceNormal",
+      "value": 4.2,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 15 do 20 minut | 4,20 zł | 2,10 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[11].priceReduced",
+      "value": 2.1,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 15 do 20 minut | 4,20 zł | 2,10 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[12].priceNormal",
+      "value": 4.7,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 20 do 30 minut | 4,70 zł | 2,35 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[12].priceReduced",
+      "value": 2.35,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 20 do 30 minut | 4,70 zł | 2,35 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[13].priceNormal",
+      "value": 5.2,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 30 do 40 minut | 5,20 zł | 2,60 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[13].priceReduced",
+      "value": 2.6,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 30 do 40 minut | 5,20 zł | 2,60 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[14].priceNormal",
+      "value": 5.7,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 40 do 60 minut | 5,70 zł | 2,85 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[14].priceReduced",
+      "value": 2.85,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 40 do 60 minut | 5,70 zł | 2,85 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[15].priceNormal",
+      "value": 6.6,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 60 do 120 minut | 6,60 zł | 3,30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[15].priceReduced",
+      "value": 3.3,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "powyżej 60 do 120 minut | 6,60 zł | 3,30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[16].priceNormal",
+      "value": 60.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Pakiet 20 | upoważnia do dwudziestu jednorazowych przejazdów (bez możliwości przesiadki) na całej sieci, przez 180 dni od daty wybranej podczas zakupu | 60 zł | 30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[16].priceReduced",
+      "value": 30.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Pakiet 20 | upoważnia do dwudziestu jednorazowych przejazdów (bez możliwości przesiadki) na całej sieci, przez 180 dni od daty wybranej podczas zakupu | 60 zł | 30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[17].priceNormal",
+      "value": 110.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Pakiet 40 | upoważnia do czterdziestu jednorazowych przejazdów (bez możliwości przesiadki) na całej sieci, przez 180 dni od daty wybranej podczas zakupu | 110 zł | 55 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[17].priceReduced",
+      "value": 55.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Pakiet 40 | upoważnia do czterdziestu jednorazowych przejazdów (bez możliwości przesiadki) na całej sieci, przez 180 dni od daty wybranej podczas zakupu | 110 zł | 55 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[18].priceNormal",
+      "value": 200.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Pakiet 80 | upoważnia do osiemdziesięciu jednorazowych przejazdów (bez możliwości przesiadki) na całej sieci, przez 180 dni od daty wybranej podczas zakupu | 200 zł | 100 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[18].priceReduced",
+      "value": 100.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Pakiet 80 | upoważnia do osiemdziesięciu jednorazowych przejazdów (bez możliwości przesiadki) na całej sieci, przez 180 dni od daty wybranej podczas zakupu | 200 zł | 100 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[19].priceNormal",
+      "value": 13.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Dzienny | ważny w komunikacji miejskiej Transport GZM do godziny 23:59 tego samego dnia na zasadach określonych w § 3 ust. 5 pkt 4 oraz ust. 6 pkt 5, na całej sieci Transport GZM | 13 zł | 6,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[19].priceReduced",
+      "value": 6.5,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Dzienny | ważny w komunikacji miejskiej Transport GZM do godziny 23:59 tego samego dnia na zasadach określonych w § 3 ust. 5 pkt 4 oraz ust. 6 pkt 5, na całej sieci Transport GZM | 13 zł | 6,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[20].priceNormal",
+      "value": 24.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet 24h | bilet imienny ważny przez 24 godziny na zasadach określonych w § 3 ust. 5 pkt 5 oraz § 3 ust. 6 pkt 6, na całej sieci w komunikacji miejskiej Transport GZM, na wszystkich liniach kolejowych obsługiwanych przez KŚ i POLREGIO na obszarze GZM, a także na odcinku linii kolejowej Tarnowskie Góry – Siewierz | 24 zł | 12 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[20].priceReduced",
+      "value": 12.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet 24h | bilet imienny ważny przez 24 godziny na zasadach określonych w § 3 ust. 5 pkt 5 oraz § 3 ust. 6 pkt 6, na całej sieci w komunikacji miejskiej Transport GZM, na wszystkich liniach kolejowych obsługiwanych przez KŚ i POLREGIO na obszarze GZM, a także na odcinku linii kolejowej Tarnowskie Góry – Siewierz | 24 zł | 12 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[21].priceNormal",
+      "value": 119.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet Miasto 30 | ważny przez 30 dni od daty wybranej podczas zakupu, na terenie jednego, wybranego miasta (gminy), w komunikacji miejskiej Transport GZM, a w przypadku miasta na obszarze GZM, w którym są zlokalizowane co najmniej dwie stacje/przystanki kolejowe, również w pociągach KŚ i POLREGIO | 119 zł | 59,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[21].priceReduced",
+      "value": 59.5,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet Miasto 30 | ważny przez 30 dni od daty wybranej podczas zakupu, na terenie jednego, wybranego miasta (gminy), w komunikacji miejskiej Transport GZM, a w przypadku miasta na obszarze GZM, w którym są zlokalizowane co najmniej dwie stacje/przystanki kolejowe, również w pociągach KŚ i POLREGIO | 119 zł | 59,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[22].priceNormal",
+      "value": 300.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Miasto 90 | ważny przez 90 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM na terenie jednego, wybranego miasta (gminy) | 300 zł | 150 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[22].priceReduced",
+      "value": 150.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Miasto 90 | ważny przez 90 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM na terenie jednego, wybranego miasta (gminy) | 300 zł | 150 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[23].priceNormal",
+      "value": 149.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet 2 Miasta 30 | ważny przez 30 dni od daty wybranej podczas zakupu, na terenie dwóch graniczących ze sobą miast (gmin), w komunikacji miejskiej Transport GZM, a w przypadku miast na obszarze GZM, na terenie których są zlokalizowane co najmniej dwie graniczące ze sobą stacje obsługiwane koleją, bilet obowiązuje również w pociągach KŚ i POLREGIO | 149 zł | 74,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[23].priceReduced",
+      "value": 74.5,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet 2 Miasta 30 | ważny przez 30 dni od daty wybranej podczas zakupu, na terenie dwóch graniczących ze sobą miast (gmin), w komunikacji miejskiej Transport GZM, a w przypadku miast na obszarze GZM, na terenie których są zlokalizowane co najmniej dwie graniczące ze sobą stacje obsługiwane koleją, bilet obowiązuje również w pociągach KŚ i POLREGIO | 149 zł | 74,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[24].priceNormal",
+      "value": 380.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "2 Miasta 90 | ważny przez 90 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM, na terenie dwóch graniczących ze sobą miast (gmin) | 380 zł | 190 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[24].priceReduced",
+      "value": 190.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "2 Miasta 90 | ważny przez 90 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM, na terenie dwóch graniczących ze sobą miast (gmin) | 380 zł | 190 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[25].priceNormal",
+      "value": 189.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet Obszarowy 30 | ważny przez 30 dni od daty wybranej podczas zakupu, na całej sieci w komunikacji miejskiej Transport GZM, a dodatkowo, w przypadku dokonania takiego wyboru przez pasażera, w pociągach KŚ i POLREGIO na obszarze od trzech do sześciu graniczących kolejno ze sobą miast należących do GZM, w których zlokalizowane są stacje obsługiwane koleją (w tym na odcinku linii kolejowej Tarnowskie Góry – Siewierz), z możliwością przejazdu bezpośredniego lub z przesiadką w relacjach kolejowych | 189 zł | 94,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[25].priceReduced",
+      "value": 94.5,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet Obszarowy 30 | ważny przez 30 dni od daty wybranej podczas zakupu, na całej sieci w komunikacji miejskiej Transport GZM, a dodatkowo, w przypadku dokonania takiego wyboru przez pasażera, w pociągach KŚ i POLREGIO na obszarze od trzech do sześciu graniczących kolejno ze sobą miast należących do GZM, w których zlokalizowane są stacje obsługiwane koleją (w tym na odcinku linii kolejowej Tarnowskie Góry – Siewierz), z możliwością przejazdu bezpośredniego lub z przesiadką w relacjach kolejowych | 189 zł | 94,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[26].priceNormal",
+      "value": 60.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 7 | ważny przez 7 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM na całej sieci | 60 zł | 30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[26].priceReduced",
+      "value": 30.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 7 | ważny przez 7 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM na całej sieci | 60 zł | 30 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[27].priceNormal",
+      "value": 249.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet Sieć 30 | ważny przez 30 dni od daty wybranej podczas zakupu, na całej sieci w komunikacji miejskiej Transport GZM oraz na wszystkich liniach kolejowych obsługiwanych przez KŚ i POLREGIO na obszarze GZM, a także na odcinku linii kolejowej Tarnowskie Góry – Siewierz | 249 zł | 124,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[27].priceReduced",
+      "value": 124.5,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Metrobilet Sieć 30 | ważny przez 30 dni od daty wybranej podczas zakupu, na całej sieci w komunikacji miejskiej Transport GZM oraz na wszystkich liniach kolejowych obsługiwanych przez KŚ i POLREGIO na obszarze GZM, a także na odcinku linii kolejowej Tarnowskie Góry – Siewierz | 249 zł | 124,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[28].priceNormal",
+      "value": 460.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 90 | ważny przez 90 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM na całej sieci | 460 zł | 230 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[28].priceReduced",
+      "value": 230.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 90 | ważny przez 90 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM na całej sieci | 460 zł | 230 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[29].priceNormal",
+      "value": 600.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 180 | ważny przez 180 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM na całej sieci | 600 zł | 300 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[29].priceReduced",
+      "value": 300.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 180 | ważny przez 180 dni od daty wybranej podczas zakupu, w komunikacji miejskiej Transport GZM na całej sieci | 600 zł | 300 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[30].priceNormal",
+      "value": 63.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 7 Okaziciel | ważny na całej sieci przez 7 dni od daty wybranej podczas zakupu | 63 zł | 31,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[30].priceReduced",
+      "value": 31.5,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 7 Okaziciel | ważny na całej sieci przez 7 dni od daty wybranej podczas zakupu | 63 zł | 31,50 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[31].priceNormal",
+      "value": 230.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 30 Okaziciel | ważny na całej sieci przez 30 dni od daty wybranej podczas zakupu | 230 zł | 115 zł"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[31].priceReduced",
+      "value": 115.0,
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[contains(normalize-space(.), 'V. Cennik')]/following-sibling::*[following-sibling::p[contains(normalize-space(.), 'VI. Postanowienia końcowe')]]",
+      "quote": "Sieć 30 Okaziciel | ważny na całej sieci przez 30 dni od daty wybranej podczas zakupu | 230 zł | 115 zł"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].type",
+      "value": "machine",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "1) jednorazowych/krótkookresowych, z wyjątkiem „Grupowego”, odbywa się w punktach sprzedaży, w POP oraz w automatach biletowych,"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[0].text.pl",
+      "value": "Kup papierowy bilet w automacie biletowym.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "1) jednorazowych/krótkookresowych, z wyjątkiem „Grupowego”, odbywa się w punktach sprzedaży, w POP oraz w automatach biletowych,"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[1].text.pl",
+      "value": "Po wejściu skasuj bilet w kasowniku i zachowaj go do końca podróży.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "a) zakupu lub skasowania biletu w kasowniku (z wyjątkiem biletów z nadaną podczas zakupu datą i godziną rozpoczęcia biletu) i zachowania go przez cały czas trwania podróży,"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].type",
+      "value": "app",
+      "url": "https://transportgzm.pl/documents/kup-bilet-przez-telefon",
+      "quote": "aplikacja Transport GZM oraz aplikacje zewnętrzne: SkyCash, moBiLET, zBiletem, jakdojade."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].subtitle.pl",
+      "value": "Transport GZM, SkyCash, moBiLET, zBiletem, jakdojade",
+      "url": "https://transportgzm.pl/documents/kup-bilet-przez-telefon",
+      "quote": "aplikacja Transport GZM oraz aplikacje zewnętrzne: SkyCash, moBiLET, zBiletem, jakdojade."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[0].text.pl",
+      "value": "Zaloguj się w aplikacji i wybierz Bilety, a potem Kup bilet.",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "Zaloguj się do Indywidualnego Konta Użytkownika i wybierz zakładkę ,,Bilety'' oraz „Kup bilet”."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[1].text.pl",
+      "value": "Wybierz bilet z listy i ustaw jego parametry.",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "Wybierz pozycję biletu z listy i ustaw jego parametry."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[2].text.pl",
+      "value": "Przejdź do koszyka, kliknij Przejdź do płatności i zapłać.",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "Aby zakończyć zakup biletu, należy przejść do „koszyka” i kliknąć „Przejdź do płatności”."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[3].text.pl",
+      "value": "Bilet jednorazowy kupisz po zeskanowaniu kodu QR w pojeździe.",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "Aplikacja mobilna umożliwia również zakup biletów jednorazowych (krótkookresowych). Dostępne są one po zeskanowaniu w pojeździe specjalnego kodu QR."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[4].text.pl",
+      "value": "Podczas kontroli pokaż kontrolerowi aktywny bilet z kodem QR.",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "W przypadku kontroli biletów, kliknij w aktywny bilet. Wyświetlony kod QR wystarczy pokazać kontrolerowi."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].type",
+      "value": "office",
+      "url": "https://transportgzm.pl/pages/punkty-obsugi-pasazera",
+      "quote": "W Punktach Obsługi Pasażera można kupić bilety, uzyskać informacje dotyczące komunikacji miejskiej Transport GZM, złożyć reklamację, skargę, wniosek."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].steps[0].text.pl",
+      "value": "Kup bilet w Punkcie Obsługi Pasażera lub w punkcie sprzedaży.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "1) jednorazowych/krótkookresowych, z wyjątkiem „Grupowego”, odbywa się w punktach sprzedaży, w POP oraz w automatach biletowych,"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].steps[1].text.pl",
+      "value": "Po wejściu skasuj papierowy bilet w kasowniku.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "a) zakupu lub skasowania biletu w kasowniku (z wyjątkiem biletów z nadaną podczas zakupu datą i godziną rozpoczęcia biletu) i zachowania go przez cały czas trwania podróży,"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].type",
+      "value": "contactless",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "Rejestracja wejścia następuje poprzez przyłożenie identyfikatora użytkownika albo karty płatniczej do odpowiedniego kasownika"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[0].text.pl",
+      "value": "Po wejściu przyłóż kartę płatniczą lub telefon do kasownika.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "Rejestracja wejścia następuje poprzez przyłożenie identyfikatora użytkownika albo karty płatniczej do odpowiedniego kasownika"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[1].text.pl",
+      "value": "Przy wysiadaniu przyłóż tę samą kartę do kasownika.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "Rejestracja wyjścia odbywa się poprzez przyłożenie tego samego identyfikatora użytkownika lub tej samej karty płatniczej do odpowiedniego kasownika"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].type",
+      "value": "metrokarta",
+      "url": "https://transportgzm.pl/pages/punkty-obsugi-pasazera",
+      "quote": "Dodatkowo w POP-ach można także odebrać Metrokartę."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[0].text.pl",
+      "value": "Odbierz Metrokartę w Punkcie Obsługi Pasażera.",
+      "url": "https://transportgzm.pl/pages/punkty-obsugi-pasazera",
+      "quote": "Dodatkowo w POP-ach można także odebrać Metrokartę."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[1].text.pl",
+      "value": "Przyłóż Metrokartę do czytnika zaraz po wejściu i przed wyjściem.",
+      "url": "https://transportgzm.pl/help/bilety/podroz-startstop",
+      "quote": "W przypadku Metrokarty wystarczy ją przyłożyć do czytnika zaraz po wejściu oraz bezpośrednio przed opuszczeniem pojazdu."
+    },
+    {
+      "file": "operator",
+      "path": "servicePoint.pl",
+      "value": "ul. Barbary 21a, Katowice, pon.–pt. 7:00–15:00",
+      "url": "https://transportgzm.pl/pages/punkty-obsugi-pasazera",
+      "quote": "6. Katowice, ul. Barbary 21a (siedziba ZTM)."
+    }
+  ]
+}

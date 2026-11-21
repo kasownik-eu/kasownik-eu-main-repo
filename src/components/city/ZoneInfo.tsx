@@ -19,11 +19,25 @@ type Props = {
   zones: ZonesView | null
 }
 
-// Optional module: skipped for single-fare cities. Map first, then the same info as a table
+// Skipped for single-fare cities (`enabled: false`). Without any zone data a placeholder says so.
+// Map first, then the same info as a table
 export async function ZoneInfo({ zones }: Props) {
-  if (!zones?.enabled) return null
+  if (zones && !zones.enabled) return null
 
   const t = await getTranslations('ZoneInfo')
+
+  if (!zones || (!zones.map && !zones.items?.length)) {
+    return (
+      <Section id="zones" title={t('title')} lead={t('lead')}>
+        <Alert role="note" className="px-4 py-3">
+          <MapIcon aria-hidden="true" />
+          <AlertTitle>{t('none')}</AlertTitle>
+          <AlertDescription>{t('noneText')}</AlertDescription>
+        </Alert>
+      </Section>
+    )
+  }
+
   const { map } = zones
 
   return (

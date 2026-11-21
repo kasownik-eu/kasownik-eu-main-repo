@@ -1,9 +1,9 @@
 import { JSDOM } from 'jsdom'
 
-export class TariffXPathError extends Error {
+export class SourceXPathError extends Error {
   constructor(message: string) {
     super(message)
-    this.name = 'TariffXPathError'
+    this.name = 'SourceXPathError'
   }
 }
 
@@ -17,7 +17,7 @@ const selectRoots = (document: Document, url: string, xpath?: string | null): El
   try {
     snapshot = document.evaluate(xpath, document, null, 7 /* ORDERED_NODE_SNAPSHOT_TYPE */, null)
   } catch (err) {
-    throw new TariffXPathError(`Invalid XPath "${xpath}" for ${url}: ${(err as Error).message}`)
+    throw new SourceXPathError(`Invalid XPath "${xpath}" for ${url}: ${(err as Error).message}`)
   }
 
   const roots: Element[] = []
@@ -25,11 +25,11 @@ const selectRoots = (document: Document, url: string, xpath?: string | null): El
     const node = snapshot.snapshotItem(i)
     if (node && node.nodeType === 1) roots.push(node as Element)
   }
-  if (roots.length === 0) throw new TariffXPathError(`XPath "${xpath}" matched nothing on ${url}`)
+  if (roots.length === 0) throw new SourceXPathError(`XPath "${xpath}" matched nothing on ${url}`)
   return roots
 }
 
-// Turns the tariff block into plain text that keeps table rows and paragraphs readable for the LLM
+// Turns the source block into plain text that keeps table rows (`a | b`) and paragraphs readable; evidence quotes are copied from this text
 const toText = (root: Element): string => {
   root.querySelectorAll(NOISE).forEach((el) => el.remove())
   root.querySelectorAll('tr').forEach((tr) => {
@@ -40,7 +40,7 @@ const toText = (root: Element): string => {
 
   return (root.textContent ?? '')
     .split('\n')
-    .map((line) => line.replace(/[ \t ]+/g, ' ').trim())
+    .map((line) => line.replace(/\u00ad/g, '').replace(/[ \t ]+/g, ' ').trim())
     .filter(Boolean)
     .join('\n')
 }

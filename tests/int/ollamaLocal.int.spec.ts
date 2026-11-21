@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { ollamaLocalExtractor } from '@/tariffs/llm/ollama-local'
+import { ollamaLocalExtractor } from '@/check/llm/ollama-local'
 
 const args = {
   pages: [{ url: 'https://example.com/cennik', text: 'Bilet 20 min | 3,40 zł' }],
   operator: { slug: 'mzt', name: 'MZT' },
   jsonSchema: { type: 'object' },
-  instructions: 'Extract tariffs.',
+  instructions: 'Check facts.',
 }
 
 const reply = (body: object, status = 200) =>
@@ -51,7 +51,7 @@ describe('ollamaLocalExtractor', () => {
   })
 
   it('rejects non-JSON and truncated output', async () => {
-    fetchMock.mockResolvedValueOnce(reply({ done: true, message: { content: 'Here is the tariff' } }))
+    fetchMock.mockResolvedValueOnce(reply({ done: true, message: { content: 'Here is the answer' } }))
     await expect(ollamaLocalExtractor.extract(args)).rejects.toThrow('non-JSON')
 
     fetchMock.mockResolvedValueOnce(reply({ done: true, done_reason: 'length', message: { content: '{"ti' } }))
