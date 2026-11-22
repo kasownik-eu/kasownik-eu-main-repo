@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-11-21",
+  "verifiedAt": "2026-11-22",
   "facts": [
     {
       "file": "tickets",
@@ -264,6 +264,118 @@
       "file": "purchase",
       "path": "purchase[5].steps[2].text.pl",
       "value": "Kodowanie biletu na karcie jest dobrowolne i nie wpływa na ważność.",
+      "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/",
+      "quote": "Kodowanie biletu na kartach nie ma znaczenia dla ich ważności. Jest to opcja dobrowolna."
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].action.pl",
+      "value": "Nic nie kasujesz",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/",
+      "quote": "Wydrukowany bilet jest skasowany i nie wymaga przykładania go do kasownika."
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].when.pl",
+      "value": "Bilet z biletomatu jest już skasowany",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/",
+      "quote": "Wydrukowany bilet jest skasowany i nie wymaga przykładania go do kasownika."
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[0].pl",
+      "value": "Nie przykładaj biletu do kasownika.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/",
+      "quote": "nie wymaga przykładania go do kasownika"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[1].pl",
+      "value": "Pokaż bilet kontrolerowi na jego żądanie.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/regulamin-przewozow/",
+      "quote": "niezwłocznego okazywania na każde żądanie kontrolującego"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].action.pl",
+      "value": "Pokaż bilet w aplikacji",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/aplikacja-mobilna-pkm/",
+      "quote": "wystarczy wyświetlić ważny bilet w aplikacji i okazać ekran swojego urządzenia mobilnego kontrolerowi"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].when.pl",
+      "value": "Przy kontroli biletów",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/aplikacja-mobilna-pkm/",
+      "quote": "Podczas kontroli biletowej wystarczy wyświetlić ważny bilet w aplikacji"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[0].pl",
+      "value": "Pokaż kontrolerowi ważny bilet na ekranie telefonu.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/aplikacja-mobilna-pkm/",
+      "quote": "Podczas kontroli biletowej wystarczy wyświetlić ważny bilet w aplikacji i okazać ekran swojego urządzenia mobilnego kontrolerowi."
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].action.pl",
+      "value": "Zbliż kartę do terminala",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/",
+      "quote": "opłaca przejazd poprzez zbliżenie karty płatniczej do ekranu"
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].when.pl",
+      "value": "Na terminalu z przodu autobusu",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/",
+      "quote": "na dotykowym terminalu (zamontowanym w przedniej części autobusu)"
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].steps[0].pl",
+      "value": "Wybierz bilet na terminalu i zbliż kartę do ekranu.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/",
+      "quote": "wybiera potrzebny bilet, a następnie opłaca przejazd poprzez zbliżenie karty płatniczej do ekranu"
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].steps[1].pl",
+      "value": "Przy kontroli zbliż tę samą kartę do sprawdzarki.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/",
+      "quote": "pasażer zbliża kartę płatniczą, którą opłacił przejazd (nie wypuszczając jej z ręki), do sprawdzarki kontrolera."
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].steps[2].pl",
+      "value": "Nie dawaj karty nikomu do ręki.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/open-payment-system/",
+      "quote": "zbliżeniowej karty bankowej nie wolno nikomu dawać do ręki"
+    },
+    {
+      "file": "tickets",
+      "path": "media[3].action.pl",
+      "value": "Zakoduj bilet w biletomacie",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/",
+      "quote": "Mogą go Państwo zakodować samodzielnie, wsuwając kartę miejską w kieszeń znajdującą się na przednim panelu urządzenia"
+    },
+    {
+      "file": "tickets",
+      "path": "media[3].when.pl",
+      "value": "Dobrowolnie, nie wpływa na ważność",
+      "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/",
+      "quote": "Kodowanie biletu na kartach nie ma znaczenia dla ich ważności. Jest to opcja dobrowolna."
+    },
+    {
+      "file": "tickets",
+      "path": "media[3].steps[0].pl",
+      "value": "Włóż kartę w kieszeń biletomatu i postępuj według poleceń.",
+      "url": "https://www.pkm.jaworzno.pl/www/bilety/automaty-biletowe/",
+      "quote": "wsuwając kartę miejską w kieszeń znajdującą się na przednim panelu urządzenia, a następnie stosując się do wyświetlonych na ekranie poleceń"
+    },
+    {
+      "file": "tickets",
+      "path": "media[3].steps[1].pl",
+      "value": "Kodowanie jest dobrowolne i nie wpływa na ważność biletu.",
       "url": "https://www.pkm.jaworzno.pl/www/sklep-internetowy/",
       "quote": "Kodowanie biletu na kartach nie ma znaczenia dla ich ważności. Jest to opcja dobrowolna."
     }

@@ -89,6 +89,42 @@ work and add new ones.
   - a table heading that covers both forms ("papierowych i elektronicznych") → both lists;
   - the form is not stated → leave `whereToBuy` out. A page that names the channels explicitly beats this rule.
   Leave out a channel the operator has no purchase method for.
+- `media` on a ticket: the forms the ticket comes in, from `paper | app | paymentCard | cityCard`, the most common
+  first (the page shows the first one by default under the ticket's "Jak skasować? Masz bilet:"). Take it from the
+  same signals as `whereToBuy`: paper → `paper`; electronic / in the app → `app`, plus `paymentCard` when it can be
+  bought by tapping a bank card on the reader and `cityCard` when it is loaded on the operator's own card (Metrokarta,
+  ŚKUP…); a ticket sold on both forms gets both. Every type listed here must be described in the file's `media` list.
+  Form not stated → leave `media` out (the card then shows only where to buy).
+- `media` (file level, one entry per form used by any ticket, each type once): how a ride is **started** with a ticket of
+  that form, the same for every ticket of that form. It is what the passenger sees under every ticket card, so it must
+  agree with the `validate` steps of `purchase.json` (step 4); write it after them, from the same sentences.
+  ```json
+  "media": [
+    {
+      "type": "paper",
+      "action": { "pl": "Skasuj w kasowniku", "en": "Validate in the validator" },
+      "when": { "pl": "Zaraz po wejściu do pojazdu", "en": "Right after boarding" },
+      "steps": [
+        { "pl": "Włóż bilet do kasownika zaraz po wejściu.", "en": "Insert the ticket into the validator right after boarding." }
+      ]
+    }
+  ]
+  ```
+  - `type`: `paper` (paper ticket: punched in the validator, or valid from purchase), `app` (ticket in the mobile app:
+    activated / QR code scanned), `paymentCard` (bank card or phone tapped on the reader: buying and validating at
+    once), `cityCard` (the operator's own card, e.g. a period ticket activated with the first tap).
+  - `name` (`{pl,en}`, optional): the operator's own name of that form, shown on the selector instead of the generic
+    label (`Metrokarta`, `ŚKUP`); 1–2 words. Leave it out for paper and payment cards, and for the app (the app's name
+    goes into a step).
+  - `action` (`{pl,en}`, required): what to do, 2–5 words, imperative: `Skasuj w kasowniku`, `Zeskanuj kod QR`,
+    `Zbliż kartę do czytnika`, `Aktywuj przed wejściem`; `Nic nie kasujesz` / `No validation needed` when the ticket
+    is valid from purchase.
+  - `when` (`{pl,en}`): when to do it, a few words: `Zaraz po wejściu do pojazdu`, `Przed wejściem do pojazdu`,
+    `Przy każdym wejściu i wyjściu`, `Tylko przy pierwszej jeździe`.
+  - `steps` (`{pl,en}` each, max 6, usually 2–4, at most 12 words each, imperative, plain language): only starting the
+    ride and what to keep for a ticket check, never buying (buying is in `purchase.json`).
+  - Only what a source states, like purchase steps: a form whose validation the sources do not describe gets no entry,
+    and then no ticket lists it. `action`, `when` and every step need an evidence quote.
 - `luggage`: one row per kind of thing carried, `type` one of `luggage | bike | pet | stroller | other`, `item` a short
   name (`Rower`), `note` limits in a few words, `fee` a number only when the page states a price (leave it out when
   carrying is free), `feeText` for a fee that is not a plain price (`bezpłatnie poza szczytem`), `conditions` the rules
@@ -142,6 +178,7 @@ each, imperative, plain language for a first-time passenger):
 - `verifiedAt` = `today` from the context. `file`: `operator`, `tickets`, `purchase` or `zones`. `url` + `xpath` exactly as
   in one of the `*Sources` entries.
 - `path` addresses the value inside that file: `tickets[3].priceNormal`, `tickets[3].priceReduced`, `luggage[0].fee`,
+  `media[0].action.pl`, `media[0].when.pl`, `media[0].steps[1].pl`,
   `zones` → `items[1].name.pl`, `operator` → `servicePoint.pl`, `purchase[1].type`, `purchase[1].steps[2].text.pl`
   (`purchase` is addressed as `purchase[<index>]…`). `value` is exactly what the data holds there (number or string).
   Indexes are positions in the file: rewrite the whole evidence file whenever rows are added, removed or reordered.
@@ -150,7 +187,7 @@ each, imperative, plain language for a first-time passenger):
   (`Bilet 20-minutowy | 3,40 | 1,70`), so it shows both the ticket and the number; for a number the quote must contain it
   (`3,40` or `3.4`). For a step, the one sentence it is based on.
 - Cover: every `priceNormal` / `priceReduced`, every luggage `fee`, every purchase method (`type`) and step, every
-  zone name, and `servicePoint` when it is on a source page. `hotline` and `servicePoint` from the official contact page need no
-  evidence. Skip values that come from no page. `scope` and `whereToBuy` follow from rules (not quotes) and need none.
+  ticket form's `action`, `when` and step (`file: tickets`, `media[…]`), every zone name, and `servicePoint` when it is on a source page. `hotline` and `servicePoint` from the official contact page need no
+  evidence. Skip values that come from no page. `scope`, `whereToBuy` and a ticket's `media` list follow from rules (not quotes) and need none.
 - Quote the part that changes when the fact changes; avoid long paragraphs (they break on a typo fix) and bare numbers
   (they match anywhere).

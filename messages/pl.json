@@ -118,7 +118,7 @@
   },
   "TicketTabs": {
     "title": "Bilety i cennik",
-    "lead": "Wybierz rodzaj biletu. Ceny dotyczą jednej osoby.",
+    "lead": "Wybierz bilet. Pod każdym zobaczysz, jak go skasować. Ceny dotyczą jednej osoby.",
     "tabsLabel": "Rodzaje biletów",
     "tabs": {
       "single": "Jednorazowe",
@@ -147,6 +147,19 @@
       "conditions": "Warunki"
     },
     "free": "bezpłatnie",
+    "whereToBuy": "Gdzie kupić: {where}",
+    "validation": {
+      "heading": "Jak skasować? Masz bilet:",
+      "group": "Rodzaj biletu",
+      "showSteps": "Pokaż krok po kroku",
+      "hideSteps": "Ukryj kroki"
+    },
+    "media": {
+      "paper": "Papierowy",
+      "app": "Aplikacja",
+      "paymentCard": "Karta płatnicza",
+      "cityCard": "Karta miejska"
+    },
     "empty": "Brak biletów w tej kategorii.",
     "rules": "Ulgi i zasady",
     "rulesLink": "Regulamin"

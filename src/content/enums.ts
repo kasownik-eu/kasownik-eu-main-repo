@@ -13,6 +13,10 @@ export const ticketCategories = ['single', 'short', 'long', 'other'] as const
 // What a luggage row is about (rules for carrying it); a closed list, so a row is always one of these kinds
 export const luggageTypes = ['luggage', 'bike', 'pet', 'stroller', 'other'] as const
 
+// The form a ticket comes in, which decides how the ride is started with it (tickets.json `media`): a paper ticket
+// (validator), a ticket in the app (QR code / activation), a payment card or phone on the reader, the city card
+export const ticketMediaTypes = ['paper', 'app', 'paymentCard', 'cityCard'] as const
+
 // Decides the icon shown next to a purchase method; labels live in the method itself
 export const purchaseMethodTypes = [
   'machine',
@@ -44,4 +48,5 @@ export const ticketValidities = ['valid', 'partial', 'invalid'] as const
 export type TransportMode = (typeof transportModes)[number]
 export type LogoBackground = (typeof logoBackgrounds)[number]
 export type ValidationKind = (typeof validationKinds)[number]
+export type TicketMediaType = (typeof ticketMediaTypes)[number]
 export type PurchaseMethodType = (typeof purchaseMethodTypes)[number]

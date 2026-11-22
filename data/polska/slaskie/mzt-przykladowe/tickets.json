@@ -23,7 +23,12 @@
       "whereToBuy": {
         "pl": "automat, aplikacja, kierowca",
         "en": "machine, app, driver"
-      }
+      },
+      "media": [
+        "paper",
+        "app",
+        "paymentCard"
+      ]
     },
     {
       "category": "single",
@@ -48,7 +53,12 @@
       "whereToBuy": {
         "pl": "automat, aplikacja",
         "en": "machine, app"
-      }
+      },
+      "media": [
+        "paper",
+        "app",
+        "paymentCard"
+      ]
     },
     {
       "category": "single",
@@ -72,7 +82,11 @@
       "whereToBuy": {
         "pl": "automat, aplikacja",
         "en": "machine, app"
-      }
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
     },
     {
       "category": "short",
@@ -98,7 +112,11 @@
       "whereToBuy": {
         "pl": "automat, aplikacja, punkt obsługi",
         "en": "machine, app, service point"
-      }
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
     },
     {
       "category": "short",
@@ -124,7 +142,11 @@
       "whereToBuy": {
         "pl": "automat, aplikacja, punkt obsługi",
         "en": "machine, app, service point"
-      }
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
     },
     {
       "category": "short",
@@ -150,7 +172,10 @@
       "whereToBuy": {
         "pl": "aplikacja, punkt obsługi",
         "en": "app, service point"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -176,7 +201,11 @@
       "whereToBuy": {
         "pl": "aplikacja, punkt obsługi",
         "en": "app, service point"
-      }
+      },
+      "media": [
+        "cityCard",
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -202,7 +231,11 @@
       "whereToBuy": {
         "pl": "aplikacja, punkt obsługi",
         "en": "app, service point"
-      }
+      },
+      "media": [
+        "cityCard",
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -228,7 +261,10 @@
       "whereToBuy": {
         "pl": "punkt obsługi",
         "en": "service point"
-      }
+      },
+      "media": [
+        "cityCard"
+      ]
     },
     {
       "category": "other",
@@ -254,7 +290,11 @@
       "whereToBuy": {
         "pl": "automat, aplikacja",
         "en": "machine, app"
-      }
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
     },
     {
       "category": "other",
@@ -279,7 +319,132 @@
       "whereToBuy": {
         "pl": "punkt obsługi",
         "en": "service point"
-      }
+      },
+      "media": [
+        "paper"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "type": "paper",
+      "action": {
+        "pl": "Skasuj w kasowniku",
+        "en": "Validate in the validator"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do pojazdu",
+        "en": "Right after boarding"
+      },
+      "steps": [
+        {
+          "pl": "Wejdź do pojazdu i znajdź kasownik przy najbliższych drzwiach.",
+          "en": "Board and find the validator by the nearest door."
+        },
+        {
+          "pl": "Włóż bilet do szczeliny strzałką w dół, napisem do siebie.",
+          "en": "Insert the ticket arrow down, text facing you."
+        },
+        {
+          "pl": "Poczekaj na sygnał. Kasownik wydrukuje datę i godzinę.",
+          "en": "Wait for the beep. The validator prints the date and time."
+        },
+        {
+          "pl": "Sprawdź nadruk i zachowaj bilet do końca jazdy.",
+          "en": "Check the print and keep the ticket until the end of the ride."
+        }
+      ]
+    },
+    {
+      "type": "app",
+      "action": {
+        "pl": "Aktywuj przed wejściem",
+        "en": "Activate before boarding"
+      },
+      "when": {
+        "pl": "Na przystanku, zanim wejdziesz",
+        "en": "At the stop, before you board"
+      },
+      "steps": [
+        {
+          "pl": "Kup bilet w aplikacji „MZT Bilet”.",
+          "en": "Buy the ticket in the “MZT Bilet” app."
+        },
+        {
+          "pl": "Wybierz pojazd albo zeskanuj kod QR z naklejki, jeśli aplikacja o to poprosi.",
+          "en": "Choose the vehicle or scan the QR sticker if the app asks."
+        },
+        {
+          "pl": "Aktywuj bilet przed wejściem. Czas liczy się od aktywacji.",
+          "en": "Activate before boarding. Time counts from activation."
+        },
+        {
+          "pl": "Miej naładowany telefon pod ręką do końca jazdy.",
+          "en": "Keep a charged phone at hand until the end of the ride."
+        }
+      ]
+    },
+    {
+      "type": "paymentCard",
+      "action": {
+        "pl": "Zbliż do czytnika",
+        "en": "Tap on the reader"
+      },
+      "when": {
+        "pl": "Przy każdym wejściu do pojazdu",
+        "en": "Every time you board"
+      },
+      "steps": [
+        {
+          "pl": "Przy wejściu zbliż kartę lub telefon do czytnika z ikoną fal.",
+          "en": "On boarding, tap your card or phone on the reader with the wave icon."
+        },
+        {
+          "pl": "Poczekaj na zielone światło i krótki sygnał.",
+          "en": "Wait for the green light and a short beep."
+        },
+        {
+          "pl": "Opłata pobierze się sama. To zakup i skasowanie naraz.",
+          "en": "You are charged automatically: buying and validating at once."
+        },
+        {
+          "pl": "Przy kontroli przyłóż tę samą kartę lub telefon.",
+          "en": "At a ticket check, tap the same card or phone."
+        }
+      ]
+    },
+    {
+      "type": "cityCard",
+      "name": {
+        "pl": "Karta miejska",
+        "en": "City card"
+      },
+      "action": {
+        "pl": "Aktywuj przy 1. jeździe",
+        "en": "Activate on the first ride"
+      },
+      "when": {
+        "pl": "Tylko przy pierwszej jeździe biletem okresowym",
+        "en": "Only on the first ride with a period ticket"
+      },
+      "steps": [
+        {
+          "pl": "Doładuj bilet okresowy w punkcie obsługi lub online.",
+          "en": "Load the period ticket at a service point or online."
+        },
+        {
+          "pl": "Przy pierwszej jeździe zbliż kartę do czytnika. To aktywuje bilet.",
+          "en": "On the first ride, tap the card on the reader to activate it."
+        },
+        {
+          "pl": "W kolejnych dniach nic nie kasujesz.",
+          "en": "On the following days you validate nothing."
+        },
+        {
+          "pl": "Zawsze noś kartę przy sobie.",
+          "en": "Always carry the card."
+        }
+      ]
     }
   ],
   "luggage": [

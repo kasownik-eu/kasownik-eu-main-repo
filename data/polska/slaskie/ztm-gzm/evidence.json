@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-11-21",
+  "verifiedAt": "2026-11-22",
   "facts": [
     {
       "file": "tickets",
@@ -660,6 +660,172 @@
       "value": "ul. Barbary 21a, Katowice, pon.–pt. 7:00–15:00",
       "url": "https://transportgzm.pl/pages/punkty-obsugi-pasazera",
       "quote": "6. Katowice, ul. Barbary 21a (siedziba ZTM)."
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].action.pl",
+      "value": "Skasuj w kasowniku",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "zakupu lub skasowania biletu w kasowniku"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].when.pl",
+      "value": "Zaraz po wejściu do pojazdu",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "niezwłocznie po wejściu do pojazdu jest zobowiązany do wykonania jednej z poniższych czynności"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[0].pl",
+      "value": "Po wejściu do pojazdu skasuj bilet w kasowniku.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "zakupu lub skasowania biletu w kasowniku"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[1].pl",
+      "value": "Zachowaj bilet przez całą podróż.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "i zachowania go przez cały czas trwania podróży"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[2].pl",
+      "value": "Gdy kasownik nie zadziała, spróbuj w innym.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "pasażer jest zobowiązany udać się do innego kasownika i ponowić próbę skasowania biletu"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[3].pl",
+      "value": "Nie oddawaj skasowanego biletu innej osobie.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "odstępowanie skasowanego biletu papierowego innej osobie jest zabronione"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].action.pl",
+      "value": "Pokaż bilet w aplikacji",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "Wyświetlony kod QR wystarczy pokazać kontrolerowi."
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].when.pl",
+      "value": "Przy kontroli biletów",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "W przypadku kontroli biletów, kliknij w aktywny bilet."
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[0].pl",
+      "value": "Jednorazowy: zeskanuj w pojeździe kod QR i kup bilet.",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "Dostępne są one po zeskanowaniu w pojeździe specjalnego kodu QR."
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[1].pl",
+      "value": "Start/Stop: zeskanuj kod QR, a przy wysiadaniu zakończ podróż w aplikacji.",
+      "url": "https://transportgzm.pl/help/bilety/podroz-startstop",
+      "quote": "Rozpoczęcie podróży Start/Stop odbywa się poprzez zeskanowanie w pojeździe kodu QR."
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[2].pl",
+      "value": "Bilet długookresowy jest ważny od daty wybranej przy zakupie.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "okres ważności biletów długookresowych rozpoczyna się od daty wybranej podczas zakupu"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[3].pl",
+      "value": "Pakiet: zarejestruj każdy przejazd w aplikacji lub kasowniku.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "każdorazowej rejestracji przejazdu w kasowniku lub w aplikacji Transport GZM"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[4].pl",
+      "value": "Podczas kontroli pokaż aktywny bilet z kodem QR.",
+      "url": "https://transportgzm.pl/help/bilety/zakup-biletu",
+      "quote": "Wyświetlony kod QR wystarczy pokazać kontrolerowi."
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].action.pl",
+      "value": "Przyłóż kartę do kasownika",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "przyłożenie identyfikatora użytkownika albo karty płatniczej do odpowiedniego kasownika"
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].when.pl",
+      "value": "Zaraz po wejściu do pojazdu",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "niezwłocznie po wejściu do pojazdu jest zobowiązany do wykonania jednej z poniższych czynności"
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].steps[0].pl",
+      "value": "Przyłóż kartę płatniczą do kasownika zaraz po wejściu.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "Rejestracja wejścia następuje poprzez przyłożenie identyfikatora użytkownika albo karty płatniczej do odpowiedniego kasownika"
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].steps[1].pl",
+      "value": "Start/Stop: przy wysiadaniu przyłóż tę samą kartę.",
+      "url": "https://transportgzm.pl/documents/taryfa-przewozu-osob-i-bagazu-w-komunikacji-miejskiej-transport-gzm",
+      "xpath": "//p[normalize-space(.)='§ 3']/following-sibling::*[following-sibling::p[normalize-space(.)='§ 5']]",
+      "quote": "Rejestracja wyjścia odbywa się poprzez przyłożenie tego samego identyfikatora użytkownika lub tej samej karty płatniczej do odpowiedniego kasownika"
+    },
+    {
+      "file": "tickets",
+      "path": "media[2].steps[2].pl",
+      "value": "W pojeździe z mobilnym biletomatem zbliż kartę płatniczą do biletomatu.",
+      "url": "https://transportgzm.pl/help/bilety/podroz-startstop",
+      "quote": "wystarczy, że zbliżysz do niego swoją kartę płatniczą bez wybierania żadnej opcji na ekranie"
+    },
+    {
+      "file": "tickets",
+      "path": "media[3].action.pl",
+      "value": "Przyłóż Metrokartę do czytnika",
+      "url": "https://transportgzm.pl/help/bilety/podroz-startstop",
+      "quote": "W przypadku Metrokarty wystarczy ją przyłożyć do czytnika zaraz po wejściu oraz bezpośrednio przed opuszczeniem pojazdu."
+    },
+    {
+      "file": "tickets",
+      "path": "media[3].when.pl",
+      "value": "Zaraz po wejściu i przed wyjściem",
+      "url": "https://transportgzm.pl/help/bilety/podroz-startstop",
+      "quote": "W przypadku Metrokarty wystarczy ją przyłożyć do czytnika zaraz po wejściu oraz bezpośrednio przed opuszczeniem pojazdu."
+    },
+    {
+      "file": "tickets",
+      "path": "media[3].steps[0].pl",
+      "value": "Przyłóż Metrokartę do czytnika zaraz po wejściu.",
+      "url": "https://transportgzm.pl/help/bilety/podroz-startstop",
+      "quote": "W przypadku Metrokarty wystarczy ją przyłożyć do czytnika zaraz po wejściu oraz bezpośrednio przed opuszczeniem pojazdu."
+    },
+    {
+      "file": "tickets",
+      "path": "media[3].steps[1].pl",
+      "value": "Przyłóż ją jeszcze raz przed opuszczeniem pojazdu.",
+      "url": "https://transportgzm.pl/help/bilety/podroz-startstop",
+      "quote": "W przypadku Metrokarty wystarczy ją przyłożyć do czytnika zaraz po wejściu oraz bezpośrednio przed opuszczeniem pojazdu."
     }
   ]
 }

@@ -22,7 +22,12 @@
       "whereToBuy": {
         "pl": "kierowca, biletomat w autobusie, terminal Open Payment System, aplikacja mPKM Jaworzno",
         "en": "driver, on-board ticket machine, Open Payment System terminal, mPKM Jaworzno app"
-      }
+      },
+      "media": [
+        "paper",
+        "paymentCard",
+        "app"
+      ]
     },
     {
       "category": "single",
@@ -46,7 +51,12 @@
       "whereToBuy": {
         "pl": "kierowca, biletomat w autobusie, terminal Open Payment System, aplikacja mPKM Jaworzno",
         "en": "driver, on-board ticket machine, Open Payment System terminal, mPKM Jaworzno app"
-      }
+      },
+      "media": [
+        "paper",
+        "paymentCard",
+        "app"
+      ]
     },
     {
       "category": "single",
@@ -70,7 +80,12 @@
       "whereToBuy": {
         "pl": "kierowca, biletomat w autobusie, terminal Open Payment System, aplikacja mPKM Jaworzno",
         "en": "driver, on-board ticket machine, Open Payment System terminal, mPKM Jaworzno app"
-      }
+      },
+      "media": [
+        "paper",
+        "paymentCard",
+        "app"
+      ]
     },
     {
       "category": "short",
@@ -94,7 +109,12 @@
       "whereToBuy": {
         "pl": "kierowca, biletomat w autobusie, terminal Open Payment System, aplikacja mPKM Jaworzno",
         "en": "driver, on-board ticket machine, Open Payment System terminal, mPKM Jaworzno app"
-      }
+      },
+      "media": [
+        "paper",
+        "paymentCard",
+        "app"
+      ]
     },
     {
       "category": "short",
@@ -118,7 +138,11 @@
       "whereToBuy": {
         "pl": "sklep internetowy, punkt sprzedaży, aplikacja mPKM Jaworzno",
         "en": "online shop, sales point, mPKM Jaworzno app"
-      }
+      },
+      "media": [
+        "cityCard",
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -142,7 +166,11 @@
       "whereToBuy": {
         "pl": "sklep internetowy, punkt sprzedaży, aplikacja mPKM Jaworzno",
         "en": "online shop, sales point, mPKM Jaworzno app"
-      }
+      },
+      "media": [
+        "cityCard",
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -166,7 +194,11 @@
       "whereToBuy": {
         "pl": "sklep internetowy, punkt sprzedaży, aplikacja mPKM Jaworzno",
         "en": "online shop, sales point, mPKM Jaworzno app"
-      }
+      },
+      "media": [
+        "cityCard",
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -190,7 +222,101 @@
       "whereToBuy": {
         "pl": "sklep internetowy, punkt sprzedaży, aplikacja mPKM Jaworzno",
         "en": "online shop, sales point, mPKM Jaworzno app"
-      }
+      },
+      "media": [
+        "cityCard",
+        "app"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "type": "paper",
+      "name": {
+        "pl": "Z biletomatu",
+        "en": "From the machine"
+      },
+      "action": {
+        "pl": "Nic nie kasujesz",
+        "en": "Nothing to validate"
+      },
+      "when": {
+        "pl": "Bilet z biletomatu jest już skasowany",
+        "en": "A machine ticket is already validated"
+      },
+      "steps": [
+        {
+          "pl": "Nie przykładaj biletu do kasownika.",
+          "en": "Do not put the ticket in a validator."
+        },
+        {
+          "pl": "Pokaż bilet kontrolerowi na jego żądanie.",
+          "en": "Show the ticket to an inspector on request."
+        }
+      ]
+    },
+    {
+      "type": "app",
+      "action": {
+        "pl": "Pokaż bilet w aplikacji",
+        "en": "Show the ticket in the app"
+      },
+      "when": {
+        "pl": "Przy kontroli biletów",
+        "en": "At a ticket check"
+      },
+      "steps": [
+        {
+          "pl": "Pokaż kontrolerowi ważny bilet na ekranie telefonu.",
+          "en": "Show the inspector a valid ticket on your phone screen."
+        }
+      ]
+    },
+    {
+      "type": "paymentCard",
+      "action": {
+        "pl": "Zbliż kartę do terminala",
+        "en": "Tap your card on the terminal"
+      },
+      "when": {
+        "pl": "Na terminalu z przodu autobusu",
+        "en": "On the terminal at the front of the bus"
+      },
+      "steps": [
+        {
+          "pl": "Wybierz bilet na terminalu i zbliż kartę do ekranu.",
+          "en": "Choose a ticket on the terminal and tap your card on the screen."
+        },
+        {
+          "pl": "Przy kontroli zbliż tę samą kartę do sprawdzarki.",
+          "en": "At a check, tap the same card on the inspector's reader."
+        },
+        {
+          "pl": "Nie dawaj karty nikomu do ręki.",
+          "en": "Never hand your card to anyone."
+        }
+      ]
+    },
+    {
+      "type": "cityCard",
+      "action": {
+        "pl": "Zakoduj bilet w biletomacie",
+        "en": "Load the ticket onto the card at a machine"
+      },
+      "when": {
+        "pl": "Dobrowolnie, nie wpływa na ważność",
+        "en": "Optional, does not affect validity"
+      },
+      "steps": [
+        {
+          "pl": "Włóż kartę w kieszeń biletomatu i postępuj według poleceń.",
+          "en": "Put the card in the machine slot and follow the on-screen prompts."
+        },
+        {
+          "pl": "Kodowanie jest dobrowolne i nie wpływa na ważność biletu.",
+          "en": "Loading is optional and does not affect the ticket's validity."
+        }
+      ]
     }
   ],
   "luggage": [

@@ -1,35 +1,25 @@
-import { InfoIcon } from 'lucide-react'
+import { ClockIcon, InfoIcon } from 'lucide-react'
 import { getFormatter, getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { TicketNotches } from '@/components/site/decor'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import type { LuggageView, TicketView } from '@/content'
+import type { LuggageView, TicketMediaView, TicketView } from '@/content'
 
 import { ModeBadges } from './ModeBadges'
 import { Section } from './Section'
+import { TicketValidation, type ValidationOption } from './TicketValidation'
 
 type Ticket = TicketView
 type Luggage = LuggageView
 
 type Props = {
   tickets: Ticket[]
+  // How a ride is started with each form of ticket; a ticket lists the forms it comes in
+  media: TicketMediaView[]
   luggage: Luggage[]
   rulesNote?: string | null
   rulesUrl?: string | null
@@ -39,29 +29,20 @@ type Props = {
 // Fixed tab order for every city: single, short, long, luggage, other (shown only when it has tickets)
 const tabOrder = ['single', 'short', 'long', 'luggage', 'other'] as const
 
-const fieldLabel = 'text-xs font-medium tracking-wider text-muted-foreground uppercase'
-const tableHead = 'h-11 px-3 text-muted-foreground'
-const tableCell = 'px-3 py-3 whitespace-normal'
+const fieldLabel = 'text-[0.8125rem] text-muted-foreground'
+const smallLabel = 'text-xs font-medium tracking-wider text-muted-foreground uppercase'
+const cardGrid =
+  'grid items-start gap-5 grid-cols-[repeat(auto-fill,minmax(min(21.25rem,100%),1fr))]'
+const ticketCard = 'gap-0 overflow-visible py-0 shadow-[3px_3px_0_0_var(--foreground)]'
 
-// Label/value pair used in the mobile card view of a table row
-function Field({
-  label,
-  children,
-  className,
-}: {
-  label: string
-  children: React.ReactNode
-  className?: string
-}) {
-  return (
-    <div className={className}>
-      <div className={fieldLabel}>{label}</div>
-      <div>{children}</div>
-    </div>
-  )
-}
-
-export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, currency }: Props) {
+export async function TicketTabs({
+  tickets,
+  media,
+  luggage,
+  rulesNote,
+  rulesUrl,
+  currency,
+}: Props) {
   const t = await getTranslations('TicketTabs')
   const tCommon = await getTranslations('Common')
   const format = await getFormatter()
@@ -77,152 +58,148 @@ export async function TicketTabs({ tickets, luggage, rulesNote, rulesUrl, curren
 
   const empty = <p className="text-muted-foreground">{t('empty')}</p>
 
+  const validationLabels = {
+    heading: t('validation.heading'),
+    group: t('validation.group'),
+    showSteps: t('validation.showSteps'),
+    hideSteps: t('validation.hideSteps'),
+  }
+  // The ticket's forms in its own order, each with the operator-wide way of validating it
+  const optionsOf = (ticket: Ticket): ValidationOption[] =>
+    (ticket.media ?? []).flatMap((type) => {
+      const entry = media.find((item) => item.type === type)
+      return entry
+        ? [
+            {
+              type,
+              label: entry.name || t(`media.${type}`),
+              action: entry.action,
+              when: entry.when ?? null,
+              steps: entry.steps ?? [],
+            },
+          ]
+        : []
+    })
+
+  const whereToBuy = (ticket: Ticket) =>
+    ticket.whereToBuy && (
+      <p className="mt-3.5 border-t pt-3 text-[0.8125rem] text-muted-foreground">
+        {t('whereToBuy', { where: ticket.whereToBuy })}
+      </p>
+    )
+
+  // Every ticket is a card that reads as a ticket: tear line with notches, prices, then how to validate it
   const ticketPanel = (rows: Ticket[]) =>
     rows.length === 0 ? (
       empty
     ) : (
-      <>
-        <div className="hidden overflow-hidden rounded-lg border md:block">
-          <Table className="text-base">
-            <TableHeader className="bg-muted">
-              <TableRow className="hover:bg-transparent">
-                <TableHead className={tableHead}>{t('columns.ticket')}</TableHead>
-                <TableHead className={tableHead}>{t('columns.validity')}</TableHead>
-                <TableHead className={tableHead}>{t('columns.scope')}</TableHead>
-                <TableHead className={tableHead}>{t('columns.modes')}</TableHead>
-                <TableHead className={`${tableHead} text-right`}>{t('columns.normal')}</TableHead>
-                <TableHead className={`${tableHead} text-right`}>{t('columns.reduced')}</TableHead>
-                <TableHead className={tableHead}>{t('columns.whereToBuy')}</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {rows.map((ticket, index) => (
-                <TableRow key={index}>
-                  <TableHead scope="row" className={`${tableCell} font-semibold`}>
-                    {ticket.name}
-                  </TableHead>
-                  <TableCell className={tableCell}>{ticket.validity}</TableCell>
-                  <TableCell className={tableCell}>{ticket.scope}</TableCell>
-                  <TableCell className={tableCell}>
-                    <ModeBadges modes={ticket.transportModes} />
-                  </TableCell>
-                  <TableCell className={`${tableCell} text-right font-semibold tabular-nums`}>
-                    {price(ticket.priceNormal)}
-                  </TableCell>
-                  <TableCell className={`${tableCell} text-right font-semibold tabular-nums`}>
-                    {price(ticket.priceReduced)}
-                  </TableCell>
-                  <TableCell className={`${tableCell} text-sm`}>{ticket.whereToBuy}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-
-        {/* Mobile: each row becomes a card with the price first */}
-        <div className="grid gap-3 md:hidden">
-          {rows.map((ticket, index) => (
-            <Card key={index} className="gap-3 overflow-visible px-4">
-              {/* Dashed tear line with notches: the card reads as a ticket */}
-              <h3 className="relative border-b-2 border-dashed pb-3 text-lg font-semibold">
-                {ticket.name}
-                <TicketNotches />
-              </h3>
-              <div className="grid grid-cols-2 gap-x-5 gap-y-3 text-base">
-                <Field label={t('columns.normal')}>
-                  <span className="text-xl font-semibold tabular-nums">
-                    {price(ticket.priceNormal)}
-                  </span>
-                </Field>
-                <Field label={t('columns.reduced')}>
-                  <span className="text-xl font-semibold tabular-nums">
-                    {price(ticket.priceReduced)}
-                  </span>
-                </Field>
-                <Field label={t('columns.validity')}>{ticket.validity}</Field>
-                <Field label={t('columns.scope')}>{ticket.scope}</Field>
-                <Field label={t('columns.modes')} className="col-span-2">
-                  <ModeBadges modes={ticket.transportModes} />
-                </Field>
-                <Field label={t('columns.whereToBuy')} className="col-span-2">
-                  {ticket.whereToBuy}
-                </Field>
+      <div className={cardGrid}>
+        {rows.map((ticket, index) => {
+          const options = optionsOf(ticket)
+          return (
+            <Card key={index} className={ticketCard}>
+              <div className="px-4">
+                <header className="relative flex items-start justify-between gap-3 border-b-2 border-dashed py-4">
+                  <div className="min-w-0">
+                    <h3 className="text-xl leading-snug font-bold">{ticket.name}</h3>
+                    {ticket.scope && (
+                      <p className="mt-0.5 text-sm text-muted-foreground">{ticket.scope}</p>
+                    )}
+                  </div>
+                  {ticket.validity && (
+                    <Badge className="h-auto shrink-0 gap-1.5 rounded-full border-2 border-border bg-highlight px-2.5 py-0.5 text-[0.8125rem] font-bold whitespace-nowrap text-foreground">
+                      <ClockIcon aria-hidden="true" />
+                      <span className="sr-only">{t('columns.validity')}: </span>
+                      {ticket.validity}
+                    </Badge>
+                  )}
+                  <TicketNotches />
+                </header>
               </div>
+              <dl className="grid grid-cols-2 gap-x-4 gap-y-3 px-5 py-4">
+                <div>
+                  <dt className={fieldLabel}>{t('columns.normal')}</dt>
+                  <dd className="text-[1.75rem] leading-tight font-extrabold tracking-tight tabular-nums">
+                    {price(ticket.priceNormal)}
+                  </dd>
+                </div>
+                <div>
+                  <dt className={fieldLabel}>{t('columns.reduced')}</dt>
+                  <dd className="text-[1.75rem] leading-tight font-extrabold tracking-tight tabular-nums">
+                    {price(ticket.priceReduced)}
+                  </dd>
+                </div>
+                {!!ticket.transportModes?.length && (
+                  <div className="col-span-2">
+                    <dt className={fieldLabel}>{t('columns.modes')}</dt>
+                    <dd className="mt-1">
+                      <ModeBadges modes={ticket.transportModes} />
+                    </dd>
+                  </div>
+                )}
+              </dl>
+              {options.length > 0 ? (
+                <div className="flex flex-1 flex-col overflow-hidden rounded-b-xl">
+                  <TicketValidation
+                    ticketName={ticket.name}
+                    options={options}
+                    labels={validationLabels}
+                  >
+                    {whereToBuy(ticket)}
+                  </TicketValidation>
+                </div>
+              ) : (
+                ticket.whereToBuy && (
+                  <div className="px-5 pb-4 [&>p]:mt-0">{whereToBuy(ticket)}</div>
+                )
+              )}
             </Card>
-          ))}
-        </div>
-      </>
+          )
+        })}
+      </div>
     )
 
   const luggagePanel = (rows: Luggage[]) =>
     rows.length === 0 ? (
       empty
     ) : (
-      <>
-        <div className="hidden overflow-hidden rounded-lg border md:block">
-          <Table className="text-base">
-            <TableHeader className="bg-muted">
-              <TableRow className="hover:bg-transparent">
-                <TableHead className={tableHead}>{t('columns.item')}</TableHead>
-                <TableHead className={tableHead}>{t('columns.modes')}</TableHead>
-                <TableHead className={tableHead}>{t('columns.fee')}</TableHead>
-                <TableHead className={tableHead}>{t('columns.conditions')}</TableHead>
-                <TableHead className={tableHead}>{t('columns.whereToBuy')}</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {rows.map((row, index) => (
-                <TableRow key={index}>
-                  <TableHead scope="row" className={tableCell}>
-                    <span className="block font-semibold">{row.item}</span>
-                    {row.note && (
-                      <span className="block text-sm font-normal text-muted-foreground">
-                        {row.note}
-                      </span>
-                    )}
-                  </TableHead>
-                  <TableCell className={tableCell}>
+      <div className="grid gap-3">
+        {rows.map((row, index) => (
+          <Card key={index} className="gap-0 overflow-visible px-4 py-4">
+            <div className="relative border-b-2 border-dashed pb-3">
+              <h3 className="text-lg font-semibold">{row.item}</h3>
+              {row.note && <p className="text-sm text-muted-foreground">{row.note}</p>}
+              <TicketNotches />
+            </div>
+            <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(12.5rem,1fr))] gap-x-5 gap-y-3 text-base">
+              {!!row.transportModes?.length && (
+                <div>
+                  <div className={smallLabel}>{t('columns.modes')}</div>
+                  <div className="mt-0.5">
                     <ModeBadges modes={row.transportModes} />
-                  </TableCell>
-                  <TableCell className={`${tableCell} font-semibold`}>{fee(row)}</TableCell>
-                  <TableCell className={`${tableCell} text-sm`}>{row.conditions}</TableCell>
-                  <TableCell className={`${tableCell} text-sm`}>{row.whereToBuy}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-
-        {/* Mobile: expandable list; collapsed row shows the item and its fee */}
-        <Card className="py-0 md:hidden">
-          <Accordion defaultValue={[0]}>
-            {rows.map((row, index) => (
-              <AccordionItem key={index} value={index}>
-                <AccordionTrigger className="min-h-14 items-center gap-3 rounded-none px-4 py-3 text-base hover:no-underline">
-                  <span className="grid flex-1 gap-0.5">
-                    <span className="font-semibold">{row.item}</span>
-                    {row.note && (
-                      <span className="text-sm font-normal text-muted-foreground">{row.note}</span>
-                    )}
-                  </span>
-                  <span className="font-semibold">{fee(row)}</span>
-                </AccordionTrigger>
-                <AccordionContent className="grid gap-3 px-4 pb-4 text-base">
-                  <Field label={t('columns.modes')}>
-                    <ModeBadges modes={row.transportModes} />
-                  </Field>
-                  {row.conditions && (
-                    <Field label={t('columns.conditions')}>{row.conditions}</Field>
-                  )}
-                  {row.whereToBuy && (
-                    <Field label={t('columns.whereToBuy')}>{row.whereToBuy}</Field>
-                  )}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </Card>
-      </>
+                  </div>
+                </div>
+              )}
+              <div>
+                <div className={smallLabel}>{t('columns.fee')}</div>
+                <div className="text-lg font-semibold">{fee(row)}</div>
+              </div>
+              {row.conditions && (
+                <div className="sm:col-span-2">
+                  <div className={smallLabel}>{t('columns.conditions')}</div>
+                  <div className="text-[0.9375rem]">{row.conditions}</div>
+                </div>
+              )}
+              {row.whereToBuy && (
+                <div className="sm:col-span-2">
+                  <div className={smallLabel}>{t('columns.whereToBuy')}</div>
+                  <div className="text-[0.9375rem]">{row.whereToBuy}</div>
+                </div>
+              )}
+            </div>
+          </Card>
+        ))}
+      </div>
     )
 
   return (

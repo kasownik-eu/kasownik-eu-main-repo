@@ -173,6 +173,24 @@ describe('content validation', () => {
     )
   })
 
+  it('requires every ticket form to be described once in tickets.json media', async () => {
+    const action = { pl: 'Skasuj w kasowniku' }
+    await write('tickets.json', {
+      tickets: [{ category: 'single', name: { pl: 'X' }, media: ['paper', 'app', 'paper'] }],
+      media: [
+        { type: 'paper', action },
+        { type: 'paper', action },
+      ],
+    })
+    expect(problems()).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/tickets\.json: media "paper" is described twice/),
+        expect.stringMatching(/tickets\.json at tickets\.0: media "app" is not described/),
+        expect.stringMatching(/tickets\.json at tickets\.0: a media type is listed twice/),
+      ]),
+    )
+  })
+
   it('requires URL-safe folder names', async () => {
     await cp(operatorDir(), path.join(dir, 'polska', 'slaskie', 'Zły Folder'), { recursive: true })
     expect(problems()).toEqual([expect.stringMatching(/Zły Folder: folder names are URL slugs/)])
