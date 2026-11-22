@@ -7,6 +7,7 @@ import {
   purchaseMethodTypes,
   validationKinds,
   ticketCategories,
+  ticketMediaTypes,
   logoBackgrounds,
   luggageTypes,
   ticketValidities,
@@ -157,8 +158,27 @@ export const ticketsFile = z.strictObject({
       priceNormal: price,
       priceReduced: price,
       whereToBuy: optionalText,
+      // The forms this ticket comes in (each one described in `media` below), most common first: the first is shown
+      // by default under the ticket's "How to validate?"
+      media: z.array(z.enum(ticketMediaTypes)).max(4).nullish(),
     }),
   ),
+  // How a ride is started with a ticket of each form, the same for every ticket of that form
+  media: z
+    .array(
+      z.strictObject({
+        type: z.enum(ticketMediaTypes),
+        // The operator's name for it, e.g. the app ("Transport GZM") or the city card ("Metrokarta")
+        name: optionalText,
+        // The action in 2–5 words, e.g. "Skasuj w kasowniku"
+        action: localizedText,
+        // When to do it, e.g. "Zaraz po wejściu do pojazdu"
+        when: optionalText,
+        steps: z.array(localizedText).max(6).nullish(),
+      }),
+    )
+    .max(4)
+    .nullish(),
   luggage: z
     .array(
       z.strictObject({

@@ -118,7 +118,7 @@
   },
   "TicketTabs": {
     "title": "Tickets and fares",
-    "lead": "Choose a ticket type. Prices are per person.",
+    "lead": "Choose a ticket. Under each one you will see how to validate it. Prices are per person.",
     "tabsLabel": "Ticket types",
     "tabs": {
       "single": "Single",
@@ -147,6 +147,19 @@
       "conditions": "Conditions"
     },
     "free": "free",
+    "whereToBuy": "Where to buy: {where}",
+    "validation": {
+      "heading": "How to validate? Your ticket is:",
+      "group": "Ticket form",
+      "showSteps": "Show step by step",
+      "hideSteps": "Hide steps"
+    },
+    "media": {
+      "paper": "Paper",
+      "app": "App",
+      "paymentCard": "Payment card",
+      "cityCard": "City card"
+    },
     "empty": "No tickets in this category.",
     "rules": "Discounts and rules",
     "rulesLink": "Regulations"

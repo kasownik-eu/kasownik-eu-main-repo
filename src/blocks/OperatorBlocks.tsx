@@ -29,6 +29,7 @@ export const PurchaseMethodsBlock = ({ ctx }: BlockProps<'purchaseMethods'>) => 
 export const TicketsBlock = ({ ctx: { operator } }: BlockProps<'tickets'>) => (
   <TicketTabs
     tickets={operator.tickets}
+    media={operator.ticketMedia}
     luggage={operator.luggage}
     rulesNote={operator.rulesNote}
     rulesUrl={operator.rulesUrl}

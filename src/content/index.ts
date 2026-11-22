@@ -71,6 +71,7 @@ export type PurchaseMethodView = Omit<Localized<PurchaseFile[number]>, 'photos'>
   photos: { image: MediaView; caption: string; alt: string | null }[]
 }
 export type TicketView = Localized<TicketsFile['tickets'][number]>
+export type TicketMediaView = Localized<NonNullable<TicketsFile['media']>[number]>
 export type LuggageView = Localized<NonNullable<TicketsFile['luggage']>[number]>
 export type ZonesView = Omit<Localized<ZonesFile>, 'map'> & { map: MediaView | null }
 export type RelatedView = Omit<
@@ -95,6 +96,8 @@ export type OperatorView = OperatorSummary & {
   verifiedAt: string | null
   purchaseMethods: PurchaseMethodView[]
   tickets: TicketView[]
+  // How a ride is started with each form of ticket
+  ticketMedia: TicketMediaView[]
   luggage: LuggageView[]
   rulesNote: string | null
   rulesUrl: string | null
@@ -191,6 +194,7 @@ const view = (operator: RawOperator, locale: Locale): OperatorView => {
       })),
     })),
     tickets: localize(tickets?.tickets ?? [], locale),
+    ticketMedia: localize(tickets?.media ?? [], locale),
     luggage: localize(tickets?.luggage ?? [], locale),
     rulesNote: text(tickets?.rulesNote, locale),
     rulesUrl: tickets?.rulesUrl ?? null,

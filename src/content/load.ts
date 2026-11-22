@@ -302,6 +302,27 @@ export const loadCatalog = (root = contentDir(), templatesRoot = templatesDir())
       }
     }
 
+    // A ticket's forms are described once in the file's `media` list, each form at most once
+    if (operator.tickets) {
+      const ticketsRel = rel(path.join(operator.dir, OPERATOR_FILES.tickets))
+      const described = new Set<string>()
+      for (const entry of operator.tickets.media ?? []) {
+        if (described.has(entry.type))
+          problems.push(`${ticketsRel}: media "${entry.type}" is described twice`)
+        described.add(entry.type)
+      }
+      operator.tickets.tickets.forEach((ticket, index) => {
+        for (const type of ticket.media ?? []) {
+          if (!described.has(type))
+            problems.push(
+              `${ticketsRel} at tickets.${index}: media "${type}" is not described in "media"`,
+            )
+        }
+        if (new Set(ticket.media ?? []).size !== (ticket.media ?? []).length)
+          problems.push(`${ticketsRel} at tickets.${index}: a media type is listed twice`)
+      })
+    }
+
     const seen = new Set<string>()
     for (const entry of operator.cities) {
       if (seen.has(entry.slug)) problems.push(`${file}: city "${entry.slug}" is listed twice`)

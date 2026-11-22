@@ -1,6 +1,6 @@
 ---
 name: operator-research
-description: Research a public transport operator from its website URL and create or verify ALL its data in data/ (operator.json header with logo, transport modes and description; cities.json; tickets.json; purchase.json; zones.json; evidence.json with a quote for every fact). Use when the user asks to add, research, check or update an operator, or runs /operator-research <url>.
+description: Research a public transport operator from its website URL and create or verify ALL its data in data/ (operator.json header with logo, transport modes and description; cities.json; tickets.json with how each ticket form is validated; purchase.json; zones.json; evidence.json with a quote for every fact). Use when the user asks to add, research, check or update an operator, or runs /operator-research <url>.
 argument-hint: <operator website URL> [--fresh]
 allowed-tools: WebSearch, WebFetch, Read, Write, Edit, Glob, Grep, Bash(npm run research:context:*), Bash(npm run -s research:context:*), Bash(npm run research:check-source:*), Bash(npm run -s research:check-source:*), Bash(npm run check:operators:*), Bash(npm run -s check:operators:*), Bash(npm run validate:data), Bash(npm run -s validate:data), Bash(curl:*), Bash(file:*), Bash(mkdir:*)
 ---
@@ -60,7 +60,7 @@ listed in the report.
 
 ## 3. Fill the data
 
-Work **in this order**, because later steps depend on earlier ones (tickets need the zones and the purchase methods):
+Work **in this order**, because later steps depend on earlier ones (tickets need the zones and the purchase methods, ticket forms need the `validate` steps):
 
 1. **Operator info**: the `operator.json` header (`name`, `shortName`, `label`, `description`, `websiteUrl`,
    `timetableUrl`, `transportModes`, `currency`, `hotline`, `servicePoint`, `paymentInfo`, `logo`; see reference.md).
@@ -75,6 +75,10 @@ Work **in this order**, because later steps depend on earlier ones (tickets need
    that start the ride). These decide what `whereToBuy` of a ticket may say.
 5. **Tickets list**: `tickets.json` (tickets, luggage, rules note), using the zones from step 3 for `scope` and the
    methods from step 4 for `whereToBuy` (reference.md has the rules).
+6. **How each ticket is validated**: the file-level `media` list of `tickets.json` (one entry per ticket form: paper,
+   app, payment card, city card, each with a short `action`, `when` and the steps that start the ride) and every
+   ticket's `media` (the forms it comes in, most common first). The page shows them on every ticket card as "Jak
+   skasować? Masz bilet:", so they must agree with the `validate` steps of step 4.
 
 Around the steps:
 - **Source pages** the content comes from: `tariffSources`, `luggageSources`, `purchaseSources` (buying **and**
@@ -89,8 +93,8 @@ Around the steps:
   the whole regulation).
 - **Provenance**: `sources.items` = the official pages you actually used (with `{ pl, en }` labels),
   `sources.aiAssisted: true`, `verifiedAt` = `today` from the context.
-- **Evidence** (after step 5): `evidence.json` with one fact per price, luggage fee, purchase method, purchase step and
-  zone, each with the page `url` (+ `xpath`) it was read on and a verbatim `quote` (reference.md).
+- **Evidence** (after step 6): `evidence.json` with one fact per price, luggage fee, purchase method, purchase step,
+  ticket form (`action`, `when`, steps) and zone, each with the page `url` (+ `xpath`) it was read on and a verbatim `quote` (reference.md).
 - Never touch `sampleData`, `related`, `templates`, `blocks`, `zoneCount`, `validationPhotos`/`photos` (photos are
   added by hand), `templates/` or another operator's folder.
 
@@ -119,7 +123,7 @@ For testing approaches: the existing data is treated as wrong and is **not** the
 
 ### verify mode
 
-- Check in the same order (operator info, cities, zones, purchase methods, tickets): every header field, every city, every ticket, luggage row, purchase method, step and zone, and every source
+- Check in the same order (operator info, cities, zones, purchase methods, tickets, ticket forms): every header field, every city, every ticket, luggage row, purchase method, step, ticket form (`media`) and zone, and every source
   page against the sources (also re-run `check-source` on the saved pages: they break when sites are rebuilt).
   `npm run -s check:operators -- <slug> --no-llm` shows what the existing evidence says is already stale.
 - Keep what is correct and keep manual content (`photos`, `noValidationText`, `title`, `related`).
@@ -140,7 +144,8 @@ For testing approaches: the existing data is treated as wrong and is **not** the
 - Mode and operator folder.
 - Table of header fields: new / corrected (`old → new`, source URL) / unchanged / not found.
 - Cities: added, removed, `primary` set or skipped (and why).
-- Content: number of tickets, luggage rows, purchase methods and zones written; what changed in verify mode.
+- Content: number of tickets, luggage rows, purchase methods, ticket forms (`media`, and tickets without one) and zones
+  written; what changed in verify mode.
 - Evidence: number of facts, and which data has none (and why).
 - Source pages per list (`tariffSources`, `luggageSources`, `purchaseSources`, `zoneSources`), with XPath, and pages
   rejected by `check-source` with the reason.
