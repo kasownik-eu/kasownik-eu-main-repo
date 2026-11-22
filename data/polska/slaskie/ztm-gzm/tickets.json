@@ -24,7 +24,10 @@
       "whereToBuy": {
         "pl": "automat biletowy, punkt sprzedaży, POP",
         "en": "ticket machine, sales point, passenger service point (POP)"
-      }
+      },
+      "media": [
+        "paper"
+      ]
     },
     {
       "category": "single",
@@ -50,7 +53,10 @@
       "whereToBuy": {
         "pl": "automat biletowy, punkt sprzedaży, POP",
         "en": "ticket machine, sales point, passenger service point (POP)"
-      }
+      },
+      "media": [
+        "paper"
+      ]
     },
     {
       "category": "single",
@@ -76,7 +82,10 @@
       "whereToBuy": {
         "pl": "automat biletowy, punkt sprzedaży, POP",
         "en": "ticket machine, sales point, passenger service point (POP)"
-      }
+      },
+      "media": [
+        "paper"
+      ]
     },
     {
       "category": "single",
@@ -102,7 +111,10 @@
       "whereToBuy": {
         "pl": "automat biletowy",
         "en": "ticket machine"
-      }
+      },
+      "media": [
+        "paper"
+      ]
     },
     {
       "category": "single",
@@ -128,7 +140,11 @@
       "whereToBuy": {
         "pl": "aplikacja, kasownik (karta płatnicza, Metrokarta)",
         "en": "app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard"
+      ]
     },
     {
       "category": "single",
@@ -154,7 +170,11 @@
       "whereToBuy": {
         "pl": "aplikacja, kasownik (karta płatnicza, Metrokarta)",
         "en": "app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard"
+      ]
     },
     {
       "category": "single",
@@ -180,7 +200,11 @@
       "whereToBuy": {
         "pl": "aplikacja, kasownik (karta płatnicza, Metrokarta)",
         "en": "app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard"
+      ]
     },
     {
       "category": "single",
@@ -206,7 +230,10 @@
       "whereToBuy": {
         "pl": "aplikacja",
         "en": "app"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "single",
@@ -232,7 +259,12 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
         "en": "Transport GZM app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
     },
     {
       "category": "single",
@@ -258,7 +290,12 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
         "en": "Transport GZM app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
     },
     {
       "category": "single",
@@ -284,7 +321,12 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
         "en": "Transport GZM app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
     },
     {
       "category": "single",
@@ -310,7 +352,12 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
         "en": "Transport GZM app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
     },
     {
       "category": "single",
@@ -336,7 +383,12 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
         "en": "Transport GZM app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
     },
     {
       "category": "single",
@@ -362,7 +414,12 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
         "en": "Transport GZM app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
     },
     {
       "category": "single",
@@ -388,7 +445,12 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
         "en": "Transport GZM app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
     },
     {
       "category": "single",
@@ -414,7 +476,12 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
         "en": "Transport GZM app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
     },
     {
       "category": "long",
@@ -440,7 +507,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -466,7 +536,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -492,7 +565,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "short",
@@ -518,7 +594,12 @@
       "whereToBuy": {
         "pl": "automat biletowy, punkt sprzedaży, POP, aplikacja, kasownik (karta płatnicza, Metrokarta)",
         "en": "ticket machine, sales point, passenger service point (POP), app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "paper",
+        "app",
+        "paymentCard"
+      ]
     },
     {
       "category": "short",
@@ -545,7 +626,11 @@
       "whereToBuy": {
         "pl": "automat biletowy, punkt sprzedaży, POP, aplikacja, kasownik (karta płatnicza, Metrokarta)",
         "en": "ticket machine, sales point, passenger service point (POP), app, validator (payment card, Metrokarta)"
-      }
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -572,7 +657,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -598,7 +686,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -625,7 +716,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -651,7 +745,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -678,7 +775,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "short",
@@ -704,7 +804,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -731,7 +834,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -757,7 +863,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -783,7 +892,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "short",
@@ -809,7 +921,10 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
     },
     {
       "category": "long",
@@ -835,7 +950,124 @@
       "whereToBuy": {
         "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
         "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
-      }
+      },
+      "media": [
+        "app"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "type": "paper",
+      "action": {
+        "pl": "Skasuj w kasowniku",
+        "en": "Validate in the validator"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do pojazdu",
+        "en": "Right after boarding"
+      },
+      "steps": [
+        {
+          "pl": "Po wejściu do pojazdu skasuj bilet w kasowniku.",
+          "en": "Validate the ticket in the validator after boarding."
+        },
+        {
+          "pl": "Zachowaj bilet przez całą podróż.",
+          "en": "Keep the ticket for the whole ride."
+        },
+        {
+          "pl": "Gdy kasownik nie zadziała, spróbuj w innym.",
+          "en": "If the validator fails, try another one."
+        },
+        {
+          "pl": "Nie oddawaj skasowanego biletu innej osobie.",
+          "en": "Do not hand a validated ticket to another person."
+        }
+      ]
+    },
+    {
+      "type": "app",
+      "action": {
+        "pl": "Pokaż bilet w aplikacji",
+        "en": "Show the ticket in the app"
+      },
+      "when": {
+        "pl": "Przy kontroli biletów",
+        "en": "At a ticket check"
+      },
+      "steps": [
+        {
+          "pl": "Jednorazowy: zeskanuj w pojeździe kod QR i kup bilet.",
+          "en": "Single: scan the QR code in the vehicle and buy the ticket."
+        },
+        {
+          "pl": "Start/Stop: zeskanuj kod QR, a przy wysiadaniu zakończ podróż w aplikacji.",
+          "en": "Start/Stop: scan the QR code and end the trip in the app when you get off."
+        },
+        {
+          "pl": "Bilet długookresowy jest ważny od daty wybranej przy zakupie.",
+          "en": "A long-term ticket is valid from the date chosen at purchase."
+        },
+        {
+          "pl": "Pakiet: zarejestruj każdy przejazd w aplikacji lub kasowniku.",
+          "en": "Package: register every ride in the app or in the validator."
+        },
+        {
+          "pl": "Podczas kontroli pokaż aktywny bilet z kodem QR.",
+          "en": "At a check, show the active ticket with the QR code."
+        }
+      ]
+    },
+    {
+      "type": "paymentCard",
+      "action": {
+        "pl": "Przyłóż kartę do kasownika",
+        "en": "Tap your card on the validator"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do pojazdu",
+        "en": "Right after boarding"
+      },
+      "steps": [
+        {
+          "pl": "Przyłóż kartę płatniczą do kasownika zaraz po wejściu.",
+          "en": "Tap your payment card on the validator right after boarding."
+        },
+        {
+          "pl": "Start/Stop: przy wysiadaniu przyłóż tę samą kartę.",
+          "en": "Start/Stop: tap the same card when you get off."
+        },
+        {
+          "pl": "W pojeździe z mobilnym biletomatem zbliż kartę płatniczą do biletomatu.",
+          "en": "In a vehicle with a mobile ticket machine, tap your card on the machine."
+        }
+      ]
+    },
+    {
+      "type": "cityCard",
+      "name": {
+        "pl": "Metrokarta",
+        "en": "Metrokarta"
+      },
+      "action": {
+        "pl": "Przyłóż Metrokartę do czytnika",
+        "en": "Tap the Metrokarta on the reader"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu i przed wyjściem",
+        "en": "Right after boarding and before getting off"
+      },
+      "steps": [
+        {
+          "pl": "Przyłóż Metrokartę do czytnika zaraz po wejściu.",
+          "en": "Tap the Metrokarta on the reader right after boarding."
+        },
+        {
+          "pl": "Przyłóż ją jeszcze raz przed opuszczeniem pojazdu.",
+          "en": "Tap it again just before leaving the vehicle."
+        }
+      ]
     }
   ],
   "luggage": [
