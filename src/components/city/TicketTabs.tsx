@@ -63,6 +63,8 @@ export async function TicketTabs({
     group: t('validation.group'),
     showSteps: t('validation.showSteps'),
     hideSteps: t('validation.hideSteps'),
+    popupTitle: t('validation.popupTitle'),
+    close: t('validation.close'),
   }
   // The ticket's forms in its own order, each with the operator-wide way of validating it
   const optionsOf = (ticket: Ticket): ValidationOption[] =>
@@ -76,6 +78,13 @@ export async function TicketTabs({
               action: entry.action,
               when: entry.when ?? null,
               steps: entry.steps ?? [],
+              photo: entry.photo
+                ? {
+                    src: entry.photo.image.url,
+                    alt: entry.photo.alt || entry.photo.image.alt || entry.photo.caption,
+                    caption: entry.photo.caption,
+                  }
+                : null,
             },
           ]
         : []
@@ -87,6 +96,36 @@ export async function TicketTabs({
         {t('whereToBuy', { where: ticket.whereToBuy })}
       </p>
     )
+
+  // Side panel of the step-by-step popup: what the ticket is and costs
+  const popupSummary = (ticket: Ticket) => (
+    <div className="grid gap-4">
+      <div>
+        {ticket.validity && (
+          <Badge className="h-auto gap-1.5 rounded-full border-2 border-border bg-highlight px-2.5 py-0.5 text-[0.8125rem] font-bold text-foreground">
+            <ClockIcon aria-hidden="true" />
+            {ticket.validity}
+          </Badge>
+        )}
+        {ticket.scope && <p className="mt-2 font-semibold">{ticket.scope}</p>}
+      </div>
+      <dl className="grid gap-3.5">
+        <div>
+          <dt className="text-[0.8125rem] font-semibold">{t('columns.normal')}</dt>
+          <dd className="text-4xl leading-tight font-extrabold tracking-tight tabular-nums">
+            {price(ticket.priceNormal)}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-[0.8125rem] font-semibold">{t('columns.reduced')}</dt>
+          <dd className="text-4xl leading-tight font-extrabold tracking-tight tabular-nums">
+            {price(ticket.priceReduced)}
+          </dd>
+        </div>
+      </dl>
+      <ModeBadges modes={ticket.transportModes} />
+    </div>
+  )
 
   // Every ticket is a card that reads as a ticket: tear line with notches, prices, then how to validate it
   const ticketPanel = (rows: Ticket[]) =>
@@ -144,6 +183,7 @@ export async function TicketTabs({
                     ticketName={ticket.name}
                     options={options}
                     labels={validationLabels}
+                    summary={popupSummary(ticket)}
                   >
                     {whereToBuy(ticket)}
                   </TicketValidation>

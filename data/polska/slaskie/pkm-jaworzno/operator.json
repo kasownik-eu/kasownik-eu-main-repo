@@ -10,7 +10,8 @@
     "alt": {
       "pl": "Logo PKM Jaworzno",
       "en": "PKM Jaworzno logo"
-    }
+    },
+    "background": "dark"
   },
   "description": {
     "pl": "Miejski przewoźnik autobusowy z Jaworzna, obsługujący linie dzienne i nocne w mieście oraz połączenia do Katowic, Sosnowca, Mysłowic i Chrzanowa. Sprzedaje bilety i prowadzi kontrolę biletów, a organizatorem transportu w mieście jest Miejski Zarząd Dróg i Mostów.",

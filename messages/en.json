@@ -82,6 +82,8 @@
     "unknown": "—"
   },
   "PurchaseMethods": {
+    "stepsHeading": "Step by step",
+    "photosHeading": "What it looks like",
     "title": "How to buy a ticket and start your ride",
     "lead": "Choose a way to buy and press “Show instructions”. The instructions open right below it.",
     "empty": "No information about ways to buy tickets.",
@@ -152,7 +154,9 @@
       "heading": "How to validate? Your ticket is:",
       "group": "Ticket form",
       "showSteps": "Show step by step",
-      "hideSteps": "Hide steps"
+      "hideSteps": "Hide steps",
+      "popupTitle": "How to validate the ticket",
+      "close": "Close"
     },
     "media": {
       "paper": "Paper",

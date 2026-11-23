@@ -175,6 +175,8 @@ export const ticketsFile = z.strictObject({
         // When to do it, e.g. "Zaraz po wejściu do pojazdu"
         when: optionalText,
         steps: z.array(localizedText).max(6).nullish(),
+        // What the validator / reader looks like (a file in images/), shown in the step-by-step popup
+        photo: z.strictObject({ image, caption: localizedText, alt: optionalText }).nullish(),
       }),
     )
     .max(4)

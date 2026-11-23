@@ -181,6 +181,8 @@ each, imperative, plain language for a first-time passenger):
   `media[0].action.pl`, `media[0].when.pl`, `media[0].steps[1].pl`,
   `zones` → `items[1].name.pl`, `operator` → `servicePoint.pl`, `purchase[1].type`, `purchase[1].steps[2].text.pl`
   (`purchase` is addressed as `purchase[<index>]…`). `value` is exactly what the data holds there (number or string).
+  A `media[…].photo` (`{ image: { file }, caption, alt }`, file in `images/`) is optional and needs no evidence; use it only for a
+  photo you really have of the validator or reader.
   Indexes are positions in the file: rewrite the whole evidence file whenever rows are added, removed or reordered.
 - `quote`: copied **word for word** from the text `research:check-source -- <url> "<xpath>" --full` prints for that
   `url` + `xpath` (the checker collapses whitespace, nothing else). For a price take the whole table row as printed
