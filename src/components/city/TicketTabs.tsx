@@ -246,15 +246,14 @@ export async function TicketTabs({
     <Section id="tickets" title={t('title')} lead={t('lead')}>
       <Tabs defaultValue="single" className="gap-5">
         <TabsList
-          variant="line"
           aria-label={t('tabsLabel')}
-          className="h-auto w-full justify-start gap-1 overflow-x-auto rounded-none border-b-2 border-foreground p-0"
+          className="h-auto w-full flex-wrap justify-start gap-2 rounded-2xl p-2 group-data-horizontal/tabs:h-auto sm:w-fit"
         >
           {tabs.map((id) => (
             <TabsTrigger
               key={id}
               value={id}
-              className="min-h-11 flex-none rounded-none px-4 text-base whitespace-nowrap group-data-horizontal/tabs:after:bottom-[-2px] group-data-horizontal/tabs:after:h-1"
+              className="min-h-11 flex-none rounded-[10px] border-foreground bg-background px-4 text-[0.9375rem] font-semibold whitespace-normal group-data-[variant=default]/tabs-list:data-active:shadow-[2px_2px_0_0_var(--foreground)]"
             >
               {t(`tabs.${id}`)}
             </TabsTrigger>
