@@ -16,12 +16,6 @@
     "mainNav": "Główna",
     "cities": "Miasta",
     "language": "Język",
-    "textSize": "Rozmiar tekstu",
-    "textSizes": {
-      "0": "Rozmiar tekstu: standardowy",
-      "1": "Rozmiar tekstu: powiększony",
-      "2": "Rozmiar tekstu: największy"
-    },
     "operators": "Przewoźnicy"
   },
   "CityPage": {

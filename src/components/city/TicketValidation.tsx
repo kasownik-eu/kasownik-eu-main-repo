@@ -212,6 +212,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
                         src={current.photo.src}
                         alt={current.photo.alt}
                         loading="lazy"
+                        decoding="async"
                         className="size-full object-cover"
                       />
                     </AspectRatio>
@@ -263,7 +264,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
             {open ? labels.hideSteps : labels.showSteps}
             <ChevronDownIcon
               aria-hidden="true"
-              className={open ? 'rotate-180 transition-transform' : 'transition-transform'}
+              className={open ? 'rotate-180 motion-safe:transition-transform' : 'motion-safe:transition-transform'}
             />
           </CollapsibleTrigger>
           <CollapsibleContent>

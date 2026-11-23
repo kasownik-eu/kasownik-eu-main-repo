@@ -237,7 +237,7 @@ export function SiteSearch({
         // tablets and up: a panel hanging from the top edge over a dimmed page
         className={cn(
           'gap-0 p-0 text-base data-[side=top]:bottom-0 data-[side=top]:h-dvh data-[side=top]:border-0',
-          'md:data-[side=top]:bottom-auto md:data-[side=top]:mx-auto md:data-[side=top]:h-auto md:data-[side=top]:max-h-[85vh] md:data-[side=top]:w-full md:data-[side=top]:max-w-160 md:data-[side=top]:overflow-hidden md:data-[side=top]:rounded-b-xl md:data-[side=top]:border-2 md:data-[side=top]:border-t-0',
+          'md:data-[side=top]:bottom-auto md:data-[side=top]:mx-auto md:data-[side=top]:h-auto md:data-[side=top]:max-h-[85dvh] md:data-[side=top]:w-full md:data-[side=top]:max-w-160 md:data-[side=top]:overflow-hidden md:data-[side=top]:rounded-b-xl md:data-[side=top]:border-2 md:data-[side=top]:border-t-0',
         )}
       >
         <form role="search" onSubmit={onSubmit} className="flex min-h-0 flex-1 flex-col">
@@ -263,7 +263,7 @@ export function SiteSearch({
               {field(true)}
             </div>
           </div>
-          <div className="min-h-0 flex-1 overflow-y-auto md:max-h-[60vh] md:flex-none">
+          <div className="min-h-0 flex-1 overflow-y-auto md:max-h-[60dvh] md:flex-none">
             <ResultsHead text={head} className="sticky top-0 z-10 border-b border-line-soft" />
             {results(true)}
           </div>
@@ -355,7 +355,7 @@ export function SiteSearch({
               )}
             >
               <ResultsHead text={head} />
-              <div className={cn(showAll && 'max-h-[min(60vh,32rem)] overflow-y-auto')}>
+              <div className={cn(showAll && 'max-h-[min(60dvh,32rem)] overflow-y-auto')}>
                 {results(false)}
               </div>
             </div>

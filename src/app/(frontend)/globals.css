@@ -169,8 +169,10 @@
   body {
     @apply bg-background text-foreground;
     }
+  /* The site is light-only (the .dark tokens are unused): tell the browser so scrollbars, form controls and the canvas stay light */
   html {
     @apply font-sans;
+    color-scheme: light;
     }
   /* Tailwind v4 dropped the pointer cursor on buttons; restore it for every clickable element */
   :is(
@@ -190,13 +192,6 @@
       input:is([type='checkbox'], [type='radio'], [type='button'], [type='submit'], [type='reset'], [type='file'])
     ):not(:disabled, [aria-disabled='true'], [data-disabled]) {
     cursor: pointer;
-    }
-  /* Text size control (A / A+ / A++): every Tailwind size is in rem, so it scales with the root */
-  html[data-fs='1'] {
-    font-size: 125%;
-    }
-  html[data-fs='2'] {
-    font-size: 150%;
     }
   /* 3px ring with a yellow halo; inside .chrome the ring itself is yellow */
   :focus-visible {

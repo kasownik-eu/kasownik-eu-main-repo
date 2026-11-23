@@ -93,6 +93,7 @@ async function PhotoList({ photos }: { photos: Photos }) {
                   t('photoAlt', { index: index + 1, count: items.length })
                 }
                 loading="lazy"
+                decoding="async"
                 className="size-full object-cover"
               />
             </AspectRatio>
@@ -162,7 +163,7 @@ export async function PurchaseMethods({ methods, operator }: Props) {
                       <span className="hidden group-data-panel-open:inline">{t('hide')}</span>
                       <ChevronDownIcon
                         aria-hidden="true"
-                        className="transition-transform group-data-panel-open:rotate-180"
+                        className="motion-safe:transition-transform group-data-panel-open:rotate-180"
                       />
                     </span>
                   </CollapsibleTrigger>

@@ -10,7 +10,6 @@ import { SiteSearch } from '@/components/search/SiteSearch'
 
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { MainNav } from './MainNav'
-import { TextSizeControl } from './TextSizeControl'
 
 // Every option stays visible (no hamburger). Desktop: one row, brand · nav · search · text size · language.
 // Phone: brand, search and text size on the first row, nav and language on the second
@@ -41,7 +40,6 @@ export async function SiteHeader() {
 
         <div className="flex items-center gap-x-2 sm:gap-x-4 md:order-4">
           <SiteSearch variant="menu" />
-          <TextSizeControl />
         </div>
 
         <div className="flex w-full flex-wrap items-center justify-between gap-x-4 gap-y-1 md:contents">
