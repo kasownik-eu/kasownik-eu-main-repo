@@ -193,13 +193,6 @@
     ):not(:disabled, [aria-disabled='true'], [data-disabled]) {
     cursor: pointer;
     }
-  /* Text size control (A / A+ / A++): every Tailwind size is in rem, so it scales with the root */
-  html[data-fs='1'] {
-    font-size: 125%;
-    }
-  html[data-fs='2'] {
-    font-size: 150%;
-    }
   /* 3px ring with a yellow halo; inside .chrome the ring itself is yellow */
   :focus-visible {
     @apply outline-3 outline-offset-2 outline-ring shadow-[0_0_0_6px_var(--primary)];

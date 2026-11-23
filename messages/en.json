@@ -16,12 +16,6 @@
     "mainNav": "Main",
     "cities": "Cities",
     "language": "Language",
-    "textSize": "Text size",
-    "textSizes": {
-      "0": "Text size: standard",
-      "1": "Text size: larger",
-      "2": "Text size: largest"
-    },
     "operators": "Operators"
   },
   "CityPage": {
