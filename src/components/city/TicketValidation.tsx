@@ -44,6 +44,7 @@ type Props = {
     showSteps: string
     hideSteps: string
     popupTitle: string
+    have: string
     close: string
   }
   // The ticket's validity, scope, prices and modes, rendered on the server for the side panel of the popup
@@ -72,7 +73,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
       className="flex-1 border-t-2 bg-highlight px-5 pt-4 pb-5"
     >
       <p className="mb-2.5 text-[0.8125rem] font-bold tracking-wider uppercase">{labels.heading}</p>
-      {options.length > 1 && (
+      {
         <ToggleGroup
           aria-label={labels.group}
           value={[selected]}
@@ -97,7 +98,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
             )
           })}
         </ToggleGroup>
-      )}
+      }
 
       <div aria-live="polite" className="mt-3.5 flex items-start gap-3">
         <span
@@ -107,10 +108,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
           <Icon className="size-5" />
         </span>
         <div className="min-w-0">
-          <p className="text-[1.0625rem] leading-snug font-bold">
-            {options.length === 1 && <span className="sr-only">{current.label}: </span>}
-            {current.action}
-          </p>
+          <p className="text-[1.0625rem] leading-snug font-bold">{current.action}</p>
           {current.when && <p className="mt-0.5 text-sm text-muted-foreground">{current.when}</p>}
         </div>
       </div>
@@ -143,30 +141,35 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
                   {ticketName}
                 </DialogTitle>
               </div>
-              {options.length > 1 && (
-                <ToggleGroup
-                  aria-label={labels.group}
-                  value={[selected]}
-                  onValueChange={(value: string[]) => {
-                    if (value[0]) setSelected(value[0] as TicketMediaType)
-                  }}
-                  className="flex w-full flex-wrap"
-                >
-                  {options.map((option) => {
-                    const OptionIcon = icons[option.type]
-                    return (
-                      <ToggleGroupItem
-                        key={option.type}
-                        value={option.type}
-                        className="h-11 rounded-full border-2 border-foreground bg-background px-3.5 text-sm font-semibold hover:bg-highlight-hover aria-pressed:bg-primary aria-pressed:text-primary-foreground aria-pressed:shadow-[2px_2px_0_0_var(--foreground)]"
-                      >
-                        <OptionIcon aria-hidden="true" />
-                        {option.label}
-                      </ToggleGroupItem>
-                    )
-                  })}
-                </ToggleGroup>
-              )}
+              {
+                <div className="grid gap-2.5">
+                  <p className="text-[0.8125rem] font-bold tracking-wider uppercase">
+                    {labels.have}
+                  </p>
+                  <ToggleGroup
+                    aria-label={labels.group}
+                    value={[selected]}
+                    onValueChange={(value: string[]) => {
+                      if (value[0]) setSelected(value[0] as TicketMediaType)
+                    }}
+                    className="flex w-full flex-wrap"
+                  >
+                    {options.map((option) => {
+                      const OptionIcon = icons[option.type]
+                      return (
+                        <ToggleGroupItem
+                          key={option.type}
+                          value={option.type}
+                          className="h-11 rounded-full border-2 border-foreground bg-background px-3.5 text-sm font-semibold hover:bg-highlight-hover aria-pressed:bg-primary aria-pressed:text-primary-foreground aria-pressed:shadow-[2px_2px_0_0_var(--foreground)]"
+                        >
+                          <OptionIcon aria-hidden="true" />
+                          {option.label}
+                        </ToggleGroupItem>
+                      )
+                    })}
+                  </ToggleGroup>
+                </div>
+              }
               <div className="flex items-start gap-3">
                 <span
                   aria-hidden="true"
@@ -217,7 +220,15 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
                 )}
               </div>
             </div>
-            <aside className="flex flex-[0_0_18.75rem] flex-col gap-5 border-t-2 border-dashed border-foreground bg-primary p-6 text-primary-foreground md:border-t-0 [&_p]:text-primary-foreground md:border-l-2">
+            <aside className="relative flex flex-[0_0_18.75rem] flex-col gap-5 border-t-2 border-dashed border-foreground bg-primary p-6 text-primary-foreground md:border-t-0 [&_p]:text-primary-foreground md:border-l-2">
+              {/* Punched holes where the tear line meets the edges of the ticket (same grey as the dimmed page) */}
+              {['-top-2.5', '-bottom-2.5'].map((edge) => (
+                <span
+                  key={edge}
+                  aria-hidden="true"
+                  className={`absolute -left-[11px] hidden size-[18px] rounded-full border-2 border-foreground bg-[#6b6b6b] md:block ${edge}`}
+                />
+              ))}
               <DialogClose
                 render={
                   <Button
@@ -231,7 +242,9 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
                 {labels.close}
               </DialogClose>
               {summary}
-              {children}
+              <div className="mt-auto [&_p]:mt-0 [&_p]:border-t-2 [&_p]:border-foreground [&_p]:font-medium">
+                {children}
+              </div>
             </aside>
           </DialogContent>
         </Dialog>

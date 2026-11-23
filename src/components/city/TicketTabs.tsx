@@ -32,7 +32,7 @@ const tabOrder = ['single', 'short', 'long', 'luggage', 'other'] as const
 const fieldLabel = 'text-[0.8125rem] text-muted-foreground'
 const smallLabel = 'text-xs font-medium tracking-wider text-muted-foreground uppercase'
 const cardGrid =
-  'grid items-start gap-5 grid-cols-[repeat(auto-fill,minmax(min(21.25rem,100%),1fr))]'
+  'grid items-stretch gap-5 grid-cols-[repeat(auto-fill,minmax(min(21.25rem,100%),1fr))]'
 const ticketCard = 'gap-0 overflow-visible py-0 shadow-[3px_3px_0_0_var(--foreground)]'
 
 export async function TicketTabs({
@@ -64,6 +64,7 @@ export async function TicketTabs({
     showSteps: t('validation.showSteps'),
     hideSteps: t('validation.hideSteps'),
     popupTitle: t('validation.popupTitle'),
+    have: t('validation.have'),
     close: t('validation.close'),
   }
   // The ticket's forms in its own order, each with the operator-wide way of validating it
@@ -247,13 +248,13 @@ export async function TicketTabs({
       <Tabs defaultValue="single" className="gap-5">
         <TabsList
           aria-label={t('tabsLabel')}
-          className="grid w-full grid-cols-2 group-data-horizontal/tabs:h-auto sm:flex sm:w-fit sm:flex-wrap"
+          className="h-auto w-full flex-wrap justify-start gap-2 rounded-2xl p-2 group-data-horizontal/tabs:h-auto sm:w-fit"
         >
           {tabs.map((id) => (
             <TabsTrigger
               key={id}
               value={id}
-              className="min-h-11 rounded-[6px] px-4 text-[0.9375rem] whitespace-normal"
+              className="min-h-11 flex-none rounded-[10px] border-foreground bg-background px-4 text-[0.9375rem] font-semibold whitespace-normal group-data-[variant=default]/tabs-list:data-active:shadow-[2px_2px_0_0_var(--foreground)]"
             >
               {t(`tabs.${id}`)}
             </TabsTrigger>

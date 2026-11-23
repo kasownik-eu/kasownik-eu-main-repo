@@ -155,6 +155,7 @@
       "group": "Ticket form",
       "showSteps": "Show step by step",
       "hideSteps": "Hide steps",
+      "have": "You have:",
       "popupTitle": "How to validate the ticket",
       "close": "Close"
     },
