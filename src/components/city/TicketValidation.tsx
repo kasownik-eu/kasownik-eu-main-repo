@@ -212,6 +212,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
                         src={current.photo.src}
                         alt={current.photo.alt}
                         loading="lazy"
+                        decoding="async"
                         className="size-full object-cover"
                       />
                     </AspectRatio>

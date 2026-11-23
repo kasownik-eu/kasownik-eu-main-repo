@@ -93,6 +93,7 @@ async function PhotoList({ photos }: { photos: Photos }) {
                   t('photoAlt', { index: index + 1, count: items.length })
                 }
                 loading="lazy"
+                decoding="async"
                 className="size-full object-cover"
               />
             </AspectRatio>

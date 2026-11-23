@@ -169,8 +169,10 @@
   body {
     @apply bg-background text-foreground;
     }
+  /* The site is light-only (the .dark tokens are unused): tell the browser so scrollbars, form controls and the canvas stay light */
   html {
     @apply font-sans;
+    color-scheme: light;
     }
   /* Tailwind v4 dropped the pointer cursor on buttons; restore it for every clickable element */
   :is(

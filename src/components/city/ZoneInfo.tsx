@@ -46,7 +46,9 @@ export async function ZoneInfo({ zones }: Props) {
         {map ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            className="w-full rounded-xl border bg-muted object-contain"
+            className="aspect-4/3 w-full rounded-xl border bg-muted object-contain"
+            loading="lazy"
+            decoding="async"
             src={map.url}
             alt={map.alt || t('mapAlt')}
           />
