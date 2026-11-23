@@ -32,7 +32,7 @@ const tabOrder = ['single', 'short', 'long', 'luggage', 'other'] as const
 const fieldLabel = 'text-[0.8125rem] text-muted-foreground'
 const smallLabel = 'text-xs font-medium tracking-wider text-muted-foreground uppercase'
 const cardGrid =
-  'grid items-start gap-5 grid-cols-[repeat(auto-fill,minmax(min(21.25rem,100%),1fr))]'
+  'grid items-stretch gap-5 grid-cols-[repeat(auto-fill,minmax(min(21.25rem,100%),1fr))]'
 const ticketCard = 'gap-0 overflow-visible py-0 shadow-[3px_3px_0_0_var(--foreground)]'
 
 export async function TicketTabs({
@@ -246,14 +246,15 @@ export async function TicketTabs({
     <Section id="tickets" title={t('title')} lead={t('lead')}>
       <Tabs defaultValue="single" className="gap-5">
         <TabsList
+          variant="line"
           aria-label={t('tabsLabel')}
-          className="grid w-full grid-cols-2 group-data-horizontal/tabs:h-auto sm:flex sm:w-fit sm:flex-wrap"
+          className="h-auto w-full justify-start gap-1 overflow-x-auto rounded-none border-b-2 border-foreground p-0"
         >
           {tabs.map((id) => (
             <TabsTrigger
               key={id}
               value={id}
-              className="min-h-11 rounded-[6px] px-4 text-[0.9375rem] whitespace-normal"
+              className="min-h-11 flex-none rounded-none px-4 text-base whitespace-nowrap group-data-horizontal/tabs:after:bottom-[-2px] group-data-horizontal/tabs:after:h-1"
             >
               {t(`tabs.${id}`)}
             </TabsTrigger>

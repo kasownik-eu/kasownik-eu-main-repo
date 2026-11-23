@@ -72,7 +72,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
       className="flex-1 border-t-2 bg-highlight px-5 pt-4 pb-5"
     >
       <p className="mb-2.5 text-[0.8125rem] font-bold tracking-wider uppercase">{labels.heading}</p>
-      {options.length > 1 && (
+      {
         <ToggleGroup
           aria-label={labels.group}
           value={[selected]}
@@ -97,7 +97,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
             )
           })}
         </ToggleGroup>
-      )}
+      }
 
       <div aria-live="polite" className="mt-3.5 flex items-start gap-3">
         <span
@@ -107,10 +107,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
           <Icon className="size-5" />
         </span>
         <div className="min-w-0">
-          <p className="text-[1.0625rem] leading-snug font-bold">
-            {options.length === 1 && <span className="sr-only">{current.label}: </span>}
-            {current.action}
-          </p>
+          <p className="text-[1.0625rem] leading-snug font-bold">{current.action}</p>
           {current.when && <p className="mt-0.5 text-sm text-muted-foreground">{current.when}</p>}
         </div>
       </div>
@@ -143,7 +140,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
                   {ticketName}
                 </DialogTitle>
               </div>
-              {options.length > 1 && (
+              {
                 <ToggleGroup
                   aria-label={labels.group}
                   value={[selected]}
@@ -166,7 +163,7 @@ export function TicketValidation({ ticketName, options, labels, summary, childre
                     )
                   })}
                 </ToggleGroup>
-              )}
+              }
               <div className="flex items-start gap-3">
                 <span
                   aria-hidden="true"
