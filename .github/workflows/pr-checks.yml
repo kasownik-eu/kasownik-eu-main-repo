@@ -1,0 +1,32 @@
+name: PR checks
+
+# Gate for pull requests: the site must build (this also validates data/) and the unit tests must pass.
+# Make the `Build and unit tests` check required in the branch protection / ruleset of `develop`.
+
+on:
+  pull_request:
+    branches: [develop]
+
+concurrency:
+  group: pr-checks-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build and unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+          cache: npm
+      - run: npm ci
+      - run: npm run test:int
+      - run: npm run build # also validates data/
