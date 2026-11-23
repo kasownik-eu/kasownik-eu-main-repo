@@ -64,6 +64,7 @@ export async function TicketTabs({
     showSteps: t('validation.showSteps'),
     hideSteps: t('validation.hideSteps'),
     popupTitle: t('validation.popupTitle'),
+    have: t('validation.have'),
     close: t('validation.close'),
   }
   // The ticket's forms in its own order, each with the operator-wide way of validating it
