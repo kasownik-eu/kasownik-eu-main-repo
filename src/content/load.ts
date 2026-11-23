@@ -2,7 +2,14 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
 import { z } from 'zod'
 
-import { allowsPage, pageKinds, type PageKind, type Template, templateFile, templateSlots } from '@/blocks/schema'
+import {
+  allowsPage,
+  pageKinds,
+  type PageKind,
+  type Template,
+  templateFile,
+  templateSlots,
+} from '@/blocks/schema'
 
 import {
   citiesFile,
@@ -130,10 +137,11 @@ const createReader = (root: string, problems: string[], label = '') => {
   return { read, rel }
 }
 
-const imagesOf = (op: Pick<RawOperator, 'info' | 'purchase' | 'zones'>): ImageRef[] => [
+const imagesOf = (op: Pick<RawOperator, 'info' | 'purchase' | 'zones' | 'tickets'>): ImageRef[] => [
   ...(op.info.logo ? [op.info.logo] : []),
   ...(op.zones?.map ? [op.zones.map] : []),
   ...op.purchase.flatMap((method) => (method.photos ?? []).map((photo) => photo.image)),
+  ...(op.tickets?.media ?? []).flatMap((item) => (item.photo ? [item.photo.image] : [])),
 ]
 
 // templates/<page>/<name>.json; every page kind needs a "default"

@@ -154,7 +154,9 @@
       "heading": "How to validate? Your ticket is:",
       "group": "Ticket form",
       "showSteps": "Show step by step",
-      "hideSteps": "Hide steps"
+      "hideSteps": "Hide steps",
+      "popupTitle": "How to validate the ticket",
+      "close": "Close"
     },
     "media": {
       "paper": "Paper",

@@ -154,7 +154,9 @@
       "heading": "Jak skasować? Masz bilet:",
       "group": "Rodzaj biletu",
       "showSteps": "Pokaż krok po kroku",
-      "hideSteps": "Ukryj kroki"
+      "hideSteps": "Ukryj kroki",
+      "popupTitle": "Jak skasować bilet",
+      "close": "Zamknij"
     },
     "media": {
       "paper": "Papierowy",

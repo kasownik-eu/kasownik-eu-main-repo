@@ -71,7 +71,12 @@ export type PurchaseMethodView = Omit<Localized<PurchaseFile[number]>, 'photos'>
   photos: { image: MediaView; caption: string; alt: string | null }[]
 }
 export type TicketView = Localized<TicketsFile['tickets'][number]>
-export type TicketMediaView = Localized<NonNullable<TicketsFile['media']>[number]>
+export type TicketMediaView = Omit<
+  Localized<NonNullable<TicketsFile['media']>[number]>,
+  'photo'
+> & {
+  photo: { image: MediaView; caption: string; alt: string | null } | null
+}
 export type LuggageView = Localized<NonNullable<TicketsFile['luggage']>[number]>
 export type ZonesView = Omit<Localized<ZonesFile>, 'map'> & { map: MediaView | null }
 export type RelatedView = Omit<
@@ -134,9 +139,7 @@ const media = (
 
 const logoOf = (operator: RawOperator, locale: Locale): LogoView | null => {
   const { logo } = operator.info
-  return logo
-    ? { ...media(operator, logo, locale)!, background: logo.background ?? 'light' }
-    : null
+  return logo ? { ...media(operator, logo, locale)!, background: logo.background ?? 'light' } : null
 }
 
 const byName = (locale: Locale) => (a: { name: string }, b: { name: string }) =>
@@ -194,7 +197,16 @@ const view = (operator: RawOperator, locale: Locale): OperatorView => {
       })),
     })),
     tickets: localize(tickets?.tickets ?? [], locale),
-    ticketMedia: localize(tickets?.media ?? [], locale),
+    ticketMedia: (tickets?.media ?? []).map(({ photo, ...item }) => ({
+      ...localize(item, locale),
+      photo: photo
+        ? {
+            image: media(operator, photo.image, locale)!,
+            caption: pickLocale(photo.caption, locale),
+            alt: text(photo.alt, locale),
+          }
+        : null,
+    })),
     luggage: localize(tickets?.luggage ?? [], locale),
     rulesNote: text(tickets?.rulesNote, locale),
     rulesUrl: tickets?.rulesUrl ?? null,

@@ -285,6 +285,101 @@
                     "type": "null"
                   }
                 ]
+              },
+              "photo": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "image": {
+                        "type": "object",
+                        "properties": {
+                          "file": {
+                            "type": "string",
+                            "pattern": "^[\\w.-]+$"
+                          },
+                          "alt": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "pl": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "en": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  }
+                                },
+                                "required": [
+                                  "pl"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "file"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "caption": {
+                        "type": "object",
+                        "properties": {
+                          "pl": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "en": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "pl"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "alt": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "pl": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "en": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "pl"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "image",
+                      "caption"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               }
             },
             "required": [
