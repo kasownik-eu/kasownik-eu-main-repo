@@ -79,7 +79,7 @@ async function PhotoList({ photos }: { photos: Photos }) {
   if (!items.length) return null
 
   return (
-    <ul className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(min(11.25rem,100%),15rem))] gap-3">
+    <ul className="grid gap-4">
       {items.map((photo, index) => (
         <li key={index}>
           <figure>
@@ -132,7 +132,9 @@ export async function PurchaseMethods({ methods, operator }: Props) {
                       <Icon className="size-5" />
                     </span>
                     <span className="grid min-w-0 flex-[1_1_12rem] justify-items-start gap-0.5">
-                      <span className="text-lg font-semibold">{method.title || t(`type.${method.type}`)}</span>
+                      <span className="text-lg font-semibold">
+                        {method.title || t(`type.${method.type}`)}
+                      </span>
                       {method.subtitle && (
                         <span className="text-sm text-muted-foreground">{method.subtitle}</span>
                       )}
@@ -165,20 +167,41 @@ export async function PurchaseMethods({ methods, operator }: Props) {
                     </span>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
-                    <div className="grid gap-4 bg-card p-4 sm:p-6">
-                      <StepList steps={method.steps} />
-                      {!hasValidateStep(method) && !!method.validation?.length && (
-                        <div className="grid gap-3">
-                          {method.validation.map((kind) => (
-                            <p key={kind} className="rounded-lg border-2 bg-highlight p-4 text-lg">
-                              {kind === 'none'
-                                ? method.noValidationText || t('noValidationDefault')
-                                : t(`validationHint.${kind}`)}
-                            </p>
-                          ))}
+                    {/* Steps on the left; photos of the validator / reader in a yellow side panel, 2px black seam between */}
+                    <div
+                      className={cn(
+                        'grid gap-0.5 bg-foreground',
+                        method.photos?.length && 'lg:grid-cols-[3fr_2fr]',
+                      )}
+                    >
+                      <div className="grid content-start gap-4 bg-card p-4 sm:p-6">
+                        <h4 className="text-sm font-semibold tracking-wide uppercase">
+                          {t('stepsHeading')}
+                        </h4>
+                        <StepList steps={method.steps} />
+                        {!hasValidateStep(method) && !!method.validation?.length && (
+                          <div className="grid gap-3">
+                            {method.validation.map((kind) => (
+                              <p
+                                key={kind}
+                                className="rounded-lg border-2 bg-highlight p-4 text-lg"
+                              >
+                                {kind === 'none'
+                                  ? method.noValidationText || t('noValidationDefault')
+                                  : t(`validationHint.${kind}`)}
+                              </p>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      {!!method.photos?.length && (
+                        <div className="grid content-start gap-4 bg-highlight p-4 sm:p-6">
+                          <h4 className="text-sm font-semibold tracking-wide uppercase">
+                            {t('photosHeading')}
+                          </h4>
+                          <PhotoList photos={method.photos} />
                         </div>
                       )}
-                      <PhotoList photos={method.photos} />
                     </div>
                   </CollapsibleContent>
                 </Collapsible>

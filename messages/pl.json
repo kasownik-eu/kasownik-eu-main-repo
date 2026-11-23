@@ -82,6 +82,8 @@
     "unknown": "—"
   },
   "PurchaseMethods": {
+    "stepsHeading": "Krok po kroku",
+    "photosHeading": "Tak to wygląda",
     "title": "Jak kupić bilet i rozpocząć przejazd",
     "lead": "Wybierz sposób zakupu i naciśnij „Pokaż instrukcję”. Instrukcja otworzy się pod nim.",
     "empty": "Brak informacji o sposobach zakupu.",
