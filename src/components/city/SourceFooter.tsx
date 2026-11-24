@@ -1,3 +1,4 @@
+import { REPORT_URL } from '@/lib/links'
 import { getFormatter, getTranslations } from 'next-intl/server'
 import React from 'react'
 
@@ -10,7 +11,7 @@ type Props = {
   reportUrl?: string
 }
 
-export async function SourceFooter({ sources, verifiedAt, reportUrl = '#' }: Props) {
+export async function SourceFooter({ sources, verifiedAt, reportUrl = REPORT_URL }: Props) {
   const t = await getTranslations('SourceFooter')
   const tCommon = await getTranslations('Common')
   const format = await getFormatter()

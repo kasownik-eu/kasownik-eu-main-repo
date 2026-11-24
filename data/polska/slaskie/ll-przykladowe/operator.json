@@ -1,9 +1,0 @@
-{
-  "name": "Linie Lotniskowe",
-  "shortName": "LL",
-  "sampleData": true,
-  "transportModes": [
-    "bus"
-  ],
-  "currency": "PLN"
-}

@@ -1,5 +1,6 @@
 'use client'
 
+import { REPORT_URL } from '@/lib/links'
 import { ChevronRightIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import React, { useMemo, useState } from 'react'
@@ -35,7 +36,7 @@ type Props = {
 
 // The list follows the site search: the same data and matching as the search bar above it
 // (a region name matches all of its cities)
-export function CitiesBrowser({ groups, reportUrl = '#' }: Props) {
+export function CitiesBrowser({ groups, reportUrl = REPORT_URL }: Props) {
   const t = useTranslations('CitiesList')
   const [query, setQuery] = useState('')
   const { hits, active, status } = useSearch(query)
@@ -75,7 +76,7 @@ export function CitiesBrowser({ groups, reportUrl = '#' }: Props) {
             <Button variant="outline" size="lg" onClick={() => setQuery('')}>
               {t('clearSearch')}
             </Button>
-            <Button size="lg" nativeButton={false} render={<a href={reportUrl} />}>
+            <Button size="lg" nativeButton={false} render={<a href={reportUrl} target="_blank" rel="noopener noreferrer" />}>
               {t('reportMissing')}
             </Button>
           </EmptyContent>

@@ -1,4 +1,12 @@
-# Kasownik.eu
+<p align="center">
+  <a href="https://kasownik.eu"><img src="src/app/icon.svg" alt="Kasownik logo" width="96" height="96"></a>
+</p>
+
+# [Kasownik.eu](https://kasownik.eu)
+
+**Main site: <https://kasownik.eu>**
+
+<a href="https://forms.gle/DUiS9HLGpmdkWnrz6"><img src="docs/report-error.webp" alt="Widzisz błąd? Napisz nam. Zgłoś błąd"></a>
 
 A static site: `npm run build` turns the JSON files in `data/` into plain HTML in `out/`. There is no database, CMS or
 server; any static file host can serve `out/`. Content is edited in git.
@@ -11,7 +19,7 @@ data/
     country.json                # { code: "PL", name }
     slaskie/                    # voivodeship
       voivodeship.json          # { code: "PL-24", name }
-      mzt-przykladowe/          # operator; the folder name is its URL slug
+      ztm-gzm/                  # operator; the folder name is its URL slug
         operator.json           # basic info, related operators, source pages
         cities.json             # cities it serves: [{ slug, name, primary? }]
         purchase.json           # how to buy a ticket and start the ride (one flow of steps)

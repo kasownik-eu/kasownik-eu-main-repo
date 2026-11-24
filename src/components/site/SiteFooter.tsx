@@ -1,3 +1,4 @@
+import { REPORT_URL } from '@/lib/links'
 import React from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -12,13 +13,13 @@ type Props = {
 }
 
 // Black site footer: tram strip, the page's note and one yellow action button
-export function SiteFooter({ children, actionLabel, actionHref = '#' }: Props) {
+export function SiteFooter({ children, actionLabel, actionHref = REPORT_URL }: Props) {
   return (
     <footer className="chrome mt-16 pb-8">
       <TramStrip />
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 sm:px-6">
         <div className="max-w-[70ch] flex-[1_1_20rem] text-sm">{children}</div>
-        <Button size="lg" nativeButton={false} render={<a href={actionHref} />}>
+        <Button size="lg" nativeButton={false} render={<a href={actionHref} target="_blank" rel="noopener noreferrer" />}>
           {actionLabel}
         </Button>
       </div>

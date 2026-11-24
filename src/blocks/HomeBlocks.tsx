@@ -7,10 +7,10 @@ import { SiteSearch } from '@/components/search/SiteSearch'
 import { TourPreview, type TourPreviewKind } from '@/components/home/TourPreview'
 import { ValidatorArt } from '@/components/home/ValidatorArt'
 import { SiteFooter } from '@/components/site/SiteFooter'
+import { REPORT_URL } from '@/lib/links'
 
 import type { BlockProps } from './types'
 
-const REPORT_URL = '#'
 
 // Yellow band: what the site answers, the search, and a ticket being stamped (desktop only)
 export async function HomeHeroBlock({ id }: BlockProps<'homeHero'>) {
