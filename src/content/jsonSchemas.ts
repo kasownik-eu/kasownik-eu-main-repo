@@ -1,0 +1,31 @@
+import { z } from 'zod'
+
+import { templateFile } from '@/blocks/schema'
+
+import {
+  citiesFile,
+  countryFile,
+  evidenceFile,
+  operatorFile,
+  purchaseFile,
+  ticketsFile,
+  voivodeshipFile,
+  zonesFile,
+} from './schema'
+
+// JSON Schemas for editors, keyed by the file they describe (country.json -> schemas/country.schema.json;
+// template -> templates/<page>/<name>.json)
+export const jsonSchemas = () =>
+  Object.fromEntries(
+    Object.entries({
+      country: countryFile,
+      voivodeship: voivodeshipFile,
+      operator: operatorFile,
+      cities: citiesFile,
+      purchase: purchaseFile,
+      tickets: ticketsFile,
+      zones: zonesFile,
+      evidence: evidenceFile,
+      template: templateFile,
+    }).map(([name, schema]) => [name, z.toJSONSchema(schema, { io: 'input' })]),
+  )

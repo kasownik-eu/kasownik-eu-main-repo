@@ -1,0 +1,541 @@
+{
+  "tickets": [
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet 20-minutowy",
+        "en": "20-minute ticket"
+      },
+      "validity": {
+        "pl": "20 min"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 3.4,
+      "priceReduced": 1.7,
+      "whereToBuy": {
+        "pl": "automat, aplikacja, kierowca",
+        "en": "machine, app, driver"
+      },
+      "media": [
+        "paper",
+        "app",
+        "paymentCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet 60-minutowy",
+        "en": "60-minute ticket"
+      },
+      "validity": {
+        "pl": "60 min"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 4.8,
+      "priceReduced": 2.4,
+      "whereToBuy": {
+        "pl": "automat, aplikacja",
+        "en": "machine, app"
+      },
+      "media": [
+        "paper",
+        "app",
+        "paymentCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Bilet 90-minutowy",
+        "en": "90-minute ticket"
+      },
+      "validity": {
+        "pl": "90 min"
+      },
+      "scope": {
+        "pl": "Strefy A+B",
+        "en": "Zones A+B"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 6.2,
+      "priceReduced": 3.1,
+      "whereToBuy": {
+        "pl": "automat, aplikacja",
+        "en": "machine, app"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Bilet 24-godzinny",
+        "en": "24-hour ticket"
+      },
+      "validity": {
+        "pl": "24 godziny",
+        "en": "24 hours"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 14,
+      "priceReduced": 7,
+      "whereToBuy": {
+        "pl": "automat, aplikacja, punkt obsługi",
+        "en": "machine, app, service point"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Bilet 72-godzinny",
+        "en": "72-hour ticket"
+      },
+      "validity": {
+        "pl": "72 godziny",
+        "en": "72 hours"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 28,
+      "priceReduced": 14,
+      "whereToBuy": {
+        "pl": "automat, aplikacja, punkt obsługi",
+        "en": "machine, app, service point"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Bilet weekendowy",
+        "en": "Weekend ticket"
+      },
+      "validity": {
+        "pl": "pt 18:00 – pn 6:00",
+        "en": "Fri 18:00 – Mon 6:00"
+      },
+      "scope": {
+        "pl": "Strefy A+B",
+        "en": "Zones A+B"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 18,
+      "priceReduced": 9,
+      "whereToBuy": {
+        "pl": "aplikacja, punkt obsługi",
+        "en": "app, service point"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Bilet miesięczny",
+        "en": "Monthly ticket"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 120,
+      "priceReduced": 60,
+      "whereToBuy": {
+        "pl": "aplikacja, punkt obsługi",
+        "en": "app, service point"
+      },
+      "media": [
+        "cityCard",
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Bilet kwartalny",
+        "en": "Quarterly ticket"
+      },
+      "validity": {
+        "pl": "90 dni",
+        "en": "90 days"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 320,
+      "priceReduced": 160,
+      "whereToBuy": {
+        "pl": "aplikacja, punkt obsługi",
+        "en": "app, service point"
+      },
+      "media": [
+        "cityCard",
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Bilet roczny",
+        "en": "Annual ticket"
+      },
+      "validity": {
+        "pl": "365 dni",
+        "en": "365 days"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 1100,
+      "priceReduced": 550,
+      "whereToBuy": {
+        "pl": "punkt obsługi",
+        "en": "service point"
+      },
+      "media": [
+        "cityCard"
+      ]
+    },
+    {
+      "category": "other",
+      "name": {
+        "pl": "Bilet rodzinny",
+        "en": "Family ticket"
+      },
+      "validity": {
+        "pl": "1 dzień",
+        "en": "1 day"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "priceNormal": 12,
+      "priceReduced": null,
+      "whereToBuy": {
+        "pl": "automat, aplikacja",
+        "en": "machine, app"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "other",
+      "name": {
+        "pl": "Bilet grupowy (od 10 osób)",
+        "en": "Group ticket (10+ people)"
+      },
+      "validity": {
+        "pl": "1 dzień",
+        "en": "1 day"
+      },
+      "scope": {
+        "pl": "Strefa A",
+        "en": "Zone A"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 40,
+      "priceReduced": null,
+      "whereToBuy": {
+        "pl": "punkt obsługi",
+        "en": "service point"
+      },
+      "media": [
+        "paper"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "type": "paper",
+      "action": {
+        "pl": "Skasuj w kasowniku",
+        "en": "Validate in the validator"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do pojazdu",
+        "en": "Right after boarding"
+      },
+      "steps": [
+        {
+          "pl": "Wejdź do pojazdu i znajdź kasownik przy najbliższych drzwiach.",
+          "en": "Board and find the validator by the nearest door."
+        },
+        {
+          "pl": "Włóż bilet do szczeliny strzałką w dół, napisem do siebie.",
+          "en": "Insert the ticket arrow down, text facing you."
+        },
+        {
+          "pl": "Poczekaj na sygnał. Kasownik wydrukuje datę i godzinę.",
+          "en": "Wait for the beep. The validator prints the date and time."
+        },
+        {
+          "pl": "Sprawdź nadruk i zachowaj bilet do końca jazdy.",
+          "en": "Check the print and keep the ticket until the end of the ride."
+        }
+      ]
+    },
+    {
+      "type": "app",
+      "action": {
+        "pl": "Aktywuj przed wejściem",
+        "en": "Activate before boarding"
+      },
+      "when": {
+        "pl": "Na przystanku, zanim wejdziesz",
+        "en": "At the stop, before you board"
+      },
+      "steps": [
+        {
+          "pl": "Kup bilet w aplikacji „MZT Bilet”.",
+          "en": "Buy the ticket in the “MZT Bilet” app."
+        },
+        {
+          "pl": "Wybierz pojazd albo zeskanuj kod QR z naklejki, jeśli aplikacja o to poprosi.",
+          "en": "Choose the vehicle or scan the QR sticker if the app asks."
+        },
+        {
+          "pl": "Aktywuj bilet przed wejściem. Czas liczy się od aktywacji.",
+          "en": "Activate before boarding. Time counts from activation."
+        },
+        {
+          "pl": "Miej naładowany telefon pod ręką do końca jazdy.",
+          "en": "Keep a charged phone at hand until the end of the ride."
+        }
+      ]
+    },
+    {
+      "type": "paymentCard",
+      "action": {
+        "pl": "Zbliż do czytnika",
+        "en": "Tap on the reader"
+      },
+      "when": {
+        "pl": "Przy każdym wejściu do pojazdu",
+        "en": "Every time you board"
+      },
+      "steps": [
+        {
+          "pl": "Przy wejściu zbliż kartę lub telefon do czytnika z ikoną fal.",
+          "en": "On boarding, tap your card or phone on the reader with the wave icon."
+        },
+        {
+          "pl": "Poczekaj na zielone światło i krótki sygnał.",
+          "en": "Wait for the green light and a short beep."
+        },
+        {
+          "pl": "Opłata pobierze się sama. To zakup i skasowanie naraz.",
+          "en": "You are charged automatically: buying and validating at once."
+        },
+        {
+          "pl": "Przy kontroli przyłóż tę samą kartę lub telefon.",
+          "en": "At a ticket check, tap the same card or phone."
+        }
+      ]
+    },
+    {
+      "type": "cityCard",
+      "name": {
+        "pl": "Karta miejska",
+        "en": "City card"
+      },
+      "action": {
+        "pl": "Aktywuj przy 1. jeździe",
+        "en": "Activate on the first ride"
+      },
+      "when": {
+        "pl": "Tylko przy pierwszej jeździe biletem okresowym",
+        "en": "Only on the first ride with a period ticket"
+      },
+      "steps": [
+        {
+          "pl": "Doładuj bilet okresowy w punkcie obsługi lub online.",
+          "en": "Load the period ticket at a service point or online."
+        },
+        {
+          "pl": "Przy pierwszej jeździe zbliż kartę do czytnika. To aktywuje bilet.",
+          "en": "On the first ride, tap the card on the reader to activate it."
+        },
+        {
+          "pl": "W kolejnych dniach nic nie kasujesz.",
+          "en": "On the following days you validate nothing."
+        },
+        {
+          "pl": "Zawsze noś kartę przy sobie.",
+          "en": "Always carry the card."
+        }
+      ]
+    }
+  ],
+  "luggage": [
+    {
+      "item": {
+        "pl": "Bagaż ręczny",
+        "en": "Hand luggage"
+      },
+      "note": {
+        "pl": "do 60 × 40 × 25 cm",
+        "en": "up to 60 × 40 × 25 cm"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "conditions": {
+        "pl": "Trzymaj bagaż na kolanach lub pod siedzeniem. Nie blokuj przejścia.",
+        "en": "Keep it on your lap or under the seat. Do not block the aisle."
+      }
+    },
+    {
+      "item": {
+        "pl": "Rower",
+        "en": "Bike"
+      },
+      "note": {
+        "pl": "1 rower na pojazd",
+        "en": "1 bike per vehicle"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "feeText": {
+        "pl": "bezpłatnie poza szczytem",
+        "en": "free off-peak"
+      },
+      "conditions": {
+        "pl": "W szczycie (6:00–9:00, 15:00–18:00) wymagany bilet jednorazowy.",
+        "en": "At peak times (6:00–9:00, 15:00–18:00) a single ticket is required."
+      },
+      "whereToBuy": {
+        "pl": "automat, aplikacja",
+        "en": "machine, app"
+      }
+    },
+    {
+      "item": {
+        "pl": "Pies",
+        "en": "Dog"
+      },
+      "note": {
+        "pl": "pod opieką opiekuna",
+        "en": "with its owner"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "conditions": {
+        "pl": "W kagańcu i na smyczy. Psy asystujące zawsze bezpłatnie.",
+        "en": "Muzzled and on a leash. Assistance dogs always travel free."
+      }
+    },
+    {
+      "item": {
+        "pl": "Wózek dziecięcy",
+        "en": "Pram"
+      },
+      "note": {
+        "pl": "także wózek inwalidzki",
+        "en": "also wheelchairs"
+      },
+      "transportModes": [
+        "tram",
+        "bus",
+        "metro"
+      ],
+      "conditions": {
+        "pl": "Zajmij miejsce oznaczone symbolem wózka.",
+        "en": "Use the space marked with the pram symbol."
+      }
+    }
+  ],
+  "rulesNote": {
+    "pl": "Bilet ulgowy przysługuje m.in. uczniom, studentom i seniorom. Zabierz dokument potwierdzający uprawnienie (przykładowa zasada).",
+    "en": "Reduced tickets are available to pupils, students and seniors, among others. Bring a document proving eligibility (sample rule)."
+  },
+  "rulesUrl": "https://example.com/regulamin"
+}

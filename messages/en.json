@@ -1,10 +1,12 @@
 {
   "Metadata": {
-    "siteTitle": "City transport",
+    "siteTitle": "Kasownik",
     "cityTitle": "{city} — tickets and public transport",
     "citiesTitle": "Cities",
     "operatorTitle": "{operator} — tickets and public transport",
-    "operatorsTitle": "Operators"
+    "operatorsTitle": "Operators",
+    "homeTitle": "Kasownik — how to buy and validate a ticket",
+    "homeDescription": "How and where to buy a public transport ticket, how to validate it and which zones it covers. Cities and operators in one place."
   },
   "Common": {
     "opensInNewTab": "(opens in a new tab)"
@@ -13,15 +15,7 @@
     "skipToContent": "Skip to content",
     "mainNav": "Main",
     "cities": "Cities",
-    "menu": "Menu",
-    "close": "Close",
     "language": "Language",
-    "textSize": "Text size",
-    "textSizes": {
-      "0": "Text size: standard",
-      "1": "Text size: larger",
-      "2": "Text size: largest"
-    },
     "operators": "Operators"
   },
   "CityPage": {
@@ -41,8 +35,6 @@
     "country": "Country",
     "countryPoland": "Poland",
     "moreCountriesSoon": "More countries coming soon",
-    "searchLabel": "Search for a city or region",
-    "searchPlaceholder": "e.g. Katowice or Silesia",
     "clearSearch": "Clear search",
     "statusAll": "{cities, plural, one {# city} other {# cities}} in {regions, plural, one {# region} other {# regions}}",
     "statusFound": "Found: {count, plural, one {# city} other {# cities}}",
@@ -58,8 +50,6 @@
     "empty": "No operators to show.",
     "breadcrumbs": "Breadcrumbs",
     "countryPoland": "Poland",
-    "searchLabel": "Search for an operator or city",
-    "searchPlaceholder": "e.g. MZT or Katowice",
     "clearSearch": "Clear search",
     "statusAll": "All operators: {count}",
     "statusFound": "Found: {count, plural, one {# operator} other {# operators}}",
@@ -79,21 +69,41 @@
     "timetables": "Timetables",
     "facts": "Key facts",
     "factModes": "Transport modes",
+    "zonesUnknown": "No zones defined",
     "factZones": "Number of zones",
     "factPayment": "Payment",
     "factVerified": "Verified",
     "unknown": "—"
   },
   "PurchaseMethods": {
-    "title": "How to buy and validate a ticket",
+    "stepsHeading": "Step by step",
+    "photosHeading": "What it looks like",
+    "title": "How to buy a ticket and start your ride",
     "lead": "Choose a way to buy and press “Show instructions”. The instructions open right below it.",
     "empty": "No information about ways to buy tickets.",
     "show": "Show instructions",
     "hide": "Hide instructions",
-    "requiresValidation": "needs validating",
-    "noValidation": "no validation",
-    "howToBuy": "How to buy",
-    "howToValidate": "How to validate",
+    "type": {
+      "machine": "Ticket machine",
+      "app": "Mobile app",
+      "office": "Sales point",
+      "contactless": "Card payment",
+      "metrokarta": "Metrokarta",
+      "driver": "Buy from the driver",
+      "sms": "Buy by SMS",
+      "other": "Other way"
+    },
+    "validationKind": {
+      "punch": "validate in the validator",
+      "qr": "scan the QR code on board",
+      "tap": "tap your card on the reader",
+      "none": "no validation"
+    },
+    "validationHint": {
+      "punch": "Put your paper ticket into the validator right after boarding.",
+      "qr": "After boarding, scan the QR code in the vehicle with the app.",
+      "tap": "Tap your card on the reader right after boarding. When you pay per ride (Start/Stop), do it again when you get off."
+    },
     "noValidationDefault": "This ticket does not need validating.",
     "helpTitle": "Need help?",
     "hotline": "{operator} hotline",
@@ -104,7 +114,7 @@
   },
   "TicketTabs": {
     "title": "Tickets and fares",
-    "lead": "Choose a ticket type. Prices are per person.",
+    "lead": "Choose a ticket. Under each one you will see how to validate it. Prices are per person.",
     "tabsLabel": "Ticket types",
     "tabs": {
       "single": "Single",
@@ -133,6 +143,22 @@
       "conditions": "Conditions"
     },
     "free": "free",
+    "whereToBuy": "Where to buy: {where}",
+    "validation": {
+      "heading": "How to validate? Your ticket is:",
+      "group": "Ticket form",
+      "showSteps": "Show step by step",
+      "hideSteps": "Hide steps",
+      "have": "You have:",
+      "popupTitle": "How to validate the ticket",
+      "close": "Close"
+    },
+    "media": {
+      "paper": "Paper",
+      "app": "App",
+      "paymentCard": "Payment card",
+      "cityCard": "City card"
+    },
     "empty": "No tickets in this category.",
     "rules": "Discounts and rules",
     "rulesLink": "Regulations"
@@ -144,7 +170,9 @@
     "mapAlt": "Zone map",
     "noteTitle": "Good to know",
     "zone": "Zone",
-    "covers": "Covers"
+    "covers": "Covers",
+    "none": "No zones defined",
+    "noneText": "We have no zone description for this operator yet."
   },
   "SourceFooter": {
     "sources": "Sources",
@@ -183,5 +211,108 @@
     "train": "train",
     "trolleybus": "trolleybus",
     "ferry": "ferry"
+  },
+  "HomeHero": {
+    "title": "Find out how to buy and validate a ticket",
+    "point1": "how and where to buy a ticket",
+    "point2": "how to validate a ticket",
+    "point3": "which zones a ticket covers",
+    "artLabel": "Drawing: a ticket inserted into a validator, green lights show the ticket is validated",
+    "artInsert": "Insert ticket",
+    "artStamped": "Ticket validated"
+  },
+  "SiteSearch": {
+    "label": "Type a city or an operator",
+    "submit": "Search",
+    "hint": "For example: Katowice or the name of a transport company. We search all countries at once, no need to pick one.",
+    "hintShort": "For example: Katowice or the name of a transport company. We search all countries at once.",
+    "menuButton": "Search",
+    "dialogTitle": "Search",
+    "back": "Back",
+    "close": "Close",
+    "clear": "Clear the field",
+    "results": "Search results",
+    "popular": "Popular places",
+    "found": "Found: {count}",
+    "noResults": "No results",
+    "noResultsTitle": "We found nothing for “{query}”.",
+    "noResultsText": "Check the spelling or pick a city from the list.",
+    "allCities": "See all cities",
+    "showAll": "Show all results ({count})",
+    "loading": "Loading the search…",
+    "error": "The search could not load. Check your connection and try again.",
+    "kind": {
+      "city": "City",
+      "operator": "Operator"
+    }
+  },
+  "OperatorTour": {
+    "title": "What you'll find on an operator page",
+    "lead": "Every operator page is built the same way. Go through it like three stops on a line.",
+    "steps": {
+      "buy": {
+        "title": "Step 1. How to buy and validate a ticket",
+        "text": "We show every way to buy: ticket machine, app, service point, card. Each comes with step-by-step instructions and whether the ticket needs validating."
+      },
+      "prices": {
+        "title": "Step 2. How much a ticket costs",
+        "text": "All fares in one place: single, multi-day and monthly tickets. You see the standard and reduced price at a glance."
+      },
+      "zones": {
+        "title": "Step 3. Which zones a ticket covers",
+        "text": "A zone diagram and a plain description of how far a ticket takes you."
+      }
+    },
+    "finish": {
+      "title": "End of the line",
+      "text": "You know which ticket to buy, what it costs and how far it takes you. Now look up your city."
+    },
+    "preview": {
+      "caption": "Part of an operator page · sample data",
+      "buy": {
+        "label": "Preview: the \"Ticket machine\" purchase method with three steps and a note that the ticket must be validated",
+        "method": "Ticket machine",
+        "badge": "needs validating",
+        "step1": "Find a ticket machine at the stop.",
+        "step2": "Pick a ticket on the screen and pay.",
+        "step3": "Validate the ticket in the vehicle."
+      },
+      "prices": {
+        "label": "Preview: a fare table with two tickets, each with its validity and room for the standard and reduced price. Prices appear on the operator page.",
+        "ticket1": "20-minute ticket",
+        "validity1": "20 min",
+        "ticket2": "24-hour ticket",
+        "validity2": "24 h",
+        "validity": "Validity",
+        "normal": "Standard",
+        "reduced": "Reduced"
+      },
+      "zones": {
+        "label": "Preview: a diagram of three zones, Zone 1, Zone 2 and Zone 3, each with a short description",
+        "zone": "Zone {number}",
+        "zone1": "city centre",
+        "zone2": "neighbouring towns",
+        "zone3": "further out"
+      }
+    }
+  },
+  "AiSources": {
+    "title": "Where this information comes from",
+    "lead": "Content is drafted by artificial intelligence (AI) from operators' official websites. A person checks it.",
+    "read": {
+      "title": "AI reads operator websites",
+      "text": "It collects information from official regulations and fare tables."
+    },
+    "check": {
+      "title": "A person checks the content",
+      "text": "A moderator compares the page with the source. We give the source and the date it was checked."
+    },
+    "report": {
+      "title": "You can report an error",
+      "text": "Every page has a \"Report an error\" button. Always confirm prices and rules with the operator."
+    }
+  },
+  "SiteFooter": {
+    "reportError": "Report an error"
   }
 }

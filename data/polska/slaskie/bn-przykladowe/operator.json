@@ -1,0 +1,9 @@
+{
+  "name": "Busy Nocne",
+  "shortName": "BN",
+  "sampleData": true,
+  "transportModes": [
+    "bus"
+  ],
+  "currency": "PLN"
+}

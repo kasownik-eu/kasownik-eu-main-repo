@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "map": { "file": "map.svg", "alt": { "pl": "Mapa stref" } },
+  "items": [{ "name": { "pl": "Strefa A", "en": "Zone A" } }]
+}

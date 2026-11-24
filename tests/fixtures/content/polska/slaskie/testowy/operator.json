@@ -1,0 +1,14 @@
+{
+  "name": "Testowy Przewoźnik",
+  "shortName": "TP",
+  "websiteUrl": "https://www.example.com/",
+  "logo": { "file": "map.svg" },
+  "transportModes": ["tram", "bus", "metro"],
+  "related": [{ "operator": "inny", "relation": "sharedArea", "ticketValidity": "partial" }],
+  "sources": { "items": [{ "label": { "pl": "Strona", "en": "Website" }, "url": "https://example.com" }] },
+  "templates": { "operator": "default" },
+  "blocks": [
+    { "type": "notice", "tone": "warning", "title": { "pl": "Utrudnienia", "en": "Disruption" }, "text": { "pl": "Objazd linii 1." } }
+  ],
+  "tariffSources": [{ "url": "https://example.com/cennik", "xpath": "//div[@id='tariff']" }]
+}

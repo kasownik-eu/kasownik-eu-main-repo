@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "jaworzno",
+    "name": {
+      "pl": "Jaworzno"
+    },
+    "primary": true
+  },
+  {
+    "slug": "chrzanow",
+    "name": {
+      "pl": "Chrzanów"
+    },
+    "voivodeship": "malopolskie"
+  },
+  {
+    "slug": "katowice",
+    "name": {
+      "pl": "Katowice"
+    }
+  },
+  {
+    "slug": "myslowice",
+    "name": {
+      "pl": "Mysłowice"
+    }
+  },
+  {
+    "slug": "sosnowiec",
+    "name": {
+      "pl": "Sosnowiec"
+    }
+  }
+]

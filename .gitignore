@@ -53,3 +53,6 @@ node_modules/
 
 # tariff sync page cache
 /.tmp/
+
+# operator images copied from data/ (npm run predev / prebuild)
+/public/media/

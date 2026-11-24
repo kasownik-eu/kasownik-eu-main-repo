@@ -3,22 +3,42 @@ import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import type { Operator } from '@/payload-types'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
+import type { ZonesView } from '@/content'
 
-import { mediaUrl } from './format'
 import { Section } from './Section'
 
 type Props = {
-  zones: Operator['zones']
+  zones: ZonesView | null
 }
 
-// Optional module: skipped for single-fare cities. Map first, then the same info as a table
+// Skipped for single-fare cities (`enabled: false`). Without any zone data a placeholder says so.
+// Map first, then the same info as a table
 export async function ZoneInfo({ zones }: Props) {
-  if (!zones?.enabled) return null
+  if (zones && !zones.enabled) return null
 
   const t = await getTranslations('ZoneInfo')
-  const map = mediaUrl(zones.map)
+
+  if (!zones || (!zones.map && !zones.items?.length)) {
+    return (
+      <Section id="zones" title={t('title')} lead={t('lead')}>
+        <Alert role="note" className="px-4 py-3">
+          <MapIcon aria-hidden="true" />
+          <AlertTitle>{t('none')}</AlertTitle>
+          <AlertDescription>{t('noneText')}</AlertDescription>
+        </Alert>
+      </Section>
+    )
+  }
+
+  const { map } = zones
 
   return (
     <Section id="zones" title={t('title')} lead={t('lead')}>
@@ -26,8 +46,10 @@ export async function ZoneInfo({ zones }: Props) {
         {map ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            className="w-full rounded-xl border bg-muted object-contain"
-            src={map.url!}
+            className="aspect-4/3 w-full rounded-xl border bg-muted object-contain"
+            loading="lazy"
+            decoding="async"
+            src={map.url}
             alt={map.alt || t('mapAlt')}
           />
         ) : (
@@ -50,7 +72,7 @@ export async function ZoneInfo({ zones }: Props) {
               </TableHeader>
               <TableBody>
                 {zones.items.map((zone, index) => (
-                  <TableRow key={zone.id ?? index}>
+                  <TableRow key={index}>
                     <TableHead scope="row" className="px-3 py-3 font-semibold whitespace-normal">
                       {zone.name}
                     </TableHead>

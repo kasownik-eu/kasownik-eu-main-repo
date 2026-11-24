@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "maxItems": 6,
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "machine",
+          "app",
+          "office",
+          "contactless",
+          "metrokarta",
+          "driver",
+          "sms",
+          "other"
+        ]
+      },
+      "title": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "pl": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "pl"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "subtitle": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "pl": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "pl"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "validation": {
+        "anyOf": [
+          {
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "punch",
+                "qr",
+                "tap",
+                "none"
+              ]
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "steps": {
+        "anyOf": [
+          {
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "buy",
+                    "validate"
+                  ]
+                },
+                "text": {
+                  "type": "object",
+                  "properties": {
+                    "pl": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "pl"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "kind",
+                "text"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "noValidationText": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "pl": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "pl"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "photos": {
+        "anyOf": [
+          {
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "type": "object",
+                  "properties": {
+                    "file": {
+                      "type": "string",
+                      "pattern": "^[\\w.-]+$"
+                    },
+                    "alt": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "pl": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "en": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "pl"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "file"
+                  ],
+                  "additionalProperties": false
+                },
+                "caption": {
+                  "type": "object",
+                  "properties": {
+                    "pl": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "en": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "pl"
+                  ],
+                  "additionalProperties": false
+                },
+                "alt": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "pl": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "en": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "pl"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "image",
+                "caption"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "type"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,16 +1,18 @@
-import { MenuIcon, TramFrontIcon } from 'lucide-react'
+import { TramFrontIcon } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
 
-import { Button, buttonVariants } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 
+import { SiteSearch } from '@/components/search/SiteSearch'
+
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { MainNav } from './MainNav'
-import { TextSizeControl } from './TextSizeControl'
 
+// Every option stays visible (no hamburger). Desktop: one row, brand · nav · search · text size · language.
+// Phone: brand, search and text size on the first row, nav and language on the second
 export async function SiteHeader() {
   const t = await getTranslations('SiteHeader')
   const tMeta = await getTranslations('Metadata')
@@ -26,38 +28,26 @@ export async function SiteHeader() {
       >
         {t('skipToContent')}
       </a>
-      <div className="mx-auto flex min-h-16 w-full max-w-6xl flex-wrap items-center gap-3 px-4 py-2 sm:gap-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5 font-semibold">
+      <div className="mx-auto flex min-h-16 w-full max-w-6xl flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2 sm:gap-x-4 sm:px-6">
+        <Link href="/" className="flex min-h-11 items-center gap-2.5 font-bold md:order-1">
           <span className="grid size-8 place-items-center rounded-md bg-primary text-primary-foreground ring-2 ring-primary-foreground" aria-hidden="true">
             <TramFrontIcon className="size-[18px]" />
           </span>
-          <span className="max-sm:sr-only">{tMeta('siteTitle')}</span>
+          <span>{tMeta('siteTitle')}</span>
         </Link>
 
-        <MainNav className="hidden gap-1 md:flex" />
+        <span className="flex-1 md:order-3" />
 
-        <span className="flex-1" />
-
-        <TextSizeControl />
-
-        <div className="hidden md:block">
-          <LanguageSwitcher />
+        <div className="flex items-center gap-x-2 sm:gap-x-4 md:order-4">
+          <SiteSearch variant="menu" />
         </div>
 
-        <Sheet>
-          <SheetTrigger render={<Button variant="outline" size="icon-lg" className="size-11 md:hidden" aria-label={t('menu')} />}>
-            <MenuIcon />
-          </SheetTrigger>
-          <SheetContent side="right" closeLabel={t('close')}>
-            <SheetHeader>
-              <SheetTitle>{t('menu')}</SheetTitle>
-            </SheetHeader>
-            <MainNav className="flex flex-col gap-1 px-4" />
-            <div className="px-4">
-              <LanguageSwitcher />
-            </div>
-          </SheetContent>
-        </Sheet>
+        <div className="flex w-full flex-wrap items-center justify-between gap-x-4 gap-y-1 md:contents">
+          <MainNav className="-ml-3 flex flex-wrap gap-1 md:order-2 md:ml-0" />
+          <div className="md:order-5">
+            <LanguageSwitcher />
+          </div>
+        </div>
       </div>
     </header>
   )

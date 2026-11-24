@@ -1,0 +1,217 @@
+[
+  {
+    "type": "machine",
+    "title": {
+      "pl": "Automat biletowy",
+      "en": "Ticket machine"
+    },
+    "subtitle": {
+      "pl": "Przystanki, dworce i niektóre pojazdy",
+      "en": "Stops, stations and some vehicles"
+    },
+    "validation": [
+      "punch"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Znajdź automat na większym przystanku lub dworcu. Szukaj urządzenia z napisem „Bilety”.",
+          "en": "Find a machine at a larger stop or station. Look for a device labelled “Tickets”."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Dotknij ekranu, wybierz język, a potem rodzaj biletu.",
+          "en": "Touch the screen, choose your language, then the ticket type."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zapłać kartą lub monetami i odbierz bilet z dolnej tacki.",
+          "en": "Pay by card or coins and take the ticket from the bottom tray."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "W pojeździe znajdź kasownik przy drzwiach.",
+          "en": "Find the validator next to the doors in the vehicle."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Włóż bilet do kasownika strzałką do przodu i poczekaj na dźwięk.",
+          "en": "Insert the ticket arrow first and wait for the beep."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Sprawdź, czy na bilecie widać datę i godzinę. Kasuj od razu po wejściu.",
+          "en": "Check that the date and time are printed. Validate right after boarding."
+        }
+      }
+    ]
+  },
+  {
+    "type": "app",
+    "title": {
+      "pl": "Aplikacja mobilna",
+      "en": "Mobile app"
+    },
+    "subtitle": {
+      "pl": "Aplikacja „MZT Bilet” (przykład), wymaga konta",
+      "en": "“MZT Ticket” app (example), account required"
+    },
+    "validation": [
+      "punch"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Pobierz aplikację i załóż konto.",
+          "en": "Download the app and create an account."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wybierz bilet i potwierdź płatność.",
+          "en": "Choose a ticket and confirm payment."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Bilet pojawi się w zakładce „Moje bilety”.",
+          "en": "The ticket appears under “My tickets”."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Po wejściu do pojazdu otwórz bilet w aplikacji.",
+          "en": "After boarding, open the ticket in the app."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Naciśnij „Aktywuj”. Bilet zacznie obowiązywać.",
+          "en": "Tap “Activate”. The ticket becomes valid."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Przy kontroli pokaż ekran z biletem i licznikiem czasu.",
+          "en": "During inspection, show the screen with the ticket and timer."
+        }
+      }
+    ]
+  },
+  {
+    "type": "office",
+    "title": {
+      "pl": "Punkt obsługi",
+      "en": "Customer service point"
+    },
+    "subtitle": {
+      "pl": "Siedziba operatora, pon.–pt. 8:00–16:00",
+      "en": "Operator office, Mon–Fri 8:00–16:00"
+    },
+    "validation": [
+      "punch"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Przyjdź z dokumentem, jeśli kupujesz bilet ulgowy lub okresowy.",
+          "en": "Bring an ID if you are buying a reduced or season ticket."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Powiedz, jaki bilet potrzebujesz. Pracownik wystawi bilet i przyjmie płatność.",
+          "en": "Say which ticket you need. Staff will issue it and take payment."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zapytaj o kartę miejską, jeśli jeździsz regularnie.",
+          "en": "Ask about a city card if you travel regularly."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Bilet papierowy kasuje się w kasowniku przy drzwiach pojazdu.",
+          "en": "Validate a paper ticket in the validator next to the vehicle doors."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Bilet na karcie miejskiej: przyłóż kartę do czytnika.",
+          "en": "Ticket on a city card: tap the card on the reader."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Bilet okresowy nie wymaga kasowania za każdym razem.",
+          "en": "A season ticket does not need validating each time."
+        }
+      }
+    ]
+  },
+  {
+    "type": "contactless",
+    "title": {
+      "pl": "Karta bankowa lub telefon",
+      "en": "Bank card or phone"
+    },
+    "subtitle": {
+      "pl": "Płatność w pojeździe",
+      "en": "Pay in the vehicle"
+    },
+    "validation": [
+      "tap"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Przy wejściu do pojazdu przyłóż kartę lub telefon do czytnika.",
+          "en": "When boarding, tap your card or phone on the reader."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Poczekaj na sygnał potwierdzenia.",
+          "en": "Wait for the confirmation signal."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Do końca podróży nie wyrzucaj karty i nie wyłączaj telefonu.",
+          "en": "Keep the card and leave the phone on until the end of the trip."
+        }
+      }
+    ],
+    "noValidationText": {
+      "pl": "Ten bilet jest ważny od przyłożenia karty. Niczego nie kasujesz. Przy kontroli przyłóż tę samą kartę lub telefon.",
+      "en": "This ticket is valid from the moment you tap. There is nothing to validate. During inspection, tap the same card or phone."
+    }
+  }
+]

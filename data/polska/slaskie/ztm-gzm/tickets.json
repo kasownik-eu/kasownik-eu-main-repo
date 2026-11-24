@@ -1,0 +1,1161 @@
+{
+  "tickets": [
+    {
+      "category": "single",
+      "name": {
+        "pl": "20 minut (bilet papierowy)",
+        "en": "20 minutes (paper ticket)"
+      },
+      "validity": {
+        "pl": "20 minut",
+        "en": "20 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 4.6,
+      "priceReduced": 2.3,
+      "whereToBuy": {
+        "pl": "automat biletowy, punkt sprzedaży, POP",
+        "en": "ticket machine, sales point, passenger service point (POP)"
+      },
+      "media": [
+        "paper"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "40 minut (bilet papierowy)",
+        "en": "40 minutes (paper ticket)"
+      },
+      "validity": {
+        "pl": "40 minut",
+        "en": "40 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 5.6,
+      "priceReduced": 2.8,
+      "whereToBuy": {
+        "pl": "automat biletowy, punkt sprzedaży, POP",
+        "en": "ticket machine, sales point, passenger service point (POP)"
+      },
+      "media": [
+        "paper"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "120 minut (bilet papierowy)",
+        "en": "120 minutes (paper ticket)"
+      },
+      "validity": {
+        "pl": "120 minut",
+        "en": "120 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 7.0,
+      "priceReduced": 3.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, punkt sprzedaży, POP",
+        "en": "ticket machine, sales point, passenger service point (POP)"
+      },
+      "media": [
+        "paper"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Grupowy (bilet papierowy)",
+        "en": "Group (paper ticket)"
+      },
+      "validity": {
+        "pl": "120 minut, do 5 osób",
+        "en": "120 minutes, up to 5 people"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 13.8,
+      "priceReduced": 6.9,
+      "whereToBuy": {
+        "pl": "automat biletowy",
+        "en": "ticket machine"
+      },
+      "media": [
+        "paper"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "20 minut (bilet elektroniczny)",
+        "en": "20 minutes (electronic ticket)"
+      },
+      "validity": {
+        "pl": "20 minut",
+        "en": "20 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 4.2,
+      "priceReduced": 2.1,
+      "whereToBuy": {
+        "pl": "aplikacja, kasownik (karta płatnicza, Metrokarta)",
+        "en": "app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "40 minut (bilet elektroniczny)",
+        "en": "40 minutes (electronic ticket)"
+      },
+      "validity": {
+        "pl": "40 minut",
+        "en": "40 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 5.2,
+      "priceReduced": 2.6,
+      "whereToBuy": {
+        "pl": "aplikacja, kasownik (karta płatnicza, Metrokarta)",
+        "en": "app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "120 minut (bilet elektroniczny)",
+        "en": "120 minutes (electronic ticket)"
+      },
+      "validity": {
+        "pl": "120 minut",
+        "en": "120 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 6.6,
+      "priceReduced": 3.3,
+      "whereToBuy": {
+        "pl": "aplikacja, kasownik (karta płatnicza, Metrokarta)",
+        "en": "app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Grupowy (bilet elektroniczny)",
+        "en": "Group (electronic ticket)"
+      },
+      "validity": {
+        "pl": "120 minut, do 5 osób",
+        "en": "120 minutes, up to 5 people"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 12.8,
+      "priceReduced": 6.4,
+      "whereToBuy": {
+        "pl": "aplikacja",
+        "en": "app"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop: do 5 minut",
+        "en": "Start/Stop trip: up to 5 minutes"
+      },
+      "validity": {
+        "pl": "do 5 minut",
+        "en": "up to 5 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 2.1,
+      "priceReduced": 1.05,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
+        "en": "Transport GZM app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop: powyżej 5 do 10 minut",
+        "en": "Start/Stop trip: over 5 to 10 minutes"
+      },
+      "validity": {
+        "pl": "do 10 minut",
+        "en": "up to 10 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 3.2,
+      "priceReduced": 1.6,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
+        "en": "Transport GZM app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop: powyżej 10 do 15 minut",
+        "en": "Start/Stop trip: over 10 to 15 minutes"
+      },
+      "validity": {
+        "pl": "do 15 minut",
+        "en": "up to 15 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 3.7,
+      "priceReduced": 1.85,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
+        "en": "Transport GZM app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop: powyżej 15 do 20 minut",
+        "en": "Start/Stop trip: over 15 to 20 minutes"
+      },
+      "validity": {
+        "pl": "do 20 minut",
+        "en": "up to 20 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 4.2,
+      "priceReduced": 2.1,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
+        "en": "Transport GZM app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop: powyżej 20 do 30 minut",
+        "en": "Start/Stop trip: over 20 to 30 minutes"
+      },
+      "validity": {
+        "pl": "do 30 minut",
+        "en": "up to 30 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 4.7,
+      "priceReduced": 2.35,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
+        "en": "Transport GZM app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop: powyżej 30 do 40 minut",
+        "en": "Start/Stop trip: over 30 to 40 minutes"
+      },
+      "validity": {
+        "pl": "do 40 minut",
+        "en": "up to 40 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 5.2,
+      "priceReduced": 2.6,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
+        "en": "Transport GZM app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop: powyżej 40 do 60 minut",
+        "en": "Start/Stop trip: over 40 to 60 minutes"
+      },
+      "validity": {
+        "pl": "do 60 minut",
+        "en": "up to 60 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 5.7,
+      "priceReduced": 2.85,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
+        "en": "Transport GZM app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Podróż Start/Stop: powyżej 60 do 120 minut",
+        "en": "Start/Stop trip: over 60 to 120 minutes"
+      },
+      "validity": {
+        "pl": "do 120 minut",
+        "en": "up to 120 minutes"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 6.6,
+      "priceReduced": 3.3,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, kasownik (karta płatnicza, Metrokarta)",
+        "en": "Transport GZM app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "app",
+        "paymentCard",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Pakiet 20",
+        "en": "Package 20"
+      },
+      "validity": {
+        "pl": "180 dni",
+        "en": "180 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 60.0,
+      "priceReduced": 30.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Pakiet 40",
+        "en": "Package 40"
+      },
+      "validity": {
+        "pl": "180 dni",
+        "en": "180 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 110.0,
+      "priceReduced": 55.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Pakiet 80",
+        "en": "Package 80"
+      },
+      "validity": {
+        "pl": "180 dni",
+        "en": "180 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 200.0,
+      "priceReduced": 100.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Dzienny",
+        "en": "Daily"
+      },
+      "validity": {
+        "pl": "do 23:59 tego samego dnia",
+        "en": "until 23:59 on the same day"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 13.0,
+      "priceReduced": 6.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, punkt sprzedaży, POP, aplikacja, kasownik (karta płatnicza, Metrokarta)",
+        "en": "ticket machine, sales point, passenger service point (POP), app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "paper",
+        "app",
+        "paymentCard"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Metrobilet 24h",
+        "en": "Metrobilet 24h"
+      },
+      "validity": {
+        "pl": "24 godziny",
+        "en": "24 hours"
+      },
+      "scope": {
+        "pl": "Cała sieć oraz pociągi KŚ i POLREGIO na obszarze GZM",
+        "en": "Whole network and KŚ and POLREGIO trains in the GZM area"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus",
+        "train"
+      ],
+      "priceNormal": 24.0,
+      "priceReduced": 12.0,
+      "whereToBuy": {
+        "pl": "automat biletowy, punkt sprzedaży, POP, aplikacja, kasownik (karta płatnicza, Metrokarta)",
+        "en": "ticket machine, sales point, passenger service point (POP), app, validator (payment card, Metrokarta)"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metrobilet Miasto 30",
+        "en": "Metrobilet City 30"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Jedno wybrane miasto (gmina); pociągi KŚ i POLREGIO w mieście z co najmniej dwiema stacjami",
+        "en": "One selected city (gmina); KŚ and POLREGIO trains in a city with at least two stations"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus",
+        "train"
+      ],
+      "priceNormal": 119.0,
+      "priceReduced": 59.5,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Miasto 90",
+        "en": "City 90"
+      },
+      "validity": {
+        "pl": "90 dni",
+        "en": "90 days"
+      },
+      "scope": {
+        "pl": "Jedno wybrane miasto (gmina)",
+        "en": "One selected city (gmina)"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 300.0,
+      "priceReduced": 150.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metrobilet 2 Miasta 30",
+        "en": "Metrobilet 2 Cities 30"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Dwa graniczące ze sobą miasta (gminy); pociągi KŚ i POLREGIO między stacjami tych miast",
+        "en": "Two neighbouring cities (gminas); KŚ and POLREGIO trains between stations of these cities"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus",
+        "train"
+      ],
+      "priceNormal": 149.0,
+      "priceReduced": 74.5,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "2 Miasta 90",
+        "en": "2 Cities 90"
+      },
+      "validity": {
+        "pl": "90 dni",
+        "en": "90 days"
+      },
+      "scope": {
+        "pl": "Dwa graniczące ze sobą miasta (gminy)",
+        "en": "Two neighbouring cities (gminas)"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 380.0,
+      "priceReduced": 190.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metrobilet Obszarowy 30",
+        "en": "Metrobilet Area 30"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Cała sieć; w pociągach KŚ i POLREGIO od trzech do sześciu kolejnych miast z wybranego obszaru",
+        "en": "Whole network; on KŚ and POLREGIO trains three to six consecutive cities of the chosen area"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus",
+        "train"
+      ],
+      "priceNormal": 189.0,
+      "priceReduced": 94.5,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Sieć 7",
+        "en": "Network 7"
+      },
+      "validity": {
+        "pl": "7 dni",
+        "en": "7 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 60.0,
+      "priceReduced": 30.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metrobilet Sieć 30",
+        "en": "Metrobilet Network 30"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Cała sieć oraz pociągi KŚ i POLREGIO na obszarze GZM",
+        "en": "Whole network and KŚ and POLREGIO trains in the GZM area"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus",
+        "train"
+      ],
+      "priceNormal": 249.0,
+      "priceReduced": 124.5,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Sieć 90",
+        "en": "Network 90"
+      },
+      "validity": {
+        "pl": "90 dni",
+        "en": "90 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 460.0,
+      "priceReduced": 230.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Sieć 180",
+        "en": "Network 180"
+      },
+      "validity": {
+        "pl": "180 dni",
+        "en": "180 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 600.0,
+      "priceReduced": 300.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Sieć 7 Okaziciel",
+        "en": "Network 7 Bearer"
+      },
+      "validity": {
+        "pl": "7 dni",
+        "en": "7 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 63.0,
+      "priceReduced": 31.5,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Sieć 30 Okaziciel",
+        "en": "Network 30 Bearer"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus",
+        "tram",
+        "trolleybus"
+      ],
+      "priceNormal": 230.0,
+      "priceReduced": 115.0,
+      "whereToBuy": {
+        "pl": "aplikacja Transport GZM, punkt sprzedaży, POP, automat biletowy",
+        "en": "Transport GZM app, sales point, passenger service point (POP), ticket machine"
+      },
+      "media": [
+        "app"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "type": "paper",
+      "action": {
+        "pl": "Skasuj w kasowniku",
+        "en": "Validate in the validator"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do pojazdu",
+        "en": "Right after boarding"
+      },
+      "steps": [
+        {
+          "pl": "Po wejściu do pojazdu skasuj bilet w kasowniku.",
+          "en": "Validate the ticket in the validator after boarding."
+        },
+        {
+          "pl": "Zachowaj bilet przez całą podróż.",
+          "en": "Keep the ticket for the whole ride."
+        },
+        {
+          "pl": "Gdy kasownik nie zadziała, spróbuj w innym.",
+          "en": "If the validator fails, try another one."
+        },
+        {
+          "pl": "Nie oddawaj skasowanego biletu innej osobie.",
+          "en": "Do not hand a validated ticket to another person."
+        }
+      ]
+    },
+    {
+      "type": "app",
+      "action": {
+        "pl": "Pokaż bilet w aplikacji",
+        "en": "Show the ticket in the app"
+      },
+      "when": {
+        "pl": "Przy kontroli biletów",
+        "en": "At a ticket check"
+      },
+      "steps": [
+        {
+          "pl": "Jednorazowy: zeskanuj w pojeździe kod QR i kup bilet.",
+          "en": "Single: scan the QR code in the vehicle and buy the ticket."
+        },
+        {
+          "pl": "Start/Stop: zeskanuj kod QR, a przy wysiadaniu zakończ podróż w aplikacji.",
+          "en": "Start/Stop: scan the QR code and end the trip in the app when you get off."
+        },
+        {
+          "pl": "Bilet długookresowy jest ważny od daty wybranej przy zakupie.",
+          "en": "A long-term ticket is valid from the date chosen at purchase."
+        },
+        {
+          "pl": "Pakiet: zarejestruj każdy przejazd w aplikacji lub kasowniku.",
+          "en": "Package: register every ride in the app or in the validator."
+        },
+        {
+          "pl": "Podczas kontroli pokaż aktywny bilet z kodem QR.",
+          "en": "At a check, show the active ticket with the QR code."
+        }
+      ]
+    },
+    {
+      "type": "paymentCard",
+      "action": {
+        "pl": "Przyłóż kartę do kasownika",
+        "en": "Tap your card on the validator"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do pojazdu",
+        "en": "Right after boarding"
+      },
+      "steps": [
+        {
+          "pl": "Przyłóż kartę płatniczą do kasownika zaraz po wejściu.",
+          "en": "Tap your payment card on the validator right after boarding."
+        },
+        {
+          "pl": "Start/Stop: przy wysiadaniu przyłóż tę samą kartę.",
+          "en": "Start/Stop: tap the same card when you get off."
+        },
+        {
+          "pl": "W pojeździe z mobilnym biletomatem zbliż kartę płatniczą do biletomatu.",
+          "en": "In a vehicle with a mobile ticket machine, tap your card on the machine."
+        }
+      ]
+    },
+    {
+      "type": "cityCard",
+      "name": {
+        "pl": "Metrokarta",
+        "en": "Metrokarta"
+      },
+      "action": {
+        "pl": "Przyłóż Metrokartę do czytnika",
+        "en": "Tap the Metrokarta on the reader"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu i przed wyjściem",
+        "en": "Right after boarding and before getting off"
+      },
+      "steps": [
+        {
+          "pl": "Przyłóż Metrokartę do czytnika zaraz po wejściu.",
+          "en": "Tap the Metrokarta on the reader right after boarding."
+        },
+        {
+          "pl": "Przyłóż ją jeszcze raz przed opuszczeniem pojazdu.",
+          "en": "Tap it again just before leaving the vehicle."
+        }
+      ]
+    }
+  ],
+  "luggage": [
+    {
+      "type": "luggage",
+      "item": {
+        "pl": "Bagaż ręczny",
+        "en": "Hand luggage"
+      },
+      "note": {
+        "pl": "do 3 sztuk, suma wymiarów sztuki do 200 cm",
+        "en": "up to 3 pieces, sum of dimensions of one piece up to 200 cm"
+      },
+      "conditions": {
+        "pl": "Nie kładź bagażu na miejscach siedzących. Plecak zdejmij na czas przejazdu.",
+        "en": "Do not put luggage on seats. Take your backpack off during the ride."
+      }
+    },
+    {
+      "type": "bike",
+      "item": {
+        "pl": "Rower",
+        "en": "Bicycle"
+      },
+      "conditions": {
+        "pl": "W pojeździe z oznaczonym miejscem rower wolno wozić tylko tam i trzeba go unieruchomić. Gdzie indziej tylko za zgodą kierowcy.",
+        "en": "Where the vehicle has a marked space, the bicycle goes only there and must be secured. Elsewhere only with the driver's consent."
+      }
+    },
+    {
+      "type": "pet",
+      "item": {
+        "pl": "Pies",
+        "en": "Dog"
+      },
+      "conditions": {
+        "pl": "Pies musi mieć smycz i kaganiec, a Ty dokument szczepień. Pies asystujący jedzie bez kagańca i smyczy, w uprzęży.",
+        "en": "A dog needs a leash and a muzzle, and you need its vaccination document. An assistance dog travels in a harness without muzzle or leash."
+      }
+    },
+    {
+      "type": "pet",
+      "item": {
+        "pl": "Małe zwierzęta domowe",
+        "en": "Small pets"
+      },
+      "conditions": {
+        "pl": "Przewoź je w transporterze, koszu lub klatce i tak, by nie przeszkadzały innym.",
+        "en": "Carry them in a carrier, basket or cage so that they do not bother others."
+      }
+    },
+    {
+      "type": "stroller",
+      "item": {
+        "pl": "Wózek dziecięcy",
+        "en": "Pram or stroller"
+      },
+      "conditions": {
+        "pl": "Zabezpiecz dziecko pasami lub szelkami i trzymaj wózek, żeby się nie przesuwał.",
+        "en": "Secure the child with straps or a harness and hold the pram so that it does not move."
+      }
+    },
+    {
+      "type": "other",
+      "item": {
+        "pl": "Wózek inwalidzki",
+        "en": "Wheelchair"
+      },
+      "conditions": {
+        "pl": "Zabezpiecz wózek, a jeśli w pojeździe są pasy, użyj ich.",
+        "en": "Secure the wheelchair and use the straps if the vehicle has them."
+      }
+    },
+    {
+      "type": "other",
+      "item": {
+        "pl": "Hulajnogi i inne urządzenia",
+        "en": "Scooters and other devices"
+      },
+      "conditions": {
+        "pl": "Złożone hulajnogi elektryczne, deskorolki elektryczne, rolki i deskorolki wolno wozić, jeśli nie przeszkadzają innym.",
+        "en": "Folded electric scooters, electric skateboards, skates and skateboards are allowed if they do not bother others."
+      }
+    }
+  ],
+  "rulesNote": {
+    "pl": "Za przewóz bagażu i zwierząt nie pobiera się dodatkowych opłat. Zasady przewozu opisuje regulamin przewozu.",
+    "en": "There is no extra fee for carrying luggage or animals. The rules of carriage are in the carriage regulations."
+  },
+  "rulesUrl": "https://transportgzm.pl/documents/regulamin-przewozu"
+}

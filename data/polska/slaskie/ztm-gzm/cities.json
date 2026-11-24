@@ -1,0 +1,289 @@
+[
+  {
+    "slug": "katowice",
+    "name": {
+      "pl": "Katowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "bedzin",
+    "name": {
+      "pl": "Będzin"
+    },
+    "primary": true
+  },
+  {
+    "slug": "bierun",
+    "name": {
+      "pl": "Bieruń"
+    },
+    "primary": true
+  },
+  {
+    "slug": "bobrowniki",
+    "name": {
+      "pl": "Bobrowniki"
+    },
+    "primary": true
+  },
+  {
+    "slug": "bojszowy",
+    "name": {
+      "pl": "Bojszowy"
+    },
+    "primary": true
+  },
+  {
+    "slug": "bytom",
+    "name": {
+      "pl": "Bytom"
+    },
+    "primary": true
+  },
+  {
+    "slug": "chelm-slaski",
+    "name": {
+      "pl": "Chełm Śląski"
+    },
+    "primary": true
+  },
+  {
+    "slug": "chorzow",
+    "name": {
+      "pl": "Chorzów"
+    },
+    "primary": true
+  },
+  {
+    "slug": "czeladz",
+    "name": {
+      "pl": "Czeladź"
+    },
+    "primary": true
+  },
+  {
+    "slug": "dabrowa-gornicza",
+    "name": {
+      "pl": "Dąbrowa Górnicza"
+    },
+    "primary": true
+  },
+  {
+    "slug": "gieraltowice",
+    "name": {
+      "pl": "Gierałtowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "gliwice",
+    "name": {
+      "pl": "Gliwice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "imielin",
+    "name": {
+      "pl": "Imielin"
+    },
+    "primary": true
+  },
+  {
+    "slug": "knurow",
+    "name": {
+      "pl": "Knurów"
+    },
+    "primary": true
+  },
+  {
+    "slug": "kobior",
+    "name": {
+      "pl": "Kobiór"
+    },
+    "primary": true
+  },
+  {
+    "slug": "ledziny",
+    "name": {
+      "pl": "Lędziny"
+    },
+    "primary": true
+  },
+  {
+    "slug": "laziska-gorne",
+    "name": {
+      "pl": "Łaziska Górne"
+    },
+    "primary": true
+  },
+  {
+    "slug": "mierzecice",
+    "name": {
+      "pl": "Mierzęcice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "mikolow",
+    "name": {
+      "pl": "Mikołów"
+    },
+    "primary": true
+  },
+  {
+    "slug": "myslowice",
+    "name": {
+      "pl": "Mysłowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "ozarowice",
+    "name": {
+      "pl": "Ożarowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "piekary-slaskie",
+    "name": {
+      "pl": "Piekary Śląskie"
+    },
+    "primary": true
+  },
+  {
+    "slug": "pilchowice",
+    "name": {
+      "pl": "Pilchowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "psary",
+    "name": {
+      "pl": "Psary"
+    },
+    "primary": true
+  },
+  {
+    "slug": "pyskowice",
+    "name": {
+      "pl": "Pyskowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "radzionkow",
+    "name": {
+      "pl": "Radzionków"
+    },
+    "primary": true
+  },
+  {
+    "slug": "ruda-slaska",
+    "name": {
+      "pl": "Ruda Śląska"
+    },
+    "primary": true
+  },
+  {
+    "slug": "rudziniec",
+    "name": {
+      "pl": "Rudziniec"
+    },
+    "primary": true
+  },
+  {
+    "slug": "siemianowice-slaskie",
+    "name": {
+      "pl": "Siemianowice Śląskie"
+    },
+    "primary": true
+  },
+  {
+    "slug": "siewierz",
+    "name": {
+      "pl": "Siewierz"
+    },
+    "primary": true
+  },
+  {
+    "slug": "slawkow",
+    "name": {
+      "pl": "Sławków"
+    },
+    "primary": true
+  },
+  {
+    "slug": "sosnowiec",
+    "name": {
+      "pl": "Sosnowiec"
+    },
+    "primary": true
+  },
+  {
+    "slug": "sosnicowice",
+    "name": {
+      "pl": "Sośnicowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "swierklaniec",
+    "name": {
+      "pl": "Świerklaniec"
+    },
+    "primary": true
+  },
+  {
+    "slug": "swietochlowice",
+    "name": {
+      "pl": "Świętochłowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "tarnowskie-gory",
+    "name": {
+      "pl": "Tarnowskie Góry"
+    },
+    "primary": true
+  },
+  {
+    "slug": "tychy",
+    "name": {
+      "pl": "Tychy"
+    },
+    "primary": true
+  },
+  {
+    "slug": "wojkowice",
+    "name": {
+      "pl": "Wojkowice"
+    },
+    "primary": true
+  },
+  {
+    "slug": "wyry",
+    "name": {
+      "pl": "Wyry"
+    },
+    "primary": true
+  },
+  {
+    "slug": "zabrze",
+    "name": {
+      "pl": "Zabrze"
+    },
+    "primary": true
+  },
+  {
+    "slug": "zbroslawice",
+    "name": {
+      "pl": "Zbrosławice"
+    },
+    "primary": true
+  }
+]
