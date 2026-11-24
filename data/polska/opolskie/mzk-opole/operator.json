@@ -1,0 +1,140 @@
+{
+  "name": "Miejski Zakład Komunikacyjny Sp. z o.o. w Opolu",
+  "shortName": "MZK",
+  "label": {
+    "pl": "Przewoźnik miejski · Opole",
+    "en": "City carrier · Opole"
+  },
+  "logo": {
+    "file": "logo.svg",
+    "alt": {
+      "pl": "Logo MZK Opole",
+      "en": "MZK Opole logo"
+    }
+  },
+  "description": {
+    "pl": "Miejski przewoźnik autobusowy, który obsługuje komunikację miejską w Opolu oraz linie do sąsiednich gmin. Prowadzi sprzedaż biletów i obsługuje Opolską Kartę Autobusową (Opolka!). Taryfę i uprawnienia do ulg ustala Rada Miasta Opola.",
+    "en": "City bus carrier running public transport in Opole and lines to neighbouring municipalities. It sells tickets and runs the Opole Bus Card (Opolka!). The tariff and concession rights are set by the Opole City Council."
+  },
+  "websiteUrl": "https://www.mzkopole.pl/",
+  "timetableUrl": "https://rozklady.mzkopole.pl/",
+  "transportModes": [
+    "bus"
+  ],
+  "currency": "PLN",
+  "paymentInfo": {
+    "pl": "gotówka, karta płatnicza, BLIK, aplikacje mobilne, karta Opolka",
+    "en": "cash, payment card, BLIK, mobile apps, Opolka card"
+  },
+  "hotline": "+48 77 40 23 100",
+  "servicePoint": {
+    "pl": "Punkty Obsługi Klienta: ul. Pużaka 58 i ul. 1 Maja 4, pon.–pt. 6:15–20:00",
+    "en": "Customer Service Points: 58 Pużaka St and 4 1 Maja St, Mon–Fri 6:15–20:00"
+  },
+  "verifiedAt": "2026-11-24",
+  "sources": {
+    "items": [
+      {
+        "label": {
+          "pl": "Oficjalna strona",
+          "en": "Official website"
+        },
+        "url": "https://www.mzkopole.pl/"
+      },
+      {
+        "label": {
+          "pl": "Kontakt",
+          "en": "Contact"
+        },
+        "url": "https://www.mzkopole.pl/kontakt/"
+      },
+      {
+        "label": {
+          "pl": "Portal Obsługi Pasażera",
+          "en": "Passenger Service Portal"
+        },
+        "url": "https://pop.mzkopole.pl/"
+      },
+      {
+        "label": {
+          "pl": "Cennik biletów",
+          "en": "Price list"
+        },
+        "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/"
+      },
+      {
+        "label": {
+          "pl": "Gdzie kupisz bilet",
+          "en": "Where to buy a ticket"
+        },
+        "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/"
+      },
+      {
+        "label": {
+          "pl": "Strefy biletowe",
+          "en": "Ticket zones"
+        },
+        "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/strefowy-biletowe/"
+      },
+      {
+        "label": {
+          "pl": "Opolska Karta Autobusowa",
+          "en": "Opole Bus Card"
+        },
+        "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/"
+      },
+      {
+        "label": {
+          "pl": "Kontrola biletowa",
+          "en": "Ticket inspection"
+        },
+        "url": "https://pop.mzkopole.pl/kontrola-biletowa/"
+      },
+      {
+        "label": {
+          "pl": "Rozkłady jazdy",
+          "en": "Timetables"
+        },
+        "url": "https://rozklady.mzkopole.pl/"
+      },
+      {
+        "label": {
+          "pl": "Regulamin przewozu od 1.10.2026 (PDF)",
+          "en": "Carriage regulations from 1 Oct 2026 (PDF)"
+        },
+        "url": "https://pop.mzkopole.pl/wp-content/uploads/Regulamin-Przewozu-obowiazujacy-od-01.10.2026.pdf"
+      }
+    ],
+    "aiAssisted": true
+  },
+  "tariffSources": [
+    {
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/"
+    }
+  ],
+  "luggageSources": [
+    {
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/"
+    },
+    {
+      "url": "https://pop.mzkopole.pl/wp-content/uploads/Regulamin-Przewozu-obowiazujacy-od-01.10.2026.pdf"
+    }
+  ],
+  "purchaseSources": [
+    {
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main"
+    },
+    {
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/"
+    },
+    {
+      "url": "https://pop.mzkopole.pl/kontrola-biletowa/"
+    }
+  ],
+  "zoneSources": [
+    {
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/strefowy-biletowe/"
+    }
+  ]
+}
