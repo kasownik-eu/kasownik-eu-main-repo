@@ -20,8 +20,7 @@ facts whose quote is gone; a stale operator is researched again with this skill.
 Field-by-field rules: [reference.md](reference.md). Read it before writing anything.
 Schema (source of truth, strict: unknown keys fail): `src/content/schema.ts` (`operatorFile`, `citiesFile`, `ticketsFile`,
 `purchaseFile`, `zonesFile`, `evidenceFile`).
-Complete example: `data/polska/slaskie/mzt-przykladowe/` (sample data: its values are made up, only the shape counts;
-it has no evidence.json). A real one: `data/polska/slaskie/ztm-gzm/`.
+Complete example: `data/polska/slaskie/ztm-gzm/`.
 
 ## 1. Context
 

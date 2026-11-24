@@ -1,5 +1,6 @@
 'use client'
 
+import { REPORT_URL } from '@/lib/links'
 import { useTranslations } from 'next-intl'
 import React, { useMemo, useState } from 'react'
 
@@ -130,7 +131,7 @@ function OperatorCard({ operator }: { operator: OperatorItem }) {
 // One row per operator with the cities it serves; every link opens the operator's page.
 // The list follows the site search: the same data and matching as the search bar above it
 // (an operator matches by its name, short name and the cities it serves)
-export function OperatorsBrowser({ operators, reportUrl = '#' }: Props) {
+export function OperatorsBrowser({ operators, reportUrl = REPORT_URL }: Props) {
   const t = useTranslations('OperatorsList')
   const [query, setQuery] = useState('')
   const [limit, setLimit] = useState(PAGE_SIZE)
@@ -177,7 +178,7 @@ export function OperatorsBrowser({ operators, reportUrl = '#' }: Props) {
             <Button variant="outline" size="lg" onClick={() => search('')}>
               {t('clearSearch')}
             </Button>
-            <Button size="lg" nativeButton={false} render={<a href={reportUrl} />}>
+            <Button size="lg" nativeButton={false} render={<a href={reportUrl} target="_blank" rel="noopener noreferrer" />}>
               {t('reportMissing')}
             </Button>
           </EmptyContent>
