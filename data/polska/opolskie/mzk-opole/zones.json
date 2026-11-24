@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "items": [
+    {
+      "name": {
+        "pl": "Strefa miejska",
+        "en": "City zone"
+      },
+      "covers": {
+        "pl": "Granice administracyjne miasta Opola, aż do przystanków granicznych linii 8, 15, 16 i 80",
+        "en": "Administrative area of Opole, up to the border stops of lines 8, 15, 16 and 80"
+      }
+    },
+    {
+      "name": {
+        "pl": "Strefa pozamiejska",
+        "en": "Suburban zone"
+      },
+      "covers": {
+        "pl": "Linie 8, 15, 16 i 80 poza granicami administracyjnymi miasta Opola",
+        "en": "Lines 8, 15, 16 and 80 beyond the administrative border of Opole"
+      }
+    }
+  ]
+}

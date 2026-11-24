@@ -1,0 +1,21 @@
+[
+  {
+    "slug": "opole",
+    "name": {
+      "pl": "Opole"
+    },
+    "primary": true
+  },
+  {
+    "slug": "komprachcice",
+    "name": {
+      "pl": "Komprachcice"
+    }
+  },
+  {
+    "slug": "proszkow",
+    "name": {
+      "pl": "Prószków"
+    }
+  }
+]

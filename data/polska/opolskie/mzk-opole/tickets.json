@@ -1,0 +1,589 @@
+{
+  "tickets": [
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednorazowy miejski",
+        "en": "Single ride (city)"
+      },
+      "validity": {
+        "pl": "45 minut",
+        "en": "45 minutes"
+      },
+      "scope": {
+        "pl": "Strefa miejska",
+        "en": "City zone"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 4.2,
+      "priceReduced": 2.1,
+      "whereToBuy": {
+        "pl": "biletomat, punkt sprzedaży, e-portmonetka Opolki",
+        "en": "ticket machine, point of sale, Opolka e-wallet"
+      },
+      "media": [
+        "paper",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednorazowy nocny miejski",
+        "en": "Single ride, night (city)"
+      },
+      "validity": {
+        "pl": "45 minut",
+        "en": "45 minutes"
+      },
+      "scope": {
+        "pl": "Strefa miejska (linie nocne)",
+        "en": "City zone (night lines)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 5.2,
+      "priceReduced": 2.6,
+      "whereToBuy": {
+        "pl": "biletomat, punkt sprzedaży",
+        "en": "ticket machine, point of sale"
+      },
+      "media": [
+        "paper"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Dobowy miejski",
+        "en": "24 hours (city)"
+      },
+      "validity": {
+        "pl": "24 godziny",
+        "en": "24 hours"
+      },
+      "scope": {
+        "pl": "Strefa miejska",
+        "en": "City zone"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 13,
+      "priceReduced": 6.5,
+      "whereToBuy": {
+        "pl": "biletomat, punkt sprzedaży, e-portmonetka Opolki",
+        "en": "ticket machine, point of sale, Opolka e-wallet"
+      },
+      "media": [
+        "paper",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Grupowy jednorazowy miejski",
+        "en": "Group single ride (city)"
+      },
+      "validity": {
+        "pl": "45 minut",
+        "en": "45 minutes"
+      },
+      "scope": {
+        "pl": "Strefa miejska (grupa do 15 osób)",
+        "en": "City zone (group of up to 15)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 54,
+      "priceReduced": 27
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Weekendowy miejski",
+        "en": "Weekend (city)"
+      },
+      "validity": {
+        "pl": "od piątku 19:00 do niedzieli 23:00",
+        "en": "Friday 19:00 to Sunday 23:00"
+      },
+      "scope": {
+        "pl": "Strefa miejska",
+        "en": "City zone"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 22.2,
+      "priceReduced": 11.1,
+      "whereToBuy": {
+        "pl": "biletomat, punkt sprzedaży, e-portmonetka Opolki",
+        "en": "ticket machine, point of sale, Opolka e-wallet"
+      },
+      "media": [
+        "paper",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "other",
+      "name": {
+        "pl": "10-dniowy na okaziciela miejski",
+        "en": "10 days, bearer (city)"
+      },
+      "validity": {
+        "pl": "10 dni",
+        "en": "10 days"
+      },
+      "scope": {
+        "pl": "Strefa miejska",
+        "en": "City zone"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 61,
+      "priceReduced": 30.5,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "30-dniowy na okaziciela miejski",
+        "en": "30 days, bearer (city)"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Strefa miejska",
+        "en": "City zone"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 190,
+      "priceReduced": 95,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "30-dniowy imienny miejski",
+        "en": "30 days, named (city)"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Strefa miejska",
+        "en": "City zone"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 121,
+      "priceReduced": 60.5,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "30-dniowy imienny miejski trasowany (1–2 linie)",
+        "en": "30 days, named, route-based (city, 1–2 lines)"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Strefa miejska (1–2 wybrane linie dzienne)",
+        "en": "City zone (1–2 chosen day lines)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 96,
+      "priceReduced": 48,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "90-dniowy imienny miejski",
+        "en": "90 days, named (city)"
+      },
+      "validity": {
+        "pl": "90 dni",
+        "en": "90 days"
+      },
+      "scope": {
+        "pl": "Strefa miejska",
+        "en": "City zone"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 350,
+      "priceReduced": 175,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "150-dniowy semestralny imienny miejski",
+        "en": "150 days, semester, named (city)"
+      },
+      "validity": {
+        "pl": "150 dni",
+        "en": "150 days"
+      },
+      "scope": {
+        "pl": "Strefa miejska (1–2 wybrane linie dzienne)",
+        "en": "City zone (1–2 chosen day lines)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceReduced": 224,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Wakacyjny szkolny imienny miejski",
+        "en": "School summer, named (city)"
+      },
+      "validity": {
+        "pl": "1 lipca – 31 sierpnia",
+        "en": "1 July – 31 August"
+      },
+      "scope": {
+        "pl": "Strefa miejska (linie dzienne)",
+        "en": "City zone (day lines)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceReduced": 82,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednorazowy pozamiejski",
+        "en": "Single ride (suburban)"
+      },
+      "validity": {
+        "pl": "60 minut",
+        "en": "60 minutes"
+      },
+      "scope": {
+        "pl": "Strefa pozamiejska",
+        "en": "Suburban zone"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 5.4,
+      "priceReduced": 2.7,
+      "whereToBuy": {
+        "pl": "biletomat, punkt sprzedaży, e-portmonetka Opolki",
+        "en": "ticket machine, point of sale, Opolka e-wallet"
+      },
+      "media": [
+        "paper",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednorazowy wewnątrzstrefowy",
+        "en": "Single ride within the suburban zone"
+      },
+      "validity": {
+        "pl": "Jeden przejazd",
+        "en": "One ride"
+      },
+      "scope": {
+        "pl": "Wyłącznie strefa pozamiejska",
+        "en": "Suburban zone only"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 3.2,
+      "priceReduced": 1.6,
+      "whereToBuy": {
+        "pl": "biletomat, punkt sprzedaży, e-portmonetka Opolki",
+        "en": "ticket machine, point of sale, Opolka e-wallet"
+      },
+      "media": [
+        "paper",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Dobowy pozamiejski",
+        "en": "24 hours (suburban)"
+      },
+      "validity": {
+        "pl": "24 godziny",
+        "en": "24 hours"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 19,
+      "priceReduced": 9.5,
+      "whereToBuy": {
+        "pl": "biletomat, punkt sprzedaży, e-portmonetka Opolki",
+        "en": "ticket machine, point of sale, Opolka e-wallet"
+      },
+      "media": [
+        "paper",
+        "cityCard"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "30-dniowy imienny pozamiejski trasowany (1 linia)",
+        "en": "30 days, named, route-based (suburban, 1 line)"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Strefa pozamiejska (1 wybrana linia)",
+        "en": "Suburban zone (1 chosen line)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 143,
+      "priceReduced": 71.5,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "30-dniowy imienny pozamiejski",
+        "en": "30 days, named (suburban)"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 160,
+      "priceReduced": 80,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "30-dniowy imienny wewnątrzstrefowy",
+        "en": "30 days, named, within the suburban zone"
+      },
+      "validity": {
+        "pl": "30 dni",
+        "en": "30 days"
+      },
+      "scope": {
+        "pl": "Wyłącznie strefa pozamiejska",
+        "en": "Suburban zone only"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 89,
+      "priceReduced": 44.5,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "90-dniowy imienny pozamiejski",
+        "en": "90 days, named (suburban)"
+      },
+      "validity": {
+        "pl": "90 dni",
+        "en": "90 days"
+      },
+      "scope": {
+        "pl": "Cała sieć",
+        "en": "Whole network"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceNormal": 462,
+      "priceReduced": 231,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Wakacyjny szkolny imienny pozamiejski",
+        "en": "School summer, named (suburban)"
+      },
+      "validity": {
+        "pl": "1 lipca – 31 sierpnia",
+        "en": "1 July – 31 August"
+      },
+      "scope": {
+        "pl": "Cała sieć (linie dzienne)",
+        "en": "Whole network (day lines)"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "priceReduced": 122,
+      "whereToBuy": {
+        "pl": "Opolka: e-sklep, biletomat, punkt obsługi",
+        "en": "Opolka card: online shop, ticket machine, service point"
+      }
+    }
+  ],
+  "media": [
+    {
+      "type": "paper",
+      "action": {
+        "pl": "Skasuj w kasowniku",
+        "en": "Validate in the validator"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do autobusu",
+        "en": "Right after boarding the bus"
+      },
+      "steps": [
+        {
+          "pl": "Skasuj bilet w kasowniku zaraz po wejściu.",
+          "en": "Validate the ticket right after boarding."
+        },
+        {
+          "pl": "Sprawdź, czy kasownik nadrukował bilet.",
+          "en": "Check that the validator printed on the ticket."
+        },
+        {
+          "pl": "Bilet z biletomatu w autobusie skasuj od razu po zakupie.",
+          "en": "Validate a ticket from the on-board machine right after buying."
+        },
+        {
+          "pl": "Okaż skasowany bilet kontrolerowi na żądanie.",
+          "en": "Show the validated ticket to an inspector on request."
+        }
+      ]
+    },
+    {
+      "type": "cityCard",
+      "name": {
+        "pl": "Opolka",
+        "en": "Opolka"
+      },
+      "action": {
+        "pl": "Zbliż kartę do kasownika",
+        "en": "Tap the card on the validator"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do autobusu",
+        "en": "Right after boarding the bus"
+      },
+      "steps": [
+        {
+          "pl": "Wybierz bilet na wyświetlaczu kasownika.",
+          "en": "Choose the ticket on the validator display."
+        },
+        {
+          "pl": "Zbliż kartę Opolka do czytnika kasownika.",
+          "en": "Tap your Opolka card on the validator reader."
+        },
+        {
+          "pl": "Poczekaj na sygnał dźwiękowy i komunikat.",
+          "en": "Wait for the beep and the message."
+        }
+      ]
+    }
+  ],
+  "luggage": [
+    {
+      "type": "bike",
+      "item": {
+        "pl": "Rower",
+        "en": "Bicycle"
+      },
+      "note": {
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "conditions": {
+        "pl": "Tylko w miejscach oznaczonych piktogramem. W dni robocze nie w godz. 6:00–9:00 i 13:00–17:00, w dni wolne bez ograniczeń.",
+        "en": "Only in places marked with a pictogram. On working days not 6:00–9:00 and 13:00–17:00, on days off without time limits."
+      }
+    }
+  ],
+  "rulesNote": {
+    "pl": "Przewóz roweru jest bezpłatny. Pozostałe zasady przewozu są w Regulaminie przewozu (PDF).",
+    "en": "Carrying a bicycle is free. Other carriage rules are in the Carriage Regulations (PDF)."
+  },
+  "rulesUrl": "https://pop.mzkopole.pl/do-pobrania/"
+}

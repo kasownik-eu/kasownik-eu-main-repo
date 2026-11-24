@@ -1,0 +1,516 @@
+{
+  "verifiedAt": "2026-11-24",
+  "facts": [
+    {
+      "file": "tickets",
+      "path": "tickets[0].priceNormal",
+      "value": 4.2,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet jednorazowy miejski, jednokrotnego kasowania uprawnia jedną osobę do przejazdu jednym środkiem miejskiego transportu zbiorowego do przystanku, który obowiązuje jako ostatni na trasie dla danego kursu, na liniach dziennych. Bilet uprawnia także do dowolnej liczby przejazdów jednej osoby na liniach dziennych do 45 minut od momentu skasowania biletu. Do tego czasu wlicza się także czas oczekiwania na przesiadkę. | 4,20 | 2,10"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[0].priceReduced",
+      "value": 2.1,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet jednorazowy miejski, jednokrotnego kasowania uprawnia jedną osobę do przejazdu jednym środkiem miejskiego transportu zbiorowego do przystanku, który obowiązuje jako ostatni na trasie dla danego kursu, na liniach dziennych. Bilet uprawnia także do dowolnej liczby przejazdów jednej osoby na liniach dziennych do 45 minut od momentu skasowania biletu. Do tego czasu wlicza się także czas oczekiwania na przesiadkę. | 4,20 | 2,10"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[1].priceNormal",
+      "value": 5.2,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet jednorazowy nocny miejski, uprawnia jedną osobę do przejazdu jednym środkiem miejskiego transportu zbiorowego do przystanku, który obowiązuje jako ostatni na trasie dla danego kursu, na liniach nocnych. Bilet uprawnia także do dowolnej liczby przejazdów jednej osoby na liniach nocnych do 45 minut od momentu skasowania biletu. Do tego czasu wlicza się także czas oczekiwania na przesiadkę. | 5,20 | 2,60"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[1].priceReduced",
+      "value": 2.6,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet jednorazowy nocny miejski, uprawnia jedną osobę do przejazdu jednym środkiem miejskiego transportu zbiorowego do przystanku, który obowiązuje jako ostatni na trasie dla danego kursu, na liniach nocnych. Bilet uprawnia także do dowolnej liczby przejazdów jednej osoby na liniach nocnych do 45 minut od momentu skasowania biletu. Do tego czasu wlicza się także czas oczekiwania na przesiadkę. | 5,20 | 2,60"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[2].priceNormal",
+      "value": 13,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet dobowy miejski, uprawnia jedną osobę do przejazdu środkami miejskiego transportu zbiorowego na wszystkich liniach, w tym nocnych, nie dłużej niż przez 24 godziny, licząc od momentu jego skasowania. Daje prawo do dowolnej liczby przesiadek pomiędzy środkami miejskiego transportu zbiorowego. | 13,00 | 6,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[2].priceReduced",
+      "value": 6.5,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet dobowy miejski, uprawnia jedną osobę do przejazdu środkami miejskiego transportu zbiorowego na wszystkich liniach, w tym nocnych, nie dłużej niż przez 24 godziny, licząc od momentu jego skasowania. Daje prawo do dowolnej liczby przesiadek pomiędzy środkami miejskiego transportu zbiorowego. | 13,00 | 6,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[3].priceNormal",
+      "value": 54,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet grupowy jednorazowy miejski, uprawnia grupę maksymalnie 15 osób do przejazdu jednym środkiem miejskiego transportu zbiorowego (na liniach dziennych), w którym został skasowany, jednak nie dłużej niż do momentu dotarcia przez pojazd do przystanku, który obowiązuje jako ostatni na trasie dla danego kursu. Bilet uprawnia także do przesiadki pomiędzy środkami miejskiego transportu zbiorowego, łącznie nie dłużej niż 45 minut liczonych od momentu skasowania biletu. Do tego czasu wlicza się także czas oczekiwania na przesiadkę. | 54,00 | 27,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[3].priceReduced",
+      "value": 27,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet grupowy jednorazowy miejski, uprawnia grupę maksymalnie 15 osób do przejazdu jednym środkiem miejskiego transportu zbiorowego (na liniach dziennych), w którym został skasowany, jednak nie dłużej niż do momentu dotarcia przez pojazd do przystanku, który obowiązuje jako ostatni na trasie dla danego kursu. Bilet uprawnia także do przesiadki pomiędzy środkami miejskiego transportu zbiorowego, łącznie nie dłużej niż 45 minut liczonych od momentu skasowania biletu. Do tego czasu wlicza się także czas oczekiwania na przesiadkę. | 54,00 | 27,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[4].priceNormal",
+      "value": 22.2,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet weekendowy miejski, uprawnia jedną osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego w jeden weekend, licząc od godziny 19.00 w piątek do godziny 23.00 w niedzielę, na wszystkich liniach, w tym nocnych. | 22,20 | 11,10"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[4].priceReduced",
+      "value": 11.1,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet weekendowy miejski, uprawnia jedną osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego w jeden weekend, licząc od godziny 19.00 w piątek do godziny 23.00 w niedzielę, na wszystkich liniach, w tym nocnych. | 22,20 | 11,10"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[5].priceNormal",
+      "value": 61,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 10-dniowy na okaziciela miejski, uprawnia posiadacza do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez 10 kolejnych dni, na wszystkich liniach, w tym nocnych. | 61,00 | 30,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[5].priceReduced",
+      "value": 30.5,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 10-dniowy na okaziciela miejski, uprawnia posiadacza do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez 10 kolejnych dni, na wszystkich liniach, w tym nocnych. | 61,00 | 30,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[6].priceNormal",
+      "value": 190,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy na okaziciela miejski, uprawnia posiadacza do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez 30 kolejnych dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu środkami miejskiego transportu zbiorowego z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na wszystkich liniach, w tym nocnych. | 190,00 | 95,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[6].priceReduced",
+      "value": 95,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy na okaziciela miejski, uprawnia posiadacza do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez 30 kolejnych dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu środkami miejskiego transportu zbiorowego z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na wszystkich liniach, w tym nocnych. | 190,00 | 95,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[7].priceNormal",
+      "value": 121,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny miejski, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu środkami miejskiego transportu zbiorowego z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na wszystkich liniach, w tym nocnych | 121,00 | 60,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[7].priceReduced",
+      "value": 60.5,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny miejski, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu środkami miejskiego transportu zbiorowego z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na wszystkich liniach, w tym nocnych | 121,00 | 60,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[8].priceNormal",
+      "value": 96,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny miejski trasowany na jedną lub dwie linie, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wybranych jednej lub dwóch liniach dziennych. | 96,00 | 48,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[8].priceReduced",
+      "value": 48,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny miejski trasowany na jedną lub dwie linie, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wybranych jednej lub dwóch liniach dziennych. | 96,00 | 48,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[9].priceNormal",
+      "value": 350,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 90-dniowy imienny miejski, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 90 dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu środkami miejskiego transportu zbiorowego z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na wszystkich liniach, w tym nocnych. | 350,00 | 175,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[9].priceReduced",
+      "value": 175,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 90-dniowy imienny miejski, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 90 dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu środkami miejskiego transportu zbiorowego z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na wszystkich liniach, w tym nocnych. | 350,00 | 175,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[10].priceReduced",
+      "value": 224,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 150-dniowy semestralny imienny miejski, uprawnia jedną, wskazaną z imienia i nazwiska osobę – ucznia szkoły podstawowej lub ponadpodstawowej nie dłużej niż do ukończenia 24 lat, studenta (studiów I i II stopnia lub jednolitych studiów magisterskich) nie dłużej niż do ukończenia 26 roku życia oraz uczestnika studiów doktoranckich, nie dłużej niż do ukończenia 35 roku życia – do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 150 dni na wybranych jednej lub dwóch liniach dziennych. | | 224,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[11].priceReduced",
+      "value": 82,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet wakacyjny szkolny imienny miejski, uprawnia jedną, wskazaną z imienia i nazwiska osobę – ucznia szkoły podstawowej lub ponadpodstawowej nie dłużej niż do ukończenia 24 lat do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego w okresie od 1 lipca do 31 sierpnia danego roku na wszystkich liniach dziennych. | | 82,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[12].priceNormal",
+      "value": 5.4,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet jednorazowy pozamiejski jednokrotnego kasowania, uprawnia jedną osobę do przejazdu jednym środkiem miejskiego transportu zbiorowego, w którym został skasowany bilet, jednak nie dłużej niż do momentu dotarcia przez pojazd do przystanku, który obowiązuje jako ostatni na trasie dla danego kursu, na liniach dziennych albo do dowolnej liczby przejazdów jednej osoby na liniach dziennych, łącznie nie dłużej niż 60 minut liczonych od momentu skasowania biletu. Do tego czasu wlicza się także czas oczekiwania na przesiadkę. | 5,40 | 2,70"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[12].priceReduced",
+      "value": 2.7,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet jednorazowy pozamiejski jednokrotnego kasowania, uprawnia jedną osobę do przejazdu jednym środkiem miejskiego transportu zbiorowego, w którym został skasowany bilet, jednak nie dłużej niż do momentu dotarcia przez pojazd do przystanku, który obowiązuje jako ostatni na trasie dla danego kursu, na liniach dziennych albo do dowolnej liczby przejazdów jednej osoby na liniach dziennych, łącznie nie dłużej niż 60 minut liczonych od momentu skasowania biletu. Do tego czasu wlicza się także czas oczekiwania na przesiadkę. | 5,40 | 2,70"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[13].priceNormal",
+      "value": 3.2,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet jednorazowy wewnątrzstrefowy, wewnątrzstrefowy uprawnia jedną osobę do przejazdu jednym środkiem miejskiego transportu zbiorowego, w którym został skasowany bilet, wyłącznie w granicach strefy pozamiejskiej. | 3,20 | 1,60"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[13].priceReduced",
+      "value": 1.6,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet jednorazowy wewnątrzstrefowy, wewnątrzstrefowy uprawnia jedną osobę do przejazdu jednym środkiem miejskiego transportu zbiorowego, w którym został skasowany bilet, wyłącznie w granicach strefy pozamiejskiej. | 3,20 | 1,60"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[14].priceNormal",
+      "value": 19,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet dobowy pozamiejski uprawnia jedną osobę do przejazdu środkami miejskiego transportu zbiorowego jednej osoby na wszystkich liniach, w tym nocnych, nie dłużej niż przez 24 godziny, licząc od momentu jego skasowania. Daje prawo do dowolnej liczby przesiadek pomiędzy środkami miejskiego transportu zbiorowego. | 19,00 | 9,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[14].priceReduced",
+      "value": 9.5,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet dobowy pozamiejski uprawnia jedną osobę do przejazdu środkami miejskiego transportu zbiorowego jednej osoby na wszystkich liniach, w tym nocnych, nie dłużej niż przez 24 godziny, licząc od momentu jego skasowania. Daje prawo do dowolnej liczby przesiadek pomiędzy środkami miejskiego transportu zbiorowego. | 19,00 | 9,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[15].priceNormal",
+      "value": 143,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny pozamiejski trasowany na jedną linię, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wybranej linii. | 143,00 | 71,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[15].priceReduced",
+      "value": 71.5,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny pozamiejski trasowany na jedną linię, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wybranej linii. | 143,00 | 71,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[16].priceNormal",
+      "value": 160,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny pozamiejski, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu środkami miejskiego transportu zbiorowego z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na liniach dziennych. | 160,00 | 80,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[16].priceReduced",
+      "value": 80,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny pozamiejski, uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu środkami miejskiego transportu zbiorowego z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na liniach dziennych. | 160,00 | 80,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[17].priceNormal",
+      "value": 89,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny wewnątrzstrefowy uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wszystkich liniach, wyłącznie w granicach strefy pozamiejskiej. | 89,00 | 44,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[17].priceReduced",
+      "value": 44.5,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 30-dniowy imienny wewnątrzstrefowy uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 30 dni na wszystkich liniach, wyłącznie w granicach strefy pozamiejskiej. | 89,00 | 44,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[18].priceNormal",
+      "value": 462,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 90-dniowy imienny pozamiejski uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 90 dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na wszystkich liniach, w tym nocnych. | 462,00 | 231,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[18].priceReduced",
+      "value": 231,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet 90-dniowy imienny pozamiejski uprawnia jedną, wskazaną z imienia i nazwiska osobę do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego przez kolejnych 90 dni na wszystkich liniach, w tym nocnych. Bilet normalny uprawnia również do przejazdu z jedną dodatkową osobą do 18 roku życia (posiadającą dokument potwierdzający wiek) w soboty i niedziele na wszystkich liniach, w tym nocnych. | 462,00 | 231,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[19].priceReduced",
+      "value": 122,
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
+      "quote": "Bilet wakacyjny szkolny imienny pozamiejski uprawnia jedną, wskazaną z imienia i nazwiska osobę – ucznia szkoły podstawowej lub ponadpodstawowej nie dłużej niż do ukończenia 24 lat, do dowolnej liczby przejazdów środkami miejskiego transportu zbiorowego w okresie od 1 lipca do 31 sierpnia danego roku na wszystkich liniach dziennych. | | 122,00"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].action.pl",
+      "value": "Skasuj w kasowniku",
+      "url": "https://pop.mzkopole.pl/kontrola-biletowa/",
+      "quote": "Skasowania/zakupu biletu należy dokonać niezwłocznie po wejściu do autobusu lub niezwłocznie po jego zakupie w biletomacie w autobusie."
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].when.pl",
+      "value": "Zaraz po wejściu do autobusu",
+      "url": "https://pop.mzkopole.pl/kontrola-biletowa/",
+      "quote": "Skasowania/zakupu biletu należy dokonać niezwłocznie po wejściu do autobusu lub niezwłocznie po jego zakupie w biletomacie w autobusie."
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[0].pl",
+      "value": "Skasuj bilet w kasowniku zaraz po wejściu.",
+      "url": "https://pop.mzkopole.pl/kontrola-biletowa/",
+      "quote": "Skasowania/zakupu biletu należy dokonać niezwłocznie po wejściu do autobusu lub niezwłocznie po jego zakupie w biletomacie w autobusie."
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[1].pl",
+      "value": "Sprawdź, czy kasownik nadrukował bilet.",
+      "url": "https://pop.mzkopole.pl/kontrola-biletowa/",
+      "quote": "obowiązkiem pasażera jest sprawdzenie uzyskania nadruku z kasownika"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[2].pl",
+      "value": "Bilet z biletomatu w autobusie skasuj od razu po zakupie.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "zakupu biletu jednorazowego (wymagane skasowanie po zakupie);"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[3].pl",
+      "value": "Okaż skasowany bilet kontrolerowi na żądanie.",
+      "url": "https://pop.mzkopole.pl/kontrola-biletowa/",
+      "quote": "pasażer zobowiązany jest na każde wezwanie osób upoważnionych do kontroli biletowej okazać ważny dokument przewozu"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].action.pl",
+      "value": "Zbliż kartę do kasownika",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "należy wybrać żądany bilet za pomocą menu widocznego na wyświetlaczu kasownika, a następnie zbliżyć kartę Opolka do czytnika kasownika."
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].when.pl",
+      "value": "Zaraz po wejściu do autobusu",
+      "url": "https://pop.mzkopole.pl/kontrola-biletowa/",
+      "quote": "Skasowania/zakupu biletu należy dokonać niezwłocznie po wejściu do autobusu lub niezwłocznie po jego zakupie w biletomacie w autobusie."
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[0].pl",
+      "value": "Wybierz bilet na wyświetlaczu kasownika.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "należy wybrać żądany bilet za pomocą menu widocznego na wyświetlaczu kasownika, a następnie zbliżyć kartę Opolka do czytnika kasownika."
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[1].pl",
+      "value": "Zbliż kartę Opolka do czytnika kasownika.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "należy wybrać żądany bilet za pomocą menu widocznego na wyświetlaczu kasownika, a następnie zbliżyć kartę Opolka do czytnika kasownika."
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[2].pl",
+      "value": "Poczekaj na sygnał dźwiękowy i komunikat.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "kasownik potwierdzi operację za pomocą sygnału dźwiękowego oraz odpowiedniej informacji na wyświetlaczu"
+    },
+    {
+      "file": "zones",
+      "path": "items[0].name.pl",
+      "value": "Strefa miejska",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/strefowy-biletowe/",
+      "quote": "Strefa miejska, w której obowiązują ceny biletów miejskich, sięga następujących przystanków:"
+    },
+    {
+      "file": "zones",
+      "path": "items[1].name.pl",
+      "value": "Strefa pozamiejska",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/strefowy-biletowe/",
+      "quote": "Strefa pozamiejska obsługiwana jest przez linie komunikacyjne: 8, 15, 16, 80."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].type",
+      "value": "machine",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "Na terenie miasta Opola umieszczono biletomaty stacjonarne, w których istnieje możliwość:"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[0].text.pl",
+      "value": "Kup bilet w biletomacie stacjonarnym na przystanku.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "Na terenie miasta Opola umieszczono biletomaty stacjonarne, w których istnieje możliwość:"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[1].text.pl",
+      "value": "W autobusie kup bilet w biletomacie mobilnym.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "W każdym autobusie (w centralnej części) znajduje się biletomat mobilny, w którym dokonasz:"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[2].text.pl",
+      "value": "W autobusie zapłać kartą płatniczą, wybierając taryfę.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "W każdym autobusie kupisz bilet płacąc kartą! Wystarczy wybrać odpowiednią taryfę"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[3].text.pl",
+      "value": "Skasuj papierowy bilet w kasowniku w autobusie.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "papierowe, które wymagają kasowania w kasowniku"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].type",
+      "value": "office",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "Posiadamy Punkty Obsługi Klienta, w których dokonasz:"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[0].text.pl",
+      "value": "Kup bilet papierowy w kasie POK.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "zakupu biletu papierowego każdego rodzaju: jednorazowego, dobowego, weekendowego;"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[1].text.pl",
+      "value": "Bilety papierowe kupisz też w kioskach „Sprzedaż biletów MZK”.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "Dodatkowo bilety papierowe można zakupić w oznaczonych informacją „Sprzedaż biletów MZK” kioskach, salonikach i innych punktach prowadzonych przez podmioty zewnętrzne."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[2].text.pl",
+      "value": "Skasuj bilet z kiosku w kasowniku w autobusie.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "Bilety te wymagają kasowania w kasowniku."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].type",
+      "value": "app",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "Bilety elektroniczne kupisz również za pomocą aplikacji Opole+ oraz Skycash."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].steps[0].text.pl",
+      "value": "Kup bilet elektroniczny w aplikacji Opole+ lub Skycash.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "Bilety elektroniczne kupisz również za pomocą aplikacji Opole+ oraz Skycash."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].type",
+      "value": "metrokarta",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "Opolska Karta Autobusowa (karta lub Opolka) jest to bezstykowa, elektroniczna karta będąca nośnikiem biletów elektronicznych"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[0].text.pl",
+      "value": "Wyrób kartę Opolka w kasie biletowej POK.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "Opolskie Karty Autobusowe wydawane są wyłącznie w Punktach Obsługi Klienta (POK)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[1].text.pl",
+      "value": "Zakoduj na karcie bilet okresowy lub doładuj e-portmonetkę.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "Aby korzystać z Opolskiej Karty Autobusowej należy uprzednio zakodować na niej elektroniczny bilet okresowy i/lub doładować środki na e-portmonetce."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[2].text.pl",
+      "value": "Bilet jednorazowy skasuj, zbliżając kartę do kasownika.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "należy wybrać żądany bilet za pomocą menu widocznego na wyświetlaczu kasownika, a następnie zbliżyć kartę Opolka do czytnika kasownika."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].type",
+      "value": "other",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "W naszym sklepie internetowym dokonasz:"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[0].text.pl",
+      "value": "Zarejestruj się na opolka.mzkopole.pl numerem karty i PIN-em.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "zarejestrować się w serwisie internetowym (opolka.mzkopole.pl) przy wykorzystaniu numeru karty oraz kodu PIN"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[1].text.pl",
+      "value": "Dodaj bilet do koszyka i wskaż datę początku ważności.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "i dodać do koszyka, a następnie wskazać numer linii, jeżeli bilet jest liniowy oraz datę, od której ma obowiązywać."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[2].text.pl",
+      "value": "Kup bilet najpóźniej 24 godziny przed jego startem.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "Zakup biletu winien nastąpić najpóźniej 24 godziny przed datą rozpoczęcia jego obowiązywania."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[3].text.pl",
+      "value": "Zapłać szybkim przelewem lub BLIK-iem.",
+      "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/",
+      "xpath": "//main",
+      "quote": "Sklep internetowy obsługuje płatność: szybkim przelewem; Blikiem."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[4].text.pl",
+      "value": "Zakoduj bilet na karcie w biletomacie, kasowniku lub kasie.",
+      "url": "https://pop.mzkopole.pl/opolska-karta-autobusowa/",
+      "quote": "wymaga zakodowania na karcie w biletomacie stacjonarnym, kasowniku albo w Punkcie Obsługi Klienta."
+    }
+  ]
+}
