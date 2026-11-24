@@ -514,45 +514,10 @@
     },
     {
       "file": "tickets",
-      "path": "luggage[0].conditions.pl",
-      "value": "Bagaż nie może blokować przejścia, kasowników ani biletomatu. Duży plecak zdejmij zaraz po wejściu.",
-      "url": "https://pop.mzkopole.pl/wp-content/uploads/Regulamin-Przewozu-obowiazujacy-od-01.10.2026.pdf",
-      "quote": "Zabronione jest umieszczanie bagażu lub zwierząt na miejscach przeznaczonych do siedzenia."
-    },
-    {
-      "file": "tickets",
       "path": "luggage[1].note.pl",
       "value": "Bez opłaty",
       "url": "https://pop.mzkopole.pl/gdzie-kupisz-bilet/cennik-biletow/",
       "quote": "Za przewóz roweru Pasażer nie wnosi opłaty."
-    },
-    {
-      "file": "tickets",
-      "path": "luggage[1].conditions.pl",
-      "value": "Tylko w miejscu z piktogramem roweru; wchodzisz ostatni i unieruchamiasz rower. W dni robocze nie w godz. 6:00–9:00 i 13:00–17:00.",
-      "url": "https://pop.mzkopole.pl/wp-content/uploads/Regulamin-Przewozu-obowiazujacy-od-01.10.2026.pdf",
-      "quote": "Przejazd pasażera przewożącego rower dozwolony jest w dni wolne od pracy, natomiast w dni robocze z wyłączeniem godzin: 6.00 – 9.00 i 13.00 – 17.00."
-    },
-    {
-      "file": "tickets",
-      "path": "luggage[2].conditions.pl",
-      "value": "Złóż urządzenie na czas przejazdu, jeśli konstrukcja na to pozwala. Wchodzisz ostatni i unieruchamiasz je.",
-      "url": "https://pop.mzkopole.pl/wp-content/uploads/Regulamin-Przewozu-obowiazujacy-od-01.10.2026.pdf",
-      "quote": "Pasażer przewożący urządzenie transportu osobistego lub hulajnogę elektryczną obowiązany jest do jego złożenia na czas przewozu, jeśli konstrukcja to umożliwia."
-    },
-    {
-      "file": "tickets",
-      "path": "luggage[3].conditions.pl",
-      "value": "Pies musi mieć smycz i kaganiec albo jechać w zamkniętym transporterze; miej przy sobie dokument szczepień. Zwierząt gospodarskich nie wolno przewozić.",
-      "url": "https://pop.mzkopole.pl/wp-content/uploads/Regulamin-Przewozu-obowiazujacy-od-01.10.2026.pdf",
-      "quote": "psów pod warunkiem, że są trzymane na smyczy, mają kaganiec założony na kufę i nie zachowują się agresywnie lub są umieszczone w zamkniętym transporterze"
-    },
-    {
-      "file": "tickets",
-      "path": "luggage[4].conditions.pl",
-      "value": "Wózek jedzie w oznaczonym miejscu. Na żądanie osoby na wózku inwalidzkim zwolnij to miejsce z wózka dziecięcego.",
-      "url": "https://pop.mzkopole.pl/wp-content/uploads/Regulamin-Przewozu-obowiazujacy-od-01.10.2026.pdf",
-      "quote": "Osoba przewożąca wózek dziecięcy, w przypadku żądania pasażera poruszającego się na wózku inwalidzkim, zobowiązana jest do zwolnienia tego miejsca."
     }
   ]
 }

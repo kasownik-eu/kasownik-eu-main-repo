@@ -58,9 +58,8 @@ Each entry: `{ "url": "https://…", "xpath": "//…" }` (`xpath` optional). The
 
 A page that loads its content with JavaScript fails `check-source`; look for an HTML equivalent and otherwise report
 it. A PDF also fails `check-source` for now, but it is a valid source: list it in the `*Sources` list it belongs to
-(no `xpath`) and in `sources.items`, and give its facts evidence with the quote taken from `pdftotext -layout` (the
-checker reports them `UNREACHABLE` until it reads PDFs; see SKILL.md, "PDF documents"). Do not add the same URL twice to
-one list.
+(no `xpath`) and in `sources.items`, but its facts get **no** evidence until the checker reads PDFs: evidence holds only
+verifiable facts (see SKILL.md, "PDF documents"). Do not add the same URL twice to one list.
 
 ## sources.items
 
