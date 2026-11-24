@@ -868,16 +868,16 @@
     {
       "type": "luggage",
       "item": {
-        "pl": "Bagaż",
-        "en": "Luggage"
+        "pl": "Bagaż podręczny",
+        "en": "Hand luggage"
       },
       "note": {
-        "pl": "Bez dodatkowej opłaty",
-        "en": "No extra charge"
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
       },
       "conditions": {
-        "pl": "Przewóz odbywa się na podstawie skasowanego biletu. Kierowca może odmówić przewozu przy tłoku.",
-        "en": "Carried on a validated ticket. The driver may refuse it when the vehicle is crowded."
+        "pl": "Nie wolno go kłaść na miejscach siedzących. Kierowca może odmówić przewozu dużego bagażu przy tłoku.",
+        "en": "It must not be placed on seats. The driver may refuse bulky luggage when the vehicle is crowded."
       }
     },
     {
@@ -887,12 +887,27 @@
         "en": "Bicycle"
       },
       "note": {
-        "pl": "Bez dodatkowej opłaty",
-        "en": "No extra charge"
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
       },
       "conditions": {
-        "pl": "Na bagażniku zewnętrznym (załadunek tylko na przystanku początkowym i końcowym) lub w wyznaczonym miejscu w pojeździe.",
-        "en": "On an external rack (loading only at the first and last stop) or in the designated place inside the vehicle."
+        "pl": "Na bagażniku zewnętrznym (załadunek tylko na przystanku początkowym i końcowym), a bez bagażnika – wewnątrz pojazdu w wyznaczonym miejscu.",
+        "en": "On an external rack (loading only at the first and last stop); without a rack, inside the vehicle in the designated place."
+      }
+    },
+    {
+      "type": "pet",
+      "item": {
+        "pl": "Zwierzę",
+        "en": "Animal"
+      },
+      "note": {
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
+      },
+      "conditions": {
+        "pl": "Pies musi mieć kaganiec i smycz oraz zaświadczenie o szczepieniu przeciw wściekliźnie. Inne zwierzęta przewozisz w koszu lub transporterze.",
+        "en": "A dog needs a muzzle, a lead and a rabies vaccination certificate. Other animals go in a basket or carrier."
       }
     },
     {
@@ -902,8 +917,8 @@
         "en": "Scooter and other personal transport devices"
       },
       "note": {
-        "pl": "Bez dodatkowej opłaty",
-        "en": "No extra charge"
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
       },
       "conditions": {
         "pl": "Traktowane jak bagaż. Ostateczną decyzję o przewozie podejmuje kierowca.",
@@ -917,18 +932,18 @@
         "en": "Pram and wheelchair"
       },
       "note": {
-        "pl": "Bez dodatkowej opłaty",
-        "en": "No extra charge"
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
       },
       "conditions": {
-        "pl": "Mają pierwszeństwo przed rowerami i innym bagażem.",
-        "en": "They have priority over bicycles and other luggage."
+        "pl": "Mają pierwszeństwo przed bagażem i rowerami. Ustaw je na stanowisku do tego przeznaczonym.",
+        "en": "They have priority over luggage and bicycles. Place them in the designated spot."
       }
     }
   ],
   "rulesNote": {
-    "pl": "Ceny i ulgi ustala Rada Miasta Krakowa. Zasady przewozu osób i bagażu określają uchwały miasta (pliki PDF na stronie).",
-    "en": "Fares and concessions are set by the Kraków City Council. Rules of carriage of persons and luggage are set by city resolutions (PDF files on the page)."
+    "pl": "Przewóz bagażu i zwierząt nie podlega opłacie. Ceny i ulgi ustala Rada Miasta Krakowa; przepisy porządkowe i taryfa są w uchwałach (PDF).",
+    "en": "Carrying luggage and animals is free of charge. Fares and concessions are set by the Kraków City Council; carriage rules and the tariff are in resolutions (PDF)."
   },
   "rulesUrl": "https://mpk.krakow.pl/zasady-podrozy-kmk"
 }

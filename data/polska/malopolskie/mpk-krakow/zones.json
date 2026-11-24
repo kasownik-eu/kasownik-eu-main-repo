@@ -5,19 +5,39 @@
       "name": {
         "pl": "Strefa I",
         "en": "Zone I"
+      },
+      "covers": {
+        "pl": "Obszar Gminy Miejskiej Kraków",
+        "en": "Area of the City of Krakow"
       }
     },
     {
       "name": {
         "pl": "Strefa II",
         "en": "Zone II"
+      },
+      "covers": {
+        "pl": "Gminy: Biskupice, Czernichów, Iwanowice, Kocmyrzów-Luborzyca, Liszki, Michałowice, Mogilany, Niepołomice, Skawina, Świątniki Górne, Wieliczka, Wielka Wieś, Zabierzów, Zielonki",
+        "en": "Municipalities: Biskupice, Czernichów, Iwanowice, Kocmyrzów-Luborzyca, Liszki, Michałowice, Mogilany, Niepołomice, Skawina, Świątniki Górne, Wieliczka, Wielka Wieś, Zabierzów, Zielonki"
       }
     },
     {
       "name": {
         "pl": "Strefa III",
         "en": "Zone III"
+      },
+      "covers": {
+        "pl": "Gminy: Brzeźnica, Krzeszowice, Skała, Słomniki oraz pozostały obszar sieci KMK",
+        "en": "Municipalities: Brzeźnica, Krzeszowice, Skała, Słomniki and the rest of the KMK network area"
       }
     }
-  ]
+  ],
+  "noteTitle": {
+    "pl": "Podstawa prawna",
+    "en": "Legal basis"
+  },
+  "note": {
+    "pl": "Podział na strefy określa załącznik nr 4 do uchwały Rady Miasta Krakowa nr XXI/231/11.",
+    "en": "The division into zones is set by annex 4 to Kraków City Council resolution XXI/231/11."
+  }
 }
