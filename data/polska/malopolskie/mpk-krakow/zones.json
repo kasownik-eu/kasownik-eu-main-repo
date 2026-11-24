@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "items": [
+    {
+      "name": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      }
+    },
+    {
+      "name": {
+        "pl": "Strefa II",
+        "en": "Zone II"
+      }
+    },
+    {
+      "name": {
+        "pl": "Strefa III",
+        "en": "Zone III"
+      }
+    }
+  ]
+}
