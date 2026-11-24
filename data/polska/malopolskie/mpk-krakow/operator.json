@@ -1,0 +1,184 @@
+{
+  "name": "Miejskie Przedsiębiorstwo Komunikacyjne S.A. w Krakowie",
+  "shortName": "MPK",
+  "label": {
+    "pl": "Przewoźnik miejski · Kraków",
+    "en": "City carrier · Krakow"
+  },
+  "logo": {
+    "file": "logo.svg",
+    "alt": {
+      "pl": "Logo MPK Kraków",
+      "en": "MPK Krakow logo"
+    }
+  },
+  "description": {
+    "pl": "Miejski przewoźnik, który obsługuje tramwaje i autobusy komunikacji miejskiej w Krakowie i części okolicznych gmin. Przewozi pasażerów na zlecenie Gminy Miejskiej Kraków i prowadzi dystrybucję biletów w systemie Krakowskiej Karty Miejskiej. Za organizację transportu, rozkłady i kontrolę biletów odpowiada Zarząd Transportu Publicznego (ZTP).",
+    "en": "City carrier running trams and buses of public transport in Krakow and some surrounding municipalities. It carries passengers under a contract with the City of Krakow and distributes tickets in the Krakow City Card system. Transport organisation, timetables and ticket inspection are handled by the Public Transport Authority (ZTP)."
+  },
+  "websiteUrl": "https://mpk.krakow.pl/",
+  "timetableUrl": "https://mpk.krakow.pl/rozklady-jazdy",
+  "transportModes": [
+    "tram",
+    "bus"
+  ],
+  "currency": "PLN",
+  "paymentInfo": {
+    "pl": "gotówka i karta płatnicza (automaty w pojazdach), aplikacje mobilne",
+    "en": "cash and card (machines on vehicles), mobile apps"
+  },
+  "hotline": "607 600 070",
+  "servicePoint": {
+    "pl": "Punkt Obsługi Pasażerów KMK, ul. Wielopole 1, pon.–pt. 8:00–15:30",
+    "en": "KMK Passenger Service Point, 1 Wielopole St, Mon–Fri 8:00–15:30"
+  },
+  "verifiedAt": "2026-11-24",
+  "sources": {
+    "items": [
+      {
+        "label": {
+          "pl": "Oficjalna strona",
+          "en": "Official website"
+        },
+        "url": "https://mpk.krakow.pl/"
+      },
+      {
+        "label": {
+          "pl": "Cennik i rodzaje biletów",
+          "en": "Price list and ticket types"
+        },
+        "url": "https://mpk.krakow.pl/bilety-kmk"
+      },
+      {
+        "label": {
+          "pl": "Jak kupić bilet",
+          "en": "How to buy a ticket"
+        },
+        "url": "https://mpk.krakow.pl/bilety"
+      },
+      {
+        "label": {
+          "pl": "Kontakt",
+          "en": "Contact"
+        },
+        "url": "https://mpk.krakow.pl/kontakt"
+      },
+      {
+        "label": {
+          "pl": "Zakres działania MPK",
+          "en": "Scope of MPK activity"
+        },
+        "url": "https://mpk.krakow.pl/zakres-dzialania"
+      },
+      {
+        "label": {
+          "pl": "Zasady podróży KMK",
+          "en": "KMK travel rules"
+        },
+        "url": "https://mpk.krakow.pl/zasady-podrozy-kmk"
+      },
+      {
+        "label": {
+          "pl": "Kup bilet KMK (ZTP)",
+          "en": "Buy a KMK ticket (ZTP)"
+        },
+        "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk"
+      },
+      {
+        "label": {
+          "pl": "Kontrola biletów KMK (ZTP)",
+          "en": "KMK ticket inspection (ZTP)"
+        },
+        "url": "https://ztp.krakow.pl/kmk/kontrola-biletow-kmk"
+      },
+      {
+        "label": {
+          "pl": "Punkty Obsługi Pasażerów KMK (ZTP)",
+          "en": "KMK passenger service points (ZTP)"
+        },
+        "url": "https://ztp.krakow.pl/kmk/punkty-obslugi-pasazerow-kmk"
+      },
+      {
+        "label": {
+          "pl": "Jak przewozić rowery i hulajnogi",
+          "en": "How to carry bicycles and scooters"
+        },
+        "url": "https://krakow.pl/aktualnosci/292445,1912,komunikat,jak_przewozic_rowery_i_hulajnogi_w_pojazdach_komunikacji_miejskiej_.html"
+      },
+      {
+        "label": {
+          "pl": "Taryfa – uchwała XXI/231/11, tekst jednolity od 2.03.2026 (PDF, strefy: zał. 4)",
+          "en": "Tariff – resolution XXI/231/11, consolidated text from 2 Mar 2026 (PDF, zones: annex 4)"
+        },
+        "url": "https://mpk.krakow.pl/media/pdf/9046.pdf"
+      },
+      {
+        "label": {
+          "pl": "Ceny biletów – zarządzenie 129/2021, od 1.11.2026 (PDF)",
+          "en": "Ticket prices – ordinance 129/2021, from 1 Nov 2026 (PDF)"
+        },
+        "url": "https://mpk.krakow.pl/media/pdf/9899.pdf"
+      },
+      {
+        "label": {
+          "pl": "Przepisy porządkowe – uchwała CXXIII/3355/23 (PDF, bagaż i zwierzęta: § 9)",
+          "en": "Carriage rules – resolution CXXIII/3355/23 (PDF, luggage and animals: § 9)"
+        },
+        "url": "https://mpk.krakow.pl/media/pdf/6922.pdf"
+      },
+      {
+        "label": {
+          "pl": "Przepisy porządkowe – uchwała XLIV/910/25, zmiana (PDF)",
+          "en": "Carriage rules – resolution XLIV/910/25, amendment (PDF)"
+        },
+        "url": "https://mpk.krakow.pl/media/pdf/8918.pdf"
+      },
+      {
+        "label": {
+          "pl": "Przepisy porządkowe – uchwała XCII/2519/22, tekst jednolity (PDF)",
+          "en": "Carriage rules – resolution XCII/2519/22, consolidated text (PDF)"
+        },
+        "url": "https://mpk.krakow.pl/media/pdf/6921.pdf"
+      }
+    ],
+    "aiAssisted": true
+  },
+  "tariffSources": [
+    {
+      "url": "https://mpk.krakow.pl/bilety-kmk"
+    }
+  ],
+  "luggageSources": [
+    {
+      "url": "https://krakow.pl/aktualnosci/292445,1912,komunikat,jak_przewozic_rowery_i_hulajnogi_w_pojazdach_komunikacji_miejskiej_.html"
+    }
+  ],
+  "purchaseSources": [
+    {
+      "url": "https://mpk.krakow.pl/bilety-do-kasowania"
+    },
+    {
+      "url": "https://mpk.krakow.pl/karty-plastikowe"
+    },
+    {
+      "url": "https://mpk.krakow.pl/elektroniczne-konto-pasazera-ekp"
+    },
+    {
+      "url": "https://mpk.krakow.pl/mobilna-krakowska-karta-miejska-mkkm"
+    },
+    {
+      "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk"
+    },
+    {
+      "url": "https://ztp.krakow.pl/kmk/kontrola-biletow-kmk"
+    },
+    {
+      "url": "https://ztp.krakow.pl/kmk/punkty-obslugi-pasazerow-kmk"
+    }
+  ],
+  "zoneSources": [
+    {
+      "url": "https://mpk.krakow.pl/bilety-kmk"
+    }
+  ]
+}

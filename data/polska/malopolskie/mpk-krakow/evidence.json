@@ -1,0 +1,572 @@
+{
+  "verifiedAt": "2026-11-24",
+  "facts": [
+    {
+      "file": "tickets",
+      "path": "tickets[0].priceNormal",
+      "value": 4,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "15-minutowy | I+II+III | 4,00 | 2,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[0].priceReduced",
+      "value": 2,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "15-minutowy | I+II+III | 4,00 | 2,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[1].priceNormal",
+      "value": 6,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "30-minutowy lub 1-przejazdowy | I+II+III | 6,00 | 3,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[1].priceReduced",
+      "value": 3,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "30-minutowy lub 1-przejazdowy | I+II+III | 6,00 | 3,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[2].priceNormal",
+      "value": 8,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "60-minutowy | I+II+III | 8,00 | 4,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[2].priceReduced",
+      "value": 4,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "60-minutowy | I+II+III | 8,00 | 4,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[3].priceNormal",
+      "value": 9,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "90-minutowy | I+II+III | 9,00 | 4,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[3].priceReduced",
+      "value": 4.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "90-minutowy | I+II+III | 9,00 | 4,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[4].priceNormal",
+      "value": 20,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "24-godzinny | I | 20,00 | 10,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[4].priceReduced",
+      "value": 10,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "24-godzinny | I | 20,00 | 10,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[5].priceNormal",
+      "value": 25,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 25,00 | 12,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[5].priceReduced",
+      "value": 12.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 25,00 | 12,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[6].priceNormal",
+      "value": 40,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "48-godzinny | I+II+III | 40,00 | 20,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[6].priceReduced",
+      "value": 20,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "48-godzinny | I+II+III | 40,00 | 20,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[7].priceNormal",
+      "value": 55,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "72-godzinny | I+II+III | 55,00 | 27,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[7].priceReduced",
+      "value": 27.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "72-godzinny | I+II+III | 55,00 | 27,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[8].priceNormal",
+      "value": 65,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "7-dniowy | I | 65,00 | 32,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[8].priceReduced",
+      "value": 32.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "7-dniowy | I | 65,00 | 32,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[9].priceNormal",
+      "value": 80,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 80,00 | 40,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[9].priceReduced",
+      "value": 40,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 80,00 | 40,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[10].priceNormal",
+      "value": 25,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "weekendowy rodzinny2 | I+II+III | 25,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[11].priceNormal",
+      "value": 50,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "jednoprzejazdowy dla grupy – do 20 osób | I | 50,00 | 25,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[11].priceReduced",
+      "value": 25,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "jednoprzejazdowy dla grupy – do 20 osób | I | 50,00 | 25,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[12].priceNormal",
+      "value": 60,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 60,00 | 30,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[12].priceReduced",
+      "value": 30,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 60,00 | 30,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[13].priceNormal",
+      "value": 10,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "70-minutowy KMK+KMŁ2 | I+II+III | 10,00 | 5,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[13].priceReduced",
+      "value": 5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "70-minutowy KMK+KMŁ2 | I+II+III | 10,00 | 5,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[14].priceNormal",
+      "value": 193,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "Bilet metropolitalny – sieciowy | I | 193,00 | 96,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[14].priceReduced",
+      "value": 96.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "Bilet metropolitalny – sieciowy | I | 193,00 | 96,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[15].priceNormal",
+      "value": 132,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "II | 132,00 | 66,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[15].priceReduced",
+      "value": 66,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "II | 132,00 | 66,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[16].priceNormal",
+      "value": 132,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "III | 132,00 | 66,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[16].priceReduced",
+      "value": 66,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "III | 132,00 | 66,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[17].priceNormal",
+      "value": 204,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II | 204,00 | 102,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[17].priceReduced",
+      "value": 102,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II | 204,00 | 102,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[18].priceNormal",
+      "value": 204,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "II+III | 204,00 | 102,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[18].priceReduced",
+      "value": 102,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "II+III | 204,00 | 102,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[19].priceNormal",
+      "value": 241,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 241,00 | 120,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[19].priceReduced",
+      "value": 120.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 241,00 | 120,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[20].priceNormal",
+      "value": 72,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "miesięczny imienny Mieszkańca – na 1 linię | I | 72,00 | 36,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[20].priceReduced",
+      "value": 36,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "miesięczny imienny Mieszkańca – na 1 linię | I | 72,00 | 36,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[21].priceNormal",
+      "value": 99,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "miesięczny imienny Mieszkańca – sieciowy | I | 99,00 | 49,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[21].priceReduced",
+      "value": 49.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "miesięczny imienny Mieszkańca – sieciowy | I | 99,00 | 49,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[22].priceNormal",
+      "value": 515,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "półroczny imienny Mieszkańca – sieciowy | I | 515,00 | 257,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[22].priceReduced",
+      "value": 257.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "półroczny imienny Mieszkańca – sieciowy | I | 515,00 | 257,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[23].priceNormal",
+      "value": 515,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "półroczny 5+1 imienny Mieszkańca – sieciowy | I | 515,00 | 257,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[23].priceReduced",
+      "value": 257.5,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "półroczny 5+1 imienny Mieszkańca – sieciowy | I | 515,00 | 257,50"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[24].priceReduced",
+      "value": 365,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "Studencki Roczny | I | – | 365,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[25].priceNormal",
+      "value": 30,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "socjalny imienny na 1 miesiąc – sieciowy, na linie dzienne | I | 30,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[26].priceNormal",
+      "value": 50,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II | 50,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[27].priceNormal",
+      "value": 70,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 70,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[28].priceNormal",
+      "value": 50,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "aktywizujący dla osób bezrobotnych imienny na 1 miesiąc – sieciowy, na linie dzienne | I | 50,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[29].priceNormal",
+      "value": 100,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II | 100,00"
+    },
+    {
+      "file": "tickets",
+      "path": "tickets[30].priceNormal",
+      "value": 140,
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "I+II+III | 140,00"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].action.pl",
+      "value": "Skasuj bilet",
+      "url": "https://ztp.krakow.pl/kmk/kontrola-biletow-kmk",
+      "quote": "w pierwszej kolejności po wejściu do pojazdu jest obowiązany skasować bilet"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].when.pl",
+      "value": "Zaraz po wejściu do pojazdu",
+      "url": "https://ztp.krakow.pl/kmk/kontrola-biletow-kmk",
+      "quote": "w pierwszej kolejności po wejściu do pojazdu jest obowiązany skasować bilet"
+    },
+    {
+      "file": "tickets",
+      "path": "media[0].steps[0].pl",
+      "value": "Skasuj bilet zaraz po wejściu do pojazdu.",
+      "url": "https://ztp.krakow.pl/kmk/kontrola-biletow-kmk",
+      "quote": "w pierwszej kolejności po wejściu do pojazdu jest obowiązany skasować bilet"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].action.pl",
+      "value": "Podaj numer pojazdu",
+      "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk",
+      "quote": "podanie numeru taborowego pojazdu (wpisanie 2 liter oraz 3 cyfr lub zeskanowanie kodu QR)"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].when.pl",
+      "value": "Zaraz po wejściu do pojazdu",
+      "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk",
+      "quote": "jest zobowiązany zakupić taki bilet niezwłocznie po wejściu do pojazdu"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[0].pl",
+      "value": "Wpisz numer taborowy lub zeskanuj kod QR.",
+      "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk",
+      "quote": "podanie numeru taborowego pojazdu (wpisanie 2 liter oraz 3 cyfr lub zeskanowanie kodu QR)"
+    },
+    {
+      "file": "tickets",
+      "path": "media[1].steps[1].pl",
+      "value": "Bilet kasuje się w chwili zakupu.",
+      "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk",
+      "quote": "Bilet krótkookresowy jest kasowany w momencie zakupu."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].type",
+      "value": "machine",
+      "url": "https://mpk.krakow.pl/bilety-do-kasowania",
+      "quote": "w stacjonarnych automatach biletowych KKM (w systemie Krakowskiej Karty Miejskiej) lub MKA (w systemie Małopolskiej Karty Aglomeracyjnej)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[0].text.pl",
+      "value": "Kup bilet w automacie stacjonarnym lub w pojeździe.",
+      "url": "https://mpk.krakow.pl/bilety-do-kasowania",
+      "quote": "w stacjonarnych automatach biletowych KKM (w systemie Krakowskiej Karty Miejskiej) lub MKA (w systemie Małopolskiej Karty Aglomeracyjnej)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[1].text.pl",
+      "value": "W pojeździe zapłać gotówką lub kartą, jak na piktogramie.",
+      "url": "https://mpk.krakow.pl/bilety-do-kasowania",
+      "quote": "w automatach biletowych umieszczonych w pojazdach, gotówką bądź kartą płatniczą, zgodnie z formą płatności oznaczoną na piktogramie na drzwiach wejściowych pojazdu"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[0].steps[2].text.pl",
+      "value": "Zaraz po wejściu do pojazdu skasuj bilet.",
+      "url": "https://ztp.krakow.pl/kmk/kontrola-biletow-kmk",
+      "quote": "w pierwszej kolejności po wejściu do pojazdu jest obowiązany skasować bilet"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].type",
+      "value": "app",
+      "url": "https://mpk.krakow.pl/bilety-do-kasowania",
+      "quote": "w aplikacjach mobilnych: iMKA, moBiLET, SkyCash, jakdojade lub zbiletem.pl"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[0].text.pl",
+      "value": "Zarejestruj się i doładuj konto przed wejściem do pojazdu.",
+      "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk",
+      "quote": "Rejestracja oraz doładowanie konta w systemach aplikacji mobilnych powinny nastąpić przed wejściem do pojazdu."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[1].text.pl",
+      "value": "Wpisz numer taborowy pojazdu lub zeskanuj kod QR.",
+      "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk",
+      "quote": "podanie numeru taborowego pojazdu (wpisanie 2 liter oraz 3 cyfr lub zeskanowanie kodu QR)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[2].text.pl",
+      "value": "Bilet krótkookresowy kasuje się w chwili zakupu.",
+      "url": "https://ztp.krakow.pl/kmk/kup-bilet-kmk",
+      "quote": "Bilet krótkookresowy jest kasowany w momencie zakupu."
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[1].steps[3].text.pl",
+      "value": "Okaż bilet z aplikacji podczas kontroli.",
+      "url": "https://mpk.krakow.pl/mobilna-krakowska-karta-miejska-mkkm",
+      "quote": "kupować i okazywać do kontroli mobilne, imienne bilety okresowe"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].type",
+      "value": "office",
+      "url": "https://mpk.krakow.pl/karty-plastikowe",
+      "quote": "w Punktach Obsługi Pasażerów KMK (POP)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].steps[0].text.pl",
+      "value": "Kup bilet okresowy w Punkcie Obsługi Pasażerów (POP).",
+      "url": "https://mpk.krakow.pl/karty-plastikowe",
+      "quote": "w Punktach Obsługi Pasażerów KMK (POP)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[2].steps[1].text.pl",
+      "value": "Bilety do kasowania kupisz też w sklepach i kioskach.",
+      "url": "https://mpk.krakow.pl/bilety-do-kasowania",
+      "quote": "w niektórych punktach handlowych (np. w sklepach, w kioskach z prasą)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].type",
+      "value": "metrokarta",
+      "url": "https://mpk.krakow.pl/karty-plastikowe",
+      "quote": "w stacjonarnych automatach biletowych KKM (w systemie Krakowskiej Karty Miejskiej) lub MKA (w systemie Małopolskiej Karty Aglomeracyjnej), w formie zapisu na nośniku biletowym (m. in. KK, KKM, MKA)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[3].steps[0].text.pl",
+      "value": "Kup bilet okresowy w automacie i zapisz go na karcie.",
+      "url": "https://mpk.krakow.pl/karty-plastikowe",
+      "quote": "w stacjonarnych automatach biletowych KKM (w systemie Krakowskiej Karty Miejskiej) lub MKA (w systemie Małopolskiej Karty Aglomeracyjnej), w formie zapisu na nośniku biletowym (m. in. KK, KKM, MKA)"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].type",
+      "value": "other",
+      "url": "https://mpk.krakow.pl/elektroniczne-konto-pasazera-ekp",
+      "quote": "Każdy użytkownik tego portalu ma możliwość zakupu każdego rodzaju biletu zapisywanego na każdym nośniku"
+    },
+    {
+      "file": "purchase",
+      "path": "purchase[4].steps[0].text.pl",
+      "value": "Wejdź na ekp.mpk.krakow.pl i kup bilet okresowy.",
+      "url": "https://mpk.krakow.pl/elektroniczne-konto-pasazera-ekp",
+      "quote": "Każdy użytkownik tego portalu ma możliwość zakupu każdego rodzaju biletu zapisywanego na każdym nośniku"
+    },
+    {
+      "file": "zones",
+      "path": "items[0].name.pl",
+      "value": "Strefa I",
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "Bilet metropolitalny – sieciowy | I | 193,00 | 96,50"
+    },
+    {
+      "file": "zones",
+      "path": "items[1].name.pl",
+      "value": "Strefa II",
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "II | 132,00 | 66,00"
+    },
+    {
+      "file": "zones",
+      "path": "items[2].name.pl",
+      "value": "Strefa III",
+      "url": "https://mpk.krakow.pl/bilety-kmk",
+      "quote": "III | 132,00 | 66,00"
+    },
+    {
+      "file": "operator",
+      "path": "servicePoint.pl",
+      "value": "Punkt Obsługi Pasażerów KMK, ul. Wielopole 1, pon.–pt. 8:00–15:30",
+      "url": "https://ztp.krakow.pl/kmk/punkty-obslugi-pasazerow-kmk",
+      "quote": "ul. Wielopole 1 (wejście od ul. Starowiślnej) poniedziałek – piątek w godz. od 8.00 do 15:30"
+    }
+  ]
+}
