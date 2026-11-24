@@ -1,0 +1,949 @@
+{
+  "tickets": [
+    {
+      "category": "single",
+      "name": {
+        "pl": "15-minutowy",
+        "en": "15 minutes"
+      },
+      "validity": {
+        "pl": "15 minut",
+        "en": "15 minutes"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 4,
+      "priceReduced": 2,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "30-minutowy lub 1-przejazdowy",
+        "en": "30 minutes or single ride"
+      },
+      "validity": {
+        "pl": "30 minut",
+        "en": "30 minutes"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 6,
+      "priceReduced": 3,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "60-minutowy",
+        "en": "60 minutes"
+      },
+      "validity": {
+        "pl": "60 minut",
+        "en": "60 minutes"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 8,
+      "priceReduced": 4,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "90-minutowy",
+        "en": "90 minutes"
+      },
+      "validity": {
+        "pl": "90 minut",
+        "en": "90 minutes"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 9,
+      "priceReduced": 4.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "24-godzinny (strefa I)",
+        "en": "24 hours (zone I)"
+      },
+      "validity": {
+        "pl": "24 godziny",
+        "en": "24 hours"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 20,
+      "priceReduced": 10,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "24-godzinny (strefy I+II+III)",
+        "en": "24 hours (zones I+II+III)"
+      },
+      "validity": {
+        "pl": "24 godziny",
+        "en": "24 hours"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 25,
+      "priceReduced": 12.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "48-godzinny",
+        "en": "48 hours"
+      },
+      "validity": {
+        "pl": "48 godzin",
+        "en": "48 hours"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 40,
+      "priceReduced": 20,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "72-godzinny",
+        "en": "72 hours"
+      },
+      "validity": {
+        "pl": "72 godziny",
+        "en": "72 hours"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 55,
+      "priceReduced": 27.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "7-dniowy (strefa I)",
+        "en": "7 days (zone I)"
+      },
+      "validity": {
+        "pl": "7 dni",
+        "en": "7 days"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 65,
+      "priceReduced": 32.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "7-dniowy (strefy I+II+III)",
+        "en": "7 days (zones I+II+III)"
+      },
+      "validity": {
+        "pl": "7 dni",
+        "en": "7 days"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 80,
+      "priceReduced": 40,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "short",
+      "name": {
+        "pl": "Weekendowy rodzinny",
+        "en": "Family weekend"
+      },
+      "validity": {
+        "pl": "sobota i niedziela",
+        "en": "Saturday and Sunday"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 25,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednoprzejazdowy dla grupy do 20 osób (strefa I)",
+        "en": "Single-ride group ticket, up to 20 people (zone I)"
+      },
+      "validity": {
+        "pl": "1 przejazd",
+        "en": "1 ride"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 50,
+      "priceReduced": 25,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Jednoprzejazdowy dla grupy do 20 osób (strefy I+II+III)",
+        "en": "Single-ride group ticket, up to 20 people (zones I+II+III)"
+      },
+      "validity": {
+        "pl": "1 przejazd",
+        "en": "1 ride"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 60,
+      "priceReduced": 30,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja mobilna, sklep lub kiosk",
+        "en": "ticket machine, mobile app, shop or newsagent"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "single",
+      "name": {
+        "pl": "Wspólny 70-minutowy KMK+KMŁ",
+        "en": "Joint 70 minutes KMK+KMŁ (city + rail)"
+      },
+      "validity": {
+        "pl": "70 minut",
+        "en": "70 minutes"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 10,
+      "priceReduced": 5,
+      "whereToBuy": {
+        "pl": "automat biletowy, aplikacja iMKA, automaty w pociągach KMŁ",
+        "en": "ticket machine, iMKA app, ticket machines on KMŁ trains"
+      },
+      "media": [
+        "paper",
+        "app"
+      ]
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metropolitalny sieciowy (strefa I)",
+        "en": "Metropolitan network (zone I)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 193,
+      "priceReduced": 96.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metropolitalny sieciowy (strefa II)",
+        "en": "Metropolitan network (zone II)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefa II",
+        "en": "Zone II"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 132,
+      "priceReduced": 66,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metropolitalny sieciowy (strefa III)",
+        "en": "Metropolitan network (zone III)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefa III",
+        "en": "Zone III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 132,
+      "priceReduced": 66,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metropolitalny sieciowy (strefy I+II)",
+        "en": "Metropolitan network (zones I+II)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefy I+II",
+        "en": "Zones I+II"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 204,
+      "priceReduced": 102,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metropolitalny sieciowy (strefy II+III)",
+        "en": "Metropolitan network (zones II+III)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefy II+III",
+        "en": "Zones II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 204,
+      "priceReduced": 102,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Metropolitalny sieciowy (strefy I+II+III)",
+        "en": "Metropolitan network (zones I+II+III)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 241,
+      "priceReduced": 120.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Mieszkańca miesięczny – 1 linia",
+        "en": "Resident monthly – 1 line"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefa I, jedna linia",
+        "en": "Zone I, one line"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 72,
+      "priceReduced": 36,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Mieszkańca miesięczny sieciowy",
+        "en": "Resident monthly network"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 99,
+      "priceReduced": 49.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Mieszkańca półroczny sieciowy",
+        "en": "Resident six-month network"
+      },
+      "validity": {
+        "pl": "6 miesięcy",
+        "en": "6 months"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 515,
+      "priceReduced": 257.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Mieszkańca półroczny 5+1 sieciowy",
+        "en": "Resident six-month 5+1 network"
+      },
+      "validity": {
+        "pl": "6 miesięcy",
+        "en": "6 months"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 515,
+      "priceReduced": 257.5,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Studencki roczny",
+        "en": "Student annual"
+      },
+      "validity": {
+        "pl": "12 miesięcy",
+        "en": "12 months"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceReduced": 365,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Socjalny miesięczny (strefa I)",
+        "en": "Social monthly (zone I)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 30,
+      "whereToBuy": {
+        "pl": "Punkt Obsługi Pasażerów",
+        "en": "passenger service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Socjalny miesięczny (strefy I+II)",
+        "en": "Social monthly (zones I+II)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefy I+II",
+        "en": "Zones I+II"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 50,
+      "whereToBuy": {
+        "pl": "Punkt Obsługi Pasażerów",
+        "en": "passenger service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Socjalny miesięczny (strefy I+II+III)",
+        "en": "Social monthly (zones I+II+III)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 70,
+      "whereToBuy": {
+        "pl": "Punkt Obsługi Pasażerów",
+        "en": "passenger service point"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Aktywizujący dla bezrobotnych miesięczny (strefa I)",
+        "en": "Job-seeker monthly (zone I)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefa I",
+        "en": "Zone I"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 50,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Aktywizujący dla bezrobotnych miesięczny (strefy I+II)",
+        "en": "Job-seeker monthly (zones I+II)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefy I+II",
+        "en": "Zones I+II"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 100,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    },
+    {
+      "category": "long",
+      "name": {
+        "pl": "Aktywizujący dla bezrobotnych miesięczny (strefy I+II+III)",
+        "en": "Job-seeker monthly (zones I+II+III)"
+      },
+      "validity": {
+        "pl": "1 miesiąc",
+        "en": "1 month"
+      },
+      "scope": {
+        "pl": "Strefy I+II+III",
+        "en": "Zones I+II+III"
+      },
+      "transportModes": [
+        "tram",
+        "bus"
+      ],
+      "priceNormal": 140,
+      "whereToBuy": {
+        "pl": "automat biletowy, Punkt Obsługi Pasażerów, aplikacja mobilna, eKP",
+        "en": "ticket machine, passenger service point, mobile app, eKP portal"
+      }
+    }
+  ],
+  "media": [
+    {
+      "type": "paper",
+      "action": {
+        "pl": "Skasuj bilet",
+        "en": "Validate the ticket"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do pojazdu",
+        "en": "Right after boarding"
+      },
+      "steps": [
+        {
+          "pl": "Skasuj bilet zaraz po wejściu do pojazdu.",
+          "en": "Validate the ticket right after boarding."
+        }
+      ]
+    },
+    {
+      "type": "app",
+      "action": {
+        "pl": "Podaj numer pojazdu",
+        "en": "Enter the vehicle number"
+      },
+      "when": {
+        "pl": "Zaraz po wejściu do pojazdu",
+        "en": "Right after boarding"
+      },
+      "steps": [
+        {
+          "pl": "Wpisz numer taborowy lub zeskanuj kod QR.",
+          "en": "Enter the fleet number or scan the QR code."
+        },
+        {
+          "pl": "Bilet kasuje się w chwili zakupu.",
+          "en": "The ticket is validated at the moment of purchase."
+        }
+      ]
+    }
+  ],
+  "luggage": [
+    {
+      "type": "luggage",
+      "item": {
+        "pl": "Bagaż podręczny",
+        "en": "Hand luggage"
+      },
+      "note": {
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
+      },
+      "conditions": {
+        "pl": "Nie wolno go kłaść na miejscach siedzących. Kierowca może odmówić przewozu dużego bagażu przy tłoku.",
+        "en": "It must not be placed on seats. The driver may refuse bulky luggage when the vehicle is crowded."
+      }
+    },
+    {
+      "type": "bike",
+      "item": {
+        "pl": "Rower",
+        "en": "Bicycle"
+      },
+      "note": {
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
+      },
+      "conditions": {
+        "pl": "Na bagażniku zewnętrznym (załadunek tylko na przystanku początkowym i końcowym), a bez bagażnika – wewnątrz pojazdu w wyznaczonym miejscu.",
+        "en": "On an external rack (loading only at the first and last stop); without a rack, inside the vehicle in the designated place."
+      }
+    },
+    {
+      "type": "pet",
+      "item": {
+        "pl": "Zwierzę",
+        "en": "Animal"
+      },
+      "note": {
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
+      },
+      "conditions": {
+        "pl": "Pies musi mieć kaganiec i smycz oraz zaświadczenie o szczepieniu przeciw wściekliźnie. Inne zwierzęta przewozisz w koszu lub transporterze.",
+        "en": "A dog needs a muzzle, a lead and a rabies vaccination certificate. Other animals go in a basket or carrier."
+      }
+    },
+    {
+      "type": "other",
+      "item": {
+        "pl": "Hulajnoga i inne urządzenia transportu osobistego",
+        "en": "Scooter and other personal transport devices"
+      },
+      "note": {
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
+      },
+      "conditions": {
+        "pl": "Traktowane jak bagaż. Ostateczną decyzję o przewozie podejmuje kierowca.",
+        "en": "Treated as luggage. The driver makes the final decision."
+      }
+    },
+    {
+      "type": "stroller",
+      "item": {
+        "pl": "Wózek dziecięcy i inwalidzki",
+        "en": "Pram and wheelchair"
+      },
+      "note": {
+        "pl": "Bez opłaty",
+        "en": "Free of charge"
+      },
+      "conditions": {
+        "pl": "Mają pierwszeństwo przed bagażem i rowerami. Ustaw je na stanowisku do tego przeznaczonym.",
+        "en": "They have priority over luggage and bicycles. Place them in the designated spot."
+      }
+    }
+  ],
+  "rulesNote": {
+    "pl": "Przewóz bagażu i zwierząt nie podlega opłacie. Ceny i ulgi ustala Rada Miasta Krakowa; przepisy porządkowe i taryfa są w uchwałach (PDF).",
+    "en": "Carrying luggage and animals is free of charge. Fares and concessions are set by the Kraków City Council; carriage rules and the tariff are in resolutions (PDF)."
+  },
+  "rulesUrl": "https://mpk.krakow.pl/zasady-podrozy-kmk"
+}

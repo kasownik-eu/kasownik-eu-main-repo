@@ -1,0 +1,134 @@
+[
+  {
+    "type": "machine",
+    "subtitle": {
+      "pl": "automaty stacjonarne KKM / MKA i automaty w pojazdach",
+      "en": "KKM / MKA stationary machines and machines on vehicles"
+    },
+    "validation": [
+      "punch"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet w automacie stacjonarnym lub w pojeździe.",
+          "en": "Buy a ticket at a stationary machine or on the vehicle."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "W pojeździe zapłać gotówką lub kartą, jak na piktogramie.",
+          "en": "On the vehicle pay by cash or card, as the pictogram shows."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Zaraz po wejściu do pojazdu skasuj bilet.",
+          "en": "Validate the ticket right after boarding."
+        }
+      }
+    ]
+  },
+  {
+    "type": "app",
+    "subtitle": {
+      "pl": "iMKA, moBiLET, SkyCash, jakdojade, zbiletem.pl, mKKM, mKK",
+      "en": "iMKA, moBiLET, SkyCash, jakdojade, zbiletem.pl, mKKM, mKK"
+    },
+    "validation": [
+      "qr"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zarejestruj się i doładuj konto przed wejściem do pojazdu.",
+          "en": "Register and top up your account before boarding."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wpisz numer taborowy pojazdu lub zeskanuj kod QR.",
+          "en": "Enter the vehicle fleet number or scan the QR code."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Bilet krótkookresowy kasuje się w chwili zakupu.",
+          "en": "A short-term ticket is validated when you buy it."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Okaż bilet z aplikacji podczas kontroli.",
+          "en": "Show the ticket from the app during a check."
+        }
+      }
+    ]
+  },
+  {
+    "type": "office",
+    "subtitle": {
+      "pl": "Punkty Obsługi Pasażerów KMK, wybrane sklepy i kioski",
+      "en": "KMK passenger service points, selected shops and newsagents"
+    },
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet okresowy w Punkcie Obsługi Pasażerów (POP).",
+          "en": "Buy a period ticket at a passenger service point (POP)."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Bilety do kasowania kupisz też w sklepach i kioskach.",
+          "en": "Tickets to validate are also sold in shops and newsagents."
+        }
+      }
+    ]
+  },
+  {
+    "type": "metrokarta",
+    "subtitle": {
+      "pl": "Krakowska Karta Miejska (KKM), Karta Krakowska (KK), MKA",
+      "en": "Krakow City Card (KKM), Krakow Card (KK), MKA"
+    },
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet okresowy w automacie i zapisz go na karcie.",
+          "en": "Buy a period ticket at a machine and load it onto the card."
+        }
+      }
+    ]
+  },
+  {
+    "type": "other",
+    "title": {
+      "pl": "Elektroniczne Konto Pasażera (eKP)",
+      "en": "Electronic Passenger Account (eKP)"
+    },
+    "subtitle": {
+      "pl": "ekp.mpk.krakow.pl",
+      "en": "ekp.mpk.krakow.pl"
+    },
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wejdź na ekp.mpk.krakow.pl i kup bilet okresowy.",
+          "en": "Go to ekp.mpk.krakow.pl and buy a period ticket."
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,124 @@
+[
+  {
+    "slug": "krakow",
+    "name": {
+      "pl": "Kraków",
+      "en": "Krakow"
+    },
+    "primary": true
+  },
+  {
+    "slug": "biskupice",
+    "name": {
+      "pl": "Biskupice"
+    }
+  },
+  {
+    "slug": "brzeznica",
+    "name": {
+      "pl": "Brzeźnica"
+    }
+  },
+  {
+    "slug": "czernichow",
+    "name": {
+      "pl": "Czernichów"
+    }
+  },
+  {
+    "slug": "iwanowice",
+    "name": {
+      "pl": "Iwanowice"
+    }
+  },
+  {
+    "slug": "jerzmanowice-przeginia",
+    "name": {
+      "pl": "Jerzmanowice-Przeginia"
+    }
+  },
+  {
+    "slug": "kocmyrzow-luborzyca",
+    "name": {
+      "pl": "Kocmyrzów-Luborzyca"
+    }
+  },
+  {
+    "slug": "krzeszowice",
+    "name": {
+      "pl": "Krzeszowice"
+    }
+  },
+  {
+    "slug": "liszki",
+    "name": {
+      "pl": "Liszki"
+    }
+  },
+  {
+    "slug": "michalowice",
+    "name": {
+      "pl": "Michałowice"
+    }
+  },
+  {
+    "slug": "mogilany",
+    "name": {
+      "pl": "Mogilany"
+    }
+  },
+  {
+    "slug": "niepolomice",
+    "name": {
+      "pl": "Niepołomice"
+    }
+  },
+  {
+    "slug": "skala",
+    "name": {
+      "pl": "Skała"
+    }
+  },
+  {
+    "slug": "skawina",
+    "name": {
+      "pl": "Skawina"
+    }
+  },
+  {
+    "slug": "slomniki",
+    "name": {
+      "pl": "Słomniki"
+    }
+  },
+  {
+    "slug": "swiatniki-gorne",
+    "name": {
+      "pl": "Świątniki Górne"
+    }
+  },
+  {
+    "slug": "wieliczka",
+    "name": {
+      "pl": "Wieliczka"
+    }
+  },
+  {
+    "slug": "wielka-wies",
+    "name": {
+      "pl": "Wielka Wieś"
+    }
+  },
+  {
+    "slug": "zabierzow",
+    "name": {
+      "pl": "Zabierzów"
+    }
+  },
+  {
+    "slug": "zielonki",
+    "name": {
+      "pl": "Zielonki"
+    }
+  }
+]

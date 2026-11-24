@@ -1,9 +1,0 @@
-{
-  "name": "Koleje Regionalne",
-  "shortName": "KR",
-  "sampleData": true,
-  "transportModes": [
-    "train"
-  ],
-  "currency": "PLN"
-}

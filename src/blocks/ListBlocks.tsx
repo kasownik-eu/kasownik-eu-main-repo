@@ -7,10 +7,10 @@ import { initials } from '@/components/city/format'
 import { OperatorsBrowser, type OperatorItem } from '@/components/operators/OperatorsBrowser'
 import { LineMark } from '@/components/site/decor'
 import { SiteFooter } from '@/components/site/SiteFooter'
+import { REPORT_URL } from '@/lib/links'
 
 import type { BlockProps, PageContext } from './types'
 
-const REPORT_URL = '#'
 
 const messagesOf = (ctx: PageContext<'cities' | 'operators'>) =>
   getTranslations(ctx.page === 'cities' ? 'CitiesList' : 'OperatorsList')

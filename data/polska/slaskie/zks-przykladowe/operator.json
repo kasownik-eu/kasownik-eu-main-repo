@@ -1,9 +1,0 @@
-{
-  "name": "Zarząd Komunikacji Sąsiednie Miasto",
-  "shortName": "ZKS",
-  "sampleData": true,
-  "transportModes": [
-    "bus"
-  ],
-  "currency": "PLN"
-}

@@ -1,0 +1,176 @@
+[
+  {
+    "type": "machine",
+    "subtitle": {
+      "pl": "biletomaty na przystankach i w każdym autobusie",
+      "en": "ticket machines at stops and on every bus"
+    },
+    "validation": [
+      "punch"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet w biletomacie stacjonarnym na przystanku.",
+          "en": "Buy a ticket at a stationary machine at a stop."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "W autobusie kup bilet w biletomacie mobilnym.",
+          "en": "On the bus buy a ticket at the mobile machine."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "W autobusie zapłać kartą płatniczą, wybierając taryfę.",
+          "en": "On the bus pay by card after choosing the tariff."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Skasuj papierowy bilet w kasowniku w autobusie.",
+          "en": "Validate the paper ticket in the validator on the bus."
+        }
+      }
+    ]
+  },
+  {
+    "type": "office",
+    "subtitle": {
+      "pl": "kasy POK, punkty POS, kioski i sklepy „Sprzedaż biletów MZK”",
+      "en": "POK ticket offices, POS points, kiosks and shops marked “Sprzedaż biletów MZK”"
+    },
+    "validation": [
+      "punch"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet papierowy w kasie POK.",
+          "en": "Buy a paper ticket at a POK ticket office."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Bilety papierowe kupisz też w kioskach „Sprzedaż biletów MZK”.",
+          "en": "Paper tickets are also sold at kiosks marked “Sprzedaż biletów MZK”."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Skasuj bilet z kiosku w kasowniku w autobusie.",
+          "en": "Validate a kiosk ticket in the validator on the bus."
+        }
+      }
+    ]
+  },
+  {
+    "type": "app",
+    "subtitle": {
+      "pl": "Opole+, Skycash, zBiletem, moBilet",
+      "en": "Opole+, Skycash, zBiletem, moBilet"
+    },
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet elektroniczny w aplikacji Opole+ lub Skycash.",
+          "en": "Buy an electronic ticket in the Opole+ or Skycash app."
+        }
+      }
+    ]
+  },
+  {
+    "type": "metrokarta",
+    "title": {
+      "pl": "Opolska Karta Autobusowa (Opolka!)",
+      "en": "Opole Bus Card (Opolka!)"
+    },
+    "subtitle": {
+      "pl": "karta z biletami okresowymi i e-portmonetką",
+      "en": "card with period tickets and an e-wallet"
+    },
+    "validation": [
+      "tap"
+    ],
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Wyrób kartę Opolka w kasie biletowej POK.",
+          "en": "Get the Opolka card at a POK ticket office."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zakoduj na karcie bilet okresowy lub doładuj e-portmonetkę.",
+          "en": "Load a period ticket or top up the e-wallet on the card."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Bilet jednorazowy skasuj, zbliżając kartę do kasownika.",
+          "en": "Validate a single ticket by tapping the card on the validator."
+        }
+      }
+    ]
+  },
+  {
+    "type": "other",
+    "title": {
+      "pl": "E-sklep Opolki",
+      "en": "Opolka online shop"
+    },
+    "subtitle": {
+      "pl": "opolka.mzkopole.pl",
+      "en": "opolka.mzkopole.pl"
+    },
+    "steps": [
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zarejestruj się na opolka.mzkopole.pl numerem karty i PIN-em.",
+          "en": "Register at opolka.mzkopole.pl with the card number and PIN."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Dodaj bilet do koszyka i wskaż datę początku ważności.",
+          "en": "Add the ticket to the basket and set its start date."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Kup bilet najpóźniej 24 godziny przed jego startem.",
+          "en": "Buy the ticket at least 24 hours before it starts."
+        }
+      },
+      {
+        "kind": "buy",
+        "text": {
+          "pl": "Zapłać szybkim przelewem lub BLIK-iem.",
+          "en": "Pay by instant bank transfer or BLIK."
+        }
+      },
+      {
+        "kind": "validate",
+        "text": {
+          "pl": "Zakoduj bilet na karcie w biletomacie, kasowniku lub kasie.",
+          "en": "Load the ticket onto the card at a machine, validator or ticket office."
+        }
+      }
+    ]
+  }
+]
