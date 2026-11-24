@@ -93,10 +93,13 @@ Around the steps:
 - **PDF documents are valid sources** (regulations, tariff resolutions, often the only place for luggage, animal and
   stroller rules). Take the currently valid file from the operator's "Do pobrania" / "Regulaminy" page (old links
   404), download it with `curl -fsSL` into the scratchpad, read it with `pdftotext -layout` and use it like any page.
-  `check-source` and `check:operators` cannot read PDFs yet (support is planned), so for PDF-only facts: add the PDF to
-  the matching `*Sources` list and to `sources.items` (label ends with `(PDF)`), write **no** evidence fact for them
-  (a quote could not be verified), and list them in the report as "from PDF, not covered by evidence" (section and
-  paragraph, e.g. `§ 19`). Once the checker reads PDFs, add the quotes.
+  Add the PDF to the matching `*Sources` list (no `xpath`) and to `sources.items` (label ends with `(PDF)`), and
+  **write evidence for PDF facts like for any page**: the `quote` is copied word for word from the `pdftotext -layout`
+  text (whitespace collapsed; skip quotes with line-wrapped hyphenation or odd characters), `url` is the PDF. Verify the
+  quote yourself against that text, because `check-source` and `check:operators` cannot read PDFs yet (support is
+  planned): until then the checker reports these facts as `UNREACHABLE` (HTTP 406) and the exit code is not 0 only
+  because of them. This is expected: list them in the report ("PDF facts, not yet verifiable by the checker", with
+  section/paragraph, e.g. `§ 19`) and do not drop or shorten them to make the checker pass.
 - **Provenance**: `sources.items` = the official pages you actually used (with `{ pl, en }` labels),
   `sources.aiAssisted: true`, `verifiedAt` = `today` from the context.
 - **Evidence** (after step 6): `evidence.json` with one fact per price, luggage fee, purchase method, purchase step,
