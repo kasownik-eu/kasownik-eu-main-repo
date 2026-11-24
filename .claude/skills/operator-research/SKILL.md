@@ -94,10 +94,12 @@ Around the steps:
   stroller rules). Take the currently valid file from the operator's "Do pobrania" / "Regulaminy" page (old links
   404), download it with `curl -fsSL` into the scratchpad, read it with `pdftotext -layout` and use it like any page.
   Add the PDF to the matching `*Sources` list (no `xpath`) and to `sources.items` (label ends with `(PDF)`).
-  **Only verified facts go into `evidence.json`**: `check-source` and `check:operators` cannot read PDFs yet (support
-  is planned; the checker reports such facts `UNREACHABLE`), so write **no** evidence fact whose `url` is a PDF (or any
-  page the checker cannot fetch). List the PDF-based data in the report as "from PDF, no evidence yet" (section and
-  paragraph, e.g. `§ 19`); the quotes are added once the checker reads PDFs.
+  A PDF is a **true source**: its facts are stored as evidence (`url` = the PDF, `quote` word for word from the
+  `pdftotext -layout` text, whitespace collapsed) **when the checker can fetch it**. Only verified facts go into
+  `evidence.json`: after writing them run `check:operators`; a PDF fact that comes back `UNREACHABLE` (the server
+  refuses the checker's request, e.g. HTTP 406, or the checker cannot read PDFs yet) is **removed** from the evidence.
+  List such data in the report as "from PDF, no evidence" (section and paragraph, e.g. `§ 19`) and add the quotes
+  once the checker can fetch that PDF.
 - **Provenance**: `sources.items` = the official pages you actually used (with `{ pl, en }` labels),
   `sources.aiAssisted: true`, `verifiedAt` = `today` from the context.
 - **Evidence** (after step 6): `evidence.json` with one fact per price, luggage fee, purchase method, purchase step,
