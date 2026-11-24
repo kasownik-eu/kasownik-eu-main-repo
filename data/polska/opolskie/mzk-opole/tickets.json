@@ -563,6 +563,24 @@
   ],
   "luggage": [
     {
+      "type": "luggage",
+      "item": {
+        "pl": "Bagaż",
+        "en": "Luggage"
+      },
+      "note": {
+        "pl": "Nie na siedzeniach i nie w przejściu",
+        "en": "Not on seats or in the aisle"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "conditions": {
+        "pl": "Bagaż nie może blokować przejścia, kasowników ani biletomatu. Duży plecak zdejmij zaraz po wejściu.",
+        "en": "Luggage must not block the aisle, validators or the ticket machine. Take off a large backpack right after boarding."
+      }
+    },
+    {
       "type": "bike",
       "item": {
         "pl": "Rower",
@@ -576,14 +594,68 @@
         "bus"
       ],
       "conditions": {
-        "pl": "Tylko w miejscach oznaczonych piktogramem. W dni robocze nie w godz. 6:00–9:00 i 13:00–17:00, w dni wolne bez ograniczeń.",
-        "en": "Only in places marked with a pictogram. On working days not 6:00–9:00 and 13:00–17:00, on days off without time limits."
+        "pl": "Tylko w miejscu z piktogramem roweru; wchodzisz ostatni i unieruchamiasz rower. W dni robocze nie w godz. 6:00–9:00 i 13:00–17:00.",
+        "en": "Only in the place with the bicycle pictogram; board last and secure the bicycle. On working days not 6:00–9:00 and 13:00–17:00."
+      }
+    },
+    {
+      "type": "other",
+      "item": {
+        "pl": "Hulajnoga i inne urządzenia transportu osobistego",
+        "en": "Scooter and other personal transport devices"
+      },
+      "note": {
+        "pl": "Tylko w miejscu z piktogramem roweru",
+        "en": "Only in the place with the bicycle pictogram"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "conditions": {
+        "pl": "Złóż urządzenie na czas przejazdu, jeśli konstrukcja na to pozwala. Wchodzisz ostatni i unieruchamiasz je.",
+        "en": "Fold the device for the ride if its design allows. Board last and secure it."
+      }
+    },
+    {
+      "type": "pet",
+      "item": {
+        "pl": "Zwierzę",
+        "en": "Animal"
+      },
+      "note": {
+        "pl": "Mały zwierzak w transporterze, pies na smyczy z kagańcem",
+        "en": "Small pet in a carrier, dog on a lead with a muzzle"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "conditions": {
+        "pl": "Pies musi mieć smycz i kaganiec albo jechać w zamkniętym transporterze; miej przy sobie dokument szczepień. Zwierząt gospodarskich nie wolno przewozić.",
+        "en": "A dog needs a lead and a muzzle or a closed carrier; carry the vaccination document. Farm animals are not allowed."
+      }
+    },
+    {
+      "type": "stroller",
+      "item": {
+        "pl": "Wózek dziecięcy i inwalidzki",
+        "en": "Pram and wheelchair"
+      },
+      "note": {
+        "pl": "Oznaczone miejsce w autobusie",
+        "en": "Marked place on the bus"
+      },
+      "transportModes": [
+        "bus"
+      ],
+      "conditions": {
+        "pl": "Wózek jedzie w oznaczonym miejscu. Na żądanie osoby na wózku inwalidzkim zwolnij to miejsce z wózka dziecięcego.",
+        "en": "A pram goes in the marked place. At the request of a wheelchair user, free that place."
       }
     }
   ],
   "rulesNote": {
-    "pl": "Przewóz roweru jest bezpłatny. Pozostałe zasady przewozu są w Regulaminie przewozu (PDF).",
-    "en": "Carrying a bicycle is free. Other carriage rules are in the Carriage Regulations (PDF)."
+    "pl": "Przewóz roweru jest bezpłatny. Zasady bagażu i zwierząt pochodzą z Regulaminu przewozu obowiązującego od 1.10.2026 (PDF).",
+    "en": "Carrying a bicycle is free. Luggage and animal rules come from the Carriage Regulations valid from 1 Oct 2026 (PDF)."
   },
-  "rulesUrl": "https://pop.mzkopole.pl/do-pobrania/"
+  "rulesUrl": "https://pop.mzkopole.pl/wp-content/uploads/Regulamin-Przewozu-obowiazujacy-od-01.10.2026.pdf"
 }

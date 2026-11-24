@@ -87,9 +87,16 @@ Around the steps:
   ```
   Keep only pages that print `OK` with the relevant text in the output. `--full` prints the whole extracted text:
   read the content from **this text**, because evidence quotes must come from it and the checker compares against
-  exactly this text. If an important page fails (PDF, JavaScript-rendered, blocked), do not save it; list it in the
+  exactly this text. If an important page fails (JavaScript-rendered, blocked), do not save it; list it in the
   report with the reason. Narrow a large page with an XPath so the checker's model gets a small text (a price list, not
   the whole regulation).
+- **PDF documents are valid sources** (regulations, tariff resolutions, often the only place for luggage, animal and
+  stroller rules). Take the currently valid file from the operator's "Do pobrania" / "Regulaminy" page (old links
+  404), download it with `curl -fsSL` into the scratchpad, read it with `pdftotext -layout` and use it like any page.
+  `check-source` and `check:operators` cannot read PDFs yet (support is planned), so for PDF-only facts: add the PDF to
+  the matching `*Sources` list and to `sources.items` (label ends with `(PDF)`), write **no** evidence fact for them
+  (a quote could not be verified), and list them in the report as "from PDF, not covered by evidence" (section and
+  paragraph, e.g. `§ 19`). Once the checker reads PDFs, add the quotes.
 - **Provenance**: `sources.items` = the official pages you actually used (with `{ pl, en }` labels),
   `sources.aiAssisted: true`, `verifiedAt` = `today` from the context.
 - **Evidence** (after step 6): `evidence.json` with one fact per price, luggage fee, purchase method, purchase step,

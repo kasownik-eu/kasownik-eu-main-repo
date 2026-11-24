@@ -56,8 +56,10 @@ Each entry: `{ "url": "https://…", "xpath": "//…" }` (`xpath` optional). The
 | `purchaseSources` | Where and how to buy tickets (machines, apps, points of sale, driver, bank card, Metrokarta, SMS) **and** how a ride is started with them (paper ticket in the validator, QR code in the vehicle, card tap): one flow. |
 | `zoneSources` | List or description of fare zones and which areas they cover, the zone map page. Empty array when the operator has no zones. |
 
-HTML pages only: a PDF or a page that loads its content with JavaScript fails `check-source`; look for an HTML
-equivalent and otherwise report it. Do not add the same URL twice to one list.
+A page that loads its content with JavaScript fails `check-source`; look for an HTML equivalent and otherwise report
+it. A PDF also fails `check-source` for now, but it is a valid source: list it in the `*Sources` list it belongs to
+(no `xpath`) and in `sources.items`, leave out its evidence facts until the checker reads PDFs, and report it (see
+SKILL.md, "PDF documents"). Do not add the same URL twice to one list.
 
 ## sources.items
 
