@@ -51,7 +51,16 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 8. Rejestracja przejazdu z pakietu: w aplikacji, w kasowniku lub kartą miejską.
 9. Bez kasowania: ważny od zakupu, od daty początku albo już skasowany przez biletomat.
 
+## D. Dwie warstwy opisu (ustalone)
+
+1. **Ogólna, per kanał**: sekcja „Jak kupić bilet i rozpocząć przejazd". Typowy przebieg `[zakup]` → `[kasowanie]` kanału,
+   niezależny od konkretnego biletu.
+2. **Per bilet × kanał**: doprecyzowanie lub nadpisanie warstwy 1 dla konkretnego biletu (np. GZM: jednorazowy w aplikacji
+   = skan QR w pojeździe, okresowy = bez kasowania).
+
+Warianty `contactless` (4) potwierdzone, telefon zawiera się w karcie. `app-operator` i `app-third-party` mają te same
+kroki bazowe; pakiety i bilety dostępne tylko u operatora to wariant `app-operator`.
+
 ## Otwarte
 
 - Kolej i prom: dopiero gdy trafi się operator.
-- Czy kroki `[kasowanie]` należą do kanału, czy do pary kanał × forma biletu (np. aplikacja: QR vs aktywacja)? Do decyzji w zadaniu 2.
