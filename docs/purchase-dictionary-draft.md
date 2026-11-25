@@ -13,7 +13,7 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 | 2 | `machine-vehicle-print-validated-ticket` | Biletomat w pojeździe, który drukuje papierowy bilet już skasowany. NIE dotyczy: zakupu u kierowcy, płatności kartą w pojeździe (to `contactless` / `vehicle-terminal`), biletu do skasowania w kasowniku | zatwierdzone, patrz E |
 | 2b | `machine-vehicle-print-unvalidated-ticket` | Biletomat w pojeździe, który drukuje papierowy bilet DO skasowania w kasowniku (np. Opole). NIE dotyczy: biletu już skasowanego, zakupu u kierowcy, płatności kartą w pojeździe | zatwierdzone, patrz E |
 | 3 | `office` | Kasa, POK, punkt obsługi pasażera | zatwierdzone, patrz E |
-| 4 | `partner-shop` | Kiosk, sklep, punkt partnerski (POS) | do podania |
+| 4 | `partner-shop` | Kiosk, sklep, punkt partnerski (POS) | zatwierdzone (jak `office`), patrz E |
 | 5 | `driver` | Kierowca / konduktor | do podania |
 | 6 | `app-operator` | Aplikacja operatora (może mieć pakiety i bilety niedostępne gdzie indziej, np. Transport GZM) | do podania |
 | 7 | `app-third-party` | Aplikacja zewnętrzna (SkyCash, moBiLET, zBiletem, jakdojade) | do podania |
@@ -78,7 +78,18 @@ kroki bazowe; pakiety i bilety dostępne tylko u operatora to wariant `app-opera
 ### `office`
 
 1. [zakup] Kup bilet w punkcie sprzedaży. W razie potrzeby dopytaj, czy ten bilet wymaga kasowania.
-2. [kasowanie] Skasuj bilet, jeśli tego wymaga.
+2. [kasowanie] Skasuj bilet jeśli tego wymaga (więcej informacji w części „Bilety i cennik”).
+
+Decyzja: jeden klucz, bez podziału na skasowany/nieskasowany. Ten sam kanał sprzedaje bilety papierowe do skasowania, długookresowe
+papierowe (wystarczy podpisać, bez kasowania) i inne; szczegóły kasowania opisuje karta biletu (warstwa 2). Dwa klucze
+zrobiłyby chaos na liście opcji.
+
+### `partner-shop`
+
+Kroki jak w `office`:
+
+1. [zakup] Kup bilet w punkcie sprzedaży. W razie potrzeby dopytaj czy ten bilet wymaga kasowania.
+2. [kasowanie] Skasuj bilet jeśli tego wymaga (więcej informacji w części „Bilety i cennik”).
 
 ### `machine-vehicle-print-validated-ticket`
 
@@ -96,6 +107,5 @@ pojazdem nie dostaje `machine-print-unvalidated-ticket`.
 
 ## Otwarte
 
-- Krok `office` jest warunkowy („jeśli tego wymaga”): agent nie ma jak rozstrzygnąć warunku. Do decyzji, czy rozbić.
 - Biletomat w pojeździe, który drukuje bilet DO skasowania w kasowniku (Opole): osobny klucz? Zob. pytanie w rozmowie.
 - Kolej i prom: dopiero gdy trafi się operator.
