@@ -10,7 +10,8 @@
     "alt": {
       "pl": "Logo MPK Kraków",
       "en": "MPK Krakow logo"
-    }
+    },
+    "background": "dark"
   },
   "description": {
     "pl": "Miejski przewoźnik, który obsługuje tramwaje i autobusy komunikacji miejskiej w Krakowie i części okolicznych gmin. Przewozi pasażerów na zlecenie Gminy Miejskiej Kraków i prowadzi dystrybucję biletów w systemie Krakowskiej Karty Miejskiej. Za organizację transportu, rozkłady i kontrolę biletów odpowiada Zarząd Transportu Publicznego (ZTP).",
