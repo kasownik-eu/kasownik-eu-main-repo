@@ -9,7 +9,7 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 
 | # | Klucz roboczy | Opis | Kroki |
 |---|---|---|---|
-| 1 | `machine-stop` | Automat biletowy stacjonarny (przystanek, stacja, węzeł) | do podania |
+| 1 | `machine-stop` | Automat biletowy stacjonarny (przystanek, stacja, węzeł) | zatwierdzone, patrz E |
 | 2 | `machine-vehicle` | Biletomat w pojeździe (to NIE jest zakup u kierowcy) | do podania |
 | 3 | `office` | Kasa, POK, punkt obsługi pasażera | do podania |
 | 4 | `partner-shop` | Kiosk, sklep, punkt partnerski (POS) | do podania |
@@ -60,6 +60,13 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 
 Warianty `contactless` (4) potwierdzone, telefon zawiera się w karcie. `app-operator` i `app-third-party` mają te same
 kroki bazowe; pakiety i bilety dostępne tylko u operatora to wariant `app-operator`.
+
+## E. Kroki kanałów (warstwa 1)
+
+### `machine-stop`
+
+1. [zakup] Kup bilet w automacie biletowym.
+2. [kasowanie] Po wejściu do pojazdu skasuj bilet i zachowaj do końca podróży.
 
 ## Otwarte
 
