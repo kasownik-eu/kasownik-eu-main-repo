@@ -9,9 +9,10 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 
 | # | Klucz roboczy | Opis | Kroki |
 |---|---|---|---|
-| 1 | `machine-stop` | Automat biletowy stacjonarny (przystanek, stacja, węzeł) | zatwierdzone, patrz E |
+| 1 | `machine-print-unvalidated-ticket` | Automat biletowy stacjonarny (przystanek, stacja, węzeł), drukuje papierowy bilet do skasowania | zatwierdzone, patrz E |
 | 2 | `machine-vehicle-print-validated-ticket` | Biletomat w pojeździe, który drukuje papierowy bilet już skasowany. NIE dotyczy: zakupu u kierowcy, płatności kartą w pojeździe (to `contactless` / `vehicle-terminal`), biletu do skasowania w kasowniku | zatwierdzone, patrz E |
-| 3 | `office` | Kasa, POK, punkt obsługi pasażera | do podania |
+| 2b | `machine-vehicle-print-unvalidated-ticket` | Biletomat w pojeździe, który drukuje papierowy bilet DO skasowania w kasowniku (np. Opole). NIE dotyczy: biletu już skasowanego, zakupu u kierowcy, płatności kartą w pojeździe | zatwierdzone, patrz E |
+| 3 | `office` | Kasa, POK, punkt obsługi pasażera | zatwierdzone, patrz E |
 | 4 | `partner-shop` | Kiosk, sklep, punkt partnerski (POS) | do podania |
 | 5 | `driver` | Kierowca / konduktor | do podania |
 | 6 | `app-operator` | Aplikacja operatora (może mieć pakiety i bilety niedostępne gdzie indziej, np. Transport GZM) | do podania |
@@ -63,15 +64,26 @@ kroki bazowe; pakiety i bilety dostępne tylko u operatora to wariant `app-opera
 
 ## E. Kroki kanałów (warstwa 1)
 
-### `machine-stop`
+### `machine-print-unvalidated-ticket`
 
 1. [zakup] Kup bilet w automacie biletowym.
 2. [kasowanie] Po wejściu do pojazdu skasuj bilet i zachowaj do końca podróży.
 
+### `machine-vehicle-print-unvalidated-ticket`
+
+1. [zakup] Poszukaj automatu wewnątrz pojazdu.
+2. [zakup] Kup bilet w automacie biletowym.
+3. [kasowanie] Skasuj bilet w kasowniku w pojeździe.
+
+### `office`
+
+1. [zakup] Kup bilet w punkcie sprzedaży. W razie potrzeby dopytaj, czy ten bilet wymaga kasowania.
+2. [kasowanie] Skasuj bilet, jeśli tego wymaga.
+
 ### `machine-vehicle-print-validated-ticket`
 
 Używać TYLKO, gdy biletomat w pojeździe drukuje papierowy bilet automatycznie skasowany. Operator bez automatów poza
-pojazdem nie dostaje `machine-stop`.
+pojazdem nie dostaje `machine-print-unvalidated-ticket`.
 
 1. [zakup] Poszukaj automatu wewnątrz pojazdu.
 2. [zakup] Kup bilet w automacie biletowym.
@@ -80,9 +92,10 @@ pojazdem nie dostaje `machine-stop`.
 ## Wymagania na słownik (z rozmowy, do zadania 2)
 
 - Każdy kanał ma pola „używać, gdy" i „NIE używać, gdy", które agent musi sprawdzić przed wyborem. Sam klucz to za mało.
-- Karta miejska zakodowana w automacie to sprawa `city-card` lub warstwy 2, nie `machine-stop`.
+- Karta miejska zakodowana w automacie to sprawa `city-card` lub warstwy 2, nie `machine-print-unvalidated-ticket`.
 
 ## Otwarte
 
+- Krok `office` jest warunkowy („jeśli tego wymaga”): agent nie ma jak rozstrzygnąć warunku. Do decyzji, czy rozbić.
 - Biletomat w pojeździe, który drukuje bilet DO skasowania w kasowniku (Opole): osobny klucz? Zob. pytanie w rozmowie.
 - Kolej i prom: dopiero gdy trafi się operator.
