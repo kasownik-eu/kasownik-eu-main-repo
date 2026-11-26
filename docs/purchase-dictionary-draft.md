@@ -16,7 +16,7 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 | 4 | `partner-shop` | Kiosk, sklep, punkt partnerski (POS) | zatwierdzone (jak `office`), patrz E |
 | 5 | `driver` (9 wariantów: płatność × kasowanie) | Kierowca / konduktor. Zwykle wydaje podstawowe bilety papierowe | do weryfikacji, patrz E |
 | 6 | `app-operator` (3 warianty) | Aplikacja operatora (może mieć pakiety i bilety niedostępne gdzie indziej, np. Transport GZM) | do weryfikacji, patrz E |
-| 7 | `app-third-party` (1 klucz) | Aplikacja zewnętrzna (SkyCash, moBiLET, zBiletem, jakdojade) | do weryfikacji, patrz E |
+| 7 | `app-third-party` (3 warianty) | Aplikacja zewnętrzna (SkyCash, moBiLET, zBiletem, jakdojade) | do weryfikacji, patrz E |
 | 8 | `contactless` | Karta płatnicza / telefon, z podwariantami (niżej) | do podania |
 | 9 | `city-card` | Karta miejska (Metrokarta, Opolka, KKM). Zapisujemy też: gdzie kartę uzyskać (zwykle punkt obsługi pasażera lub automat) i link do opisu (tylko w JSON, w HTML osobnym krokiem) | do podania |
 | 10 | `web-shop` | Sklep / portal online (eKP, e-sklep) | do podania |
@@ -133,7 +133,7 @@ Krok 3 `[kasowanie]`, zależy od kasowania:
 | `validated-ticket` | Bilet od kierowcy jest skasowany od razu po zakupie - nic więcej nie rób. |
 | `check-validation` | Zapytaj kierowcę, czy bilet trzeba skasować. Jeśli tak, skasuj go w kasowniku w pojeździe. |
 
-### `app-operator` (3 klucze, do weryfikacji)
+### `app-operator` (3 klucze, zatwierdzone)
 
 Jak to działa: w aplikacji bilet jest zwykle kupowany i „skasowany” w momencie zakupu, ale żeby dokończyć proces, trzeba udowodnić,
 że jesteś w pojeździe (kod QR, czasem inna czynność). Na to jest ograniczony czas.
@@ -151,15 +151,21 @@ Kroki 1 i 2 są wspólne dla wszystkich wariantów:
 
 Szczegóły (które bilety, jaki limit czasu, stop, rejestracja pakietu) to warstwa 2, na karcie biletu.
 
-### `app-third-party` (1 klucz, do weryfikacji)
+### `app-third-party` (3 klucze, do weryfikacji)
 
-W aplikacjach zewnętrznych zwykle da się kupić tylko bilety jednorazowe, więc bez „niektóre bilety…” i bez odsyłacza do listy.
+Te same etapy co `app-operator`. Teksty krótsze: w aplikacjach zewnętrznych zwykle da się kupić tylko bilety jednorazowe,
+więc bez „niektóre bilety…” i bez odsyłacza do listy biletów.
+
+Kroki 1 i 2 jak w `app-operator`:
 
 1. [zakup] Przed wejściem do pojazdu pobierz aplikację i zaloguj się lub załóż konto.
 2. [zakup] Kup bilet, podążając za instrukcjami na ekranie.
-3. [kasowanie] Zeskanuj kod QR i potwierdź zakup.
 
-Klucz: `app-third-party-scan-qr`.
+| Klucz | Krok 3 `[kasowanie]` |
+|---|---|
+| `app-third-party-active-on-purchase` | Bilet jest aktywny zaraz po zakupie. |
+| `app-third-party-scan-qr` | Zeskanuj kod QR i potwierdź zakup. |
+| `app-third-party-confirm-in-vehicle` | Potwierdź zakup w pojeździe inaczej niż kodem QR, np. wpisując numer taborowy. Masz na to ograniczony czas. |
 
 ## Wymagania na słownik (z rozmowy, do zadania 2)
 
