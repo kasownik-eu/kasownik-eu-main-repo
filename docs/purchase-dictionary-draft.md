@@ -14,7 +14,7 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 | 2b | `machine-vehicle-print-unvalidated-ticket` | Biletomat w pojeździe, który drukuje papierowy bilet DO skasowania w kasowniku (np. Opole). NIE dotyczy: biletu już skasowanego, zakupu u kierowcy, płatności kartą w pojeździe | zatwierdzone, patrz E |
 | 3 | `office` | Kasa, POK, punkt obsługi pasażera | zatwierdzone, patrz E |
 | 4 | `partner-shop` | Kiosk, sklep, punkt partnerski (POS) | zatwierdzone (jak `office`), patrz E |
-| 5 | `driver` | Kierowca / konduktor | do podania |
+| 5 | `driver` (9 wariantów: płatność × kasowanie) | Kierowca / konduktor. Zwykle wydaje podstawowe bilety papierowe | do weryfikacji, patrz E |
 | 6 | `app-operator` | Aplikacja operatora (może mieć pakiety i bilety niedostępne gdzie indziej, np. Transport GZM) | do podania |
 | 7 | `app-third-party` | Aplikacja zewnętrzna (SkyCash, moBiLET, zBiletem, jakdojade) | do podania |
 | 8 | `contactless` | Karta płatnicza / telefon, z podwariantami (niżej) | do podania |
@@ -100,9 +100,45 @@ pojazdem nie dostaje `machine-print-unvalidated-ticket`.
 2. [zakup] Kup bilet w automacie biletowym.
 3. [kasowanie] Bilet z biletomatu jest skasowany od razu po zakupie - nic więcej nie rób.
 
+### `driver` (9 kluczy, do weryfikacji)
+
+Klucz = `driver-<płatność>-<kasowanie>`. Klucze są płaskie i zamknięte (agent nie składa tekstu z fragmentów), ale zgrupowane
+pod kanałem `driver`: agent wybiera kanał, potem wariant.
+
+- Płatność: `cash` (tylko gotówka), `card` (tylko karta), `cash-card` (gotówka i karta).
+- Kasowanie: `unvalidated-ticket` (bilet do skasowania), `validated-ticket` (bilet już skasowany), `check-validation`
+  (agent nie znalazł informacji u operatora, więc pasażer ma sprawdzić; wolno wybrać dopiero po przeszukaniu źródeł).
+
+Przykłady kluczy: `driver-cash-unvalidated-ticket`, `driver-cash-card-validated-ticket`, `driver-card-check-validation`.
+
+Krok 1 `[zakup]`, stały:
+> Zaraz po wejściu do pojazdu podejdź do kierowcy i poproś o bilet.
+
+Krok 2 `[zakup]`, zależy od płatności:
+
+| Płatność | Tekst |
+|---|---|
+| `cash` | Zapłać kierowcy gotówką. Przygotuj odliczoną kwotę, bo kierowca zwykle nie wyda reszty. |
+| `card` | Zapłać kierowcy kartą. Kierowca nie przyjmuje gotówki. |
+| `cash-card` | Zapłać kierowcy gotówką lub kartą. Przy gotówce przygotuj odliczoną kwotę, bo kierowca zwykle nie wyda reszty. |
+
+Krok 3 `[kasowanie]`, zależy od kasowania:
+
+| Kasowanie | Tekst |
+|---|---|
+| `unvalidated-ticket` | Skasuj bilet w kasowniku w pojeździe. |
+| `validated-ticket` | Bilet od kierowcy jest skasowany od razu po zakupie - nic więcej nie rób. |
+| `check-validation` | Zapytaj kierowcę, czy bilet trzeba skasować. Jeśli tak, skasuj go w kasowniku w pojeździe. |
+
+Prowizja: opcjonalny napis (string) przy każdym typie płatności w danych operatora, np. „+1 zł” albo „+10%”. Jeśli występuje,
+strona go wyświetla. To dane operatora, nie tekst słownika.
+
 ## Wymagania na słownik (z rozmowy, do zadania 2)
 
 - Każdy kanał ma pola „używać, gdy" i „NIE używać, gdy", które agent musi sprawdzić przed wyborem. Sam klucz to za mało.
+- Sposób płatności dotyczy obu sekcji strony („Jak kupić bilet…” i karty biletów), ale tylko tam, gdzie wynik jest niepewny.
+  Automaty zwykle przyjmują kartę (czasem też gotówkę) i wydają resztę, więc nie dostają osi płatności. Kierowca jest
+  zmienny: gotówka wymaga odliczonej kwoty. Istniejące `paymentInfo` w `operator.json` to ogólna lista, nie zastępuje tego.
 - Karta miejska zakodowana w automacie to sprawa `city-card` lub warstwy 2, nie `machine-print-unvalidated-ticket`.
 
 ## Otwarte
