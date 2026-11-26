@@ -16,7 +16,7 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 | 4 | `partner-shop` | Kiosk, sklep, punkt partnerski (POS) | zatwierdzone (jak `office`), patrz E |
 | 5 | `driver` (9 wariantów: płatność × kasowanie) | Kierowca / konduktor. Zwykle wydaje podstawowe bilety papierowe | do weryfikacji, patrz E |
 | 6 | `app-operator` (3 warianty) | Aplikacja operatora (może mieć pakiety i bilety niedostępne gdzie indziej, np. Transport GZM) | do weryfikacji, patrz E |
-| 7 | `app-third-party` | Aplikacja zewnętrzna (SkyCash, moBiLET, zBiletem, jakdojade) | do podania |
+| 7 | `app-third-party` (1 klucz) | Aplikacja zewnętrzna (SkyCash, moBiLET, zBiletem, jakdojade) | do weryfikacji, patrz E |
 | 8 | `contactless` | Karta płatnicza / telefon, z podwariantami (niżej) | do podania |
 | 9 | `city-card` | Karta miejska (Metrokarta, Opolka, KKM). Zapisujemy też: gdzie kartę uzyskać (zwykle punkt obsługi pasażera lub automat) i link do opisu (tylko w JSON, w HTML osobnym krokiem) | do podania |
 | 10 | `web-shop` | Sklep / portal online (eKP, e-sklep) | do podania |
@@ -135,18 +135,31 @@ Krok 3 `[kasowanie]`, zależy od kasowania:
 
 ### `app-operator` (3 klucze, do weryfikacji)
 
+Jak to działa: w aplikacji bilet jest zwykle kupowany i „skasowany” w momencie zakupu, ale żeby dokończyć proces, trzeba udowodnić,
+że jesteś w pojeździe (kod QR, czasem inna czynność). Na to jest ograniczony czas.
+
 Kroki 1 i 2 są wspólne dla wszystkich wariantów:
 
-1. [zakup] Przed wejściem do pojazdu pobierz aplikację i zaloguj się.
+1. [zakup] Przed wejściem do pojazdu pobierz aplikację i zaloguj się lub załóż konto.
 2. [zakup] Kup bilet, podążając za instrukcjami na ekranie.
 
 | Klucz | Krok 3 `[kasowanie]` |
 |---|---|
 | `app-operator-active-on-purchase` | Bilet jest aktywny zaraz po zakupie. |
-| `app-operator-scan-qr` | Niektóre typy biletów wymagają skanowania kodu QR w pojeździe. Dodatkowe informacje znajdziesz w liście biletów poniżej. |
-| `app-operator-extra-action` | Niektóre typy biletów wymagają dodatkowej weryfikacji podczas zakupu. Dodatkowe informacje znajdziesz w liście biletów poniżej. |
+| `app-operator-scan-qr` | Niektóre bilety trzeba potwierdzić w pojeździe. Po zakupie masz ograniczony czas, aby zeskanować kod QR w pojeździe i udowodnić, że jesteś na pokładzie. Dodatkowe informacje znajdziesz w liście biletów poniżej. |
+| `app-operator-confirm-in-vehicle` | Niektóre bilety trzeba potwierdzić w pojeździe inaczej niż kodem QR, np. wpisując numer taborowy. Po zakupie masz na to ograniczony czas. Dodatkowe informacje znajdziesz w liście biletów poniżej. |
 
-Szczegóły (które bilety, QR, numer taborowy, aktywacja, stop, rejestracja pakietu) to warstwa 2, na karcie biletu.
+Szczegóły (które bilety, jaki limit czasu, stop, rejestracja pakietu) to warstwa 2, na karcie biletu.
+
+### `app-third-party` (1 klucz, do weryfikacji)
+
+W aplikacjach zewnętrznych zwykle da się kupić tylko bilety jednorazowe, więc bez „niektóre bilety…” i bez odsyłacza do listy.
+
+1. [zakup] Przed wejściem do pojazdu pobierz aplikację i zaloguj się lub załóż konto.
+2. [zakup] Kup bilet, podążając za instrukcjami na ekranie.
+3. [kasowanie] Zeskanuj kod QR i potwierdź zakup.
+
+Klucz: `app-third-party-scan-qr`.
 
 ## Wymagania na słownik (z rozmowy, do zadania 2)
 
