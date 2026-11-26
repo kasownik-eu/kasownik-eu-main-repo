@@ -15,7 +15,7 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 | 3 | `office` | Kasa, POK, punkt obsługi pasażera | zatwierdzone, patrz E |
 | 4 | `partner-shop` | Kiosk, sklep, punkt partnerski (POS) | zatwierdzone (jak `office`), patrz E |
 | 5 | `driver` (9 wariantów: płatność × kasowanie) | Kierowca / konduktor. Zwykle wydaje podstawowe bilety papierowe | do weryfikacji, patrz E |
-| 6 | `app-operator` | Aplikacja operatora (może mieć pakiety i bilety niedostępne gdzie indziej, np. Transport GZM) | do podania |
+| 6 | `app-operator` (3 warianty) | Aplikacja operatora (może mieć pakiety i bilety niedostępne gdzie indziej, np. Transport GZM) | do weryfikacji, patrz E |
 | 7 | `app-third-party` | Aplikacja zewnętrzna (SkyCash, moBiLET, zBiletem, jakdojade) | do podania |
 | 8 | `contactless` | Karta płatnicza / telefon, z podwariantami (niżej) | do podania |
 | 9 | `city-card` | Karta miejska (Metrokarta, Opolka, KKM). Zapisujemy też: gdzie kartę uzyskać (zwykle punkt obsługi pasażera lub automat) i link do opisu (tylko w JSON, w HTML osobnym krokiem) | do podania |
@@ -38,6 +38,9 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 ## B. Osobne wymiary (nie są sposobami zakupu)
 
 - Metoda płatności: gotówka, karta, BLIK, przelew, SMS.
+- Prowizja (dotyczy CAŁEJ części płatności, każdego kanału i typu płatności, nie tylko kierowcy): opcjonalny napis (string)
+  w danych operatora przy typie płatności, np. „+1 zł” albo „+10%” (stała opłata lub procent). Jeśli występuje, strona go
+  wyświetla. To dane operatora, nie tekst słownika.
 - Nośnik biletu: papier, aplikacja, karta płatnicza, karta miejska (`ticketMediaTypes`).
 
 ## C. Sposoby kasowania / startu przejazdu
@@ -130,8 +133,20 @@ Krok 3 `[kasowanie]`, zależy od kasowania:
 | `validated-ticket` | Bilet od kierowcy jest skasowany od razu po zakupie - nic więcej nie rób. |
 | `check-validation` | Zapytaj kierowcę, czy bilet trzeba skasować. Jeśli tak, skasuj go w kasowniku w pojeździe. |
 
-Prowizja: opcjonalny napis (string) przy każdym typie płatności w danych operatora, np. „+1 zł” albo „+10%”. Jeśli występuje,
-strona go wyświetla. To dane operatora, nie tekst słownika.
+### `app-operator` (3 klucze, do weryfikacji)
+
+Kroki 1 i 2 są wspólne dla wszystkich wariantów:
+
+1. [zakup] Przed wejściem do pojazdu pobierz aplikację i zaloguj się.
+2. [zakup] Kup bilet, podążając za instrukcjami na ekranie.
+
+| Klucz | Krok 3 `[kasowanie]` |
+|---|---|
+| `app-operator-active-on-purchase` | Bilet jest aktywny zaraz po zakupie. |
+| `app-operator-scan-qr` | Niektóre typy biletów wymagają skanowania kodu QR w pojeździe. Dodatkowe informacje znajdziesz w liście biletów poniżej. |
+| `app-operator-extra-action` | Niektóre typy biletów wymagają dodatkowej weryfikacji podczas zakupu. Dodatkowe informacje znajdziesz w liście biletów poniżej. |
+
+Szczegóły (które bilety, QR, numer taborowy, aktywacja, stop, rejestracja pakietu) to warstwa 2, na karcie biletu.
 
 ## Wymagania na słownik (z rozmowy, do zadania 2)
 
