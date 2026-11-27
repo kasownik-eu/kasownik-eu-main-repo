@@ -17,17 +17,16 @@ Oznaczenia kroków: `[zakup]`, `[kasowanie]`. Kroku `[kontrola]` nie ma: kontrol
 | 5 | `driver` (9 wariantów: płatność × kasowanie) | Kierowca / konduktor. Zwykle wydaje podstawowe bilety papierowe | do weryfikacji, patrz E |
 | 6 | `app-operator` (3 warianty) | Aplikacja operatora (może mieć pakiety i bilety niedostępne gdzie indziej, np. Transport GZM) | do weryfikacji, patrz E |
 | 7 | `app-third-party` (3 warianty) | Aplikacja zewnętrzna (SkyCash, moBiLET, zBiletem, jakdojade) | zatwierdzone, patrz E |
-| 8 | `contactless` | Karta płatnicza / telefon, z podwariantami (niżej) | do podania |
+| 8 | `contactless` (2 warianty) | Karta płatnicza / telefon jako mechanizm płatności bez zobowiązań (bez wcześniejszego zakupu biletu i bez konta) | zatwierdzone, patrz E |
 | 9 | `city-card` | Karta miejska (Metrokarta, Opolka, KKM). Zapisujemy też: gdzie kartę uzyskać (zwykle punkt obsługi pasażera lub automat) i link do opisu (tylko w JSON, w HTML osobnym krokiem) | do podania |
 | 10 | `web-shop` | Sklep / portal online (eKP, e-sklep) | do podania |
 | 11 | `sms` | Bilet SMS-em | do podania |
 
-### Podwarianty `contactless` (do potwierdzenia nazw)
+### Warianty `contactless` (ustalone)
 
-- `card-as-city-card`: operator używa karty płatniczej jak karty miejskiej (system rozpoznaje kartę).
-- `select-then-confirm`: zbliżasz kartę do kasownika, wybierasz bilet, zbliżasz ponownie, żeby kupić.
-- `start-stop`: tap-in i tap-out. Ostrzeżenie: bez tap-out pobierana jest największa opłata za dany przejazd.
-- `vehicle-terminal`: terminal w pojeździe (np. Open Payment System w Jaworznie): wybierasz bilet, zbliżasz kartę.
+Zostają dwa mechanizmy płatności „bez zobowiązań” (karta miejska też taka jest). Pominięte, bo opisane gdzie indziej:
+- `vehicle-terminal` (terminal w pojeździe): w praktyce to klucz `machine-vehicle-*`.
+- `card-as-city-card` (karta płatnicza jak karta miejska): do potwierdzenia, że pokrywa je `city-card`.
 
 ### Uwagi do `city-card`
 
@@ -102,6 +101,22 @@ pojazdem nie dostaje `machine-print-unvalidated-ticket`.
 1. [zakup] Poszukaj automatu wewnątrz pojazdu.
 2. [zakup] Kup bilet w automacie biletowym.
 3. [kasowanie] Bilet z biletomatu jest skasowany od razu po zakupie - nic więcej nie rób.
+
+### `contactless` (2 klucze, do weryfikacji)
+
+Miks `[zakup]` / `[kasowanie]` jest celowy. Szczegóły w części biletowej.
+
+`contactless-select-then-confirm`:
+1. [zakup] W pojeździe zbliż kartę do terminala kasownika.
+2. [zakup] Wybierz bilet.
+3. [zakup] Zbliż kartę ponownie, by potwierdzić zakup.
+4. [kasowanie] Skasowany bilet jest powiązany z kartą.
+
+`contactless-start-stop`:
+1. [zakup] W pojeździe zbliż kartę do terminala kasownika.
+2. [kasowanie] Bilet jest aktywny, pamiętaj, by zbliżyć kartę przy wyjściu.
+3. [zakup] Przed wyjściem ponownie zbliż kartę.
+4. [kasowanie] Bilet zostanie dobrany automatycznie. Jeśli nie zbliżyłeś karty do kasownika przy wyjściu, zostanie pobrana najwyższa opłata w danym kierunku.
 
 ### `driver` (9 kluczy, do weryfikacji)
 
